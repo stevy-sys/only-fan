@@ -8,10 +8,10 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
-body {
+/* body {
   background-color:black;
   color: #4e4e4e;
-}
+} */
 
 h1,
 h2,
@@ -99,7 +99,7 @@ a:hover {
 }
 
 .overlay-mf {
-   background-color: #ff00ff;
+   background-color: #191119;
 }
 
 .overlay-mf {
@@ -170,7 +170,7 @@ a:hover {
 .line-mf {
   width: 40px;
   height: 5px;
-  background-color: #ff00ff ;
+  /* background-color: #ff00ff ; */
   margin: 0 auto;
 }
 
@@ -271,7 +271,7 @@ a:hover {
   line-height: 1.55;
   margin: 0 auto;
   text-align: center;
-  box-shadow: 0 0 0 10px #ff00ff ;
+  /* box-shadow: 0 0 0 10px #ff00ff ; */
   display: block;
 }
 
@@ -483,10 +483,10 @@ a:hover {
   max-height: 75px;
 }
 
-#header.header-scrolled {
+/* #header.header-scrolled {
   background: #ff00ff;
   padding: 12px 0;
-}
+} */
 
 /*--------------------------------------------------------------
 # Navigation Menu
@@ -1470,7 +1470,7 @@ footer {
   text-align: center;
   color: #fff;
   padding: 25px 0;
-  background: #ff00ff;
+  /* background: #ff00ff; */
 }
 
 footer .copyright {

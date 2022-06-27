@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\ChatController;
+use App\Http\Controllers\Admin\ConfigController;
 use App\Http\Controllers\LivestreamController;
 use App\Http\Controllers\Admin\MediaController;
 /*
@@ -48,14 +49,20 @@ Route::post('/boutique/payment/process', 'App\Http\Controllers\IndexController@p
 Route::get('/boutique/detail', 'App\Http\Controllers\IndexController@getDetailPaiment')->name('boutique.getDetailPaiment')->middleware(['setLanguage','auth']);
 Route::get('/boutique/{product}', 'App\Http\Controllers\IndexController@addToCart')->name('boutique.add')->middleware(['setLanguage','auth']);
 
-Route::get('admin/login', 'App\Http\Controllers\CustomerAuthController@showLoginForm')->name('customer.login');
-Route::get('admin/create', 'App\Http\Controllers\CustomerAuthController@create')->name('customer.create');
+// Route::get('admin/login', 'App\Http\Controllers\CustomerAuthController@showLoginForm')->name('customer.login');
+// Route::get('admin/create', 'App\Http\Controllers\CustomerAuthController@create')->name('customer.create');
 Route::get('admin/logout', 'App\Http\Controllers\CustomerAuthController@logout')->name('customer.logout');
-Route::post('admin/login', 'App\Http\Controllers\CustomerAuthController@login')->name('customer.authenticate');
+//Route::post('admin/login', 'App\Http\Controllers\CustomerAuthController@login')->name('customer.authenticate');
 Route::post('admin/store', 'App\Http\Controllers\CustomerAuthController@store')->name('customer.store');
 
 Route::middleware(['customer'])->prefix('admin/')->group(function () {
     
+    Route::controller(ConfigController::class)->group(function () {
+        Route::get('config', 'index')->name('admin.config.index');
+        Route::post('config/update', 'store')->name('admin.config.store');
+        Route::post('config/reset', 'reset')->name('admin.config.reset');
+    });
+
     Route::controller(CustomerAuthController::class)->group(function () {
         Route::get('dashboard', 'dashboard')->name('customer.dashboard');
         Route::get('newdashboard', 'new')->name('customer.newdashboard');
