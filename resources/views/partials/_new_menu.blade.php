@@ -10,19 +10,19 @@
         <ul>
           @auth
           <li>
-            <i class="bi bi-house"></i>
+            {{-- <i class="bi bi-house"></i> --}}
             <a class="nav-link scrollto active" href="{{ route('home', ['locale' => session('locale')]) }}">
                 Home
             </a>
           </li>
-          <li class="dropdown"><i class="bi bi-shop"></i><a href="#"><span>Boutique</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="#"><span>Boutique</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="{{route('boutique', ['locale' => session('locale')])}}"><i class="bi bi-shop-window"></i>Produit</a></li></li>
               <li><a href="{{route('boutique.getDetailPaiment')}}"><i class="bi bi-basket"></i>Panier</a></li>
             </ul>
           </li>
           
-            <li class="dropdown"><i class="bi bi-person"></i><a href="#"><span>{{auth()->guard('web')->user()->name}}</span> <i class="bi bi-chevron-down"></i></a>
+            <li class="dropdown"></i><a href="#"><span>{{auth()->guard('web')->user()->name}}</span> <i class="bi bi-chevron-down"></i></a>
               <ul>
                 <li><a href="{{route('subscribe.index', ['locale' => session('locale')])}}"><i class="bi bi-credit-card"></i>Abonnee</a></li>
                 <li><a href="{{route('gallery.index', ['locale' => session('locale')])}}"><i class="bi bi-images"></i>Gallery</a></li>

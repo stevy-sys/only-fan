@@ -20,4 +20,12 @@ class ConfigController extends Controller
         $config->update($request->all());
         return redirect()->back();
     }
+
+    public function reset()
+    {
+        $config = Config::first();
+        $config->bg_color_menu = '#ff00ff';
+        $config->save();
+        return redirect()->back();
+    }
 }

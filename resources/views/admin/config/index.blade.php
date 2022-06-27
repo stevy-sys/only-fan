@@ -29,7 +29,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-5">
+                        <div class="form-group row mb-5 d-none">
                             <label for="bg_color_footer" style="font-weight: bold;" class="col-md-4 col-form-label text-md-right">Background color footer</label>
                             <div class="col-md-6">
                                 <input id="bg_color_footer" type="texte" class="form-control" name="bg_color_footer" value="{{$config->bg_color_footer}}">
@@ -53,6 +53,17 @@
                                     update
                                 </button>
                             </div>
+                        </div>
+                    </form>
+                    <form method="POST" action="{{route('admin.config.reset')}}" class="form-group row mb-0 mt-5">
+                        @csrf
+                        <div class="col-md-8 offset-md-4">
+                            <button type="submit" style="
+                            background-color: #ff00ff;
+                            border-color: #ff00ff;
+                            " class="btn btn-primary">
+                                Reset
+                            </button>
                         </div>
                     </form>
                 </div>
