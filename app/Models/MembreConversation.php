@@ -8,8 +8,8 @@ class MembreConversation extends Model
 {
     protected $guarded = [];
 
-    public function membrable()
+    public function user()
     {
-        return $this->morphTo();
+        return $this->belongsTo(User::class,'user_id');
     }
 }

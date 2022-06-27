@@ -21,14 +21,14 @@
                     <div class="card-body" id="chat-body" style="overflow-y: scroll; max-height: 300px;">
                         <ul class="list-group" id="chat-box">
                             <!-- Messages will be appended here -->
-
+                            
                             @foreach ($conversation->messages as $message)
-                                @if ($message->messagable_type !== 'App\Models\User')
+                                @if ($message->user_id !== $user->id)
                                     <li class="list-group-item sender-message">
                                         <div class="d-flex align-items-start">
                                             <img src="https://via.placeholder.com/50x50" class="rounded-circle mr-3">
                                             <div class="text-black p-2">
-                                                <strong>{{$message->messagable->name}}</strong>
+                                                <strong>{{$message->user->name}}</strong>
                                                 <p class="text-muted">{{ $message->created_at }}</p>
                                                 <p>{{ $message->message }}</p>
                                             </div>
@@ -38,7 +38,7 @@
                                     <li class="list-group-item receiver-message">
                                         <div class="d-flex justify-content-end">
                                             <div class="bg-light p-2 ">
-                                                <strong>{{$message->messagable->name}}</strong>
+                                                <strong>{{$message->user->name}}</strong>
                                                 <p class="text-muted">{{ $message->created_at }}</p>
                                                 <p>{{ $message->message }}</p>
                                             </div>

@@ -6,6 +6,7 @@ use App\Models\Customers;
 use App\Models\Conversation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Service\ConversationService;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,7 +19,7 @@ class ChatController extends Controller
 
     public function index(ConversationService $conversationService,Request $request)
     {
-        $customers = Customers::first();
+        $customers = User::where('role','admin')->first();
         $user = Auth::user();
         $conversation = $conversationService->getMyChatUser($customers,$user);
         
@@ -28,8 +29,7 @@ class ChatController extends Controller
             $conversationService->createMembreConversation($conversation,$customers,$user);
             $conversation = $conversationService->getMyChatUser($customers,$user);
         }
-        
-        return view('user.chat.index',compact('conversation'));
+        return view('user.chat.index',compact('conversation','user'));
     }
 
     public function store(Request $request)
@@ -37,9 +37,9 @@ class ChatController extends Controller
         $user = Auth::user();
         $conversation = Conversation::find($request->conversation_id);
         if (isset($conversation)) {
-            $user->messagable()->create([
-                'conversation_id' => $conversation->id,
-                'message' => $request->message
+            $conversation->messages()->create([
+                'message' => $request->message,
+                'user_id' => $user->id,
             ]);
         }
         return redirect()->back();

@@ -8,8 +8,8 @@ class Message extends Model
 {
     protected $guarded = [];
     
-    public function messagable()
+    public function user()
     {
-        return $this->morphTo();
+        return $this->belongsTo(User::class,'user_id');
     }
 }

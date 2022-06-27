@@ -21,13 +21,19 @@ class ConversationService
 
     public function createMembreConversation($conversation,$customer,$user)
     {
-        $customer->membrable()->create([
-            'conversation_id' => $conversation->id
+
+        $conversation->membres()->createMany([
+            ['user_id' => $customer->id],
+            ['user_id' => $user->id],
         ]);
 
-        $user->membrable()->create([
-            'conversation_id' => $conversation->id
-        ]);
+        // $customer->membrable()->create([
+        //     'conversation_id' => $conversation->id
+        // ]);
+
+        // $user->membrable()->create([
+        //     'conversation_id' => $conversation->id
+        // ]);
     }
 
     public function createMessage($request,$sender,$conversation)
@@ -51,14 +57,10 @@ class ConversationService
     {
        
         $messages = Conversation::whereHas('membres',function ($q) use($user) {
-            $q->whereHasMorph('membrable',[ User::class ],function (Builder  $q1) use($user){
-                $q1->where('id',$user->id);
-            });
+            $q->where('user_id',$user->id);
         })->whereHas('membres',function ($q) use($customer) {
-            $q->whereHasMorph('membrable',[ Customers::class ],function (Builder  $q1) use($customer){
-                $q1->where('id',$customer->id);
-            });
-        })->with('messages.messagable')->first();
+            $q->where('user_id',$customer->id);
+        })->with('messages.user')->first();
 
         return $messages ;
     }

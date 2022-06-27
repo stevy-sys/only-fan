@@ -28,7 +28,7 @@
                       @foreach ($conversations as $conversation)
                       <a href="{{ route('admin.chat.index',['conversation' => $conversation->id]) }}">
                         <li class="list-group-item active">
-                          {{$conversation->talked->membrable->name}}
+                          {{$conversation->talked->user->name}}
                         </li>
                       </a>
                       @endforeach
@@ -43,7 +43,7 @@
                         <div class="card-body" style="overflow-y: auto; max-height: 400px;">
                           @foreach ($conversationActive->messages as $message)
                             <div class="message">
-                              <p>{{$message->messagable->name}}: {{ $message->message }}</p>
+                              <p>{{$message->user->name}}: {{ $message->message }}</p>
                             </div>
                           @endforeach
                           

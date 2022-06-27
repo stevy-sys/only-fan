@@ -11,9 +11,9 @@ class ChatController extends Controller
 {
     public function index(Request $request)
     {
-        $conversations = Conversation::with('talked.membrable')->get();
+        $conversations = Conversation::with('talked.user')->get();
         if (isset($request->conversation)) {
-            $conversationActive = Conversation::with('messages.messagable')->find($request->conversation);
+            $conversationActive = Conversation::with('messages.user')->find($request->conversation);
             return view('admin.chat.conversation',compact('conversations','conversationActive'));
         }
         // dd($conversations);
@@ -22,12 +22,12 @@ class ChatController extends Controller
 
     public function store(Request $request)
     {
-        $user = Auth::guard('customer')->user();
+        $user = Auth::user();
         $conversation = Conversation::find($request->conversation_id);
         if (isset($conversation)) {
-            $user->messagable()->create([
-                'conversation_id' => $conversation->id,
-                'message' => $request->message
+            $conversation->messages()->create([
+                'message' => $request->message,
+                'user_id' => $user->id
             ]);
         }
 

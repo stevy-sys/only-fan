@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 
 class Conversation extends Model
@@ -26,6 +27,6 @@ class Conversation extends Model
 
     public function talked()
     {
-        return $this->hasOne(MembreConversation::class,'conversation_id')->where('membrable_type','App\Models\User');
+        return $this->hasOne(MembreConversation::class,'conversation_id')->where('user_id','<>',Auth::id());
     }
 }
