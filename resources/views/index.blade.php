@@ -38,7 +38,7 @@
                 width: 12.666667%;
             ">
                     <x-one-storie-component image="{{asset('storage/media').'/'.$storie->media->name}}"></x-one-storie-component>
-                </div>
+                </div> 
             @endforeach
           </div>
       </div>
@@ -47,7 +47,7 @@
 
 
   <!-- ======= Blog Section ======= -->
-  <section id="blog" class="blog-mf sect-pt4 route">
+  <section id="blog" class="blog-mf sect-pt4 route mt-5">
       <div class="container">
           <div class="row">
           <div class="col-sm-12">

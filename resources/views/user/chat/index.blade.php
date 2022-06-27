@@ -26,7 +26,7 @@
                                 @if ($message->user_id !== $user->id)
                                     <li class="list-group-item sender-message">
                                         <div class="d-flex align-items-start">
-                                            <img src="https://via.placeholder.com/50x50" class="rounded-circle mr-3">
+                                            {{-- <img src="https://via.placeholder.com/50x50" class="rounded-circle mr-3"> --}}
                                             <div class="text-black p-2">
                                                 <strong>{{$message->user->name}}</strong>
                                                 <p class="text-muted">{{ $message->created_at }}</p>
@@ -42,9 +42,9 @@
                                                 <p class="text-muted">{{ $message->created_at }}</p>
                                                 <p>{{ $message->message }}</p>
                                             </div>
-                                            <img src="https://via.placeholder.com/50x50"
+                                            {{-- <img src="https://via.placeholder.com/50x50"
                                                 style=" width: 53px !important; height: 53px !important; border-radius: 100%;"
-                                                class=" mr-3">
+                                                class=" mr-3"> --}}
                                         </div>
                                     </li>
                                 @endif
