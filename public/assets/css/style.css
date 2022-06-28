@@ -1471,6 +1471,12 @@ a:hover {
   color: #fff;
 }
 
+.one-storie {
+  width: 200px !important;
+  height: 200px !important;
+  object-fit: cover;
+}
+
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
@@ -1507,6 +1513,11 @@ footer .credits a {
   .col-md-2.img-block {
     width: auto;
   }
+  .one-storie {
+    width: 100px !important;
+    height: 100px !important;
+    object-fit: cover;
+  }
 
   /* i.bi.bi-lock.cadena {
     position: absolute !important;
@@ -1536,6 +1547,12 @@ footer .credits a {
     img.img-fluid.img-gallerie {
       width: 90px !important;
       height: 90px !important;
+  }
+
+  .one-storie {
+    width: 100px !important;
+    height: 100px !important;
+    object-fit: cover;
   }
 
   .col-md-2.img-block {
@@ -1570,6 +1587,12 @@ footer .credits a {
   }
   .col-md-2.img-block {
     width: auto;
+  }
+
+  .one-storie {
+    width: 100px !important;
+    height: 100px !important;
+    object-fit: cover;
   }
   /* i.bi.bi-lock.cadena {
     position: absolute !important;

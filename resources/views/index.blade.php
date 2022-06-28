@@ -16,14 +16,8 @@
 @section('content')
     <!-- ======= About Section ======= -->
     <section id="about" class="about-mf sect-pt4 route">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="">
-                        <x-about-component></x-about-component>
-                    </div>
-                </div>
-            </div>
+        <div class="d-flex">
+            <x-about-component></x-about-component>
         </div>
     </section>
     <!-- End About Section -->
@@ -46,13 +40,15 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <div class="slick-carousel">
+                    <div style=" display: flex; justify-content: space-evenly;">
                         @foreach ($stories as $storie)
-                            {{-- <div><img src="{{asset('storage/media').'/'.$storie->collectionStorie[0]->mediable->name}}" style=" width: 200px; height: 200px; object-fit: cover;" class="img-fluid rounded-circle d-block" alt=""></div> --}}
-                            <a href="#" data-toggle="modal" data-target="#exampleModal-{{ $storie->id }}">
-                                <img src="{{asset('storage/media').'/'.$storie->collectionStorie[0]->mediable->name}}" style=" width: 200px; height: 200px; object-fit: cover;" class="img-fluid rounded-circle d-block text-center" alt="">
-                                <h3>{{ $storie->name }}</h3>
-                            </a>
+                            <div class="">
+                                {{-- <div><img src="{{asset('storage/media').'/'.$storie->collectionStorie[0]->mediable->name}}" style=" width: 200px; height: 200px; object-fit: cover;" class="img-fluid rounded-circle d-block" alt=""></div> --}}
+                                <a href="#" data-toggle="modal" data-target="#exampleModal-{{ $storie->id }}">
+                                    <img src="{{asset('storage/media').'/'.$storie->collectionStorie[0]->mediable->name}}" class="one-storie img-fluid rounded-circle d-block text-center" alt="">
+                                    <h3>{{ $storie->name }}</h3>
+                                </a>
+                            </div>
                         @endforeach
                     </div>
                 </div>
@@ -157,7 +153,7 @@
               <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
             </ul>
           </div> --}}
-                    <div class="portfolio-description">
+                    <div class="portfolio-description text-center">
                         <h2>Discussion chat direct</h2>
                         <p>
                             <a href="{{ route('subscribe.index', ['locale' => session('locale')]) }}">
@@ -193,7 +189,7 @@
             </div>
             <div class="row gy-4">
                 <div class="col-lg-8">
-                    <div class="portfolio-description">
+                    <div class="portfolio-description text-center">
                         <h2>Regarder de live en direct</h2>
                         <p>
                             {!! $text->live1_description !!}
@@ -255,7 +251,7 @@
             </div>
             <div class="row gy-4">
                 <div class="col-lg-4">
-                    <div class="portfolio-description">
+                    <div class="portfolio-description text-center">
                         <h2>Acceder au boutique</h2>
                         <p>
                             {!! $text->boutique1_description !!}
@@ -265,7 +261,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4">
+                <div class="col-lg-4 text-center">
                     <div class="portfolio-details-slider">
                         <div class="swiper-wrapper align-items-center">
                             <div>
@@ -282,7 +278,7 @@
                 </div>
 
                 <div class="col-lg-4">
-                    <div class="portfolio-description">
+                    <div class="portfolio-description text-center">
                         <h2>Meilleur gallerie</h2>
                         <p>
                             {!! $text->boutique2_description !!}
@@ -306,7 +302,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="slick-carousel-2">
+                        <div class="">
                             @foreach ($storie->collectionStorie as $collect)
                                 {{-- <div><img src="{{asset('storage/media').'/'.$storie->collectionStorie[0]->mediable->name}}" style=" width: 200px; height: 200px; object-fit: cover;" class="img-fluid rounded-circle d-block" alt=""></div> --}}
                                 <div>
