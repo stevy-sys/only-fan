@@ -168,7 +168,7 @@ cursor: pointer;
                             href="{{ url('/home') }}"
                             >Home</a
                         >
-                        <a type="button" class="btn btn-primary">
+                    <a href="{{ route('profile.index') }}" type="button" class="btn btn-primary">
                           <i class="fas fa-user-circle"></i> Profil
                         </a>
                         @else
