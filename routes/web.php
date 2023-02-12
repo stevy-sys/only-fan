@@ -28,6 +28,10 @@ Route::middleware(['customer'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/chat', 'User\ChatController@index')->name('chat.index');
+    Route::get('/live', 'User\LiveController@index')->name('live.index');
+    Route::get('/subscribe', 'User\SubscribeController@index')->name('subscribe.index');
+    Route::get('/gallery', 'User\GalleryController@index')->name('gallery.index');
 });
 
 
