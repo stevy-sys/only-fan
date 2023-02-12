@@ -27,18 +27,18 @@
                 </div>
               </li>
               <li class="list-group-item receiver-message">
-                <div class="d-flex align-items-start">
-                  <img src="https://via.placeholder.com/50x50" class="rounded-circle mr-3">
-                  <div class="bg-light p-2">
+                <div class="d-flex justify-content-end">
+                  <div class="bg-light p-2 ">
                     <strong>Jane Doe</strong>
                     <p class="text-muted">Today, 10:31 AM</p>
                     <p>Hi John! How are you doing?</p>
                   </div>
+                  <img src="https://via.placeholder.com/50x50" style = " width: 53px !important; height: 53px !important; border-radius: 100%;" class=" mr-3">
                 </div>
               </li>
               <li class="list-group-item receiver-message">
                 <div class="d-flex align-items-start">
-                  <img src="https://via.placeholder.com/50x50" class="rounded-circle mr-3">
+                  <img src="https://via.placeholder.com/50x50" class="rounded-circle">
                   <div class="bg-light p-2">
                     <strong>Jane Doe</strong>
                     <p class="text-muted">Today, 10:31 AM</p>

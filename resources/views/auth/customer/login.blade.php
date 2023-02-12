@@ -1,15 +1,31 @@
-<form method="post" action="{{ route('customer.authenticate') }}">
-    @csrf
+@extends('layouts.layoutadmin')
 
-    <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" class="form-control" id="email" name="email">
-    </div>
+@section('style')
+    <style>
+    
+    </style>
+@endsection
 
-    <div class="form-group">
-        <label for="password">Password:</label>
-        <input type="password" class="form-control" id="password" name="password">
-    </div>
+@section('body')
+    <form class="mx-auto mt-5" style="width: 30%;" method="post" action="{{ route('customer.authenticate') }}">
+        @csrf
+        <div class="form-group">
+            <label for="exampleInputEmail1">Adresse email</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Mot de passe</label>
+            <input type="password" class="form-control" name="password" id="exampleInputPassword1">
+        </div>
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Se souvenir de moi</label>
+        </div>
+    
+        <button type="submit" class="btn btn-primary">Connexion</button>
+    </form>
+@endsection
 
-    <button type="submit" class="btn btn-primary">Login</button>
-</form>
+@section('script')
+    
+@endsection

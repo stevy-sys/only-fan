@@ -25,7 +25,7 @@ class CustomerAuthController extends Controller
 
         if (Auth::guard('customer')->attempt($credentials)) {
             // Authentication passed...
-            return redirect()->intended('customer.dashboard');
+            return redirect()->intended('admin/dashboard');
         }
 
         return redirect()->back()->withInput()->withErrors(['email' => 'These credentials do not match our records.']);

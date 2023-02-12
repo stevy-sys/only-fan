@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>Laravel</title>
 
@@ -128,11 +129,11 @@ cursor: pointer;
                 aria-expanded="false"
                 aria-label="Toggle navigation"
             >
-                <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav mr-auto text-center">
                     <li class="nav-item active">
                       <a class="nav-link" href="{{route('home')}}">
                         <i class="fas fa-home"></i>
@@ -168,7 +169,8 @@ cursor: pointer;
                             href="{{ url('/home') }}"
                             >Home</a
                         >
-                    <a href="{{ route('profile.index') }}" type="button" class="btn btn-primary">
+                        <a class="btn btn-outline-danger mr-3" href="#" id="logout">Déconnexion</a>
+                        <a href="{{ route('profile.index') }}" type="button" class="btn btn-primary">
                           <i class="fas fa-user-circle"></i> Profil
                         </a>
                         @else
@@ -230,7 +232,22 @@ cursor: pointer;
             $("#close-chat").click(function() {
               $("#chat-bubble").hide();
             });
+
+            $.ajaxSetup({
+              headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
+            });
+
+            $('#logout').click(function(e) {
+              e.preventDefault();
+              $.post("{{ route('logout') }}", function(data) {
+                window.location.href = "/";
+              });
+            });
           });
+
+          
         </script>
         @yield('script')
     </body>
