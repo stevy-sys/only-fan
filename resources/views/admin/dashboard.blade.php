@@ -1,0 +1,1 @@
+<p>bienvenue l'admin {{ Auth::guard('customer')->user()->name }}</p>

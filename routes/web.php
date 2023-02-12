@@ -14,10 +14,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'IndexController@index')->name('accueil');
+
+Route::get('admin/login', 'CustomerAuthController@showLoginForm')->name('customer.login');
+Route::get('admin/create', 'CustomerAuthController@create')->name('customer.create');
+Route::get('admin/logout', 'CustomerAuthController@logout')->name('customer.logout');
+Route::post('admin/login', 'CustomerAuthController@login')->name('customer.authenticate');
+Route::post('admin/store', 'CustomerAuthController@store')->name('customer.store');
+
+Route::middleware(['customer'])->group(function () {
+    Route::get('admin/dashboard', 'CustomerAuthController@dashboard')->name('customer.dashboard');
 });
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/home', 'HomeController@index')->name('home');
+});
+
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
