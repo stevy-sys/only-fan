@@ -1,6 +1,7 @@
 @extends('layouts.layout')
 
 @section('style')
+<link href="https://vjs.zencdn.net/7.15.4/video-js.css" rel="stylesheet" />
 <link
     rel="stylesheet"
     href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
@@ -56,233 +57,41 @@
 @section('body')
 <div class="container page-top">
     <div class="row">
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-            <a
-                href="https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                class="fancybox"
-                rel="ligthbox"
-            >
-                <img
-                    src="https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                    class="zoom img-fluid"
-                    alt=""
-                />
-            </a>
-        </div>
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-            <a
-                href="https://images.pexels.com/photos/38238/maldives-ile-beach-sun-38238.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                class="fancybox"
-                rel="ligthbox"
-            >
-                <img
-                    src="https://images.pexels.com/photos/38238/maldives-ile-beach-sun-38238.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                    class="zoom img-fluid"
-                    alt=""
-                />
-            </a>
-        </div>
-
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-            <a
-                href="https://images.pexels.com/photos/158827/field-corn-air-frisch-158827.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                class="fancybox"
-                rel="ligthbox"
-            >
-                <img
-                    src="https://images.pexels.com/photos/158827/field-corn-air-frisch-158827.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                    class="zoom img-fluid"
-                    alt=""
-                />
-            </a>
-        </div>
-
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-            <a
-                href="https://images.pexels.com/photos/302804/pexels-photo-302804.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                class="fancybox"
-                rel="ligthbox"
-            >
-                <img
-                    src="https://images.pexels.com/photos/302804/pexels-photo-302804.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                    class="zoom img-fluid"
-                    alt=""
-                />
-            </a>
-        </div>
-
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-            <a
-                href="https://images.pexels.com/photos/1038914/pexels-photo-1038914.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                class="fancybox"
-                rel="ligthbox"
-            >
-                <img
-                    src="https://images.pexels.com/photos/1038914/pexels-photo-1038914.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                    class="zoom img-fluid"
-                    alt=""
-                />
-            </a>
-        </div>
-
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-            <a
-                href="https://images.pexels.com/photos/414645/pexels-photo-414645.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                class="fancybox"
-                rel="ligthbox"
-            >
-                <img
-                    src="https://images.pexels.com/photos/414645/pexels-photo-414645.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                    class="zoom img-fluid"
-                    alt=""
-                />
-            </a>
-        </div>
-
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-            <a
-                href="https://images.pexels.com/photos/56005/fiji-beach-sand-palm-trees-56005.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                class="fancybox"
-                rel="ligthbox"
-            >
-                <img
-                    src="https://images.pexels.com/photos/56005/fiji-beach-sand-palm-trees-56005.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                    class="zoom img-fluid"
-                    alt=""
-                />
-            </a>
-        </div>
-
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-            <a
-                href="https://images.pexels.com/photos/1038002/pexels-photo-1038002.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                class="fancybox"
-                rel="ligthbox"
-            >
-                <img
-                    src="https://images.pexels.com/photos/1038002/pexels-photo-1038002.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                    class="zoom img-fluid"
-                    alt=""
-                />
-            </a>
-        </div>
-
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-            <a
-                href="https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                class="fancybox"
-                rel="ligthbox"
-            >
-                <img
-                    src="https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                    class="zoom img-fluid"
-                    alt=""
-                />
-            </a>
-        </div>
-
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-            <a
-                href="https://images.pexels.com/photos/38238/maldives-ile-beach-sun-38238.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                class="fancybox"
-                rel="ligthbox"
-            >
-                <img
-                    src="https://images.pexels.com/photos/38238/maldives-ile-beach-sun-38238.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                    class="zoom img-fluid"
-                    alt=""
-                />
-            </a>
-        </div>
-
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-            <a
-                href="https://images.pexels.com/photos/158827/field-corn-air-frisch-158827.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                class="fancybox"
-                rel="ligthbox"
-            >
-                <img
-                    src="https://images.pexels.com/photos/158827/field-corn-air-frisch-158827.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                    class="zoom img-fluid"
-                    alt=""
-                />
-            </a>
-        </div>
-
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-            <a
-                href="https://images.pexels.com/photos/302804/pexels-photo-302804.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                class="fancybox"
-                rel="ligthbox"
-            >
-                <img
-                    src="https://images.pexels.com/photos/302804/pexels-photo-302804.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                    class="zoom img-fluid"
-                    alt=""
-                />
-            </a>
-        </div>
-
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-            <a
-                href="https://images.pexels.com/photos/1038914/pexels-photo-1038914.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                class="fancybox"
-                rel="ligthbox"
-            >
-                <img
-                    src="https://images.pexels.com/photos/1038914/pexels-photo-1038914.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                    class="zoom img-fluid"
-                    alt=""
-                />
-            </a>
-        </div>
-
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-            <a
-                href="https://images.pexels.com/photos/414645/pexels-photo-414645.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                class="fancybox"
-                rel="ligthbox"
-            >
-                <img
-                    src="https://images.pexels.com/photos/414645/pexels-photo-414645.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                    class="zoom img-fluid"
-                    alt=""
-                />
-            </a>
-        </div>
-
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-            <a
-                href="https://images.pexels.com/photos/56005/fiji-beach-sand-palm-trees-56005.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                class="fancybox"
-                rel="ligthbox"
-            >
-                <img
-                    src="https://images.pexels.com/photos/56005/fiji-beach-sand-palm-trees-56005.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                    class="zoom img-fluid"
-                    alt=""
-                />
-            </a>
-        </div>
-
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-            <a
-                href="https://images.pexels.com/photos/1038002/pexels-photo-1038002.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                class="fancybox"
-                rel="ligthbox"
-            >
-                <img
-                    src="https://images.pexels.com/photos/1038002/pexels-photo-1038002.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                    class="zoom img-fluid"
-                    alt=""
-                />
-            </a>
-        </div>
+        @foreach ($medias as $media)
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                @if ($media->type == 'image')
+                <a
+                    href="{{ route('media.show',['media' => $media->id]) }}"
+                    class="fancybox"
+                    rel="ligthbox"
+                >
+                    <img
+                        src="{{ asset('storage/media').'/'.$media->name}}"
+                        class="zoom img-fluid"
+                        alt=""
+                    />
+                </a>
+            @else
+                <div class="">
+                    <video onclick="playVideo()" 
+                        src="{{ asset('storage/media').'/'.$media->name}}" 
+                        id="my-video" 
+                        class=""
+                        width="250" 
+                        height="264">
+                       
+                    </video>
+                </div>
+            </div>
+            @endif
+        @endforeach
     </div>
 </div>
 @endsection
 
 @section('script')
+<script src="https://vjs.zencdn.net/7.15.4/video.min.js"></script>
+
 <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
 <script>
     $(document).ready(function () {
@@ -300,4 +109,39 @@
             }
         );
     });
+    function playVideo() {
+        const video = document.getElementById('my-video');
+        video.currentTime = 5;
+        video.play();
+    }
+    
+    var video = document.getElementById('my-video');
+    const start = 3;
+    const end = 7;
+    let isPlaying = false;
+
+    video.addEventListener('timeupdate', () => {
+    if (video.currentTime >= end && isPlaying) {
+        video.pause();
+        isPlaying = false;
+    } else if (video.currentTime < start && isPlaying) {
+        video.currentTime = start;
+    }
+    });
+
+    // Lance la lecture de la vidéo
+    // video.play();
+
+    // Permet de relancer la vidéo une fois qu'elle a été bloquée
+    video.addEventListener('click', () => {
+        if (!isPlaying) {
+            video.currentTime = start;
+            video.play();
+            isPlaying = true;
+        }
+    });
+    
+
+
+</script>
 @endsection

@@ -136,7 +136,7 @@ cursor: pointer;
                 <ul class="navbar-nav mr-auto text-center">
                     <li class="nav-item active">
                       <a class="nav-link" href="{{route('home')}}">
-                        <i class="fas fa-home"></i>
+                        <i class="far fa-image"></i>
                       </a>
                     </li>
                     <li class="nav-item active">
