@@ -100,17 +100,13 @@
                                 <a class="btn btn-outline-primary" href="{{ route('register') }}">Register</a>
                             @endif
                         @endauth
-                        {{-- <select class="form-control mr-3">
+                        <select class="form-control mr-3">
                             <option>Français</option>
                             <option>English</option>
-                        </select> --}}
+                        </select>
                     </div>
                 @endif
               </form>
-              <select class="form-control mr-3">
-                <option>Français</option>
-                <option>English</option>
-                </select>
             </div>
           </nav>
 

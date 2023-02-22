@@ -50,16 +50,6 @@ Route::middleware(['customer'])->prefix('admin/')->group(function () {
         Route::get('conversation', 'index')->name('admin.chat.index');
         Route::get('conversation/message', 'show')->name('admin.chat.show');
     }); 
-
-    //Route::get('dashboard', 'App\Http\Controllers\CustomerAuthController@dashboard')->name('customer.dashboard');
-    //Route::get('media', 'Admin\MediaController@index')->name('admin.media.index');
-    //Route::post('media', 'Admin\MediaController@store')->name('admin.media.store');
-    //Route::get('gallerie', 'Admin\GallerieController@index')->name('admin.gallerie.index');
-    //Route::get('gallerie/media', 'Admin\GallerieController@show')->name('admin.gallerie.show');
-    //Route::get('conversation/', 'Admin\ChatController@index')->name('admin.chat.index');
-    //Route::get('conversation/message', 'Admin\ChatController@show')->name('admin.chat.show');
-    //Route::get('storie', 'Admin\GallerieController@allStorie')->name('admin.storie.index');
-    //Route::get('activeStore/:storie', 'Admin\GallerieController@postStorie')->name('admin.storie.store');
 });
 
 
@@ -76,11 +66,17 @@ Route::group(['prefix' => '{locale}', 'middleware' => ['auth','setLanguage']], f
 
 Route::post('/language', function (Request $request) {
     $request->session()->put('locale', $request->input('locale'));
-    auth()->user()->update(['language' => $request->input('locale')]);
+    if (auth()->check()) {
+        auth()->user()->update(['language' => $request->input('locale')]);
+    }
     return redirect()->back();
 })->name('language');
 
 
-Auth::routes();
+// Route::group(['prefix' => '{locale}', 'middleware' => ['setLanguage']], function () {
+    Auth::routes();
+// });
+
+
 
 
