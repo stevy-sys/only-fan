@@ -38,7 +38,7 @@ Route::middleware(['customer'])->prefix('admin/')->group(function () {
 
     Route::controller(GallerieController::class)->group(function () {
         Route::get('gallerie', 'index')->name('admin.gallerie.index');
-        Route::get('gallerie/media', 'show')->name('admin.gallerie.store');
+        Route::get('gallerie/media', 'show')->name('admin.gallerie.show');
         Route::get('storie', 'allStorie')->name('admin.storie.index');
         Route::get('activeStore/:storie', 'postStorie')->name('admin.storie.store');
     });
