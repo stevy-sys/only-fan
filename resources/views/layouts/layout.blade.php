@@ -135,27 +135,27 @@ cursor: pointer;
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto text-center">
                     <li class="nav-item active">
-                      <a class="nav-link" href="{{route('home')}}">
+                      <a class="nav-link" href="{{route('home',['locale' => 'en'])}}">
                         <i class="far fa-image"></i>
                       </a>
                     </li>
                     <li class="nav-item active">
-                      <a class="nav-link" href="{{route('chat.index')}}">
+                      <a class="nav-link" href="{{route('chat.index',['locale' => 'en'])}}">
                         <i class="fas fa-comment-alt"></i>
                       </a>
                     </li>
                     <li class="nav-item active">
-                      <a class="nav-link" href="{{route('live.index')}}">
+                      <a class="nav-link" href="{{route('live.index',['locale' => 'en'])}}">
                         <i class="fas fa-video"></i>
                       </a>
                     </li>
                     <li class="nav-item active">
-                    <a class="nav-link" href="{{ route('gallery.index') }}">
+                    <a class="nav-link" href="{{ route('gallery.index',['locale' => 'en']) }}">
                         <i class="fa fa-images"></i>
                       </a>
                     </li>
                     <li class="nav-item active">
-                    <a class="nav-link" href="{{ route('subscribe.index') }}">
+                    <a class="nav-link" href="{{ route('subscribe.index',['locale' => 'en']) }}">
                         <i class="fas fa-credit-card"></i>
                       </a>
                     </li>
@@ -164,15 +164,15 @@ cursor: pointer;
                     @if (Route::has('login'))
                     <div class="top-right links">
                         @auth
-                        <a
-                            class="btn btn-outline-success mr-3"
-                            href="{{ url('/home') }}"
-                            >Home</a
-                        >
-                        <a class="btn btn-outline-danger mr-3" href="#" id="logout">Déconnexion</a>
-                        <a href="{{ route('profile.index') }}" type="button" class="btn btn-primary">
-                          <i class="fas fa-user-circle"></i> Profil
-                        </a>
+                          <a
+                              class="btn btn-outline-success mr-3"
+                              href="{{ url('/home') }}"
+                              >Home</a
+                          >
+                          <a class="btn btn-outline-danger mr-3" href="#" id="logout">Déconnexion</a>
+                          <a href="{{ route('profile.index',['locale' => 'en']) }}" type="button" class="btn btn-primary">
+                            <i class="fas fa-user-circle"></i> Profil
+                          </a>
                         @else
                         <a
                             class="btn btn-outline-success mr-3"
@@ -186,15 +186,26 @@ cursor: pointer;
                             href="{{ route('register') }}"
                             >Register</a
                         >
-                        @endif @endauth
-                        <select class="form-control mr-3">
-                            <option>Français</option>
-                            <option>English</option>
-                        </select>
+                        @endif 
+                        @endauth
+                        {{-- <form method="post" action="{{ route('language') }}">
+                          @csrf
+                          <select name="locale" onchange="this.form.submit()" class="form-control mr-3">
+                              <option value="fr" {{ app()->getLocale() == 'fr' ? 'selected' : '' }} >Français</option>
+                              <option value="en" {{ app()->getLocale() == 'en' ? 'selected' : '' }} >English</option>
+                          </select>
+                        </form> --}}
                     </div>
                     @endif
                 </form>
             </div>
+            <form class="ml-2" method="post" action="{{ route('language') }}">
+              @csrf
+              <select name="locale" onchange="this.form.submit()" class="form-control mr-3">
+                  <option value="fr" {{ app()->getLocale() == 'fr' ? 'selected' : '' }} >Français</option>
+                  <option value="en" {{ app()->getLocale() == 'en' ? 'selected' : '' }} >English</option>
+              </select>
+            </form>
         </nav>
 
         @yield('body')

@@ -57,7 +57,9 @@
         display: none;
     }
 </style>
-@endsection @section('body')
+@endsection 
+
+@section('body')
 <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -68,7 +70,7 @@
       <div class="carousel-item active" data-bs-interval="2000">
         <img src="https://via.placeholder.com/755x300" class="d-block h-100 w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
-          <h5>First slide label</h5>
+          <h5> @lang('messages.welcome') </h5>
           <p>Some representative placeholder content for the first slide 1.</p>
         </div>
       </div>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\ChatController;
 use App\Http\Controllers\Admin\MediaController;
 use App\Http\Controllers\CustomerAuthController;
 use App\Http\Controllers\Admin\GallerieController;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,7 +60,8 @@ Route::middleware(['customer'])->prefix('admin/')->group(function () {
     //Route::get('activeStore/:storie', 'Admin\GallerieController@postStorie')->name('admin.storie.store');
 });
 
-Route::middleware(['auth'])->group(function () {
+
+Route::group(['prefix' => '{locale}', 'middleware' => ['auth','setLanguage']], function () {
     Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
     Route::get('/profile', 'User\ProfileController@index')->name('profile.index');
     Route::get('/chat', 'App\Http\Controllers\User\ChatController@index')->name('chat.index');
@@ -69,6 +71,13 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/media/like', 'App\Http\Controllers\User\GalleryController@like')->name('media.like');
     Route::any('/media', 'App\Http\Controllers\User\GalleryController@show')->name('media.show');
 });
+
+Route::post('/language', function (Request $request) {
+
+    $request->session()->put('locale', $request->input('locale'));
+    auth()->user()->update(['language' => $request->input('locale')]);
+    return redirect()->back();
+})->name('language');
 
 
 Auth::routes();
