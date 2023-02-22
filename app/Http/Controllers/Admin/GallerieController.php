@@ -25,8 +25,8 @@ class GallerieController extends Controller
 
     public function allStorie()
     {
-        $storie = Storie::with('media')->where('is_active',true)->get();
-        return view('admin.stories',compact('storie'));
+        $stories = Storie::with('media')->where('is_active',true)->get();
+        return view('admin.stories',compact('stories'));
     }
 
     public function postStorie(Request $request)

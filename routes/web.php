@@ -28,6 +28,7 @@ Route::post('admin/login', 'App\Http\Controllers\CustomerAuthController@login')-
 Route::post('admin/store', 'App\Http\Controllers\CustomerAuthController@store')->name('customer.store');
 
 Route::middleware(['customer'])->prefix('admin/')->group(function () {
+    
     Route::controller(CustomerAuthController::class)->group(function () {
         Route::get('dashboard', 'dashboard')->name('customer.dashboard');
     });
