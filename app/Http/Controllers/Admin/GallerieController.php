@@ -13,6 +13,7 @@ class GallerieController extends Controller
     public function index()
     {
         $medias = Media::all();
+        
         return view('admin.gallerie',compact('medias'));
     }
 
