@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Model\Like;
-use App\Model\Media;
-use App\Model\Storie;
+use App\Models\Like;
+use App\Models\Media;
+use App\Models\Storie;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;

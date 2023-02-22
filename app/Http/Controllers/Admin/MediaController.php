@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Model\Media;
+use App\Models\Media;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 

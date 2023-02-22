@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\ChatController;
+use App\Http\Controllers\Admin\MediaController;
+use App\Http\Controllers\CustomerAuthController;
+use App\Http\Controllers\Admin\GallerieController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,27 +26,48 @@ Route::get('admin/logout', 'App\Http\Controllers\CustomerAuthController@logout')
 Route::post('admin/login', 'App\Http\Controllers\CustomerAuthController@login')->name('customer.authenticate');
 Route::post('admin/store', 'App\Http\Controllers\CustomerAuthController@store')->name('customer.store');
 
-Route::middleware(['customer'])->group(function () {
-    Route::get('admin/dashboard', 'App\Http\Controllers\CustomerAuthController@dashboard')->name('customer.dashboard');
-    Route::get('admin/media', 'Admin\MediaController@index')->name('admin.media.index');
-    Route::post('admin/media', 'Admin\MediaController@store')->name('admin.media.store');
-    Route::get('admin/gallerie', 'Admin\GallerieController@index')->name('admin.gallerie.index');
-    Route::get('admin/gallerie/media', 'Admin\GallerieController@show')->name('admin.gallerie.show');
-    Route::get('admin/conversation/', 'Admin\ChatController@index')->name('admin.chat.index');
-    Route::get('admin/conversation/message', 'Admin\ChatController@show')->name('admin.chat.show');
-    Route::get('admin/storie', 'Admin\GallerieController@allStorie')->name('admin.storie.index');
-    Route::get('admin/activeStore/:storie', 'Admin\GallerieController@postStorie')->name('admin.storie.store');
+Route::middleware(['customer'])->prefix('admin/')->group(function () {
+    Route::controller(CustomerAuthController::class)->group(function () {
+        Route::get('dashboard', 'dashboard')->name('customer.dashboard');
+    });
+
+    Route::controller(MediaController::class)->group(function () {
+        Route::get('media', 'index')->name('admin.media.index');
+        Route::post('media', 'store')->name('admin.media.store');
+    }); 
+
+    Route::controller(GallerieController::class)->group(function () {
+        Route::get('gallerie', 'index')->name('admin.gallerie.index');
+        Route::get('gallerie/media', 'show')->name('admin.gallerie.store');
+        Route::get('storie', 'allStorie')->name('admin.storie.index');
+        Route::get('activeStore/:storie', 'postStorie')->name('admin.storie.store');
+    });
+
+    Route::controller(ChatController::class)->group(function () {
+        Route::get('conversation', 'index')->name('admin.chat.index');
+        Route::get('conversation/message', 'show')->name('admin.chat.show');
+    }); 
+
+    //Route::get('dashboard', 'App\Http\Controllers\CustomerAuthController@dashboard')->name('customer.dashboard');
+    //Route::get('media', 'Admin\MediaController@index')->name('admin.media.index');
+    //Route::post('media', 'Admin\MediaController@store')->name('admin.media.store');
+    //Route::get('gallerie', 'Admin\GallerieController@index')->name('admin.gallerie.index');
+    //Route::get('gallerie/media', 'Admin\GallerieController@show')->name('admin.gallerie.show');
+    //Route::get('conversation/', 'Admin\ChatController@index')->name('admin.chat.index');
+    //Route::get('conversation/message', 'Admin\ChatController@show')->name('admin.chat.show');
+    //Route::get('storie', 'Admin\GallerieController@allStorie')->name('admin.storie.index');
+    //Route::get('activeStore/:storie', 'Admin\GallerieController@postStorie')->name('admin.storie.store');
 });
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
     Route::get('/profile', 'User\ProfileController@index')->name('profile.index');
     Route::get('/chat', 'App\Http\Controllers\User\ChatController@index')->name('chat.index');
-    Route::get('/live', 'User\LiveController@index')->name('live.index');
-    Route::get('/subscribe', 'User\SubscribeController@index')->name('subscribe.index');
-    Route::get('/gallery', 'User\GalleryController@index')->name('gallery.index');
-    Route::post('/media/like', 'User\GalleryController@like')->name('media.like');
-    Route::any('/media', 'User\GalleryController@show')->name('media.show');
+    Route::get('/live', 'App\Http\Controllers\User\LiveController@index')->name('live.index');
+    Route::get('/subscribe', 'App\Http\Controllers\User\SubscribeController@index')->name('subscribe.index');
+    Route::get('/gallery', 'App\Http\Controllers\User\GalleryController@index')->name('gallery.index');
+    Route::post('/media/like', 'App\Http\Controllers\User\GalleryController@like')->name('media.like');
+    Route::any('/media', 'App\Http\Controllers\User\GalleryController@show')->name('media.show');
 });
 
 

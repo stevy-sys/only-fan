@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Jobs\Storie as JobsStorie;
-use App\Model\Media;
-use App\Model\Storie;
+use App\Models\Media;
+use App\Models\Storie;
 use Illuminate\Http\Request;
 
 class GallerieController extends Controller
