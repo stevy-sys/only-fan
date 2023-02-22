@@ -1,12 +1,13 @@
 <?php
 
+use Illuminate\Http\Request;
+use App\Http\Middleware\SetLanguage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ChatController;
 use App\Http\Controllers\Admin\MediaController;
 use App\Http\Controllers\CustomerAuthController;
 use App\Http\Controllers\Admin\GallerieController;
-use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', 'App\Http\Controllers\IndexController@index')->name('accueil');
+Route::get('/', 'App\Http\Controllers\IndexController@index')->name('accueil')->middleware('setLanguage');
 
 Route::get('admin/login', 'App\Http\Controllers\CustomerAuthController@showLoginForm')->name('customer.login');
 Route::get('admin/create', 'App\Http\Controllers\CustomerAuthController@create')->name('customer.create');
@@ -74,7 +75,6 @@ Route::group(['prefix' => '{locale}', 'middleware' => ['auth','setLanguage']], f
 });
 
 Route::post('/language', function (Request $request) {
-
     $request->session()->put('locale', $request->input('locale'));
     auth()->user()->update(['language' => $request->input('locale')]);
     return redirect()->back();

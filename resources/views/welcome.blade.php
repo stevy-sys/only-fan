@@ -70,7 +70,7 @@
       <div class="carousel-item active" data-bs-interval="2000">
         <img src="https://via.placeholder.com/755x300" class="d-block h-100 w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
-          <h5> @lang('messages.welcome') </h5>
+          <h5> {{__('messages.welcome')}} </h5>
           <p>Some representative placeholder content for the first slide 1.</p>
         </div>
       </div>

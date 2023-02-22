@@ -135,27 +135,27 @@ cursor: pointer;
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto text-center">
                     <li class="nav-item active">
-                      <a class="nav-link" href="{{route('home',['locale' => 'en'])}}">
+                      <a class="nav-link" href="{{route('home',['locale' => session('locale')])}}">
                         <i class="far fa-image"></i>
                       </a>
                     </li>
                     <li class="nav-item active">
-                      <a class="nav-link" href="{{route('chat.index',['locale' => 'en'])}}">
+                      <a class="nav-link" href="{{route('chat.index',['locale' => session('locale')])}}">
                         <i class="fas fa-comment-alt"></i>
                       </a>
                     </li>
                     <li class="nav-item active">
-                      <a class="nav-link" href="{{route('live.index',['locale' => 'en'])}}">
+                      <a class="nav-link" href="{{route('live.index',['locale' => session('locale')])}}">
                         <i class="fas fa-video"></i>
                       </a>
                     </li>
                     <li class="nav-item active">
-                    <a class="nav-link" href="{{ route('gallery.index',['locale' => 'en']) }}">
+                    <a class="nav-link" href="{{ route('gallery.index',['locale' => session('locale')]) }}">
                         <i class="fa fa-images"></i>
                       </a>
                     </li>
                     <li class="nav-item active">
-                    <a class="nav-link" href="{{ route('subscribe.index',['locale' => 'en']) }}">
+                    <a class="nav-link" href="{{ route('subscribe.index',['locale' => session('locale')]) }}">
                         <i class="fas fa-credit-card"></i>
                       </a>
                     </li>
@@ -166,11 +166,11 @@ cursor: pointer;
                         @auth
                           <a
                               class="btn btn-outline-success mr-3"
-                              href="{{ url('/home') }}"
+                              href="{{route('home',['locale' => session('locale')])}}"
                               >Home</a
                           >
                           <a class="btn btn-outline-danger mr-3" href="#" id="logout">Déconnexion</a>
-                          <a href="{{ route('profile.index',['locale' => 'en']) }}" type="button" class="btn btn-primary">
+                          <a href="{{ route('profile.index',['locale' => session('locale')]) }}" type="button" class="btn btn-primary">
                             <i class="fas fa-user-circle"></i> Profil
                           </a>
                         @else
@@ -192,7 +192,7 @@ cursor: pointer;
                           @csrf
                           <select name="locale" onchange="this.form.submit()" class="form-control mr-3">
                               <option value="fr" {{ app()->getLocale() == 'fr' ? 'selected' : '' }} >Français</option>
-                              <option value="en" {{ app()->getLocale() == 'en' ? 'selected' : '' }} >English</option>
+                              <option value="en" {{ app()->getLocale() == session('locale') ? 'selected' : '' }} >English</option>
                           </select>
                         </form> --}}
                     </div>
