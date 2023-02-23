@@ -61,7 +61,7 @@
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
                 @if ($media->type == 'image')
                 <a
-                    href="{{ route('media.show',['media' => $media->id]) }}"
+                    href="{{ route('media.show',['media' => $media->id,'locale' => session('locale')]) }}"
                     class="fancybox"
                     rel="ligthbox"
                 >

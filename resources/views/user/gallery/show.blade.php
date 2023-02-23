@@ -16,7 +16,7 @@
         <div class="card-body">
           <h5 class="card-title">Titre de l'article</h5>
           <p class="card-text">
-            <form action="{{route('media.like')}}" method="post">
+            <form action="{{route('media.like',['locale' => session('locale')])}}" method="post">
               @csrf
               <input type="hidden" name="media" value="{{$media->id}}">
               <button type="submit" class="btn btn-outline-primary">J'aime</button>
