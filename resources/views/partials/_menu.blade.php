@@ -22,6 +22,12 @@
         <a class="nav-link" href="{{ route('admin.storie.index') }}">Storie</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.home.gallerie') }}">Home gallery</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.home.couverture') }}">Couverture</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="#">Parametre</a>
       </li>
     </ul>

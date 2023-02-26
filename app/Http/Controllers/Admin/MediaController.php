@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Media;
+use App\Models\MediaHome;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -61,5 +62,22 @@ class MediaController extends Controller
         // }
 
         return redirect()->back()->withSuccess('La vidéo a été uploadée avec succès !');
+    }
+
+    public function setActiveMediaHome(Request $request)
+    {
+        $existe = MediaHome::where('media_id' , $request->id)->first() ;
+        if (!isset($exist)) {
+            $media = MediaHome::create(['media_id' => $request->id]);
+        }
+
+        return redirect()->back();
+    }
+
+
+    public function allGalleryHome()
+    {
+        $mediaHome = MediaHome::with('media')->get();
+        return view('admin.home_gallerie',compact('mediaHome'));
     }
 }

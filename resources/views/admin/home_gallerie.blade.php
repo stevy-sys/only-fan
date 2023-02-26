@@ -36,16 +36,16 @@
                     <div class="container page-top">
                         <div class="row">
 
-                            @foreach ($medias as $media)
+                            @foreach ($mediaHome as $media)
                                 <div class="col-lg-3 col-md-4 col-xs-6 thumb">
                                     <a href="#" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal-{{ $media->id }}" class="fancybox" rel="ligthbox">
+                                        data-bs-target="#exampleModal-{{ $media->media->id }}" class="fancybox" rel="ligthbox">
                                         @if ($media->type != 'video')
-                                            <img src="{{ asset('') . 'storage/media/' . $media->name }}" class="zoom img-fluid"
+                                            <img src="{{ asset('') . 'storage/media/' . $media->media->name }}" class="zoom img-fluid"
                                                 alt="" />
                                         @else
                                             <div class="zoom img-fluid">
-                                                <video width="150" src="{{ asset('') . 'storage/media/' . $media->name }}">
+                                                <video width="150" src="{{ asset('') . 'storage/media/' . $media->media->name }}">
 
                                                 </video>
                                             </div>
@@ -53,7 +53,7 @@
                                     </a>
                                 </div>
 
-                                <div class="modal fade" id="exampleModal-{{ $media->id }}" tabindex="-1"
+                                <div class="modal fade" id="exampleModal-{{ $media->media->id }}" tabindex="-1"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
@@ -67,28 +67,16 @@
                                                     <a href="{{ route('admin.gallerie.show') }}"
                                                         class="btn btn-primary">voir</a>
                                                 </div>
-                                                
                                                 <div class="mb-3">
-                                                    <a href="{{route('admin.media.active',['media' => $media->id])}}" class="btn btn-primary">
-                                                        @if ($media->active == true)
-                                                            definier inactive
-                                                        @else
-                                                            definir Active
-                                                        @endif
-                                                    </a>
+                                                    <a href="#" class="btn btn-primary">definir Active</a>
                                                 </div>
-                                                @if ($media->active == true)
-                                                    <div class="mb-3">
-                                                        <a href="{{route('admin.media.set', ['id' => $media->id])}}" class="btn btn-primary">afficher dans accueil</a>
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <a href="{{route('admin.media.addCouverture', ['media' => $media->id])}}" class="btn btn-primary">ajouter dans la couverture</a>
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <a href="{{ route('admin.storie.store', ['media' => $media->id]) }}"
-                                                            class="btn btn-primary">definier storie</a>
-                                                    </div>
-                                                @endif
+                                                {{-- <div class="mb-3">
+                                                    <a href="{{route('admin.media.set', ['id' => $media->id])}}" class="btn btn-primary">afficher dans accueil</a>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <a href="{{ route('admin.storie.store', ['storie' => $media->id]) }}"
+                                                        class="btn btn-primary">definier storie</a>
+                                                </div> --}}
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"

@@ -37,13 +37,22 @@ Route::middleware(['customer'])->prefix('admin/')->group(function () {
     Route::controller(MediaController::class)->group(function () {
         Route::get('media', 'index')->name('admin.media.index');
         Route::post('media', 'store')->name('admin.media.store');
+        Route::get('setMediaHome/{id}', 'setActiveMediaHome')->name('admin.media.set');
+        Route::get('homeGallerie', 'allGalleryHome')->name('admin.home.gallerie');
     }); 
 
     Route::controller(GallerieController::class)->group(function () {
         Route::get('gallerie', 'index')->name('admin.gallerie.index');
         Route::get('gallerie/media', 'show')->name('admin.gallerie.show');
         Route::get('storie', 'allStorie')->name('admin.storie.index');
-        Route::get('activeStore/:storie', 'postStorie')->name('admin.storie.store');
+        Route::get('activeMedia/{media}', 'activeMedia')->name('admin.media.active');
+        Route::get('activeStorie/{media}', 'postStorie')->name('admin.storie.store');
+
+        Route::get('addCouverture/{media}', 'addCouverture')->name('admin.media.addCouverture');
+        Route::get('couverture', 'getAllCouverture')->name('admin.home.couverture');
+        Route::get('couverture/viewActive/{couvertureHome}', 'viewCouverture')->name('admin.home.view.couverture');
+        Route::post('couverture/setDescription', 'setCouverture')->name('admin.home.set.couverture');
+        Route::get('couverture/setActive/{couverture}', 'setCouvertureActive')->name('admin.home.set.couverture.active');
     });
 
     Route::controller(ChatController::class)->group(function () {
