@@ -38,7 +38,8 @@ class GallerieController extends Controller
         ]);
 
         JobsStorie::dispatch($storie)->delay(now()->addMinutes(5));
-        return view('admin.stories');
+        $stories = Storie::with('media')->get();
+        return view('admin.stories',compact('stories'));
     }
 
     public function activeMedia(Media $media)

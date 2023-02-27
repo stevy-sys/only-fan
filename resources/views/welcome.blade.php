@@ -132,16 +132,16 @@
             </div>
         </div>
 
-
+        <h3>Storie</h3>
         <div class="mb-5 d-flex">
             @foreach ($stories as $storie)
                 @if ($storie->media->type == 'image')
-                    <div>
-                        <img src="{{ asset('') . 'storage/media/' . $storie->media->name }}" class="rounded-circle"
+                    <div class="p-5">
+                        <img src="{{ asset('') . 'storage/media/' . $storie->media->name }}" 
                             style="width: 150px" alt="Avatar" />
                     </div>
                 @else
-                    <div>
+                    <div class="p-5">
                         <video width="70" src="{{ asset('') . 'storage/media/' . $storie->media->name }}">
 
                         </video>
@@ -187,7 +187,7 @@
         </div>
 
 
-
+        <h3>A la une</h3>
         <div class="container page-top">
             <div class="row">
                 @foreach ($mediaHomes as $media)
