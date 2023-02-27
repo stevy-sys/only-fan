@@ -21,8 +21,9 @@ class ChatController extends Controller
         $customers = Customers::first();
         $user = Auth::user();
         $conversation = $conversationService->getMyChatUser($customers,$user);
-
+        
         if (!isset($conversation)) {
+            
             $conversation = $conversationService->createConversation($request);
             $conversationService->createMembreConversation($conversation,$customers,$user);
             $conversation = $conversationService->getMyChatUser($customers,$user);

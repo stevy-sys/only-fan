@@ -47,7 +47,7 @@ class ConversationService
     }
 
 
-    public function getMyChatUser($customer = null,$user)
+    public function getMyChatUser($customer,$user)
     {
        
         $messages = Conversation::whereHas('membres',function ($q) use($user) {
@@ -55,7 +55,7 @@ class ConversationService
                 $q1->where('id',$user->id);
             });
         })->whereHas('membres',function ($q) use($customer) {
-            $q->whereHasMorph('membrable',[ User::class ],function (Builder  $q1) use($customer){
+            $q->whereHasMorph('membrable',[ Customers::class ],function (Builder  $q1) use($customer){
                 $q1->where('id',$customer->id);
             });
         })->with('messages.messagable')->first();
