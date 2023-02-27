@@ -65,6 +65,7 @@ Route::middleware(['customer'])->prefix('admin/')->group(function () {
 Route::group(['prefix' => '{locale}', 'middleware' => ['auth','setLanguage']], function () {
     Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
     Route::get('/profile', 'App\Http\Controllers\User\ProfileController@index')->name('profile.index');
+    Route::post('/profile/update', 'App\Http\Controllers\User\ProfileController@updateProfile')->name('profile.update');
 
     Route::get('/chat', 'App\Http\Controllers\User\ChatController@index')->name('chat.index');
     Route::post('/chat', 'App\Http\Controllers\User\ChatController@store')->name('chat.store');
