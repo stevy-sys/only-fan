@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\Subscriber;
 use App\Http\Middleware\SetLanguage;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -66,6 +67,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'customer' => \App\Http\Middleware\AuthCustomer::class,
-        'setLanguage' => SetLanguage::class
+        'setLanguage' => SetLanguage::class,
+        'subscriber' => Subscriber::class
     ];
 }

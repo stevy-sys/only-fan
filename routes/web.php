@@ -67,20 +67,20 @@ Route::group(['prefix' => '{locale}', 'middleware' => ['auth','setLanguage']], f
     Route::get('/profile', 'App\Http\Controllers\User\ProfileController@index')->name('profile.index');
     Route::post('/profile/update', 'App\Http\Controllers\User\ProfileController@updateProfile')->name('profile.update');
 
-    Route::get('/chat', 'App\Http\Controllers\User\ChatController@index')->name('chat.index');
-    Route::post('/chat', 'App\Http\Controllers\User\ChatController@store')->name('chat.store');
+    Route::get('/chat', 'App\Http\Controllers\User\ChatController@index')->name('chat.index')->middleware('subscriber');
+    Route::post('/chat', 'App\Http\Controllers\User\ChatController@store')->name('chat.store')->middleware('subscriber');
 
 
-    Route::get('/live', 'App\Http\Controllers\User\LiveController@index')->name('live.index');
+    Route::get('/live', 'App\Http\Controllers\User\LiveController@index')->name('live.index')->middleware('subscriber');
 
     Route::get('/subscribe', 'App\Http\Controllers\User\SubscribeController@index')->name('subscribe.index');
     Route::get('/subscribe/{type}', 'App\Http\Controllers\User\SubscribeController@show')->name('subscribe.payment.show');
     Route::post('/payment/process', 'App\Http\Controllers\User\SubscribeController@process')->name('payment.process');
 
 
-    Route::get('/gallery', 'App\Http\Controllers\User\GalleryController@index')->name('gallery.index');
-    Route::post('/media/like', 'App\Http\Controllers\User\GalleryController@like')->name('media.like');
-    Route::any('/media', 'App\Http\Controllers\User\GalleryController@show')->name('media.show');
+    Route::get('/gallery', 'App\Http\Controllers\User\GalleryController@index')->name('gallery.index')->middleware('subscriber');
+    Route::post('/media/like', 'App\Http\Controllers\User\GalleryController@like')->name('media.like')->middleware('subscriber');
+    Route::any('/media', 'App\Http\Controllers\User\GalleryController@show')->name('media.show')->middleware('subscriber');
 });
 
 Route::post('/language', function (Request $request) {
