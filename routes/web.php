@@ -72,7 +72,12 @@ Route::group(['prefix' => '{locale}', 'middleware' => ['auth','setLanguage']], f
 
 
     Route::get('/live', 'App\Http\Controllers\User\LiveController@index')->name('live.index');
+
     Route::get('/subscribe', 'App\Http\Controllers\User\SubscribeController@index')->name('subscribe.index');
+    Route::get('/subscribe/{type}', 'App\Http\Controllers\User\SubscribeController@show')->name('subscribe.payment.show');
+    Route::post('/payment/process', 'App\Http\Controllers\User\SubscribeController@process')->name('payment.process');
+
+
     Route::get('/gallery', 'App\Http\Controllers\User\GalleryController@index')->name('gallery.index');
     Route::post('/media/like', 'App\Http\Controllers\User\GalleryController@like')->name('media.like');
     Route::any('/media', 'App\Http\Controllers\User\GalleryController@show')->name('media.show');
