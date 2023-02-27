@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Model\MembreConversation;
+use App\Models\MembreConversation;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -41,8 +41,8 @@ class Customers extends Authenticatable
         return $this->morphMany(MembreConversation::class,'membrable');
     }
 
-    public function message()
+    public function messagable()
     {
-        return $this->hasMorph(Message::class,'messagable');
+        return $this->morphMany(Message::class,'messagable');
     }
 }

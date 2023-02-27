@@ -19,13 +19,13 @@ class GalleryController extends Controller
 
     public function show(Request $request)
     {
-        $media = Media::find($request->media);
+        $media = Media::with(['comments.user','likes'])->whereId($request->media)->first();
         if (isset($request->comment)) {
             $media->comments()->create([
                 'user_id' => Auth::guard('web')->user()->id,
                 'comment' => $request->comment,
             ]);
-            return redirect()->route('gallery.index');
+            return redirect()->back();
         }
         return view('user.gallery.show',compact('media'));
     }

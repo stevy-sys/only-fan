@@ -25,35 +25,48 @@
                 <div class="row">
                   <div class="col-md-4">
                     <ul class="list-group">
-                      <li class="list-group-item active">Conversation 1</li>
-                      <li class="list-group-item">Conversation 2</li>
-                      <li class="list-group-item">Conversation 3</li>
+                      @foreach ($conversations as $conversation)
+                      <a href="{{ route('admin.chat.index',['conversation' => $conversation->id]) }}">
+                        <li class="list-group-item active">
+                          {{$conversation->talked->membrable->name}}
+                        </li>
+                      </a>
+                      @endforeach
+                      {{-- <li class="list-group-item">Conversation 2</li>
+                      <li class="list-group-item">Conversation 3</li> --}}
                     </ul>
                   </div>
-                  <div class="col-md-8">
-                    <div class="card">
-                      <div class="card-header">Conversation 1</div>
-                      <div class="card-body" style="overflow-y: auto; max-height: 400px;">
-                        <div class="message">
-                          <p>User1: Salut, ça va ?</p>
-                        </div>
-                        <div class="message">
-                          <p>User2: Oui, et toi ?</p>
-                        </div>
-                        <div class="message">
-                          <p>User1: Ça va bien, merci.</p>
-                        </div>
-                      </div>
-                      <div class="card-footer">
-                        <form>
-                          <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Votre message">
-                            <button type="submit" class="btn btn-primary">Envoyer</button>
+                  @if (isset($conversationActive))
+                    <div class="col-md-8">
+                      <div class="card">
+                        <div class="card-header">Conversation 1</div>
+                        <div class="card-body" style="overflow-y: auto; max-height: 400px;">
+                          @foreach ($conversationActive->messages as $message)
+                            <div class="message">
+                              <p>{{$message->messagable->name}}: {{ $message->message }}</p>
+                            </div>
+                          @endforeach
+                          
+                          {{-- <div class="message">
+                            <p>User2: Oui, et toi ?</p>
                           </div>
-                        </form>
+                          <div class="message">
+                            <p>User1: Ça va bien, merci.</p>
+                          </div> --}}
+                        </div>
+                        <div class="card-footer">
+                          <form action="{{ route('admin.chat.store') }}" method="post">
+                            @csrf
+                            <div class="input-group">
+                              <input type="hidden" value="{{ $conversationActive->id }}" name="conversation_id">
+                              <input type="text" name="message" class="form-control" placeholder="Votre message">
+                              <button type="submit" class="btn btn-primary">Envoyer</button>
+                            </div>
+                          </form>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  @endif
                 </div>
               </div>
               

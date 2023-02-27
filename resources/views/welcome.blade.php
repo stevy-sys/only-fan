@@ -75,7 +75,7 @@
                 <div class="carousel-item" data-bs-interval="2000">
             @endif
                 {{-- <div class="carousel-item {{  'active' : '' @endif }}" data-bs-interval="2000"> --}}
-                    <img src="{{ asset('') . 'storage/media/' . $couverture->media->name }}" class="d-block w-25 h-25" alt="...">
+                    <img src="{{ asset('') . 'storage/media/' . $couverture->media->name }}" class="d-block w-125 h-50" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <h5> {{ __('messages.welcome') }} </h5>
                         <p>{{$couverture->description}}</p>
@@ -412,18 +412,18 @@
 
         <div class="mt-5 p-5 mb-5" style="background-color: #e0e0e0">
             <div class="row text-center">
-                <div class="col-sm-4">
+                <div class="col-sm-6">
                     <h1 class="text-primary">Photos</h1>
-                    <h2 class="display-4 text-primary">100</h2>
+                    <h2 class="display-4 text-primary">{{$countImage}}</h2>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-6">
                     <h1 class="text-primary">Vidéos</h1>
-                    <h2 class="display-4 text-primary">50</h2>
+                    <h2 class="display-4 text-primary">{{$countVideo}}</h2>
                 </div>
-                <div class="col-sm-4">
+                {{-- <div class="col-sm-4">
                     <h1 class="text-primary">Galeries</h1>
                     <h2 class="display-4 text-primary">25</h2>
-                </div>
+                </div> --}}
             </div>
         </div>
 

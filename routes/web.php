@@ -57,15 +57,19 @@ Route::middleware(['customer'])->prefix('admin/')->group(function () {
 
     Route::controller(ChatController::class)->group(function () {
         Route::get('conversation', 'index')->name('admin.chat.index');
-        Route::get('conversation/message', 'show')->name('admin.chat.show');
+        Route::post('conversation', 'store')->name('admin.chat.store');
     }); 
 });
 
 
 Route::group(['prefix' => '{locale}', 'middleware' => ['auth','setLanguage']], function () {
     Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
-    Route::get('/profile', 'User\ProfileController@index')->name('profile.index');
+    Route::get('/profile', 'App\Http\Controllers\User\ProfileController@index')->name('profile.index');
+
     Route::get('/chat', 'App\Http\Controllers\User\ChatController@index')->name('chat.index');
+    Route::post('/chat', 'App\Http\Controllers\User\ChatController@store')->name('chat.store');
+
+
     Route::get('/live', 'App\Http\Controllers\User\LiveController@index')->name('live.index');
     Route::get('/subscribe', 'App\Http\Controllers\User\SubscribeController@index')->name('subscribe.index');
     Route::get('/gallery', 'App\Http\Controllers\User\GalleryController@index')->name('gallery.index');

@@ -23,4 +23,9 @@ class Conversation extends Model
     {
         return $this->hasOne(Message::class,'conversation_id');
     }
+
+    public function talked()
+    {
+        return $this->hasOne(MembreConversation::class,'conversation_id')->where('membrable_type','App\Models\User');
+    }
 }

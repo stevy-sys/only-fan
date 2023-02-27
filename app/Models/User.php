@@ -43,4 +43,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function membrable()
+    {
+        return $this->morphMany(MembreConversation::class,'membrable');
+    }
+
+    public function messagable()
+    {
+        return $this->morphMany(Message::class,'messagable');
+    }
 }

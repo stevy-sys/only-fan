@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Media;
 use App\Models\Storie;
 use App\Models\MediaHome;
 use Illuminate\Http\Request;
@@ -14,6 +15,8 @@ class IndexController extends Controller
         $mediaHomes = MediaHome::with('media')->get();
         $stories = Storie::with('media')->get();
         $couvertures = CouvertureHome::with('media')->get();
-       return view('welcome',compact('mediaHomes','stories','couvertures'));
+        $countImage = Media::where('type','image')->get()->count();
+        $countVideo = Media::where('type','video')->get()->count();
+       return view('welcome',compact('mediaHomes','stories','couvertures','countImage','countVideo'));
     }
 }
