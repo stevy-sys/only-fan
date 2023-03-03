@@ -16,7 +16,7 @@
             <div class="col-md-6 offset-md-3">
                 <div class="card">
                     <div class="card-header bg-primary text-white">
-                        Chat Room
+                        {{ __('messages.sallon_discussion') }}
                     </div>
                     <div class="card-body" id="chat-body" style="overflow-y: scroll; max-height: 300px;">
                         <ul class="list-group" id="chat-box">
@@ -58,7 +58,7 @@
                                 <input type="text" class="form-control" name="message" id="message-input">
                                 <input type="hidden" value="{{ $conversation->id }}" name="conversation_id">
                                 <div class="input-group-append">
-                                    <button type="submit" class="btn btn-primary" id="send-message-btn">Send</button>
+                                    <button type="submit" class="btn btn-primary" id="send-message-btn">{{ __('messages.envoyer') }}</button>
                                 </div>
                             </div>
                         </form>

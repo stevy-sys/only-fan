@@ -22,7 +22,7 @@
           <i class="fas fa-thumbs-up mr-2"></i>
           <p>Nombre de "j'aime"</p>
         </div>
-        <h5>Commentaires</h5>
+        <h5>{{ __('messages.commentaire') }}</h5>
         <hr>
         <div class="media my-3">
           <img src="https://via.placeholder.com/64x64" alt="Profile picture" class="mr-3 rounded-circle">
@@ -35,11 +35,11 @@
           <div class="form-group">
             <textarea class="form-control" rows="3"></textarea>
           </div>
-          <button type="submit" class="btn btn-primary">Publier</button>
+          <button type="submit" class="btn btn-primary">{{ __('messages.publiez') }}</button>
         </form>
       </div>
       <div class="col-md-4">
-        <h5>Vidéos similaires</h5>
+        <h5>{{ __('messages.video_similaire') }}</h5>
         <hr>
         <div class="card mb-3">
           <img src="https://via.placeholder.com/300x200" alt="Image de la vidéo" class="card-img-top">

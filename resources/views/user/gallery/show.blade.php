@@ -45,7 +45,7 @@
           <!-- autres commentaires ici -->
         </ul>
         <div class="card-body">
-          <h5 class="card-title">Laisser un commentaire</h5>
+          <h5 class="card-title"> {{ __('messages.laisser_commentaire') }}</h5>
           <form method="post">
             @csrf
             {{-- <div class="form-group">
@@ -54,10 +54,10 @@
             </div> --}}
             <div class="form-group">
               <input type="hidden" value="{{$media->id}}" name="media_id">
-              <label for="commentaire">Commentaire</label>
+              <label for="commentaire">{{ __('messages.commentaire') }}</label>
               <textarea name="comment" class="form-control" id="commentaire" rows="3"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Envoyer</button>
+            <button type="submit" class="btn btn-primary">{{ __('messages.envoyer') }}</button>
           </form>
         </div>
       </div>

@@ -134,7 +134,7 @@
             </div>
         </div>
 
-        <h3>Storie</h3>
+        <h3>{{ __('messages.storie') }}</h3>
         <div class="mb-5 d-flex">
             @foreach ($stories as $storie)
                 @if ($storie->media->type == 'image')
@@ -189,7 +189,7 @@
         </div>
 
 
-        <h3>A la une</h3>
+        <h3>{{ __('messages.gallerie_accueil') }}</h3>
         <div class="container page-top">
             <div class="row">
                 @foreach ($mediaHomes as $media)
@@ -415,11 +415,11 @@
         <div class="mt-5 p-5 mb-5" style="background-color: #e0e0e0">
             <div class="row text-center">
                 <div class="col-sm-6">
-                    <h1 class="text-primary">Photos</h1>
+                    <h1 class="text-primary">{{ __('messages.photo') }}</h1>
                     <h2 class="display-4 text-primary">{{$countImage}}</h2>
                 </div>
                 <div class="col-sm-6">
-                    <h1 class="text-primary">Vidéos</h1>
+                    <h1 class="text-primary">{{ __('messages.videos') }}</h1>
                     <h2 class="display-4 text-primary">{{$countVideo}}</h2>
                 </div>
                 {{-- <div class="col-sm-4">

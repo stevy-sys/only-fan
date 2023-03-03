@@ -10,9 +10,10 @@ return [
     'videos' => 'Videos',
     'tous_droits_réservés' => 'Tous droits réservés',
     'tableau_de_Bord' => 'Tableau de bord',
-    'deconnexion' => 'Deconnexion',
+    'deconnexion' => 'Déconnexion',
+    'connexion' => 'Connexion',
     'profile' => 'Profile',
-    'chat_room' => 'Sallon de discussion',
+    'sallon_discussion' => 'Sallon de discussion',
     'envoyer' => 'Envoyer',
     'video_similaire' => 'Video similaire',
     'laisser_commentaire' => 'Laisser un commentaire',
@@ -21,8 +22,14 @@ return [
     'enlever_dans_panier' => 'Enlever dans le panier',
     'contenue_du_panier' => 'Contenue du panier',
     'produit' => 'Produit',
+    'prix' => 'Prix',
     'total' => 'Total',
     'type_de_livraison' => 'Type de livraison',
+    'payer' => 'Payer',
     'assistant' => 'Assistant',
-    'publiez' => 'Publiez'
+    'publiez' => 'Publiez',
+    'nom' => 'nom',
+    'prenom' => 'prénom',
+    'adresse_email' => 'Adresse email',
+    'enregistrer' => 'Enregistrer'
 ];
