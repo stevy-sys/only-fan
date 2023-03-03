@@ -1,5 +1,9 @@
 @extends('layouts.layout')
 
+@section('sub_title')
+    Gallery
+@endsection
+
 @section('style')
     <style>
     

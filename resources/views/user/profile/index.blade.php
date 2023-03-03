@@ -1,5 +1,9 @@
 @extends('layouts.layout')
 
+@section('sub_title')
+    profile
+@endsection
+
 @section('style')
 @endsection
 

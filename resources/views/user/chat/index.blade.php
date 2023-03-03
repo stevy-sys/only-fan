@@ -5,6 +5,11 @@
 
     </style>
 @endsection
+
+@section('sub_title')
+    Message
+@endsection
+
 @section('body')
     <div class="container mt-5">
         <div class="row">

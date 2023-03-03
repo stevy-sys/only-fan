@@ -1,5 +1,9 @@
 @extends('layouts.layout')
 
+@section('sub_title')
+    Live
+@endsection
+
 @section('style')
     <style>
     

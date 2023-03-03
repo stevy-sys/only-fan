@@ -1,5 +1,10 @@
 @extends('layouts.layout')
 
+
+@section('sub_title')
+    Panier
+@endsection
+
 @section('body')
     <div class="container">
         <div class="card">

@@ -1,5 +1,9 @@
 @extends('layouts.layout')
 
+@section('sub_title')
+    Boutique
+@endsection
+
 @section('body')
     <div class="container">
         <div class="d-flex flex-wrap justify-content-around">

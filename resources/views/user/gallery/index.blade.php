@@ -1,5 +1,9 @@
 @extends('layouts.layout')
 
+@section('sub_title')
+    Gallery
+@endsection
+
 @section('style')
 <link href="https://vjs.zencdn.net/7.15.4/video-js.css" rel="stylesheet" />
 <link
