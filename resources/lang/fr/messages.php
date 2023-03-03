@@ -23,5 +23,6 @@ return [
     'produit' => 'Produit',
     'total' => 'Total',
     'type_de_livraison' => 'Type de livraison',
-    'assistant' => 'Assistant'
+    'assistant' => 'Assistant',
+    'publiez' => 'Publiez'
 ];
