@@ -22,5 +22,7 @@ return [
     'contenue_du_panier' => 'Contenue du panier',
     'produit' => 'Produit',
     'total' => 'Total',
-    'type_de_livraison' => 'Type de livraison'
+    'type_de_livraison' => 'Type de livraison',
+    'assistant' => 'Assistant',
+    'publiez' => 'Publiez'
 ];
