@@ -197,7 +197,7 @@
                 @csrf
                 <select name="locale" onchange="this.form.submit()" class="form-control mr-3">
                     <option value="fr" {{ app()->getLocale() == 'fr' ? 'selected' : '' }}>Français</option>
-                    <option value="en" {{ app()->getLocale() == 'en' ? 'selected' : '' }}>English</option>
+                    <option value="es" {{ app()->getLocale() == 'es' ? 'selected' : '' }}>Espagnol</option>
                 </select>
             </form>
         </nav>

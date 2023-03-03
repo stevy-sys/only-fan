@@ -79,7 +79,7 @@
                 {{-- <div class="carousel-item {{  'active' : '' @endif }}" data-bs-interval="2000"> --}}
                     <img src="{{ asset('') . 'storage/media/' . $couverture->media->name }}" class="d-block w-125 h-50" alt="...">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5> {{ __('messages.welcome') }} </h5>
+                        <h5> {{ __('messages.bienvenue') }} </h5>
                         <p>{{$couverture->description}}</p>
                     </div> 
                 </div>
