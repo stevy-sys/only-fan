@@ -152,6 +152,17 @@
                             <i class="fas fa-credit-card"></i>
                         </a>
                     </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ route('boutique', ['locale' => session('locale')]) }}">
+                            <i class="fas fa-shopping-cart"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ route('boutique.getDetailPaiment', ['locale' => session('locale')]) }}">
+                            <i class="fas fa-shopping-bag"></i>
+                        </a>
+                    </li>
+                    
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     @if (Route::has('login'))

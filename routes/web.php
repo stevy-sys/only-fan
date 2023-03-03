@@ -31,6 +31,8 @@ Route::get('/live/user/{username}', [LivestreamController::class, 'user'])->name
 
 Route::get('/', 'App\Http\Controllers\IndexController@index')->name('accueil')->middleware('setLanguage');
 Route::get('/boutique', 'App\Http\Controllers\IndexController@boutique')->name('boutique')->middleware('setLanguage');
+Route::get('/boutique/detail', 'App\Http\Controllers\IndexController@getDetailPaiment')->name('boutique.getDetailPaiment')->middleware('setLanguage');
+Route::get('/boutique/{product}', 'App\Http\Controllers\IndexController@addToCart')->name('boutique.add')->middleware('setLanguage');
 
 Route::get('admin/login', 'App\Http\Controllers\CustomerAuthController@showLoginForm')->name('customer.login');
 Route::get('admin/create', 'App\Http\Controllers\CustomerAuthController@create')->name('customer.create');
