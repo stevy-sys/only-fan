@@ -19,8 +19,18 @@ use App\Http\Controllers\Admin\GallerieController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LivestreamController;
+
+
+Route::any('/live/customer', [LivestreamController::class, 'customer'])->name('livestream.customer');
+Route::get('/live/user/{username}', [LivestreamController::class, 'user'])->name('livestream.user');
+
+
+
 
 Route::get('/', 'App\Http\Controllers\IndexController@index')->name('accueil')->middleware('setLanguage');
+Route::get('/boutique', 'App\Http\Controllers\IndexController@boutique')->name('boutique')->middleware('setLanguage');
 
 Route::get('admin/login', 'App\Http\Controllers\CustomerAuthController@showLoginForm')->name('customer.login');
 Route::get('admin/create', 'App\Http\Controllers\CustomerAuthController@create')->name('customer.create');

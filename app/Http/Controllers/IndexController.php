@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Media;
 use App\Models\Storie;
+use App\Models\Product;
 use App\Models\MediaHome;
 use Illuminate\Http\Request;
 use App\Models\CouvertureHome;
@@ -18,5 +19,12 @@ class IndexController extends Controller
         $countImage = Media::where('type','image')->get()->count();
         $countVideo = Media::where('type','video')->get()->count();
        return view('welcome',compact('mediaHomes','stories','couvertures','countImage','countVideo'));
+    }
+
+
+    public function boutique()
+    {
+        $products = Product::all();
+        return view('boutique',compact('products'));
     }
 }
