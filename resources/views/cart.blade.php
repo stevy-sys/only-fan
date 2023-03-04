@@ -1,15 +1,20 @@
 @extends('layouts.layout')
 
+
+@section('sub_title')
+    Panier
+@endsection
+
 @section('body')
     <div class="container">
         <div class="card">
-            <div class="card-header">Contenu du panier</div>
+            <div class="card-header">{{ __('messages.contenue_du_panier') }}</div>
             <div class="card-body">
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Produit</th>
-                            <th>Prix</th>
+                            <th>{{ __('messages.produit') }}</th>
+                            <th>{{ __('messages.prix') }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -23,18 +28,18 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td><strong>Total</strong></td>
+                            <td><strong>{{ __('messages.total') }}</strong></td>
                             <td><strong>{{$total}}</strong></td>
                         </tr>
                         <tr>
-                            <td><strong>Type de livraison</strong></td>
+                            <td><strong>{{ __('messages.type_de_livraison') }}</strong></td>
                             <td><strong>Standard</strong></td>
                         </tr>
                     </tfoot>
                 </table>
             </div>
             <div class="card-footer">
-                <button class="btn btn-primary btn-block">Payer</button>
+                <button class="btn btn-primary btn-block">{{ __('messages.payer') }}</button>
             </div>
         </div>
 

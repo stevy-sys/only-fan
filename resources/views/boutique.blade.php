@@ -1,5 +1,9 @@
 @extends('layouts.layout')
 
+@section('sub_title')
+    Boutique
+@endsection
+
 @section('body')
     <div class="container">
         <div class="d-flex flex-wrap justify-content-around">
@@ -9,12 +13,12 @@
                     <div class="card-body">
                         <h5 class="card-title">{{$product->name}}</h5>
                         <p class="card-text">{{ $product->description }}</p>
-                        <p class="card-text"><strong>Price: {{ $product->price }}</strong></p>
+                        <p class="card-text"><strong>{{ __('messages.prix') }}: {{ $product->price }}</strong></p>
                         <a href="{{route('boutique.add',['product' => $product->id])}}" class="btn {{ $product->in_cart ? 'btn-danger' : 'btn-primary'}} ">
                             @if ($product->in_cart)
-                                remove in Cart
+                                {{ __('messages.enlever_dans_panier') }}
                             @else
-                                Add to Cart
+                                {{ __('messages.ajouter_dans_panier') }}
                             @endif
                         </a>
                     </div>

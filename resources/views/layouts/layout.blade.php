@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Laravel</title>
+    <title>Aphrodite | 
+        @yield('sub_title')
+    </title>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
@@ -119,7 +121,7 @@
     
     
         <nav class="navbar navbar-expand-lg navbar-light bg-light mb-5">
-            <a class="navbar-brand" href="{{ route('accueil') }}">Only-fan</a>
+            <a class="navbar-brand" href="{{ route('accueil') }}"> Aphrodite </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -197,7 +199,7 @@
                 @csrf
                 <select name="locale" onchange="this.form.submit()" class="form-control mr-3">
                     <option value="fr" {{ app()->getLocale() == 'fr' ? 'selected' : '' }}>Français</option>
-                    <option value="en" {{ app()->getLocale() == 'en' ? 'selected' : '' }}>English</option>
+                    <option value="es" {{ app()->getLocale() == 'es' ? 'selected' : '' }}>Espagnol</option>
                 </select>
             </form>
         </nav>
