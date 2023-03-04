@@ -208,7 +208,7 @@
     
         <footer class="bg-light py-3">
             <div class="container">
-                <p class="text-center">&copy; 2023 - Only Fan</p>
+                <p class="text-center">&copy; 2023 - Aphrodite</p>
                 <p class="text-center">Tous droits réservés</p>
                 <div class="d-flex justify-content-center">
                     <a class="nav-link" href="#">Accueil</a>

@@ -14,8 +14,8 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         $customer = new Customers();
-        $customer->name = 'only-fan admin';
-        $customer->email = 'admin@only-fan2.com';
+        $customer->name = 'Aphrodite admin';
+        $customer->email = 'admin@Aphrodite2.com';
         $customer->password = bcrypt('test1234');
         $customer->save();
     }

@@ -39,7 +39,7 @@
                                     class="stripe-button"
                                     data-key="{{ env('STRIPE_KEY') }}"
                                     data-amount="{{$subscribe->amount}}"
-                                    data-name="Only-fan"
+                                    data-name="Aphrodite"
                                     data-description="{{$subscribe->name}}"
                                     data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
                                     data-locale="auto">
