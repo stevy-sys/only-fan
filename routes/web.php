@@ -22,6 +22,9 @@ use App\Http\Controllers\Admin\GallerieController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LivestreamController;
 
+Route::get('/test',function (){
+    return view('index');
+});
 
 Route::any('/live/customer', [LivestreamController::class, 'customer'])->name('livestream.customer');
 Route::get('/live/user/{username}', [LivestreamController::class, 'user'])->name('livestream.user');
