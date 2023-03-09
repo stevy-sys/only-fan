@@ -259,7 +259,7 @@
       <div class="row">
         <div class="col-sm-12">
           <div class="copyright-box">
-            <p class="copyright">&copy; Copyright <strong>Aphrodite</strong>. All Rights Reserved</p>
+            <p class="copyright">&copy; Copyright <strong>rubycorp</strong>. All Rights Reserved</p>
             <div class="credits">
               <!--
               All the links in the footer should remain intact.
