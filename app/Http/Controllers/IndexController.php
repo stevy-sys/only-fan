@@ -24,6 +24,24 @@ class IndexController extends Controller
     }
 
 
+    public function testBoutique()
+    {
+        $products = Product::all();
+        return view('new_boutique',compact('products'));
+    }
+
+    public function test()
+    {
+        $mediaHomes = MediaHome::with('media')->get();
+        $stories = Storie::with('media')->get();
+        $couvertures = CouvertureHome::with('media')->get();
+        $countImage = Media::where('type','image')->get()->count();
+        $countVideo = Media::where('type','video')->get()->count();
+        
+        return view('index',compact('mediaHomes','stories','couvertures','countImage','countVideo'));
+    }
+
+
     public function boutique()
     {
         $products = Product::all();

@@ -22,14 +22,11 @@ use App\Http\Controllers\Admin\GallerieController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LivestreamController;
 
-Route::get('/test',function (){
-    return view('index');
-});
+Route::get('/test','App\Http\Controllers\IndexController@test');
+Route::get('/testBoutique','App\Http\Controllers\IndexController@testBoutique');
 
 Route::any('/live/customer', [LivestreamController::class, 'customer'])->name('livestream.customer');
 Route::get('/live/user/{username}', [LivestreamController::class, 'user'])->name('livestream.user');
-
-
 
 
 Route::get('/', 'App\Http\Controllers\IndexController@index')->name('accueil')->middleware('setLanguage');

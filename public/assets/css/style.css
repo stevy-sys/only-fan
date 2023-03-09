@@ -99,7 +99,7 @@ a:hover {
 }
 
 .overlay-mf {
-  background-color: #0078ff;
+   background-color: #ff00ff;
 }
 
 .overlay-mf {
@@ -168,7 +168,7 @@ a:hover {
 .line-mf {
   width: 40px;
   height: 5px;
-  background-color: #0078ff;
+  background-color: #ff00ff ;
   margin: 0 auto;
 }
 
@@ -186,7 +186,7 @@ a:hover {
   content: "";
   position: absolute;
   height: 3px;
-  background-color: #0078ff;
+  background-color: #ff00ff ;
   width: 100px;
   bottom: -12px;
 }
@@ -269,7 +269,7 @@ a:hover {
   line-height: 1.55;
   margin: 0 auto;
   text-align: center;
-  box-shadow: 0 0 0 10px #0078ff;
+  box-shadow: 0 0 0 10px #ff00ff ;
   display: block;
 }
 
@@ -482,7 +482,7 @@ a:hover {
 }
 
 #header.header-scrolled {
-  background: rgba(0, 0, 0, 0.9);
+  background: #ff00ff;
   padding: 12px 0;
 }
 
@@ -989,7 +989,7 @@ a:hover {
 }
 
 .work-content .w-like a {
-  color: #0078ff;
+  color: #ff00ff ;
 }
 
 .work-content .w-like .num-like {
