@@ -114,8 +114,10 @@ a:hover {
 
 .paralax-mf {
   position: relative;
-  padding: 8rem 0;
+  padding: 20% !important;
 }
+
+
 
 .display-table {
   width: 100%;
@@ -1467,7 +1469,7 @@ footer {
   text-align: center;
   color: #fff;
   padding: 25px 0;
-  background: #0062d3;
+  background: #ff00ff;
 }
 
 footer .copyright {

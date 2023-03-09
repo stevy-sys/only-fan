@@ -13,7 +13,7 @@
         {{$description}}
       </p>
     </div>
-    <div class="card-footer">
+    {{-- <div class="card-footer">
       <div class="post-author">
         <a href="#">
           <img src="assets/img/testimonial-2.jpg" alt="" class="avatar rounded-circle">
@@ -23,5 +23,5 @@
       <div class="post-date">
         <span class="bi bi-clock"></span> 10 min
       </div>
-    </div>
+    </div> --}}
   </div>
