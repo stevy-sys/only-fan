@@ -21,7 +21,7 @@
             </ul>
           </li>
           @auth
-            <li class="dropdown"><i class="bi bi-person"></i><a href="#"><span>{{auht()->guard('web')->user()->name}}</span> <i class="bi bi-chevron-down"></i></a>
+            <li class="dropdown"><i class="bi bi-person"></i><a href="#"><span>{{auth()->guard('web')->user()->name}}</span> <i class="bi bi-chevron-down"></i></a>
               <ul>
                 <li><a href="#"><i class="bi bi-credit-card"></i>Abonnee</a></li>
                 <li><a href="#"><i class="bi bi-images"></i>Gallery</a></li>
