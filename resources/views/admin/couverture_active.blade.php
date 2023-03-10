@@ -1,4 +1,4 @@
-@extends('layouts.layoutadmin')
+@extends('layouts.new_layout_admin')
 
 @section('style')
     <style>
@@ -6,9 +6,9 @@
     </style>
 @endsection
 
-@section('body')
+@section('content')
     <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        {{-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">Tableau de bord</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,7 +28,7 @@
 
                 </ul>
             </div>
-        </nav>
+        </nav> --}}
         <div class="row">
             @include('partials._menu')
             <div class="col-10">

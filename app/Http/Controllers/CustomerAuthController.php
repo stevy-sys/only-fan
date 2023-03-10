@@ -37,6 +37,11 @@ class CustomerAuthController extends Controller
         return view('admin.dashboard');
     }
 
+    public function new()
+    {
+        return view('admin.new_admin.index');
+    }
+
     public function logout()
     {
         Auth::guard('customer')->logout();

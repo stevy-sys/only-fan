@@ -15,7 +15,7 @@
       <li class="nav-item">
         <a class="nav-link" href="{{ route('admin.chat.index') }}">Chat</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item"> 
         <a class="nav-link" href="{{ route('admin.media.index') }}">Partager</a>
       </li>
       <li class="nav-item">
