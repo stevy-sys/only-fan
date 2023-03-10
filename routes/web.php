@@ -25,6 +25,9 @@ use App\Http\Controllers\LivestreamController;
 Route::get('/test','App\Http\Controllers\IndexController@test');
 Route::get('/testBoutique','App\Http\Controllers\IndexController@testBoutique');
 
+
+
+
 Route::any('/live/customer', [LivestreamController::class, 'customer'])->name('livestream.customer');
 Route::get('/live/user/{username}', [LivestreamController::class, 'user'])->name('livestream.user');
 

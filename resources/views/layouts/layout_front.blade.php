@@ -8,6 +8,7 @@
   <title>Aphrodite</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <!-- Favicons -->
   <link sizes="196x196" href="assets/img/logo.png" rel="icon" type="image/png">
@@ -85,22 +86,6 @@
     </div>
   </div>
   <!-- End Testimonials Section -->
-
-  <!-- ======= Hero Section ======= -->
-  {{-- <div id="hero" class="hero route bg-image" style="background-image: url(assets/img/hero-bg.jpg)">
-    <div class="overlay-itro"></div>
-    <div class="hero-content display-table">
-      <div class="table-cell">
-        <div class="container">
-          <!--<p class="display-6 color-d">Hello, world!</p>-->
-          <h1 class="hero-title mb-4">I am Morgan Freeman</h1>
-          <p class="hero-subtitle"><span class="typed" data-typed-items="Designer, Developer, Freelancer, Photographer"></span></p>
-          <!-- <p class="pt-3"><a class="btn btn-primary btn js-scroll px-4" href="#about" role="button">Learn More</a></p> -->
-        </div>
-      </div>
-    </div>
-  </div> --}}
-  <!-- End Hero Section -->
 
   <main class="container" id="main">
     <div class="row">
@@ -198,56 +183,76 @@
          --}}
             
         </div>
-        <div class="col-lg-4">
-            <!-- ======= Services Section ======= -->
-            <section id="services" class="services-mf pt-5 route">
-                <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
-                    <div class="title-box text-center">
-                        <h3 class="title-a">
-                        Abonnee
-                        </h3>
-                        <p class="subtitle-a">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                        </p>
-                        <div class="line-mf"></div>
-                    </div>
-                    </div>
-                </div>
-                <div class="col">
-                        <div class="row-md-4">
-                            <x-card-payment-component :icon="'bi bi-briefcase'" :description="'blabla 1'"></x-card-payment-component>
-                        </div>
-                        <div class="row-md-4">
-                            <x-card-payment-component :icon="'bi bi-card-checklist'" :description="'blabla 2'"></x-card-payment-component>
-                        </div>
-                        <div class="row-md-4">
-                            <x-card-payment-component :icon="'bi bi-bar-chart'" :description="'blabla 3'"></x-card-payment-component>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- End Services Section -->
+        @if (!isset($currentRoute))
+          <div class="col-lg-4">
+              <!-- ======= Services Section ======= -->
+              <section id="services" class="services-mf pt-5 route">
+                  <div class="container">
+                  <div class="row">
+                      <div class="col-sm-12">
+                      <div class="title-box text-center">
+                          <h3 class="title-a">
+                          Abonnee
+                          </h3>
+                          <p class="subtitle-a">
+                          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                          </p>
+                          <div class="line-mf"></div>
+                      </div>
+                      </div>
+                  </div>
+                  <div class="col">
+                          <div class="row-md-4">
+                              <x-card-payment-component :icon="'bi bi-briefcase'" :description="'blabla 1'"></x-card-payment-component>
+                          </div>
+                          <div class="row-md-4">
+                              <x-card-payment-component :icon="'bi bi-card-checklist'" :description="'blabla 2'"></x-card-payment-component>
+                          </div>
+                          <div class="row-md-4">
+                              <x-card-payment-component :icon="'bi bi-bar-chart'" :description="'blabla 3'"></x-card-payment-component>
+                          </div>
+                      </div>
+                  </div>
+              </section>
+              <!-- End Services Section -->
 
-            <!-- ======= Counter Section ======= -->
+              <!-- ======= Counter Section ======= -->
                 <div class="section-counter paralax-mf bg-image mb-5" style="background-image: url(assets/img/counters-bg.jpg)">
-                    <div class="overlay-mf"></div>
-                    <div class="container position-relative">
-                    <div class="row">
-                        <div class="col-sm-12 col-lg-6">
-                        <x-counter-component :counter="50" :type="'image'"></x-counter-component>
-                        
-                        </div>
-                        <div class="col-sm-12 col-lg-6">
-                        <x-counter-component :type="'video'" :counter="150" ></x-counter-component>
-                        </div>
-                        
-                    </div>
-                    </div>
-                </div>
-            <!-- End Counter Section -->
+                      <div class="overlay-mf"></div>
+                      <div class="container position-relative">
+                      <div class="row">
+                          <div class="col-sm-12 col-lg-6">
+                          <x-counter-component :counter="50" :type="'image'"></x-counter-component>
+                          
+                          </div>
+                          <div class="col-sm-12 col-lg-6">
+                          <x-counter-component :type="'video'" :counter="150" ></x-counter-component>
+                          </div>
+                          
+                      </div>
+                      </div>
+                  </div>
+              <!-- End Counter Section -->
+          </div>
+        @else
+        <div class="col-lg-4 mt-5">
+            <div class="section-counter paralax-mf bg-image mb-5" style="background-image: url(assets/img/counters-bg.jpg)">
+              <div class="overlay-mf"></div>
+              <div class="container position-relative">
+              <div class="row">
+                  <div class="col-sm-12 col-lg-6">
+                  <x-counter-component :counter="50" :type="'image'"></x-counter-component>
+                  
+                  </div>
+                  <div class="col-sm-12 col-lg-6">
+                  <x-counter-component :type="'video'" :counter="150" ></x-counter-component>
+                  </div>
+                  
+              </div>
+              </div>
+            </div>
         </div>
+        @endif
     </div>
     
 
@@ -285,6 +290,32 @@
   <script src="{{asset('assets/vendor/swiper/swiper-bundle.min.js')}}"></script>
   <script src="{{asset('assets/vendor/typed.js/typed.min.js')}}"></script>
   <script src="{{asset('assets/vendor/php-email-form/validate.js')}}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+            integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            <script>
+              $(document).ready(function() {
+                  $("#chat-icon").click(function() {
+                      $("#chat-bubble").toggle();
+                  });
+                  $("#close-chat").click(function() {
+                      $("#chat-bubble").hide();
+                  });
+      
+                  $.ajaxSetup({
+                      headers: {
+                          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                      }
+                  });
+      
+                  $('#logout').click(function(e) {
+                      e.preventDefault();
+                      $.post("{{ route('logout',['locale' => session('locale')]) }}", function(data) {
+                          window.location.href = "/";
+                      });
+                  });
+              });
+          </script>
 
   <!-- Template Main JS File -->
   <script src="{{asset('assets/js/main.js')}}"></script>

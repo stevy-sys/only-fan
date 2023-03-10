@@ -10,25 +10,41 @@
         <ul>
           <li>
             <i class="bi bi-house"></i>
-            <a class="nav-link scrollto active" href="#hero">
+            <a class="nav-link scrollto active" href="{{ route('home', ['locale' => session('locale')]) }}">
                 Home
             </a>
-            </li>
+          </li>
           <li class="dropdown"><i class="bi bi-shop"></i><a href="#"><span>Boutique</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="{{url('/testBoutique')}}"><i class="bi bi-shop-window"></i>Produit</a></li></li>
               <li><a href="#"><i class="bi bi-basket"></i>Panier</a></li>
             </ul>
           </li>
-          <li class="dropdown"><i class="bi bi-person"></i><a href="#"><span>Stevy</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#"><i class="bi bi-credit-card"></i>Abonnee</a></li>
-              <li><a href="#"><i class="bi bi-images"></i>Gallery</a></li>
-              <li><a href="#"><i class="bi bi-chat-left"></i>Chat</a></li>
-              <li><a href="#"><i class="bi bi-camera"></i>Live</a></li>
-              <li><a href="#"><i class="bi bi-box-arrow-in-right"></i>Deconnexion</a></li>
-            </ul>
+          @auth
+            <li class="dropdown"><i class="bi bi-person"></i><a href="#"><span>Stevy</span> <i class="bi bi-chevron-down"></i></a>
+              <ul>
+                <li><a href="#"><i class="bi bi-credit-card"></i>Abonnee</a></li>
+                <li><a href="#"><i class="bi bi-images"></i>Gallery</a></li>
+                <li><a href="#"><i class="bi bi-chat-left"></i>Chat</a></li>
+                <li><a href="#"><i class="bi bi-camera"></i>Live</a></li>
+                <li id="logout"><a  href="#"><i class="bi bi-box-arrow-in-right"></i>Deconnexion</a></li>
+              </ul>
+            </li>
+          @else
+          <li>
+            <i class="bi bi-house"></i>
+            <a class="nav-link scrollto" href="{{ route('login', ['locale' => session('locale')]) }}">
+                Connexion
+            </a>
           </li>
+          <li>
+            <i class="bi bi-house"></i>
+            <a class="nav-link scrollto" href="{{ route('register', ['locale' => session('locale')]) }}">
+                Inscription
+            </a>
+          </li>
+          @endauth
+          
           <li class="dropdown"><i class="bi bi-translate"></i><a href="#"><span>Langue</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="#">Francais</a></li></li>
@@ -43,4 +59,5 @@
 
     </div>
   </header>
+  
   <!-- End Header -->

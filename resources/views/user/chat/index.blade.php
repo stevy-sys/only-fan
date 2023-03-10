@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.layout_front')
 
 @section('style')
     <style>
@@ -10,12 +10,12 @@
     Message
 @endsection
 
-@section('body')
+@section('content')
     <div class="container mt-5">
         <div class="row">
-            <div class="col-md-6 offset-md-3">
+            <div class="col-md-6 col-lg-6 offset-md-3">
                 <div class="card">
-                    <div class="card-header bg-primary text-white">
+                    <div class="card-header bg-primary text-white" style="background-color: #ff00ff !important;" >
                         {{ __('messages.sallon_discussion') }}
                     </div>
                     <div class="card-body" id="chat-body" style="overflow-y: scroll; max-height: 300px;">
@@ -58,7 +58,7 @@
                                 <input type="text" class="form-control" name="message" id="message-input">
                                 <input type="hidden" value="{{ $conversation->id }}" name="conversation_id">
                                 <div class="input-group-append">
-                                    <button type="submit" class="btn btn-primary" id="send-message-btn">{{ __('messages.envoyer') }}</button>
+                                    <button type="submit" class="btn btn-primary" id="send-message-btn" style="background-color: #ff00ff !important; border-color: #ff00ff; ">{{ __('messages.envoyer') }}</button>
                                 </div>
                             </div>
                         </form>

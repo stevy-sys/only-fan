@@ -9,13 +9,16 @@ use App\Models\Subscription;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 class SubscribeController extends Controller
 {
     public function index()
     {
+        $currentRoute = Route::currentRouteName();
         $subscribes = Subscription::all();
-        return view('user.subscribe.index',compact('subscribes'));
+        
+        return view('user.subscribe.index',compact('subscribes','currentRoute'));
     }
 
     public function show()

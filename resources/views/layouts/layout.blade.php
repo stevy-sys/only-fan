@@ -165,7 +165,7 @@
                         </a>
                     </li>
                     
-                </ul>
+                </ul> 
                 <form class="form-inline my-2 my-lg-0">
                     @if (Route::has('login'))
                         <div class="top-right links">

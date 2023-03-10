@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.layout_front')
 
 @section('sub_title')
     Souscription
@@ -9,46 +9,79 @@
 
     </style>
 @endsection
-@section('body')
+@section('content')
     <div class="container mt-3">
         <div class="card-deck">
             @foreach ($subscribes as $subscribe)
-                <div class="card mb-4">
-                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Image de l'article 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Article 1</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc pellentesque tellus a
-                            ipsum malesuada, a blandit leo condimentum. </p>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Lorem ipsum dolor sit amet</li>
-                            <li class="list-group-item">Consectetur adipiscing elit</li>
-                            <li class="list-group-item">Nunc pellentesque tellus</li>
-                        </ul>
-                        <p class="card-text">
-                            <small class="text-muted">
-                                {{-- <i class="fas fa-euro-sign"></i> --}}
-                                {{$subscribe->name }} : {{ $subscribe->amount }} {{ $subscribe->devise}}
-                            </small>
-                        </p>
-                        <div class="container mt-3">
-                            <form action="{{ route('payment.process',['locale' => session('locale')]) }}" method="POST">
-                                <input type="hidden" value="{{$subscribe->id}}" name="subscribe">
-                                @csrf
-                                <script
-                                    src="https://checkout.stripe.com/checkout.js"
-                                    class="stripe-button"
-                                    data-key="{{ env('STRIPE_KEY') }}"
-                                    data-amount="{{$subscribe->amount}}"
-                                    data-name="Aphrodite"
-                                    data-description="{{$subscribe->name}}"
-                                    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-                                    data-locale="auto">
-                                </script>
-                            </form>
-                        </div>
-                        {{-- <a href="{{route('subscribe.payment.show', ['locale' => session('locale') , 'type' => 'subscribe1'])}}" class="btn btn-primary">Souscrire</a> --}}
-                    </div>
+
+            <div class="service-box">
+                <div class="service-ico">
+                    <span class="ico-circle"><i class="bi bi-briefcase"></i></span>
                 </div>
+                <div class="service-content">
+                    <h2 class="s-title">100€</h2>
+                    <p class="s-description text-center">
+                        <ul>
+                            <li>Lorem ipsum dolor sit amet.</li>
+                            <li>Lorem, ipsum.</li>
+                            <li>Lorem ipsum dolor sit.</li>
+                        </ul>
+                        {{-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem fugiat! Quia,
+                        provident vitae! Magni
+                        tempora perferendis eum non provident. --}}
+                    </p>
+                    <form action="{{ route('payment.process',['locale' => session('locale')]) }}" method="POST">
+                        <input type="hidden" value="{{$subscribe->id}}" name="subscribe">
+                        @csrf
+                        <script
+                            src="https://checkout.stripe.com/checkout.js"
+                            class="stripe-button"
+                            data-key="{{ env('STRIPE_KEY') }}"
+                            data-amount="{{$subscribe->amount}}"
+                            data-name="Aphrodite"
+                            data-description="{{$subscribe->name}}"
+                            data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                            data-locale="auto">
+                        </script>
+                    </form>
+                </div>
+            </div>
+
+
+                {{-- <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="service-ico">
+                            <span class="ico-circle"><i class="bi bi-briefcase"></i></span>
+                        </div>
+                        <div class="service-content">
+                            <h2 class="s-title">100€</h2>
+                            <p class="s-description text-center">
+                                <ul>
+                                    <li>Lorem ipsum dolor sit amet.</li>
+                                    <li>Lorem, ipsum.</li>
+                                    <li>Lorem ipsum dolor sit.</li>
+                                </ul>
+                                
+                            </p>
+                            <div class="container mt-3">
+                                <form action="{{ route('payment.process',['locale' => session('locale')]) }}" method="POST">
+                                    <input type="hidden" value="{{$subscribe->id}}" name="subscribe">
+                                    @csrf
+                                    <script
+                                        src="https://checkout.stripe.com/checkout.js"
+                                        class="stripe-button"
+                                        data-key="{{ env('STRIPE_KEY') }}"
+                                        data-amount="{{$subscribe->amount}}"
+                                        data-name="Aphrodite"
+                                        data-description="{{$subscribe->name}}"
+                                        data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                                        data-locale="auto">
+                                    </script>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div> --}}
             @endforeach
         </div>
     </div>
