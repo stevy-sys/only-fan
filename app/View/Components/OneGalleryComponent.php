@@ -10,14 +10,16 @@ class OneGalleryComponent extends Component
 {
     public $image;
     public $description;
+    public $id;
 
     /**
      * Create a new component instance.
      */
-    public function __construct($image,$description)
+    public function __construct($image,$description,$id)
     {
         $this->image = $image;
         $this->description = $description;
+        $this->id = $id;
     }
 
     /**

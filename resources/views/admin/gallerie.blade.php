@@ -38,8 +38,8 @@
 
                             @foreach ($medias as $media)
                                 <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                                    <a href="#" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal-{{ $media->id }}" class="fancybox" rel="ligthbox">
+                                    <a href="#" data-toggle="modal"
+                                        data-target="#exampleModal-{{ $media->id }}" class="fancybox" rel="ligthbox">
                                         @if ($media->type != 'video')
                                             <img src="{{ asset('') . 'storage/media/' . $media->name }}" class="zoom img-fluid"
                                                 alt="" />
@@ -92,7 +92,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Fermer</button>
+                                                    data-dismiss="modal">Fermer</button>
                                             </div>
                                         </div>
                                     </div>

@@ -9,13 +9,15 @@ use Illuminate\View\Component;
 class CounterComponent extends Component
 {
     public $type;
+    public $icon;
     public $counter;
     /**
      * Create a new component instance.
      */
     public function __construct($type,$counter)
     {
-        $this->type =$type;
+        $this->type = $type;
+        $this->icon = $type == 'image' ? 'bi bi-images' : 'bi bi-camera-video';
         $this->counter =$counter;
     }
 

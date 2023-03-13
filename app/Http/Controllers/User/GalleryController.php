@@ -19,6 +19,7 @@ class GalleryController extends Controller
 
     public function show(Request $request)
     {
+        
         $media = Media::with(['comments.user','likes'])->whereId($request->media)->first();
         if (isset($request->comment)) {
             $media->comments()->create([

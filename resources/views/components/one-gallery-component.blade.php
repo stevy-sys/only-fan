@@ -1,17 +1,20 @@
 <div class="card card-blog">
     <div class="card-img">
-      <a href="blog-single.html"><img src="{{$image}}" alt="" class="img-fluid"></a>
+      <a href="{{route('media.show',['locale' => session('locale'),'media' => $id])}}">
+        
+        <img src="{{$image}}" alt="" class="img-fluid">
+      </a>
     </div>
     <div class="card-body">
       <div class="card-category-box">
-        <div class="card-category">
+        {{-- <div class="card-category">
           <h6 class="category">Travel</h6>
-        </div>
+        </div> --}}
       </div>
-      <h3 class="card-title"><a href="blog-single.html">See more ideas about Travel</a></h3>
+      {{-- <h3 class="card-title"><a href="blog-single.html">See more ideas about Travel</a></h3>
       <p class="card-description">
         {{$description}}
-      </p>
+      </p> --}}
     </div>
     {{-- <div class="card-footer">
       <div class="post-author">

@@ -33,25 +33,11 @@
           </div>
           </div>
           <div class="row">
-          <div class="col-md-4">
-              <x-one-storie-component :image="'assets/img/work-1.jpg'"></x-one-storie-component>
-          </div>
-          <div class="col-md-4">
-              <x-one-storie-component :image="'assets/img/work-2.jpg'"></x-one-storie-component>
-          </div>
-          <div class="col-md-4">
-              <x-one-storie-component :image="'assets/img/work-3.jpg'"></x-one-storie-component>
-          </div>
-          <div class="col-md-4">
-              <x-one-storie-component :image="'assets/img/work-4.jpg'"></x-one-storie-component>
-          </div>
-          <div class="col-md-4">
-              <x-one-storie-component :image="'assets/img/work-5.jpg'"></x-one-storie-component>
-          </div>
-          <div class="col-md-4">
-              <x-one-storie-component :image="'assets/img/work-6.jpg'"></x-one-storie-component>
-          </div>
-  
+            @foreach ($stories as $storie)
+                <div class="col-md-4">
+                    <x-one-storie-component image="{{asset('storage/media').'/'.$storie->media->name}}"></x-one-storie-component>
+                </div>
+            @endforeach
           </div>
       </div>
       </section>
@@ -75,16 +61,11 @@
           </div>
           </div>
           <div class="row">
-          <div class="col-md-4">
-              <x-one-gallery-component :image="'assets/img/post-1.jpg'" :description="'descript 1 '"></x-one-gallery-component>
-          </div>
-          <div class="col-md-4">
-              <x-one-gallery-component :image="'assets/img/post-2.jpg'" :description="'descript 2 '"></x-one-gallery-component>
-              
-          </div>
-          <div class="col-md-4">
-              <x-one-gallery-component :image="'assets/img/post-3.jpg'" :description="'descript 3'"></x-one-gallery-component>
-          </div>
+            @foreach ($mediaHomes as $gallerie)
+                <div class="col-md-4">
+                    <x-one-gallery-component id="{{$gallerie->media->id}}" image="{{asset('storage/media').'/'.$gallerie->media->name}}" :description="'descript 1 '"></x-one-gallery-component>
+                </div>
+            @endforeach
           </div>
       </div>
       </section>

@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Media;
+use App\Models\Subscription;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +21,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        $countImage = Media::where('type','image')->get()->count();
+        $countVideo = Media::where('type','video')->get()->count();
+        $subscriptions = Subscription::all();
+
+        view()->share('countImage', $countImage);
+        view()->share('countVideo', $countVideo);
+        view()->share('subscriptions', $subscriptions);
     }
 }

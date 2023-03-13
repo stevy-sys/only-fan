@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.layout_front')
 
 @section('sub_title')
     Gallery
@@ -9,8 +9,8 @@
     
     </style>
 @endsection
-@section('body')
-<div class="container">
+@section('content')
+<div class="container mt-5">
   <div class="row">
     <div class="col-md-3">
       <img src="{{ asset('') . 'storage/media/' . $media->name }}" class="img-fluid" alt="Image">
@@ -48,16 +48,12 @@
           <h5 class="card-title"> {{ __('messages.laisser_commentaire') }}</h5>
           <form method="post">
             @csrf
-            {{-- <div class="form-group">
-              <label for="nom">Nom</label>
-              <input type="text" class="form-control" id="nom" placeholder="Entrez votre nom">
-            </div> --}}
             <div class="form-group">
               <input type="hidden" value="{{$media->id}}" name="media_id">
               <label for="commentaire">{{ __('messages.commentaire') }}</label>
               <textarea name="comment" class="form-control" id="commentaire" rows="3"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">{{ __('messages.envoyer') }}</button>
+            <button type="submit" class="btn btn-primary mt-5">{{ __('messages.envoyer') }}</button>
           </form>
         </div>
       </div>

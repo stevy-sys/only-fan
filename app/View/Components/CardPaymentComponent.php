@@ -9,12 +9,18 @@ use Illuminate\View\Component;
 class CardPaymentComponent extends Component
 {
     public $icon;
+    public $devise;
     public $description;
+    public $amount;
+    public $id;
 
-    public function __construct($icon, $description)
+    public function __construct($id,$icon, $devise,$description,$amount)
     {
         $this->icon = $icon;
+        $this->id = $id;
+        $this->devise = $devise;
         $this->description = $description;
+        $this->amount = $amount;
     }
 
     /**

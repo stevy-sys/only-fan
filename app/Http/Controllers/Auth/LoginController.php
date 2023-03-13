@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Media;
+use App\Models\Subscription;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -36,5 +38,13 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function showLoginForm()
+    {
+        $subscriptions = Subscription::all();
+        $countImage = Media ::where('type','image')->get()->count();
+        $countVideo = Media::where('type','video')->get()->count();
+        return view('auth.login',compact('subscriptions','countImage','countVideo'));
     }
 }

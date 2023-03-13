@@ -183,6 +183,7 @@
          --}}
             
         </div>
+        
         @if (!isset($currentRoute))
           <div class="col-lg-4">
               <!-- ======= Services Section ======= -->
@@ -202,15 +203,12 @@
                       </div>
                   </div>
                   <div class="col">
-                          <div class="row-md-4">
-                              <x-card-payment-component :icon="'bi bi-briefcase'" :description="'blabla 1'"></x-card-payment-component>
-                          </div>
-                          <div class="row-md-4">
-                              <x-card-payment-component :icon="'bi bi-card-checklist'" :description="'blabla 2'"></x-card-payment-component>
-                          </div>
-                          <div class="row-md-4">
-                              <x-card-payment-component :icon="'bi bi-bar-chart'" :description="'blabla 3'"></x-card-payment-component>
-                          </div>
+                    @foreach ($subscriptions as $subscription)
+                      <div class="row-md-4">
+                          <x-card-payment-component icon="bi bi-cart-plus" id="{{$subscription->id}}" devise="{{$subscription->devise}}" description="{{$subscription->name}}" amount="{{$subscription->amount}}"></x-card-payment-component>
+                      </div>
+                    @endforeach
+                    
                       </div>
                   </div>
               </section>
@@ -222,11 +220,11 @@
                       <div class="container position-relative">
                       <div class="row">
                           <div class="col-sm-12 col-lg-6">
-                          <x-counter-component :counter="50" :type="'image'"></x-counter-component>
+                          <x-counter-component counter="{{$countImage}}" type="image"></x-counter-component>
                           
                           </div>
                           <div class="col-sm-12 col-lg-6">
-                          <x-counter-component :type="'video'" :counter="150" ></x-counter-component>
+                          <x-counter-component type="video" counter="{{$countVideo}}" ></x-counter-component>
                           </div>
                           
                       </div>
@@ -235,6 +233,7 @@
               <!-- End Counter Section -->
           </div>
         @else
+        
         <div class="col-lg-4 mt-5">
             <div class="section-counter paralax-mf bg-image mb-5" style="background-image: url(assets/img/counters-bg.jpg)">
               <div class="overlay-mf"></div>

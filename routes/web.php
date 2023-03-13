@@ -22,7 +22,7 @@ use App\Http\Controllers\Admin\GallerieController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LivestreamController;
 
-Route::get('/test','App\Http\Controllers\IndexController@test');
+Route::get('/test','App\Http\Controllers\IndexController@index');
 Route::get('/testBoutique','App\Http\Controllers\IndexController@testBoutique');
 
 

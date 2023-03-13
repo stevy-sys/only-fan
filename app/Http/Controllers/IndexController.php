@@ -9,19 +9,11 @@ use App\Models\MediaHome;
 use Illuminate\Http\Request;
 use App\Models\DetailPayment;
 use App\Models\CouvertureHome;
+use App\Models\Subscription;
 use Illuminate\Support\Facades\Auth;
 
 class IndexController extends Controller
 {
-    public function index()
-    {
-        $mediaHomes = MediaHome::with('media')->get();
-        $stories = Storie::with('media')->get();
-        $couvertures = CouvertureHome::with('media')->get();
-        $countImage = Media::where('type','image')->get()->count();
-        $countVideo = Media::where('type','video')->get()->count();
-        return view('welcome',compact('mediaHomes','stories','couvertures','countImage','countVideo'));
-    }
 
 
     public function testBoutique()
@@ -30,15 +22,13 @@ class IndexController extends Controller
         return view('new_boutique',compact('products'));
     }
 
-    public function test()
+    public function index()
     {
         $mediaHomes = MediaHome::with('media')->get();
         $stories = Storie::with('media')->get();
         $couvertures = CouvertureHome::with('media')->get();
-        $countImage = Media::where('type','image')->get()->count();
-        $countVideo = Media::where('type','video')->get()->count();
-        
-        return view('index',compact('mediaHomes','stories','couvertures','countImage','countVideo'));
+
+        return view('index',compact('mediaHomes','stories','couvertures'));
     }
 
 
