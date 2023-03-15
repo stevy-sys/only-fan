@@ -31,6 +31,6 @@ class Storie implements ShouldQueue
      */
     public function handle()
     {
-        StorieModel::find($this->storie->id)->update(['is_active' => false]);
+        StorieModel::find($this->storie->id)->update(['is_active' => 0]);
     }
 }
