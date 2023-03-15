@@ -45,9 +45,9 @@
                                                 alt="" />
                                         @else
                                             <div class="zoom img-fluid">
-                                                <video width="150" src="{{ asset('') . 'storage/media/' . $media->name }}">
-
-                                                </video>
+                                                <video width="300" height="250" controls>
+                                                    <source src="{{ asset('') . 'storage/media/' . $media->name }}" type="{{$media->enctype ? $media->enctype : 'video/mp4' }}">
+                                                  </video>
                                             </div>
                                         @endif
                                     </a>

@@ -46,7 +46,8 @@ class MediaController extends Controller
             $media = Media::create([
                 'type' => $type,
                 'name' => $filename,
-                'path' => $path
+                'path' => $path,
+                'enctype' => $file->getMimeType()
             ]);
         }
 

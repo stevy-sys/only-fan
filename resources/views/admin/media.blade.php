@@ -24,7 +24,7 @@
             <form method="POST" action="{{ route('admin.media.store') }}" enctype="multipart/form-data">
                 @csrf
                 <div>
-                    <label for="video">Sélectionner une vidéo</label>
+                    <label for="video">Sélectionner une fichier</label>
                     <input type="file" name="video" id="video">
                 </div>
                 <button type="submit">Envoyer</button>

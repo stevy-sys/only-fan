@@ -8,18 +8,22 @@ use Illuminate\View\Component;
 
 class OneGalleryComponent extends Component
 {
-    public $image;
+    public $file;
     public $description;
     public $id;
+    public $type;
+    public $enctype;
 
     /**
      * Create a new component instance.
      */
-    public function __construct($image,$description,$id)
+    public function __construct($file,$description,$id,$type,$enctype)
     {
-        $this->image = $image;
+        $this->file = $file;
         $this->description = $description;
         $this->id = $id;
+        $this->type = $type;
+        $this->enctype = $enctype;
     }
 
     /**

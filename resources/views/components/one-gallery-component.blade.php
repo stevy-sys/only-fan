@@ -1,21 +1,43 @@
 <div class="card card-blog">
-    <div class="card-img">
+    {{-- <div class="card-img">
       <a href="{{route('media.show',['locale' => session('locale'),'media' => $id])}}">
-        
-        <img src="{{$image}}" alt="" class="img-fluid">
+        @if ($type == 'image')
+          <img src="{{$file}}" alt="" class="img-fluid">
+        @else
+        <video width="240" height="250" controls>
+          <source src="{{$file}}" type="{{$enctype ? $enctype : 'video/mp4' }}">
+        </video>
+        @endif
       </a>
+    </div> --}}
+
+    @if ($type == 'image')
+      <div class="card-img">
+        <a href="{{route('media.show',['locale' => session('locale'),'media' => $id])}}">
+            <img src="{{$file}}" alt="" class="img-fluid">
+        </a>
+      </div>
+    @else
+    <div class="card-img">
+      <video style="
+      width: 100%;
+      height: auto;
+  " width="240" height="250" controls>
+        <source src="{{$file}}" type="{{$enctype ? $enctype : 'video/mp4' }}">
+      </video>
     </div>
-    <div class="card-body">
-      <div class="card-category-box">
+    @endif
+    {{-- <div class="card-body"> --}}
+      {{-- <div class="card-category-box"> --}}
         {{-- <div class="card-category">
           <h6 class="category">Travel</h6>
         </div> --}}
-      </div>
+      {{-- </div> --}}
       {{-- <h3 class="card-title"><a href="blog-single.html">See more ideas about Travel</a></h3>
       <p class="card-description">
         {{$description}}
       </p> --}}
-    </div>
+    {{-- </div> --}}
     {{-- <div class="card-footer">
       <div class="post-author">
         <a href="#">

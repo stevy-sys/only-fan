@@ -63,7 +63,7 @@
           <div class="row">
             @foreach ($mediaHomes as $gallerie)
                 <div class="col-md-4">
-                    <x-one-gallery-component id="{{$gallerie->media->id}}" image="{{asset('storage/media').'/'.$gallerie->media->name}}" :description="'descript 1 '"></x-one-gallery-component>
+                    <x-one-gallery-component enctype="{{$gallerie->media->enctype}}" id="{{$gallerie->media->id}}" type="{{$gallerie->media->type}}" file="{{asset('storage/media').'/'.$gallerie->media->name}}" :description="'descript 1 '"></x-one-gallery-component>
                 </div>
             @endforeach
           </div>
