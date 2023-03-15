@@ -21,8 +21,8 @@
         </div>
         </div>
         <div class="row">
-        <div class="col-md-4">
-            <x-one-gallery-component image="{{asset('assets/img/post-1.jpg')}}" :description="'descript 1'"></x-one-gallery-component>
+        {{-- <div class="col-md-4">
+            <x-one-gallery-component enctype="{{$gallerie->media->enctype}}" id="{{$gallerie->media->id}}" type="{{$gallerie->media->type}}" file="{{asset('storage/media').'/'.$gallerie->media->name}}" :description="'descript 1 '"></x-one-gallery-component>
         </div>
         <div class="col-md-4">
             <x-one-gallery-component image="{{asset('assets/img/post-2.jpg')}}" :description="'descript 2 '"></x-one-gallery-component>
@@ -38,7 +38,7 @@
         </div>
         <div class="col-md-4">
             <x-one-gallery-component image="{{asset('assets/img/post-3.jpg')}}" :description="'descript 3'"></x-one-gallery-component>
-        </div>
+        </div> --}}
         </div>
     </div>
     </section>
