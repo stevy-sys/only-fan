@@ -35,7 +35,7 @@ class GallerieController extends Controller
             'is_active' => true
         ]);
 
-        JobsStorie::dispatch($storie)->delay(now()->addMinutes(5));
+        JobsStorie::dispatch($storie)->delay(now()->addMinutes(1));
         $stories = Storie::with('media')->get();
         return view('admin.stories',compact('stories'));
     }

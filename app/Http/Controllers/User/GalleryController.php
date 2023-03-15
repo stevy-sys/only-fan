@@ -13,7 +13,11 @@ class GalleryController extends Controller
 {
     public function index()
     {
-        $medias = Media::all();
+        if (auth()->guard('web')->user()->premium == 1) {
+            $medias = Media::all();
+        }else{
+            $medias = [];
+        }
         return view('user.gallery.index',compact('medias'));
     }
 

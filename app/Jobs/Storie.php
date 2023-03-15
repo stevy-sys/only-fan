@@ -2,7 +2,7 @@
 
 namespace App\Jobs;
 
-use App\Model\Storie as StorieModel;
+use App\Models\Storie as StorieModel;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
@@ -31,9 +31,6 @@ class Storie implements ShouldQueue
      */
     public function handle()
     {
-        $storie = StorieModel::find($this->storie->id);
-        $storie->update([
-            'is_active' => false
-        ]);
+        StorieModel::find($this->storie->id)->update(['is_active' => false]);
     }
 }
