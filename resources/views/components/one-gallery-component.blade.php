@@ -19,12 +19,11 @@
       </div>
     @else
     <div class="card-img">
-      <video style="
-      width: 100%;
-      height: auto;
-  " width="240" height="250" controls>
+      <a href="{{route('media.show',['locale' => session('locale'),'media' => $id])}}">
+      <video style="width: 100%;height: auto;" width="240" height="250" controls>
         <source src="{{$file}}" type="{{$enctype ? $enctype : 'video/mp4' }}">
       </video>
+    </a>
     </div>
     @endif
     {{-- <div class="card-body"> --}}

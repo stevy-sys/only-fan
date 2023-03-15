@@ -13,7 +13,13 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col-md-3">
-      <img src="{{ asset('') . 'storage/media/' . $media->name }}" class="img-fluid" alt="Image">
+      @if ($media->type == 'image')
+        <img src="{{ asset('') . 'storage/media/' . $media->name }}" class="img-fluid" alt="Image">
+      @else
+        <video style="width: 100%;height: auto;" width="240" height="250" controls>
+          <source src="{{ asset('') . 'storage/media/' . $media->name }}" type="{{$media->enctype ? $media->enctype : 'video/mp4' }}">
+        </video>  
+      @endif
     </div>
     <div class="col-md-9">
       <div class="card">
