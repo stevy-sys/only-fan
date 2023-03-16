@@ -86,6 +86,12 @@
             <span>Couverture</span></a>
     </li>
 
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('admin.product.index')}}">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Product</span></a>
+    </li>
+
 
 
     <!-- Nav Item - Pages Collapse Menu -->

@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Product extends Model
 {
     use HasFactory;
-
+    protected $guarded = [];
     protected $appends = ['in_cart'];
 
     public function getInCartAttribute()

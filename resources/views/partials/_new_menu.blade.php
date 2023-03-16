@@ -16,8 +16,8 @@
           </li>
           <li class="dropdown"><i class="bi bi-shop"></i><a href="#"><span>Boutique</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="{{url('/testBoutique')}}"><i class="bi bi-shop-window"></i>Produit</a></li></li>
-              <li><a href="#"><i class="bi bi-basket"></i>Panier</a></li>
+              <li><a href="{{route('boutique', ['locale' => session('locale')])}}"><i class="bi bi-shop-window"></i>Produit</a></li></li>
+              <li><a href="{{route('boutique.getDetailPaiment')}}"><i class="bi bi-basket"></i>Panier</a></li>
             </ul>
           </li>
           @auth

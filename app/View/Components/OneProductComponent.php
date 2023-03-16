@@ -9,12 +9,18 @@ use Illuminate\View\Component;
 class OneProductComponent extends Component
 {
     public $image ;
+    public $id ;
+    public $name ;
+    public $inCart ;
     /**
      * Create a new component instance.
      */
-    public function __construct($image)
+    public function __construct($image,$id,$nameproduct,$inCart)
     {
         $this->image = $image;
+        $this->id = $id;
+        $this->name = $nameproduct;
+        $this->inCart = $inCart;
     }
 
     /**

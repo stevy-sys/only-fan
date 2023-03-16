@@ -19,37 +19,12 @@
         </div>
         </div>
         <div class="row">
-        <div class="col-md-4">
-            <x-one-product-component :image="'assets/img/work-1.jpg'"></x-one-product-component>
-        </div>
-        <div class="col-md-4">
-            <x-one-product-component :image="'assets/img/work-1.jpg'"></x-one-product-component>
-        </div>
-        <div class="col-md-4">
-            <x-one-product-component :image="'assets/img/work-1.jpg'"></x-one-product-component>
-        </div>
-        <div class="col-md-4">
-            <x-one-product-component :image="'assets/img/work-1.jpg'"></x-one-product-component>
-        </div>
-        <div class="col-md-4">
-            <x-one-product-component :image="'assets/img/work-1.jpg'"></x-one-product-component>
-        </div>
-        <div class="col-md-4">
-            <x-one-product-component :image="'assets/img/work-2.jpg'"></x-one-product-component>
-        </div>
-        <div class="col-md-4">
-            <x-one-product-component :image="'assets/img/work-3.jpg'"></x-one-product-component>
-        </div>
-        <div class="col-md-4">
-            <x-one-product-component :image="'assets/img/work-4.jpg'"></x-one-product-component>
-        </div>
-        <div class="col-md-4">
-            <x-one-product-component :image="'assets/img/work-5.jpg'"></x-one-product-component>
-        </div>
-        <div class="col-md-4">
-            <x-one-product-component :image="'assets/img/work-6.jpg'"></x-one-product-component>
-        </div>
-
+            @foreach ($products as $product)
+                <div class="col-md-4">
+                    <x-one-product-component inCart="{{$product->in_cart}}" nameproduct="{{$product->name}}" id="{{$product->id}}" image="{{asset('storage/media/'.$product->media)}}"></x-one-product-component>
+                </div>
+            @endforeach
+ 
         </div>
     </div>
     </section>

@@ -11,11 +11,11 @@ use App\Models\DetailPayment;
 use App\Models\CouvertureHome;
 use App\Models\Subscription;
 use Illuminate\Support\Facades\Auth;
+use Stripe\Charge;
+use Stripe\Stripe;
 
 class IndexController extends Controller
 {
-
-
     public function testBoutique()
     {
         $products = Product::all();
@@ -35,12 +35,11 @@ class IndexController extends Controller
     public function boutique()
     {
         $products = Product::all();
-        return view('boutique',compact('products'));
+        return view('new_boutique',compact('products'));
     }
 
     public function addToCart(Product $product)
     {
-        
         $detail = DetailPayment::where('user_id',Auth::id())->first();
         if (!isset($detail)) {
             $detail = DetailPayment::create([
@@ -64,13 +63,29 @@ class IndexController extends Controller
 
     public function getDetailPaiment()
     {
-        $detail = DetailPayment::with('commands.product')->where('user_id',Auth::id())->first();
+        $detail = DetailPayment::with('commands.product')->where('user_id',Auth::id())->whereNull('status')->first();
         $total = 0 ;
-
-        foreach ($detail->commands as $command) {
-            $total = $total + $command->product->price ;
+        if (isset($detail)) {
+            foreach ($detail->commands as $command) {
+                $total = $total + $command->product->price ;
+            }
         }
 
         return view('cart',compact('total','detail'));
+    }
+
+    public function process(Request $request)
+    {
+        Stripe ::setApiKey(env('STRIPE_SECRET'));
+        $charge = Charge::create([
+            'amount' => $request->total,
+            'currency' => 'usd',
+            'description' => 'Payment',
+            'source' => $request->stripeToken,
+        ]);
+        DetailPayment::whereId((int)$request->detail)->update(['status' => 'payer']);     
+
+        // Traiter le paiement réussi
+        return view('home');
     }
 }

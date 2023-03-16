@@ -8,7 +8,7 @@ use App\Http\Controllers\Admin\ChatController;
 use App\Http\Controllers\Admin\MediaController;
 use App\Http\Controllers\CustomerAuthController;
 use App\Http\Controllers\Admin\GallerieController;
-
+use App\Http\Controllers\Admin\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,6 +34,7 @@ Route::get('/live/user/{username}', [LivestreamController::class, 'user'])->name
 
 Route::get('/', 'App\Http\Controllers\IndexController@index')->name('accueil')->middleware('setLanguage');
 Route::get('/boutique', 'App\Http\Controllers\IndexController@boutique')->name('boutique')->middleware('setLanguage');
+Route::post('/boutique/payment/process', 'App\Http\Controllers\IndexController@process')->name('payment.boutique.process')->middleware('setLanguage');
 Route::get('/boutique/detail', 'App\Http\Controllers\IndexController@getDetailPaiment')->name('boutique.getDetailPaiment')->middleware(['setLanguage','auth']);
 Route::get('/boutique/{product}', 'App\Http\Controllers\IndexController@addToCart')->name('boutique.add')->middleware(['setLanguage','auth']);
 
@@ -74,7 +75,16 @@ Route::middleware(['customer'])->prefix('admin/')->group(function () {
     Route::controller(ChatController::class)->group(function () {
         Route::get('conversation', 'index')->name('admin.chat.index');
         Route::post('conversation', 'store')->name('admin.chat.store');
-    }); 
+    });
+    
+    Route::controller(ProductController::class)->group(function () {
+        Route::get('product', 'index')->name('admin.product.index');
+        Route::get('product/create', 'create')->name('admin.product.create');
+        Route::get('product/create/{product}', 'beforeUpdate')->name('admin.product.set');
+        Route::post('product/create', 'store')->name('admin.product.store');
+        Route::post('product/update', 'update')->name('admin.product.update');
+        Route::get('product/{product}', 'active')->name('admin.product.active');
+    });
 });
 
 
