@@ -6,6 +6,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -19,11 +21,10 @@
 
     <!-- Custom styles for this template-->
     <link href="{{asset('admin/css/sb-admin-2.min.css')}}" rel="stylesheet">
-
+    
 </head>
 
 <body id="page-top">
-
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -44,7 +45,9 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                @yield('content')
+                
+                    @yield('content')
+                
                 
                 <!-- /.container-fluid -->
 
@@ -91,7 +94,7 @@
             </div>
         </div>
     </div>
-
+    <script src="{{ asset('js/app.js') }}" defer></script>
     <!-- Bootstrap core JavaScript-->
     <script src="{{asset('admin/vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('admin/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>

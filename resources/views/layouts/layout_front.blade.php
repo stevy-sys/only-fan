@@ -22,7 +22,7 @@
 
   <!-- Template Main CSS File -->
   <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
-
+ 
   <!-- =======================================================
   * Template Name: DevFolio - v4.10.0
   * Template URL: https://bootstrapmade.com/devfolio-bootstrap-portfolio-html-template/
@@ -278,7 +278,7 @@
       </div>
     </div>
   </footer><!-- End  Footer -->
-
+  <script src="{{ asset('js/app.js') }}" defer></script>
   <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
@@ -318,7 +318,7 @@
 
   <!-- Template Main JS File -->
   <script src="{{asset('assets/js/main.js')}}"></script>
-
+      
 </body>
 
 </html>

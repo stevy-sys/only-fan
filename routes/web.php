@@ -4,11 +4,10 @@ use Illuminate\Http\Request;
 use App\Http\Middleware\SetLanguage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\ChatController;
+use App\Http\Controllers\LivestreamController;
 use App\Http\Controllers\Admin\MediaController;
-use App\Http\Controllers\CustomerAuthController;
-use App\Http\Controllers\Admin\GallerieController;
-use App\Http\Controllers\Admin\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,17 +18,27 @@ use App\Http\Controllers\Admin\ProductController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\LivestreamController;
+use App\Http\Controllers\CustomerAuthController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\GallerieController;
 
 Route::get('/test','App\Http\Controllers\IndexController@index');
 Route::get('/testBoutique','App\Http\Controllers\IndexController@testBoutique');
 
 
+// WebRTC Group Call Endpoints
+// Initiate Stream, Get a shareable broadcast link
+Route::get('/admin/streaming', 'App\Http\Controllers\WebrtcStreamingController@index');
+Route::post('/stream-offer', 'App\Http\Controllers\WebrtcStreamingController@makeStreamOffer');
+Route::post('/stream-answer', 'App\Http\Controllers\WebrtcStreamingController@makeStreamAnswer');
 
 
-Route::any('/live/customer', [LivestreamController::class, 'customer'])->name('livestream.customer');
-Route::get('/live/user/{username}', [LivestreamController::class, 'user'])->name('livestream.user');
+
+
+// Route::any('/live/customer', [LivestreamController::class, 'customer'])->name('livestream.customer');
+// Route::get('/live/user/{username}', [LivestreamController::class, 'user'])->name('livestream.user');
+// Route::post('/handshake-user', [LivestreamController::class, 'handshakeUser'])->name('handshake.user');
+// Route::get('/handshake-customer', [LivestreamController::class, 'handshakeCustomer'])->name('handshake.customer');
 
 
 Route::get('/', 'App\Http\Controllers\IndexController@index')->name('accueil')->middleware('setLanguage');
@@ -96,6 +105,7 @@ Route::group(['prefix' => '{locale}', 'middleware' => ['auth','setLanguage']], f
     Route::get('/chat', 'App\Http\Controllers\User\ChatController@index')->name('chat.index')->middleware('subscriber');
     Route::post('/chat', 'App\Http\Controllers\User\ChatController@store')->name('chat.store')->middleware('subscriber');
 
+    Route::get('/streaming/{streamId}', 'App\Http\Controllers\WebrtcStreamingController@consumer')->name('live.consumer');
 
     Route::get('/live', 'App\Http\Controllers\User\LiveController@index')->name('live.index')->middleware('subscriber');
 

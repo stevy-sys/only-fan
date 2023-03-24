@@ -16,10 +16,14 @@ class AuthCustomer
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::guard('customer')->check()) {
-            return $next($request);
+        if (Auth::guard('web')->check()) {
+            if (Auth::guard('web')->user()->role == 'admin') {
+                return $next($request);
+            }else{
+                return redirect()->route('customer.login');
+            }
+            
         }
-        
         return redirect()->route('customer.login');
     }
 }
