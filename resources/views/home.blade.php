@@ -57,7 +57,9 @@
             <div class="col-lg-4">
                 <div class="service-box">
                     <div class="service-ico">
-                        <span class="ico-circle"><i class="bi bi-bar-chart"></i></span>
+                        <a href="{{route('live.consumer', ['locale' => session('locale'), 'streamId' => '212acde2'])}}">
+                            <span class="ico-circle"><i class="bi bi-bar-chart"></i></span>
+                        </a>
                     </div>
                     <div class="service-content">
                         <h2 class="s-title">Live</h2>
