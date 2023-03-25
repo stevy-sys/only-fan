@@ -32,6 +32,6 @@ class StreamOffer implements ShouldBroadcast
     public function broadcastOn()
     {
         // stream offer can broadcast on a private channel
-        return  new Channel('stream-signal-channel.' . $this->data['receiver']['id']);
+        return  new PrivateChannel('stream-signal-channel.' . $this->data['receiver']['id']);
     }
 }

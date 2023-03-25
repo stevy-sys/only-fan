@@ -31,6 +31,6 @@ class StreamAnswer implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return  new Channel('stream-signal-channel.' . $this->data['broadcaster']);
+        return  new PrivateChannel('stream-signal-channel.' . $this->data['broadcaster']);
     }
 }
