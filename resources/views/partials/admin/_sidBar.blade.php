@@ -58,9 +58,15 @@
     </div>
 
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('admin.media.index') }}">
+        <a class="nav-link" href="{{ route('admin.media.index') }}"> 
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Uploader </span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.live.streaming') }}">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Live </span></a>
     </li>
 
     <li class="nav-item">

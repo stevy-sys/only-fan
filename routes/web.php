@@ -28,7 +28,8 @@ Route::get('/testBoutique','App\Http\Controllers\IndexController@testBoutique');
 
 // WebRTC Group Call Endpoints
 // Initiate Stream, Get a shareable broadcast link
-Route::get('/admin/streaming', 'App\Http\Controllers\WebrtcStreamingController@index');
+Route::get('/admin/streaming', 'App\Http\Controllers\WebrtcStreamingController@index')->name('admin.live.streaming');
+Route::get('/admin/start-stream', 'App\Http\Controllers\WebrtcStreamingController@startStream')->name('admin.live.start.streaming');
 Route::post('/stream-offer', 'App\Http\Controllers\WebrtcStreamingController@makeStreamOffer');
 Route::post('/stream-answer', 'App\Http\Controllers\WebrtcStreamingController@makeStreamAnswer');
 

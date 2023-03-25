@@ -2,8 +2,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8 offset-md-2">
-          <button class="btn btn-success" @click="startStream">
-            Start Stream</button><br />
+          <button class="btn btn-success" @click="startStream">Start Stream</button><br />
           <p v-if="isVisibleLink" class="my-5">
             Share the following streaming link: {{ streamLink }}
           </p>
@@ -24,6 +23,7 @@
       "turn_url",
       "turn_username",
       "turn_credential",
+      "url"
     ],
     data() {
       return {
@@ -40,13 +40,13 @@
         // you can improve streamId generation code. As long as we include the
         // broadcaster's user id, we are assured of getting unique streamiing link everytime.
         // the current code just generates a fixed streaming link for a particular user.
-        return `${this.auth_user_id}12acde2`;
+        return `${this.auth_user_id + this.url}`;
       },
   
       streamLink() {
         // just a quick fix. can be improved by setting the app_url
         if (this.env === "production") {
-          return `https://laravel-video-call.herokuapp.com/streaming/${this.streamId}`;
+          return `https://ww.rubycorp.fr/en/streaming/${this.streamId}`;
         } else {
           return `http://127.0.0.1:8000/en/streaming/${this.streamId}`;
         }
@@ -55,7 +55,14 @@
   
     methods: {
       async startStream() {
-        console.log('start')
+        axios
+          .get("/admin/start-stream")
+          .then((res) => {
+            console.log('utilisateur sont pret');
+          })
+          .catch((err) => {
+            console.log(err);
+          });
         // const stream = await navigator.mediaDevices.getUserMedia({
         //   video: true,
         //   audio: true,
@@ -196,7 +203,7 @@
       },
   
       initializeSignalAnswerChannel() {
-        console.log('init answer');
+        
         window.Echo.channel(`stream-signal-channel.${this.auth_user_id}`).listen(
           "StreamAnswer",
           ({ data }) => {
@@ -234,6 +241,10 @@
             console.log(err);
           });
       },
+    },
+    mounted() {
+      console.log(this.url)
+      console.log("envvv",this.env)
     },
   };
   </script>

@@ -2,8 +2,8 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8 offset-md-2">
-          <button class="btn btn-success" @click="joinBroadcast">
-            Join Stream</button><br />
+          <button v-if="(streamId !== null) || (streamId !== 'undefined')" class="btn btn-success" @click="joinBroadcast">Join Stream</button><br />
+          <div v-if="(streamId === null) || (streamId === 'undefined') ">Pas de live disponible en ce moment</div>
           <video autoplay ref="viewer"></video>
         </div>
       </div>
@@ -28,7 +28,7 @@
       };
     },
     mounted() {
-        console.log('start',this.auth_user_id)
+        console.log('start',this.stream_id)
     },
   
     methods: {

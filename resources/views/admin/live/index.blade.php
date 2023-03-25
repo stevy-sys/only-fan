@@ -4,7 +4,9 @@
 <div id="app">
     <broadcaster-admin
     :auth_user_id="{{ $id }}"
-    ></broadcaster-admin>
+    env="{{env('APP_ENV')}}"
+    url="{{ $url }}"
+    ></broadcaster-admin> 
 </div>
 @endsection
 
