@@ -39,7 +39,7 @@
   
       initializeStreamingChannel() {
         this.streamingPresenceChannel = Echo.join(
-          `streaming-channel.${this.stream_id}`
+          `presence-streaming-channel.${this.stream_id}`
         );
         console.log(this.streamingPresenceChannel)
       },
@@ -128,7 +128,7 @@
       },
   
       initializeSignalOfferChannel() {
-        window.Echo.channel(`stream-signal-channel.${this.auth_user_id}`).listen(
+        window.Echo.private(`stream-signal-channel.${this.auth_user_id}`).listen(
           "StreamOffer",
           ({ data }) => {
             console.log("Signal Offer from private channel");
