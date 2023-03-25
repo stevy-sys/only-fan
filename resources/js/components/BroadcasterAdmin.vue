@@ -40,7 +40,7 @@
         // you can improve streamId generation code. As long as we include the
         // broadcaster's user id, we are assured of getting unique streamiing link everytime.
         // the current code just generates a fixed streaming link for a particular user.
-        return `${this.auth_user_id + this.url}`;
+        return `${this.url}`;
       },
   
       streamLink() {

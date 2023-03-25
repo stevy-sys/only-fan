@@ -39,7 +39,7 @@
   
       initializeStreamingChannel() {
         this.streamingPresenceChannel = Echo.join(
-          `presence-streaming-channel.${this.stream_id}`
+          `streaming-channel.${this.stream_id}`
         );
         console.log(this.streamingPresenceChannel)
       },
