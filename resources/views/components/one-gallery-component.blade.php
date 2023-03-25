@@ -19,6 +19,7 @@
             <img src="{{$file}}" alt="" class="img-fluid" style="
             width: 200px;
             height: 175px;
+            border-radius: 30px;
         ">
         </a>
       </div>
@@ -28,6 +29,7 @@
         <img src="{{$file}}" alt="" class="img-fluid" style="
         width: 200px;
         height: 175px;
+        border-radius: 30px;
         ">
       </a>
       {{-- <a href="{{route('media.show',['locale' => session('locale'),'media' => $id])}}">
