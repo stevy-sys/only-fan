@@ -1,11 +1,7 @@
 <div class="work-box" style="background-color: black;">
     <a href="{{$image}}" data-gallery="portfolioGallery" class="portfolio-lightbox">
       <div class="work-img">
-        <img style="
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-    " src="{{$image}}" alt="" class="img-fluid">
+        <img style=" width: 120px; height: 120px; border-radius: 50%; " src="{{$image}}" alt="" class="img-fluid">
       </div>
     </a>
     {{-- <div class="work-content">
