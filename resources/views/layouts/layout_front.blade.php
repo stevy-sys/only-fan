@@ -215,8 +215,10 @@
               <!-- End Services Section -->
 
               <!-- ======= Counter Section ======= -->
-                <div class="section-counter paralax-mf bg-image mb-5" style="background-image: url(assets/img/counters-bg.jpg)">
-                      <div class="overlay-mf"></div>
+                <div class="section-counter paralax-mf bg-image mb-5">
+                      <div class="overlay-mf" style="
+                      background-color: black;
+                  "></div>
                       <div class="container position-relative">
                       <div class="row">
                           <div class="col-sm-12 col-lg-6">
@@ -233,20 +235,19 @@
               <!-- End Counter Section -->
           </div>
         @else
-        
         <div class="col-lg-12 mt-5">
-            <div class="section-counter paralax-mf bg-image mb-5" style="background-image: url(assets/img/counters-bg.jpg)">
-              <div class="overlay-mf"></div>
+            <div class="section-counter paralax-mf bg-image mb-5">
+              <div class="overlay-mf" style="
+              background-color: black;
+          "></div>
               <div class="container position-relative">
               <div class="row">
                   <div class="col-sm-12 col-lg-6">
                   <x-counter-component :counter="50" :type="'image'"></x-counter-component>
-                  
                   </div>
                   <div class="col-sm-12 col-lg-6">
                   <x-counter-component :type="'video'" :counter="150" ></x-counter-component>
                   </div>
-                  
               </div>
               </div>
             </div>

@@ -1,6 +1,4 @@
-<div class="work-box" style="
-background-color: black;
-">
+<div class="work-box" style="background-color: black;">
     <a href="{{$image}}" data-gallery="portfolioGallery" class="portfolio-lightbox">
       <div class="work-img">
         <img style="

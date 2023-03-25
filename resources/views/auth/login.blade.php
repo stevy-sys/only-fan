@@ -62,7 +62,7 @@
                                 <button type="submit" style="
                                 background-color: #ff00ff;
                                 border-color: #ff00ff;
-                            " class="btn btn-primary">
+                                " class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
 
@@ -71,6 +71,9 @@
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
+                                <a class="btn btn-link" href="{{ route('register', ['locale' => session('locale')]) }}">
+                                    Inscription
+                                </a>
                             </div>
                         </div>
                     </form>

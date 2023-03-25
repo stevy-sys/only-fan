@@ -8,6 +8,7 @@
 
       <nav id="navbar" class="navbar">
         <ul>
+          @auth
           <li>
             <i class="bi bi-house"></i>
             <a class="nav-link scrollto active" href="{{ route('home', ['locale' => session('locale')]) }}">
@@ -20,7 +21,7 @@
               <li><a href="{{route('boutique.getDetailPaiment')}}"><i class="bi bi-basket"></i>Panier</a></li>
             </ul>
           </li>
-          @auth
+          
             <li class="dropdown"><i class="bi bi-person"></i><a href="#"><span>{{auth()->guard('web')->user()->name}}</span> <i class="bi bi-chevron-down"></i></a>
               <ul>
                 <li><a href="{{route('subscribe.index', ['locale' => session('locale')])}}"><i class="bi bi-credit-card"></i>Abonnee</a></li>
@@ -32,20 +33,25 @@
             </li>
           @else
           <li>
-            <i class="bi bi-house"></i>
+            {{-- <i class="bi bi-house"></i> --}}
             <a class="nav-link scrollto" href="{{ route('login', ['locale' => session('locale')]) }}">
                 Connexion
             </a>
           </li>
-          <li>
+          {{-- <li>
             <i class="bi bi-house"></i>
             <a class="nav-link scrollto" href="{{ route('register', ['locale' => session('locale')]) }}">
                 Inscription
             </a>
-          </li>
+          </li> --}}
           @endauth
           
-          <li class="dropdown"><i class="bi bi-translate"></i><a href="#"><span>Langue</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown">
+            {{-- <i class="bi bi-translate"></i> --}}
+            <a href="#">
+              <span>Langue</span> 
+              <i class="bi bi-chevron-down"></i>
+            </a>
             <ul>
               <li><a href="#">Francais</a></li></li>
               <li><a href="#">Anglais</a></li>

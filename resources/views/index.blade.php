@@ -3,17 +3,17 @@
 
 @section('content')
     <!-- ======= About Section ======= -->
-    {{-- <section id="about" class="about-mf sect-pt4 route">
+    <section id="about" class="about-mf sect-pt4 route">
       <div class="container">
       <div class="row">
           <div class="col-sm-12">
-          <div class="box-shadow-full">
+          <div class="">
               <x-about-component></x-about-component>
           </div>
           </div>
       </div>
       </div>
-  </section> --}}
+  </section>
   <!-- End About Section -->
 
   <!-- ======= Portfolio Section ======= -->
