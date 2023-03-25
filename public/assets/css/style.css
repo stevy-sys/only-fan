@@ -1011,6 +1011,7 @@ a:hover {
 
 .portfolio-details .portfolio-details-slider img {
   width: 100%;
+  border-radius: 30px;
 }
 
 .portfolio-details .portfolio-details-slider .swiper-pagination {
