@@ -204,7 +204,7 @@
   
       initializeSignalAnswerChannel() {
         
-        window.Echo.channel(`stream-signal-channel.${this.auth_user_id}`).listen(
+        window.Echo.private(`stream-signal-channel.${this.auth_user_id}`).listen(
           "StreamAnswer",
           ({ data }) => {
             console.log("Signal Answer from private channel");
