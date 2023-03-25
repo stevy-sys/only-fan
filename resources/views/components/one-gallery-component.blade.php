@@ -1,4 +1,6 @@
-<div class="card card-blog">
+<div class="card card-blog" style="
+      background-color: black;
+      ">
     {{-- <div class="card-img">
       <a href="{{route('media.show',['locale' => session('locale'),'media' => $id])}}">
         @if ($type == 'image')
@@ -14,15 +16,24 @@
     @if ($type == 'image')
       <div class="card-img">
         <a href="{{route('media.show',['locale' => session('locale'),'media' => $id])}}">
-            <img src="{{$file}}" alt="" class="img-fluid">
+            <img src="{{$file}}" alt="" class="img-fluid" style="
+            width: 200px;
+            height: 175px;
+        ">
         </a>
       </div>
     @else
     <div class="card-img">
       <a href="{{route('media.show',['locale' => session('locale'),'media' => $id])}}">
-      <video style="width: 100%;height: auto;" width="240" height="250" controls>
+        <img src="{{$file}}" alt="" class="img-fluid" style="
+        width: 200px;
+        height: 175px;
+        ">
+      </a>
+      {{-- <a href="{{route('media.show',['locale' => session('locale'),'media' => $id])}}">
+      <video style="width: 100%;height: auto;" width="200" height="200" controls>
         <source src="{{$file}}" type="{{$enctype ? $enctype : 'video/mp4' }}">
-      </video>
+      </video> --}}
     </a>
     </div>
     @endif

@@ -89,7 +89,7 @@
 
   <main class="container" id="main">
     <div class="row">
-        <div class="col-lg-8">
+        <div class="col-lg-12">
 
             @yield('content')
 
@@ -185,7 +185,7 @@
         </div>
         
         @if (!isset($currentRoute))
-          <div class="col-lg-4">
+          <div class="col-lg-12">
               <!-- ======= Services Section ======= -->
               <section id="services" class="services-mf pt-5 route">
                   <div class="container">
@@ -202,9 +202,9 @@
                       </div>
                       </div>
                   </div>
-                  <div class="col">
+                  <div class="row">
                     @foreach ($subscriptions as $subscription)
-                      <div class="row-md-4">
+                      <div class="col-md-4">
                           <x-card-payment-component icon="bi bi-cart-plus" id="{{$subscription->id}}" devise="{{$subscription->devise}}" description="{{$subscription->name}}" amount="{{$subscription->amount}}"></x-card-payment-component>
                       </div>
                     @endforeach
@@ -234,7 +234,7 @@
           </div>
         @else
         
-        <div class="col-lg-4 mt-5">
+        <div class="col-lg-12 mt-5">
             <div class="section-counter paralax-mf bg-image mb-5" style="background-image: url(assets/img/counters-bg.jpg)">
               <div class="overlay-mf"></div>
               <div class="container position-relative">

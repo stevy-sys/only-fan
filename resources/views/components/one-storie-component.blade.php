@@ -1,10 +1,16 @@
-<div class="work-box">
+<div class="work-box" style="
+background-color: black;
+">
     <a href="{{$image}}" data-gallery="portfolioGallery" class="portfolio-lightbox">
       <div class="work-img">
-        <img src="{{$image}}" alt="" class="img-fluid">
+        <img style="
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+    " src="{{$image}}" alt="" class="img-fluid">
       </div>
     </a>
-    <div class="work-content">
+    {{-- <div class="work-content">
       <div class="row">
         <div class="col-sm-8">
           <h2 class="w-title">Lorem impsum dolor</h2>
@@ -18,5 +24,5 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> --}}
   </div>

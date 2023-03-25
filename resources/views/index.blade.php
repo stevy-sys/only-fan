@@ -34,7 +34,9 @@
           </div>
           <div class="row">
             @foreach ($stories as $storie)
-                <div class="col-md-4">
+                <div class="col-md-2 col-lg-2" style="
+                width: 12.666667%;
+            ">
                     <x-one-storie-component image="{{asset('storage/media').'/'.$storie->media->name}}"></x-one-storie-component>
                 </div>
             @endforeach
@@ -62,7 +64,7 @@
           </div>
           <div class="row">
             @foreach ($mediaHomes as $gallerie)
-                <div class="col-md-4">
+                <div class="col-md-2">
                     <x-one-gallery-component enctype="{{$gallerie->media->enctype}}" id="{{$gallerie->media->id}}" type="{{$gallerie->media->type}}" file="{{asset('storage/media').'/'.$gallerie->media->name}}" :description="'descript 1 '"></x-one-gallery-component>
                 </div>
             @endforeach
