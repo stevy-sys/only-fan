@@ -43,38 +43,11 @@ window.Pusher = require("pusher-js");
 //     disableStats: false,
 // });
 
+// en ligne
 window.Echo = new Echo({
   broadcaster: "pusher",
   key: "a8d718807218ceb8b0b8",
   cluster: "mt1",
   encrypted: true,
   authEndpoint: "/broadcasting/auth",
-  // auth: {
-  //     headers: {
-  //         "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-  //     },
-  // },
-  // private: function(channelName) {
-  //   return {
-  //       channel: channelName,
-  //       key: "5ae708df4426e2dabe9e",
-  //       cluster: "PUSHER_APP_CLUSTER",
-  //       encrypted: true,
-  //   };
-  // },
-  // presence: function(channelName) {
-  //   var userId = channelName.split(".")[1];
-  //   return {
-  //       channel: channelName,
-  //       key: "5ae708df4426e2dabe9e",
-  //       cluster: "PUSHER_APP_CLUSTER",
-  //       encrypted: userId,
-  //       user: {
-  //           id: userId,
-  //           info: {
-  //               name: "USER_NAME",
-  //           },
-  //       },
-  //   };
-  // },
 });
