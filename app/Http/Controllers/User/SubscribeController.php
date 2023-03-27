@@ -45,17 +45,17 @@ class SubscribeController extends Controller
                 'premium_type' => $subscribe->name
             ]);
             
-            if ($subscribe->name == '1 mois') {
-                Subscribe::dispatch($user->id)->delay(now()->addMinutes(5));
-            }
+            // if ($subscribe->name == '1 mois') {
+            //     Subscribe::dispatch($user->id)->delay(now()->addMinutes(5));
+            // }
 
-            if ($subscribe->name == '6 mois') {
-                Subscribe::dispatch($user->id)->delay(now()->addMinutes(15));
-            }
+            // if ($subscribe->name == '6 mois') {
+            //     Subscribe::dispatch($user->id)->delay(now()->addMinutes(15));
+            // }
 
-            if ($subscribe->name == '1 an') {
-                Subscribe::dispatch($user->id)->delay(now()->addMinutes(60));
-            }
+            // if ($subscribe->name == '1 an') {
+            //     Subscribe::dispatch($user->id)->delay(now()->addMinutes(60));
+            // }
         }
        
 
