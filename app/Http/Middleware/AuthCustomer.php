@@ -20,10 +20,10 @@ class AuthCustomer
             if (Auth::guard('web')->user()->role == 'admin') {
                 return $next($request);
             }else{
-                return redirect()->route('customer.login');
+                return redirect()->route('login');
             }
             
         }
-        return redirect()->route('customer.login');
+        return redirect()->route('login');
     }
 }
