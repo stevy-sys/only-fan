@@ -37,15 +37,14 @@ class SubscribeController extends Controller
             'description' => 'Payment',
             'source' => $request->stripeToken,
         ]);
-
         if (isset($charge->id)) {
-            $user = Auth::guard('web')->user();
-    
+            $user = Auth::user();
+            
             $user->update([
                 'premium' => true,
                 'premium_type' => $subscribe->name
             ]);
-
+            
             if ($subscribe->name == '1 mois') {
                 Subscribe::dispatch($user->id)->delay(now()->addMinutes(5));
             }
