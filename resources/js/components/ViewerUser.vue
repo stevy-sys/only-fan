@@ -117,7 +117,7 @@
         });
   
         peer.on("error", (err) => {
-          console.log("handle error gracefully");
+          console.log("handle error gracefully",err);
         });
   
         const updatedOffer = {
