@@ -84,7 +84,9 @@ a:hover {
   margin-right: 4px;
   overflow: hidden;
 }
-
+.img-storie {
+  margin-bottom: 90px !important;
+}
 .bg-image {
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -1514,6 +1516,7 @@ footer .credits a {
   .img-storie {
     width: 49.666667% !important;
     height: 133px !important;
+    margin-bottom: 0px !important;
   }
   
 }
@@ -1547,6 +1550,7 @@ footer .credits a {
   .img-storie {
     width: 49.666667% !important;
     height: 133px !important;
+    margin-bottom: 0px !important;
   }
 }
 
@@ -1575,5 +1579,6 @@ footer .credits a {
   .img-storie {
     width: 49.666667% !important;
     height: 133px !important;
+    margin-bottom: 0px !important;
   }
 }
