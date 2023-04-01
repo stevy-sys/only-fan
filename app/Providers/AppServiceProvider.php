@@ -26,13 +26,13 @@ class AppServiceProvider extends ServiceProvider
         $countImage = Media::where('type','image')->get()->count();
         $countVideo = Media::where('type','video')->get()->count();
         $subscriptions = Subscription::all();
-        // $config = Config::first();
-        // $text = Texte::first();
+        $config = Config::first();
+        $text = Texte::first();
 
         view()->share('countImage', $countImage);
         view()->share('countVideo', $countVideo);
         view()->share('subscriptions', $subscriptions);
-        // view()->share('config', $config);
-        // view()->share('text', $text);
+        view()->share('config', $config);
+        view()->share('text', $text);
     }
 }
