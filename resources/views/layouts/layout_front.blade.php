@@ -41,7 +41,7 @@
 
   <!-- ======= Testimonials Section ======= -->
   {{-- <div class="testimonials paralax-mf bg-image" style="background-image: url(assets/img/couverture.png) ; padding: 10rem 0;"> --}}
-    <div class="overlay-mf"></div>
+    {{-- <div class="overlay-mf"></div> --}}
       <div class="row">
         <div class="col-md-12">
           <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
