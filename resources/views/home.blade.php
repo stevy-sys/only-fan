@@ -28,7 +28,7 @@
                 <div class="service-box">
                     <div class="service-ico">
                         <a href="{{route('chat.index', ['locale' => session('locale')])}}">
-                            <span class="ico-circle"><i class="bi bi-bar-chart"></i></span>
+                            <span class="ico-circle"><i class="bi bi-chat-left-dots"></i></span>
                         </a>
                     </div>
                     <div class="service-content">
@@ -43,7 +43,7 @@
                 <div class="service-box">
                     <div class="service-ico">
                         <a href="{{route('gallery.index', ['locale' => session('locale')])}}">
-                            <span class="ico-circle"><i class="bi bi-bar-chart"></i></span>
+                            <span class="ico-circle"><i class="bi bi-images"></i></span>
                         </a>
                     </div>
                     <div class="service-content">
@@ -58,7 +58,7 @@
                 <div class="service-box">
                     <div class="service-ico">
                         <a href="{{route('live.consumer', ['locale' => session('locale'), 'streamId' => '212acde2'])}}">
-                            <span class="ico-circle"><i class="bi bi-bar-chart"></i></span>
+                            <span class="ico-circle"><i class="bi bi-camera-reels-fill"></i></span>
                         </a>
                     </div>
                     <div class="service-content">
@@ -73,7 +73,7 @@
                 <div class="service-box">
                     <div class="service-ico">
                         <a href="{{route('subscribe.index', ['locale' => session('locale')])}}">
-                            <span class="ico-circle"><i class="bi bi-bar-chart"></i></span>
+                            <span class="ico-circle"><i class="bi bi-credit-card"></i></span>
                         </a>
                     </div>
                     <div class="service-content">
