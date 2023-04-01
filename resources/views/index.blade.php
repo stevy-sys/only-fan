@@ -246,9 +246,9 @@
             <div class="col-lg-4">
                 <div class="portfolio-description">
                     <h2>Meilleur gallerie</h2>
-                    <h5>
+                    <p>
                         {{$text->boutique2_description}}
-                    </h5>
+                    </p>
                     <br>
                 </div>
             </div>
