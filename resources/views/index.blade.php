@@ -17,7 +17,7 @@
   <!-- End About Section -->
 
   <!-- ======= Portfolio Section ======= -->
-  <section id="work" class="portfolio-mf sect-pt4 route">
+  <section id="work" class="portfolio-mf sect-pt4 route"> 
       <div class="container">
           <div class="row">
           <div class="col-sm-12">
@@ -26,7 +26,7 @@
                   Storie
               </h3>
               <p class="subtitle-a">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  {{$text->storie_title}}
               </p>
               <div class="line-mf"></div>
               </div>
@@ -56,7 +56,7 @@
                   Gallerie
               </h3>
               <p class="subtitle-a">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                {{$text->gallerie_title}}
               </p>
               <div class="line-mf"></div>
               </div>
@@ -82,7 +82,7 @@
                 Chat
             </h3>
             <p class="subtitle-a">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                {{$text->chat_title}}
             </p>
             <div class="line-mf"></div>
             </div>
@@ -130,13 +130,9 @@
                 <a href="{{route('subscribe.index',['locale' => session('locale')])}}"><p><button class="btn btn-danger"> Abonnee</button></p> </a>
               </p>
             <p>
-              Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
+                {{$text->chat_description}}
             </p>
             <br>
-            <p>
-                Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
-              </p>
-              
           </div>
         </div>
 
@@ -155,7 +151,7 @@
                 Live
             </h3>
             <p class="subtitle-a">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                {{$text->live_title}}
             </p>
             <div class="line-mf"></div>
             </div>
@@ -165,14 +161,14 @@
                 <div class="portfolio-description">
                     <h2>Regarder de live en direct</h2>
                     <p>
-                    Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
+                        {{$text->live1_description}}
                     </p>
                     <br>
                     <p>
                         <a href="{{route('subscribe.index',['locale' => session('locale')])}}"><p><button class="btn btn-danger"> Abonnee</button></p> </a>
                     </p>
                     <p>
-                        Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
+                        {{$text->live2_description}}
                     </p>
                    
                 </div>
@@ -216,7 +212,7 @@
                 Boutique
             </h3>
             <p class="subtitle-a">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                {{$text->boutique_title}}
             </p>
             <div class="line-mf"></div>
             </div>
@@ -226,12 +222,9 @@
                 <div class="portfolio-description">
                     <h2>Acceder au boutique</h2>
                     <p>
-                    Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
+                        {{$text->boutique1_description}}
                     </p>
                     <br>
-                    <p>
-                        Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
-                    </p>
                     
                 </div>
             </div>
@@ -254,7 +247,7 @@
                 <div class="portfolio-description">
                     <h2>Meilleur gallerie</h2>
                     <h5>
-                        Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
+                        {{$text->boutique2_description}}
                     </h5>
                     <br>
                 </div>

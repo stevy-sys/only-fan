@@ -50,6 +50,11 @@
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Parametre</span></a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('admin.config.texte')}}">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Parametre texte</span></a>
+    </li>
 
     <hr class="sidebar-divider">
 

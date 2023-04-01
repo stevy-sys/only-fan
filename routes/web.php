@@ -61,6 +61,8 @@ Route::middleware(['customer'])->prefix('admin/')->group(function () {
         Route::get('config', 'index')->name('admin.config.index');
         Route::post('config/update', 'store')->name('admin.config.store');
         Route::post('config/reset', 'reset')->name('admin.config.reset');
+        Route::get('config/texte', 'texte')->name('admin.config.texte');
+        Route::post('config/texte', 'update')->name('admin.config.texte.update');
     });
 
     Route::controller(CustomerAuthController::class)->group(function () {

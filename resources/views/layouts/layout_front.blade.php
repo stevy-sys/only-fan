@@ -200,7 +200,7 @@
                           Abonnee
                           </h3>
                           <p class="subtitle-a">
-                          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                          {{$text->abonnee_title}}
                           </p>
                           <div class="line-mf"></div>
                       </div>

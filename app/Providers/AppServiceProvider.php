@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Media;
 use App\Models\Config;
 use App\Models\Subscription;
+use App\Models\Texte;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -26,10 +27,12 @@ class AppServiceProvider extends ServiceProvider
         $countVideo = Media::where('type','video')->get()->count();
         $subscriptions = Subscription::all();
         $config = Config::first();
+        $text = Texte::first();
 
         view()->share('countImage', $countImage);
         view()->share('countVideo', $countVideo);
         view()->share('subscriptions', $subscriptions);
         view()->share('config', $config);
+        view()->share('text', $text);
     }
 }

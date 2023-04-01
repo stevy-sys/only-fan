@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Config;
+use App\Models\Texte;
 use Illuminate\Http\Request;
 
 class ConfigController extends Controller
@@ -27,5 +28,18 @@ class ConfigController extends Controller
         $config->bg_color_menu = '#ff00ff';
         $config->save();
         return redirect()->back();
+    }
+
+    public function texte()
+    {
+        $texte = Texte::first();
+        return view('admin.config.texte',compact('texte'));
+    }
+
+    public function update(Request $request)
+    {
+        $texte = Texte::first();
+        $texte->update($request->all());
+        return view('admin.config.texte',compact('texte'));
     }
 }
