@@ -52,9 +52,9 @@
                                     />
                                 @else
                                 <div class="zoom img-fluid">
-                                    <video width="150" src="{{asset('').'storage/media/'.$storie->media->name}}">
-    
-                                    </video>
+                                    <video width="300" height="250" controls>
+                                        <source src="{{ asset('') . 'storage/media/' . $storie->media->name }}" type="{{$storie->media->enctype ? $storie->media->enctype : 'video/mp4' }}">
+                                      </video>
                                 </div>
                                 @endif
                                 </a>
@@ -73,11 +73,11 @@
                                             <a href="" class="btn btn-primary">voir</a>
                                         </div>
                                         <div class="mb-3">
-                                            <a href="#" class="btn btn-primary">annuler la storie</a>
+                                            <a href="{{route('admin.storie.delete',['storie' => $storie->id])}}" class="btn btn-primary">annuler la storie</a>
                                         </div>
-                                        <div class="mb-3">
+                                        {{-- <div class="mb-3">
                                             <a href="#" class="btn btn-primary">supprimer la storie</a>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>

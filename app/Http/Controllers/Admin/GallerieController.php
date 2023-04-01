@@ -24,7 +24,7 @@ class GallerieController extends Controller
 
     public function allStorie()
     {
-        $stories = Storie::with('media')->where('is_active',true)->get();
+        $stories = Storie::with('media')->get();
         return view('admin.stories',compact('stories'));
     }
 
@@ -38,6 +38,12 @@ class GallerieController extends Controller
         JobsStorie::dispatch($storie)->delay(now()->addMinutes(1));
         $stories = Storie::with('media')->get();
         return view('admin.stories',compact('stories'));
+    }
+
+    public function deleteStorie(Storie $storie)
+    {
+        $storie->delete();
+        return redirect()->back();
     }
 
     public function activeMedia(Media $media)

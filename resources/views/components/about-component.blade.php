@@ -7,7 +7,7 @@
             width: 140px;
             height: 140px;
             border-radius: 50% !important;
-        " src="assets/img/testimonial-2.jpg" class="img-fluid rounded b-shadow-a" alt="">
+        " src="assets/img/logo.png" class="img-fluid rounded b-shadow-a" alt="">
           </div>
         </div>
       </div>

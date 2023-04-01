@@ -83,6 +83,7 @@ Route::middleware(['customer'])->prefix('admin/')->group(function () {
         Route::get('storie', 'allStorie')->name('admin.storie.index');
         Route::get('activeMedia/{media}', 'activeMedia')->name('admin.media.active');
         Route::get('activeStorie/{media}', 'postStorie')->name('admin.storie.store');
+        Route::get('delete/storie/{storie}', 'deleteStorie')->name('admin.storie.delete');
 
         Route::get('addCouverture/{media}', 'addCouverture')->name('admin.media.addCouverture');
         Route::get('couverture', 'getAllCouverture')->name('admin.home.couverture');
