@@ -22,6 +22,7 @@ use App\Http\Controllers\Admin\MediaController;
 use App\Http\Controllers\CustomerAuthController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\GallerieController;
+use App\Http\Controllers\Admin\UserController;
 
 Route::get('/test','App\Http\Controllers\IndexController@index');
 Route::get('/testBoutique','App\Http\Controllers\IndexController@testBoutique');
@@ -70,6 +71,9 @@ Route::middleware(['customer'])->prefix('admin/')->group(function () {
     Route::controller(CustomerAuthController::class)->group(function () {
         Route::get('dashboard', 'dashboard')->name('customer.dashboard');
         Route::get('newdashboard', 'new')->name('customer.newdashboard');
+    });
+    Route::controller(UserController::class)->group(function () {
+        Route::get('user/list', 'index')->name('admin.user.index');
     });
 
     Route::controller(MediaController::class)->group(function () {
