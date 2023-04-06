@@ -37,6 +37,7 @@ window.Vue = require("vue");
 // );
 Vue.component("broadcaster-admin", require("./components/BroadcasterAdmin.vue").default);
 Vue.component("viewer-user", require("./components/ViewerUser.vue").default);
+Vue.component("edit-texte", require("./components/EditTexte.vue").default);
 
 //  Streaming Components
 // Vue.component("broadcaster", require("./components/Broadcaster.vue").default);
