@@ -1,7 +1,16 @@
 @extends('layouts.layout_front')
 
 @section('style')
-   
+<style>
+    .slick-carousel img {
+        padding: 8px;
+        transition: transform 0.3s ease-out;
+    }
+    
+    .slick-carousel img:hover {
+        transform: scale(1.1);
+    }
+</style>
 @endsection
 
 @section('content')
