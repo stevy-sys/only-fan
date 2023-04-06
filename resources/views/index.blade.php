@@ -288,35 +288,3 @@
     </section>
     <!-- End Boutique Section -->
 @endsection
-
-@section('scripts')
-<script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-<script defer type="text/javascript">
-   $(document).ready(function(){
-      $('.slick-carousel').slick({
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 2000,
-        centerMode: true,
-        centerPadding: '20%',
-        responsive: [
-          {
-            breakpoint: 992,
-            settings: {
-              slidesToShow: 2,
-              centerPadding: '10%'
-            }
-          },
-          {
-            breakpoint: 768,
-            settings: {
-              slidesToShow: 1,
-              centerPadding: '20%'
-            }
-          }
-        ]
-      });
-    });
-</script>
-@endsection
