@@ -35,7 +35,7 @@
                             <div class="col-md-4">
                                 <ul class="list-group">
                                     @foreach ($conversations as $conversation)
-                                        <a href="{{ route('admin.chat.index', ['conversation' => $conversation->id]) }}">
+                                        <a class="mb-2" href="{{ route('admin.chat.index', ['conversation' => $conversation->id]) }}">
                                             <li class="list-group-item active">
                                                 {{ $conversation->talked->user->name }}
                                             </li>
