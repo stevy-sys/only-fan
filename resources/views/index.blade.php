@@ -68,7 +68,7 @@
     <!-- ======= Blog Section ======= -->
     <section id="blog" class="blog-mf sect-pt4 route mt-5">
         <div class="container">
-            <div class="row">
+            <div class="row mb-5">
                 <div class="col-sm-12">
                     <div class="title-box text-center">
                         <h3 class="title-a">
