@@ -28,13 +28,13 @@
 
     <li class="nav-item">
         <a class="nav-link" href="{{ route('admin.user.index') }}">
-            <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fas fa-users"></i>
             <span>Utilisateur</span></a>
     </li>
 
     <li class="nav-item">
         <a class="nav-link" href="{{ route('admin.chat.index') }}">
-            <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fab fa-rocketchat"></i>
             <span>Chat</span>
         </a>
     </li>
@@ -47,12 +47,12 @@
 
     <li class="nav-item">
         <a class="nav-link" href="{{route('admin.config.index')}}">
-            <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fas fa-wrench"></i>
             <span>Parametre</span></a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="{{route('admin.config.texte')}}">
-            <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fas fa-tools"></i>
             <span>Parametre texte</span></a>
     </li>
     {{-- <li class="nav-item">
@@ -69,19 +69,19 @@
 
     <li class="nav-item">
         <a class="nav-link" href="{{ route('admin.media.index') }}"> 
-            <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fas fa-upload"></i>
             <span>Uploader </span></a>
     </li>
 
     <li class="nav-item">
         <a class="nav-link" href="{{ route('admin.live.streaming') }}">
-            <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fas fa-camera-retro"></i>
             <span>Live </span></a>
     </li>
 
     <li class="nav-item">
         <a class="nav-link" href="{{ route('admin.storie.index') }}">
-            <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fas fa-images"></i>
             <span>Storie</span></a>
     </li>
    
@@ -92,19 +92,19 @@
     </li>
     <li class="nav-item">
         <a class="nav-link" href="{{ route('admin.gallerie.index') }}">
-            <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fas fa-photo-video"></i>
             <span>Gallery</span></a>
     </li>
 
     <li class="nav-item">
         <a class="nav-link" href="{{ route('admin.home.couverture') }}">
-            <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fas fa-image"></i>
             <span>Couverture</span></a>
     </li>
 
     <li class="nav-item">
         <a class="nav-link" href="{{route('admin.product.index')}}">
-            <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fab fa-product-hunt"></i>
             <span>Product</span></a>
     </li>
 
