@@ -12,7 +12,10 @@
 @section('content')
 <div class="container mt-5">
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-4">
       @if ($media->type == 'image')
         <img src="{{ asset('') . 'storage/media/' . $media->name }}" class="img-fluid" alt="Image">
       @else
@@ -21,8 +24,15 @@
         </video>  
       @endif
     </div>
-    <div class="col-md-9">
-      <div class="card">
+    <div class="col-md-4">
+      <form action="{{route('media.like',['locale' => session('locale')])}}" method="post">
+        @csrf
+        <input type="hidden" name="media" value="{{$media->id}}">
+        <button type="submit" class="btn btn-outline-primary"> {{$media->likes->count() == 0 ? '' : $media->likes->count() }}<i class="ml-5 bi bi-hand-thumbs-up-fill"></i></button>
+      </form>
+    </div>
+    <div class="col-md-12">
+      {{-- <div class="card">
         <div class="card-body">
           <h5 class="card-title">Titre de l'article</h5>
           <p class="card-text">
@@ -32,8 +42,8 @@
               <button type="submit" class="btn btn-outline-primary"> {{$media->likes->count() == 0 ? '' : $media->likes->count() }} J'aime</button>
             </form>
           </p>
-        </div>
-        <ul class="list-group list-group-flush">
+        </div> --}}
+        {{-- <ul class="list-group list-group-flush">
           @foreach ($media->comments as $comment)
             <li class="list-group-item">
               <div class="row">
@@ -49,8 +59,8 @@
             </li>
           @endforeach
           <!-- autres commentaires ici -->
-        </ul>
-        <div class="card-body">
+        </ul> --}}
+        {{-- <div class="card-body">
           <h5 class="card-title"> {{ __('messages.laisser_commentaire') }}</h5>
           <form method="post">
             @csrf
@@ -61,7 +71,7 @@
             </div>
             <button type="submit" class="btn btn-primary mt-5">{{ __('messages.envoyer') }}</button>
           </form>
-        </div>
+        </div> --}}
       </div>
     </div>
   </div>

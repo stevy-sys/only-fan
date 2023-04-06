@@ -1,7 +1,8 @@
 <style>
+    /* bg_color_footer : 'color de background' */
     body {
-        background-color: black;
-        color: <?php echo $config->texte_color ?>;
+        background-color: <?php echo $config->bg_color_footer ?>;
+        /* color: <?php echo $config->texte_color ?>; */
     }
 
     #header.header-scrolled {
@@ -15,6 +16,10 @@
 
     .line-mf {
         background-color: <?php echo $config->bg_color_menu ?> ;
+    }
+
+    .service-box {
+        background-color: <?php echo $config->bg_color_footer ?>;
     }
 
     footer {

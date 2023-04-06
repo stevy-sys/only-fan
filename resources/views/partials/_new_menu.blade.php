@@ -9,9 +9,16 @@
       <nav id="navbar" class="navbar">
         <ul>
           @auth
+          @if ($liveDispo)
+            <li>
+              <a style="color:black" class="nav-link scrollto" href="{{route('live.consumer', ['locale' => session('locale'), 'streamId' => '212acde2'])}}">
+                live disponible
+              </a>
+            </li>
+          @endif
           <li>
             {{-- <i class="bi bi-house"></i> --}}
-            <a class="nav-link scrollto active" href="{{ route('home', ['locale' => session('locale')]) }}">
+            <a class="nav-link scrollto" href="{{ route('home', ['locale' => session('locale')]) }}">
                 Home
             </a>
           </li>

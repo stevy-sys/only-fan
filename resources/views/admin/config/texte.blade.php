@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container mt-5">
-    <div class="row justify-content-center">
+    {{-- <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card" style="
                     background-color: black;
@@ -21,6 +21,8 @@
                                 <input id="name" type="texte" class="form-control" name="bio" value="{{$texte->bio}}">
                             </div>
                         </div>
+
+                        
 
                         <div class="form-group row mb-5">
                             <label for="bg_color_menu" style="font-weight: bold;" class="col-md-4 col-form-label text-md-right">Chat title</label>
@@ -115,6 +117,10 @@
                 </div>
             </div>
         </div>
+    </div> --}}
+
+    <div id="app">
+        <edit-texte url="{{route('admin.config.texte.update')}}" :data="{{$texte}}"></edit-texte>
     </div>
 </div>
 @endsection

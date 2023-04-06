@@ -21,17 +21,16 @@ class GalleryController extends Controller
         return view('user.gallery.index',compact('medias'));
     }
 
-    public function show(Request $request)
+    public function show($locale,Media $media)
     {
-        
-        $media = Media::with(['comments.user','likes'])->whereId($request->media)->first();
-        if (isset($request->comment)) {
-            $media->comments()->create([
-                'user_id' => Auth::guard('web')->user()->id,
-                'comment' => $request->comment,
-            ]);
-            return redirect()->back();
-        }
+        $media = Media::with(['comments.user','likes'])->whereId($media->id)->first();
+        // if (isset($media->comment)) {
+        //     $media->comments()->create([
+        //         'user_id' => Auth::guard('web')->user()->id,
+        //         'comment' => $request->comment,
+        //     ]);
+        //     return redirect()->back();
+        // }
         return view('user.gallery.show',compact('media'));
     }
 

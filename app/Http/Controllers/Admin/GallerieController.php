@@ -59,11 +59,14 @@ class GallerieController extends Controller
 
     public function addCouverture(Media $media)
     {
-        $couverture = CouvertureHome::create([
-            'media_id' => $media->id
-        ]);
-
-        return redirect()->route('admin.home.view.couverture',['couvertureHome' => $couverture->id]);
+        $exist = CouvertureHome::where('media_id',$media->id)->first();
+        if (!isset($exist)) {
+            $couverture = CouvertureHome::create([
+                'media_id' => $media->id
+            ]);
+            return redirect()->route('admin.home.view.couverture',['couvertureHome' => $couverture->id]);
+        }
+        return redirect()->back();
     }
 
     public function getAllCouverture()
@@ -89,12 +92,13 @@ class GallerieController extends Controller
     }
 
     public function setCouvertureActive(CouvertureHome $couverture)
-    {
+    {   
         if ($couverture->active == true) {
             $couverture->update(['active' => false]);
         }else{
             $couverture->update(['active' => true]);
         }
+
         return redirect()->back();
     }
 }

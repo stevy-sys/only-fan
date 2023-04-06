@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Models\Media;
 use App\Models\Config;
+use App\Models\CouvertureHome;
+use App\Models\Live;
 use App\Models\Subscription;
 use App\Models\Texte;
 use Illuminate\Support\ServiceProvider;
@@ -28,11 +30,15 @@ class AppServiceProvider extends ServiceProvider
         $subscriptions = Subscription::all();
         $config = Config::first();
         $text = Texte::first();
+        $couverturesHome = CouvertureHome::where('active',true)->get();
+        $liveDispo = Live::where('status',1)->first();
 
         view()->share('countImage', $countImage);
         view()->share('countVideo', $countVideo);
         view()->share('subscriptions', $subscriptions);
         view()->share('config', $config);
         view()->share('text', $text);
+        view()->share('couverturesHome', $couverturesHome);
+        view()->share('liveDispo', $liveDispo);
     }
 }

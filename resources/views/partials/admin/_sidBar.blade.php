@@ -55,6 +55,11 @@
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Parametre texte</span></a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('admin.config.couverture')}}">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Parametre couverture</span></a>
+    </li>
 
     <hr class="sidebar-divider">
 

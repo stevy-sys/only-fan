@@ -38,8 +38,8 @@
 
                             @foreach ($couvertures as $media)
                                 <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                                    <a href="#" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal-{{ $media->media->id }}" class="fancybox" rel="ligthbox">
+                                    <a href="#" data-toggle="modal"
+                                        data-target="#exampleModal-{{ $media->media->id }}" class="fancybox" rel="ligthbox">
                                         @if ($media->type != 'video')
                                             <img src="{{ asset('') . 'storage/media/' . $media->media->name }}" class="zoom img-fluid"
                                                 alt="" />
@@ -63,10 +63,10 @@
                                                     aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <div class="mb-3">
+                                                {{-- <div class="mb-3">
                                                     <a href="{{ route('admin.home.view.couverture',['couvertureHome' => $media->id]) }}"
                                                         class="btn btn-primary">voir</a>
-                                                </div>
+                                                </div> --}}
                                                 
                                                 <div class="mb-3">
                                                     <a href="{{route('admin.home.set.couverture.active',['couverture' => $media->id])}}" class="btn btn-primary">

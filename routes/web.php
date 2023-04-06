@@ -62,6 +62,8 @@ Route::middleware(['customer'])->prefix('admin/')->group(function () {
         Route::post('config/update', 'store')->name('admin.config.store');
         Route::post('config/reset', 'reset')->name('admin.config.reset');
         Route::get('config/texte', 'texte')->name('admin.config.texte');
+        Route::get('config/couverture', 'couverture')->name('admin.config.couverture');
+        // Route::post('config/couverture', 'setCouverture')->name('admin.config.setcouverture');
         Route::post('config/texte', 'update')->name('admin.config.texte.update');
     });
 
@@ -127,7 +129,7 @@ Route::group(['prefix' => '{locale}', 'middleware' => ['auth','setLanguage']], f
 
     Route::get('/gallery', 'App\Http\Controllers\User\GalleryController@index')->name('gallery.index')->middleware('subscriber');
     Route::post('/media/like', 'App\Http\Controllers\User\GalleryController@like')->name('media.like')->middleware('subscriber');
-    Route::any('/media', 'App\Http\Controllers\User\GalleryController@show')->name('media.show')->middleware('subscriber');
+    Route::get('/media/{media}', 'App\Http\Controllers\User\GalleryController@show')->name('media.show')->middleware('subscriber');
 });
 
 Route::post('/language', function (Request $request) {

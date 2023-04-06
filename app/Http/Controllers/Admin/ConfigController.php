@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Config;
+use App\Models\CouvertureHome;
 use App\Models\Texte;
 use Illuminate\Http\Request;
 
@@ -30,6 +31,17 @@ class ConfigController extends Controller
         return redirect()->back();
     }
 
+    // public function couverture()
+    // {
+    //     $couverture = CouvertureHome::first();
+    //     return view('admin.config.couverture',compact('couverture'));
+    // }
+
+    // public function setCouverture()
+    // {
+        
+    // }
+
     public function texte()
     {
         $texte = Texte::first();
@@ -40,6 +52,8 @@ class ConfigController extends Controller
     {
         $texte = Texte::first();
         $texte->update($request->all());
-        return view('admin.config.texte',compact('texte'));
+        return response()->json([
+            'message' => 'succesfully'
+        ],201);
     }
 }

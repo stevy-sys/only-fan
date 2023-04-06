@@ -13,17 +13,19 @@ class OneGalleryComponent extends Component
     public $id;
     public $type;
     public $enctype;
+    public $active;
 
     /**
      * Create a new component instance.
      */
-    public function __construct($file,$description,$id,$type,$enctype)
+    public function __construct($file,$description,$id,$type,$enctype,$active)
     {
         $this->file = $file;
         $this->description = $description;
         $this->id = $id;
         $this->type = $type;
         $this->enctype = $enctype;
+        $this->active = $active;
     }
 
     /**

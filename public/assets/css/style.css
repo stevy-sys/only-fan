@@ -57,7 +57,7 @@ a:hover {
 .work-box,
 .service-box,
 .paralax-mf {
-  box-shadow: 0 13px 8px -10px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 13px 8px -10px rgba(0, 0, 0, 0.1); */
 }
 
 .box-shadow-a,
@@ -76,6 +76,12 @@ a:hover {
   font-size: 2rem;
   font-weight: 300;
   line-height: 1.1;
+}
+
+.testimonial-box img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
 }
 
 .avatar {
@@ -878,7 +884,7 @@ a:hover {
 # Services
 --------------------------------------------------------------*/
 .service-box {
-  background-color: black;
+  /* background-color: black; */
   padding: 2.5rem 1.3rem;
   border-radius: 1rem;
   margin-bottom: 3rem;
@@ -1502,13 +1508,13 @@ footer .credits a {
     width: auto;
   }
 
-  i.bi.bi-lock.cadena {
+  /* i.bi.bi-lock.cadena {
     position: absolute !important;
     font-size: 40px !important;
     color: black !important;
     top: 10px !important;
     right: 24px !important;
-  }
+  } */
 
 
 
@@ -1535,13 +1541,13 @@ footer .credits a {
   .col-md-2.img-block {
     width: auto;
   }
-  i.bi.bi-lock.cadena {
+  /* i.bi.bi-lock.cadena {
     position: absolute !important;
     font-size: 40px !important;
     color: black !important;
     top: 10px !important;
     right: 24px !important;
-  }
+  } */
 
 
 
@@ -1565,13 +1571,13 @@ footer .credits a {
   .col-md-2.img-block {
     width: auto;
   }
-  i.bi.bi-lock.cadena {
+  /* i.bi.bi-lock.cadena {
     position: absolute !important;
     font-size: 40px !important;
     color: black !important;
     top: 10px !important;
     right: 24px !important;
-  }
+  } */
 
 
 

@@ -23,20 +23,22 @@
                         </div>
 
                         <div class="form-group row mb-5">
-                            <label for="bg_color_menu" style="font-weight: bold;" class="col-md-4 col-form-label text-md-right">Background color menu</label>
-                            <div class="col-md-6">
-                                <input id="bg_color_menu" type="texte" class="form-control" name="bg_color_menu" value="{{$config->bg_color_menu}}">
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-5 d-none">
-                            <label for="bg_color_footer" style="font-weight: bold;" class="col-md-4 col-form-label text-md-right">Background color footer</label>
+                            <label for="bg_color_footer" style="font-weight: bold;" class="col-md-4 col-form-label text-md-right">Background color Apps</label>
                             <div class="col-md-6">
                                 <input id="bg_color_footer" type="texte" class="form-control" name="bg_color_footer" value="{{$config->bg_color_footer}}">
                             </div>
                         </div>
 
                         <div class="form-group row mb-5">
+                            <label for="bg_color_menu" style="font-weight: bold;" class="col-md-4 col-form-label text-md-right">Background color menu</label>
+                            <div class="col-md-6">
+                                <input id="bg_color_menu" type="texte" class="form-control" name="bg_color_menu" value="{{$config->bg_color_menu}}">
+                            </div>
+                        </div>
+
+                        
+
+                        <div class="form-group row mb-5 d-none">
                             <label for="color" style="font-weight: bold;" class="col-md-4 col-form-label text-md-right">Color texte</label>
                             <div class="col-md-6">
                                 <input id="color" type="texte" class="form-control" name="texte_color" value="{{$config->texte_color}}">

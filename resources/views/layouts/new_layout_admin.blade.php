@@ -10,7 +10,7 @@
 
     <meta name="description" content="">
     <meta name="author" content="">
-
+    <link href="https://fonts.googleapis.com/css?family=Delicious&display=swap" rel="stylesheet">
     <title>Aphrodite - Dashboard</title>
 
     <!-- Custom fonts for this template-->

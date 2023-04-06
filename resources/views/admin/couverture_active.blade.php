@@ -30,7 +30,6 @@
             </div>
         </nav> --}}
         <div class="row">
-            @include('partials._menu')
             <div class="col-10">
                 <div class="" style="height: calc(100vh - 56px);">
                     <div class="container page-top">
@@ -42,9 +41,9 @@
                                 <form action="{{route('admin.home.set.couverture')}}" method="post">
                                     @csrf
                                     <input type="hidden"  value="{{$couverture->id}}" name="id">
-                                    <textarea class="form-control" name="description" id="" cols="30" rows="10">{{$couverture->description}}</textarea>
+                                    {{-- <textarea class="form-control" name="description" id="" cols="30" rows="10">{{$couverture->description}}</textarea> --}}
                                     <div class="mt-4">
-                                        <button type="submit" class="btn btn-primary">Modifier</button>
+                                        <button type="submit" class="btn btn-primary">Ajouter dans la couverture</button>
                                     </div>
                                 </form>
                             </div>
