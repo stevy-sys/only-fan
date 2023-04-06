@@ -50,7 +50,7 @@
         <div class="col-md-12">
             <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
                 <div class="swiper-wrapper">
-                    @if (isset($couverturesHome))
+                    @if ($couverturesHome->count() > 0)
                         @foreach ($couverturesHome as $couverture)
                             <div class="swiper-slide">
                                 <div class="testimonial-box">
@@ -69,7 +69,6 @@
                             </div>
                         </div>
                     @endif  
-                    
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
