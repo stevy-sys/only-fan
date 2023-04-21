@@ -25,18 +25,21 @@ class GallerieController extends Controller
     public function allStorie()
     {
         $stories = Storie::with('media')->get();
-        return view('admin.stories',compact('stories'));
+        $galleries = Media::where('active',true)->where('type','image')->get();
+        return view('admin.stories',compact('stories','galleries'));
     }
 
-    public function postStorie(Media $media)
+    public function postStorie(Request $request)
     {
         $storie = Storie::create([
-            'media_id' => $media->id,
-            'is_active' => true
+            'name' => $request->name
         ]);
-
-        JobsStorie::dispatch($storie)->delay(now()->addMinutes(1));
+        foreach ($request->medias as $media) {
+            $storie->collectionStorie()->create(['media_id' => $media]);
+        }
         $stories = Storie::with('media')->get();
+        //JobsStorie::dispatch($storie)->delay(now()->addMinutes(1));
+        //$stories = Storie::with('media')->get();
         return view('admin.stories',compact('stories'));
     }
 

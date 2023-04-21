@@ -30,7 +30,7 @@
           </h5>
         </div> --}}
         <p class="lead">
-          {{$text->bio}}
+          {!! $text->bio !!}
         </p>
         </p>
       </div>
