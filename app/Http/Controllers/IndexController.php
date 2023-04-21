@@ -27,7 +27,6 @@ class IndexController extends Controller
         $mediaHomes = MediaHome::with('media')->get();
         $stories = Storie::with('media')->get();
         $couvertures = CouvertureHome::with('media')->get();
-
         return view('index',compact('mediaHomes','stories','couvertures'));
     }
 

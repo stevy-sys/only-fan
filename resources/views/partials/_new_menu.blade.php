@@ -16,12 +16,23 @@
               </a>
             </li>
           @endif
+          @if (auth()->check())
+              @if (auth()->user()->role == 'admin')
+              <li>
+                <a class="nav-link scrollto" href="{{route('customer.dashboard')}}" }}">
+                    Dashboard
+                </a>
+              </li>
+              @endif
+          @endif
+
           <li>
             {{-- <i class="bi bi-house"></i> --}}
             <a class="nav-link scrollto" href="{{ route('home', ['locale' => session('locale')]) }}">
                 Home
             </a>
           </li>
+          
           <li class="dropdown"><a href="#"><span>Boutique</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="{{route('boutique', ['locale' => session('locale')])}}"><i class="bi bi-shop-window"></i>Produit</a></li></li>

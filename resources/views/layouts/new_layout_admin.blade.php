@@ -25,6 +25,14 @@
 </head>
 
 <body id="page-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto"> </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <a href="{{route('accueil')}}" class="btn btn-outline-success my-2 my-sm-0" type="submit">Basculer vers le site</a>
+            </form>
+        </div>
+    </nav>
     <!-- Page Wrapper -->
     <div id="wrapper">
 

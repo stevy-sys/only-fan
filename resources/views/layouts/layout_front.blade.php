@@ -43,8 +43,6 @@
 
 <body>
     @include('partials._new_menu')
-
-
     <!-- ======= Testimonials Section ======= -->
     {{-- <div class="testimonials paralax-mf bg-image" style="background-image: url(assets/img/couverture.png) ; padding: 10rem 0;"> --}}
     {{-- <div class="overlay-mf"></div> --}}
