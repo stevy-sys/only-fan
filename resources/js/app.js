@@ -38,6 +38,8 @@ window.Vue = require("vue");
 Vue.component("broadcaster-admin", require("./components/BroadcasterAdmin.vue").default);
 Vue.component("viewer-user", require("./components/ViewerUser.vue").default);
 Vue.component("edit-texte", require("./components/EditTexte.vue").default);
+Vue.component("chat-admin", require("./components/ChatAdmin.vue").default);
+Vue.component("chat-user", require("./components/ChatUser.vue").default);
 
 //  Streaming Components
 // Vue.component("broadcaster", require("./components/Broadcaster.vue").default);

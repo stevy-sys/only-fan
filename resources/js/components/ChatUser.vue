@@ -1,0 +1,92 @@
+<template>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 col-lg-6 offset-md-3">
+                <div class="card">
+                    <div class="card-header bg-primary text-white" style="background-color: #ff00ff !important;" >
+                        Sallon de discussion
+                    </div>
+                    <div class="card-body" id="chat-body" style="overflow-y: scroll; max-height: 300px;" ref="chatBody">
+                        <ul class="list-group" id="chat-box">
+                            <div v-for="(message, index) in myConversation.messages" :key="index">
+                                <li class="list-group-item" :class="message.user_id != auth ? 'sender-message' : 'receiver-message'">
+                                    <div class="d-flex align-items-start">
+                                        <!-- <img src="https://via.placeholder.com/50x50" class="rounded-circle mr-3">  -->
+                                        <div class="text-black p-2">
+                                            <strong>{{ message.user.name}}</strong>
+                                            <p class="text-muted">{{ message.created_at }}</p>
+                                            <p>{{ message.message }}</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <!-- /chat -->
+                        <form @submit.prevent="sendMessage()" method="post">
+                            <div class="input-group">
+                                <input type="text" v-model="form.message" class="form-control" name="message" id="message-input">
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-primary" id="send-message-btn" style="background-color: #ff00ff !important; border-color: #ff00ff; ">Envoyer</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+    export default {
+        name:"ChatUser",
+        props:['conversation','auth'],
+        data(){
+            return {
+                myConversation:[],
+                form:{
+                    message:""
+                }
+            }
+        },
+        methods: {
+            sendMessage(){
+                let data = {
+                    conversation_id:this.conversation.id,
+                    message:this.form.message
+                }
+                axios.post('/en/chat',data)
+                .then((res) => {
+                    console.log(res)
+                    if (res.data.message) {
+                        this.myConversation.messages.push(res.data.message) 
+                        this.form.message = ""
+                        this.$nextTick(() => {
+                            const chatBody = this.$refs.chatBody;
+                            chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: 'smooth' });
+                        })
+                    }
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+            }
+        },
+        mounted() {
+            this.myConversation = this.conversation
+            window.Echo.private(`ChannelChat.${this.auth}`).listen("ChatChannel", ({ data }) => {
+                this.myConversation.messages.push(data)
+                this.$nextTick(() => {
+                    const chatBody = this.$refs.chatBody;
+                    chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: 'smooth' });
+                })
+            });
+            this.$nextTick(() => {
+                const chatBody = this.$refs.chatBody;
+                chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: 'smooth' });
+            })
+        }
+    }
+</script>

@@ -29,6 +29,18 @@ window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
  * allows your team to easily build robust real-time web applications.
  */
 
+// Vérifie si les notifications sont supportées par le navigateur
+if ("Notification" in window) {
+  // Demande la permission d'envoyer des notifications
+  Notification.requestPermission().then(function (permission) {
+    // Si l'utilisateur a donné la permission
+    if (permission === "granted") {
+      // Envoi la notification "Hello World"
+      var notification = new Notification("Hello World!");
+    }
+  });
+}
+
 import Echo from "laravel-echo";
 window.Pusher = require("pusher-js");
 // window.Echo = new Echo({

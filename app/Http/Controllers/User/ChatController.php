@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Models\User;
 use App\Models\Customers;
+use App\Events\ChatChannel;
 use App\Models\Conversation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\User;
 use App\Service\ConversationService;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Broadcast;
 
 class ChatController extends Controller
 {
@@ -36,13 +38,18 @@ class ChatController extends Controller
     {
         $user = Auth::user();
         $conversation = Conversation::find($request->conversation_id);
+        $message = null ;
         if (isset($conversation)) {
-            $conversation->messages()->create([
+            $message = $conversation->messages()->create([
                 'message' => $request->message,
                 'user_id' => $user->id,
             ]);
         }
-        return redirect()->back();
-        
+        $message->load('user');
+        $conversation->load('talked.user');
+        Broadcast::event(new ChatChannel($conversation->talked->user->id,$message));
+        return response()->json([
+            'message' => $message
+        ],201);
     }
 }

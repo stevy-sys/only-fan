@@ -29,7 +29,7 @@
 
 @section('content')
     <div id="app">
-        <chat-admin></chat-admin>
+        <chat-admin :conversations="{{$conversations}}" :auth="{{$auth}}"></chat-admin>
     </div>
     {{-- 
     <div class="container-fluid">
