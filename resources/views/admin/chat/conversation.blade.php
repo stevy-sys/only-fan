@@ -1,31 +1,37 @@
 @extends('layouts.new_layout_admin')
 
 @section('style')
-    <style>
-        .moi {
-          display: flex !important;
-          justify-content: end !important;
-          border: 1px #4e73df solid;
-          padding: 5px;
-          border-radius: 12px;
-          color: black;
-          background-color: #4e73df;
-        }
-        .toi{
-          border: 1px #e3e6f0 solid;
-          padding: 5px;
-          border-radius: 12px;
-          color: black;
-          background-color: #e3e6f0;
-        }
-        .message{
-          margin-bottom: 10px
-        }
-    </style>
+<style>
+    .card-body {
+        overflow-y: auto; max-height: 400px;
+    }
+    .moi {
+        display: flex !important;
+        justify-content: end !important;
+        border: 1px #4e73df solid;
+        padding: 5px;
+        border-radius: 12px;
+        color: black;
+        background-color: #4e73df;
+    }
+    .toi{
+        border: 1px #e3e6f0 solid;
+        padding: 5px;
+        border-radius: 12px;
+        color: black;
+        background-color: #e3e6f0;
+    }
+    .message{
+        margin-bottom: 10px
+    }
+</style>
 @endsection
 
 @section('content')
-
+    <div id="app">
+        <chat-admin></chat-admin>
+    </div>
+    {{-- 
     <div class="container-fluid">
         <div class="row">
             <div class="col-10">
@@ -81,7 +87,8 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> 
+    --}}
 
 @endsection
 

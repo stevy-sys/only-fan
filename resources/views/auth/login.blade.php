@@ -4,6 +4,12 @@
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            @if($message = Session::get('errorMessage'))
+                <div class="alert alert-danger">{{$message}}</div>
+            @endif
+            @if($message = Session::get('success'))
+                <div class="alert alert-success">{{$message}}</div>
+            @endif
             <div class="card" style="
                     background-color: black;
                 ">

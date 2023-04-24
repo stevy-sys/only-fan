@@ -16,7 +16,7 @@ class Product extends Model
     {
         if (Auth::guard('web')->check()) {
             $user = Auth::guard('web')->user();
-            $detail = DetailPayment::where('user_id',$user->id)->first();
+            $detail = DetailPayment::where('user_id',$user->id)->whereNull('status')->first();
             if (!isset($detail)) {
                 $detail = DetailPayment::create([
                     'user_id' => $user->id,

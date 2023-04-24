@@ -1,13 +1,10 @@
-@extends('layouts.layout')
-
-@section('sub_title')
-    profile
-@endsection
+@extends('layouts.layout_front')
 
 @section('style')
+
 @endsection
 
-@section('body')
+@section('content')
     <form action="{{ route('profile.update', ['locale' => session('locale')]) }}" method="post">
         @csrf
         <div class="mx-auto" style="width: 50%;">
@@ -21,9 +18,19 @@
                 <input type="text" name="surname" value="{{ $user->name }}" class="form-control"
                     id="exampleInputPassword1">
             </div>
-            <div class="form-group">
+            <div class="form-group mb-3">
                 <label for="exampleInputEmail1">{{ __('messages.adresse_email') }}</label>
                 <input type="email" name="email" value="{{ $user->email }}" class="form-control"
+                    id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="form-group mb-3">
+                <label for="exampleInputEmail1">phone</label>
+                <input type="texte" name="phone" value="{{ $user->profile->phone }}" class="form-control"
+                    id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="form-group mb-3">
+                <label for="exampleInputEmail1">adress</label>
+                <input type="texte" name="adress" value="{{ $user->profile->adress }}" class="form-control"
                     id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
             <button type="submit" class="btn btn-primary">{{ __('messages.enregistrer') }}</button>

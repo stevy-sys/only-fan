@@ -2,9 +2,9 @@
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
+        {{-- <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
-        </div>
+        </div> --}}
         <div class="sidebar-brand-text mx-3">Aphrodite Admin </div>
     </a>
 
@@ -105,7 +105,20 @@
     <li class="nav-item">
         <a class="nav-link" href="{{route('admin.product.index')}}">
             <i class="fab fa-product-hunt"></i>
-            <span>Product</span></a>
+            <span>Product</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('admin.subscribe.invoice')}}">
+            <i class="fab fa-product-hunt"></i>
+            <span>Payment Subscription</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('admin.boutique.invoice')}}">
+            <i class="fab fa-product-hunt"></i>
+            <span>Payment Boutique</span>
+        </a>
     </li>
 
 

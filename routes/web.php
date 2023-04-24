@@ -22,7 +22,9 @@ use App\Http\Controllers\Admin\MediaController;
 use App\Http\Controllers\CustomerAuthController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\GallerieController;
+use App\Http\Controllers\Admin\InvoiceController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Auth\RegisterController;
 
 Route::get('/test','App\Http\Controllers\IndexController@index');
 Route::get('/testBoutique','App\Http\Controllers\IndexController@testBoutique');
@@ -72,8 +74,15 @@ Route::middleware(['customer'])->prefix('admin/')->group(function () {
         Route::get('dashboard', 'dashboard')->name('customer.dashboard');
         Route::get('newdashboard', 'new')->name('customer.newdashboard');
     });
+
     Route::controller(UserController::class)->group(function () {
         Route::get('user/list', 'index')->name('admin.user.index');
+    });
+
+    Route::controller(InvoiceController::class)->group(function () {
+        Route::get('boutique/invoice', 'invoiceBoutique')->name('admin.boutique.invoice');
+        Route::get('subscribe/invoice', 'invoiceSubscribe')->name('admin.subscribe.invoice');
+        Route::get('invoice/payment', 'invoice')->name('admin.invoice.paiment');
     });
 
     Route::controller(MediaController::class)->group(function () {
@@ -87,10 +96,13 @@ Route::middleware(['customer'])->prefix('admin/')->group(function () {
         Route::get('gallerie', 'index')->name('admin.gallerie.index');
         Route::get('gallerie/media', 'show')->name('admin.gallerie.show');
         Route::get('storie', 'allStorie')->name('admin.storie.index');
-        Route::get('activeMedia/{media}', 'activeMedia')->name('admin.media.active');
-        Route::get('activeStorie/{media}', 'postStorie')->name('admin.storie.store');
+        Route::get('storie/{storie}', 'showStorie')->name('admin.storie.show');
+        Route::get('storie/delete/{storieCollection}', 'deleteElementStorie')->name('admin.storie.show.delete');
+        Route::post('activeStorie', 'postStorie')->name('admin.storie.store');
+        Route::post('updateStorie', 'updateStorie')->name('admin.storie.update');
         Route::get('delete/storie/{storie}', 'deleteStorie')->name('admin.storie.delete');
-
+        
+        Route::get('activeMedia/{media}', 'activeMedia')->name('admin.media.active');
         Route::get('addCouverture/{media}', 'addCouverture')->name('admin.media.addCouverture');
         Route::get('couverture', 'getAllCouverture')->name('admin.home.couverture');
         Route::get('couverture/viewActive/{couvertureHome}', 'viewCouverture')->name('admin.home.view.couverture');
@@ -131,7 +143,7 @@ Route::group(['prefix' => '{locale}', 'middleware' => ['auth','setLanguage']], f
     Route::post('/payment/process', 'App\Http\Controllers\User\SubscribeController@process')->name('payment.process');
 
 
-    Route::get('/gallery', 'App\Http\Controllers\User\GalleryController@index')->name('gallery.index')->middleware('subscriber');
+    Route::get('/gallery', 'App\Http\Controllers\User\GalleryController@index')->name('gallery.index');
     Route::post('/media/like', 'App\Http\Controllers\User\GalleryController@like')->name('media.like')->middleware('subscriber');
     Route::get('/media/{media}', 'App\Http\Controllers\User\GalleryController@show')->name('media.show')->middleware('subscriber');
 });
@@ -146,7 +158,8 @@ Route::post('/language', function (Request $request) {
 
 
 // Route::group(['prefix' => '{locale}', 'middleware' => ['setLanguage']], function () {
-    Auth::routes();
+Route::get('/confirm-compte', [RegisterController::class,'confirmCompte'])->name('confirm-compte');
+Auth::routes(['verify' => true]);
 // });
 
 

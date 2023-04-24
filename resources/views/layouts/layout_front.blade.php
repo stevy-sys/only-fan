@@ -23,11 +23,9 @@
     <!-- Template Main CSS File -->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
-
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+        
 
     @yield('style')
     {{-- style dynamique --}}
@@ -55,7 +53,7 @@
                             <div class="swiper-slide">
                                 <div class="testimonial-box">
                                     <div class="author-test">
-                                        <img src="{{ asset('storage/media/').$couverture->media->name }}"
+                                        <img src="{{ asset('').'storage/media/' . $couverture->media->name }}"
                                             alt="">
                                     </div>
                                 </div>
@@ -187,7 +185,7 @@
                                             Abonnee
                                         </h3>
                                         <p class="subtitle-a">
-                                            {{ $text->abonnee_title }}
+                                            {!! $text->abonnee_title !!}
                                         </p>
                                         <div class="line-mf"></div>
                                     </div>
@@ -315,15 +313,40 @@
     </script>
     <!-- Template Main JS File -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
-    <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js">
+    </script>
     <script defer type="text/javascript">
         $(document).ready(function() {
+            $('.slick-carousel-2').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                centerMode: true,
+                
+                responsive: [{
+                        breakpoint: 992,
+                        settings: {
+                            slidesToShow: 1,
+                            centerPadding: '10%'
+                        }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 1,
+                            centerPadding: '20%'
+                        }
+                    }
+                ]
+            });
+            
             $('.slick-carousel').slick({
                 slidesToShow: 3,
                 slidesToScroll: 1,
                 autoplay: true,
-                autoplaySpeed: 2000,
-                centerMode: true,
+                autoplaySpeed: 3000,
+                centerMode: false,
                 centerPadding: '20%',
                 responsive: [{
                         breakpoint: 992,

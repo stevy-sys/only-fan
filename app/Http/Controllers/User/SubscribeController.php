@@ -8,6 +8,7 @@ use App\Jobs\Subscribe;
 use App\Models\Subscription;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\InvoiceSubscibe;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -37,6 +38,14 @@ class SubscribeController extends Controller
             'description' => 'Payment',
             'source' => $request->stripeToken,
         ]);
+
+        $invoiceSubscribe = InvoiceSubscibe::create([
+            'user_id' => Auth::id(),
+            'numero' => $charge->id,
+            'subscription_id' => $subscribe->id,
+            'paiment' => 'Stripe',
+        ]);
+
         if (isset($charge->id)) {
             $user = Auth::user();
             

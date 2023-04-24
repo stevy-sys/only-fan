@@ -9,6 +9,7 @@ use App\Models\MediaHome;
 use Illuminate\Http\Request;
 use App\Models\DetailPayment;
 use App\Models\CouvertureHome;
+use App\Models\Invoice;
 use App\Models\Subscription;
 use Illuminate\Support\Facades\Auth;
 use Stripe\Charge;
@@ -25,7 +26,8 @@ class IndexController extends Controller
     public function index()
     {
         $mediaHomes = MediaHome::with('media')->get();
-        $stories = Storie::with('media')->get();
+        $stories = Storie::with(['media','collectionStorie.mediable'])->get();
+        // dd($stories);
         $couvertures = CouvertureHome::with('media')->get();
         return view('index',compact('mediaHomes','stories','couvertures'));
     }
@@ -82,7 +84,15 @@ class IndexController extends Controller
             'description' => 'Payment',
             'source' => $request->stripeToken,
         ]);
-        DetailPayment::whereId((int)$request->detail)->update(['status' => 'payer']);     
+
+        $detaile = DetailPayment::whereId((int)$request->detail)->first();
+        $invoice = Invoice::create([
+            'user_id' => Auth::id(),
+            'numero' => $charge->id,
+            'detail_id' => $detaile->id,
+            'paiment' => 'Stripe',
+        ]);
+        $detaile->update(['status' => 'payer']);  
 
         // Traiter le paiement réussi
         return view('home');

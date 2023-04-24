@@ -10,16 +10,22 @@ class ProfileController extends Controller
 {
     public function index()
     {
-        $user = Auth::user();
+        $user = Auth::user()->load('profile');
         return view('user.profile.index',compact('user'));
     }
 
     public function updateProfile(Request $request)
     {
         $user = Auth::user();
+        
         $user->update([
             'email' => $request->email,
             'name' => $request->name,
+        ]);
+
+        $user->profile()->update([
+            'phone' => $request->phone ,
+            'adress' => $request->adress
         ]);
         
         return redirect()->back();

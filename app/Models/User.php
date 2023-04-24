@@ -3,10 +3,11 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
@@ -25,6 +26,8 @@ class User extends Authenticatable
         'language',
         'premium',
         'premium_type',
+        'encrypt',
+        'email_verified_at'
     ];
 
     /**
@@ -54,5 +57,10 @@ class User extends Authenticatable
     public function messagable()
     {
         return $this->morphMany(Message::class,'messagable');
+    }
+
+    public function profile()
+    {
+        return $this->hasOne(Profils::class,'user_id');
     }
 }

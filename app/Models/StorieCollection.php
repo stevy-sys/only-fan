@@ -10,8 +10,8 @@ class StorieCollection extends Model
     use HasFactory;
     protected $guarded = [];
 
-    public function media()
+    public function mediable()
     {
-        return $this->belongsTo(Media::class,'media_id');
+        return $this->belongsTo(Media::class,'media');
     }
 }

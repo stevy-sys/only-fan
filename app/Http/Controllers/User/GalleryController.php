@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Models\Like;
 use App\Models\Media;
 use App\Models\Storie;
+use App\Models\MediaHome;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -13,12 +14,14 @@ class GalleryController extends Controller
 {
     public function index()
     {
+        $premium = false ;
         if (auth()->guard('web')->user()->premium == 1) {
+            $premium = true  ;
             $medias = Media::all();
         }else{
-            $medias = [];
+            $medias = MediaHome::with('media')->get()->pluck('media')->all();
         }
-        return view('user.gallery.index',compact('medias'));
+        return view('user.gallery.index',compact('medias','premium'));
     }
 
     public function show($locale,Media $media)

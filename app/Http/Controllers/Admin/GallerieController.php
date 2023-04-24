@@ -6,6 +6,7 @@ use App\Models\Media;
 use App\Models\Storie;
 use Illuminate\Http\Request;
 use App\Models\CouvertureHome;
+use App\Models\StorieCollection;
 use App\Jobs\Storie as JobsStorie;
 use App\Http\Controllers\Controller;
 
@@ -22,9 +23,38 @@ class GallerieController extends Controller
         return view('admin.media_show');
     }
 
+    public function updateStorie(Request $request)
+    {
+        $storie = Storie::find($request->storieId);
+        $storie->update([
+            'name' => $request->name
+        ]);
+        StorieCollection::where('id',$storie->id)->delete();
+        foreach ($request->data as $media) {
+            $storie->collectionStorie()->create(['media' => $media]);
+        }
+        
+        return response()->json([
+            'message' => 'update success'
+        ],200);
+    }
+
+    public function showStorie(Storie $storie)
+    {
+        $stories = $storie->load('collectionStorie.mediable');
+        $galleries = Media::where('active',true)->where('type','image')->get();
+        return view('admin.storieShow',compact('stories','galleries'));
+    }
+
+    public function deleteElementStorie(StorieCollection $storieCollection)
+    {
+        $storieCollection->delete();
+        return redirect()->back();
+    }
+
     public function allStorie()
     {
-        $stories = Storie::with('media')->get();
+        $stories = Storie::with('collectionStorie.mediable')->get();
         $galleries = Media::where('active',true)->where('type','image')->get();
         return view('admin.stories',compact('stories','galleries'));
     }
@@ -34,13 +64,14 @@ class GallerieController extends Controller
         $storie = Storie::create([
             'name' => $request->name
         ]);
-        foreach ($request->medias as $media) {
-            $storie->collectionStorie()->create(['media_id' => $media]);
+        foreach ($request->data as $media) {
+            $storie->collectionStorie()->create(['media' => $media]);
         }
-        $stories = Storie::with('media')->get();
+        return response()->json([
+            'message' => 'storie created'
+        ],200);
         //JobsStorie::dispatch($storie)->delay(now()->addMinutes(1));
         //$stories = Storie::with('media')->get();
-        return view('admin.stories',compact('stories'));
     }
 
     public function deleteStorie(Storie $storie)

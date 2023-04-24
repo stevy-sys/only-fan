@@ -1,19 +1,4 @@
-<div class="card card-blog" style="
-      background-color: <?php echo $config->bg_color_footer ?>;
-      border: none;
-      ">
-    {{-- <div class="card-img">
-      <a href="{{route('media.show',['locale' => session('locale'),'media' => $id])}}">
-        @if ($type == 'image')
-          <img src="{{$file}}" alt="" class="img-fluid">
-        @else
-        <video width="240" height="250" controls>
-          <source src="{{$file}}" type="{{$enctype ? $enctype : 'video/mp4' }}">
-        </video>
-        @endif
-      </a>
-    </div> --}}
-
+<div class="card card-blog" style=" background-color: <?php echo $config->bg_color_footer ?>; border: none; ">
     @if ($type == 'image')
       @if ($active)
       <div class="card-img" style="
@@ -85,26 +70,4 @@
         </a>
     </div>
     @endif
-    {{-- <div class="card-body"> --}}
-      {{-- <div class="card-category-box"> --}}
-        {{-- <div class="card-category">
-          <h6 class="category">Travel</h6>
-        </div> --}}
-      {{-- </div> --}}
-      {{-- <h3 class="card-title"><a href="blog-single.html">See more ideas about Travel</a></h3>
-      <p class="card-description">
-        {{$description}}
-      </p> --}}
-    {{-- </div> --}}
-    {{-- <div class="card-footer">
-      <div class="post-author">
-        <a href="#">
-          <img src="assets/img/testimonial-2.jpg" alt="" class="avatar rounded-circle">
-          <span class="author">Morgan Freeman</span>
-        </a>
-      </div>
-      <div class="post-date">
-        <span class="bi bi-clock"></span> 10 min
-      </div>
-    </div> --}}
   </div>

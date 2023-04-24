@@ -42,10 +42,13 @@
           
             <li class="dropdown"></i><a href="#"><span>{{auth()->guard('web')->user()->name}}</span> <i class="bi bi-chevron-down"></i></a>
               <ul>
-                <li><a href="{{route('subscribe.index', ['locale' => session('locale')])}}"><i class="bi bi-credit-card"></i>Abonnee</a></li>
-                <li><a href="{{route('gallery.index', ['locale' => session('locale')])}}"><i class="bi bi-images"></i>Gallery</a></li>
-                <li><a href="{{route('chat.index', ['locale' => session('locale')])}}"><i class="bi bi-chat-left"></i>Chat</a></li>
-                <li><a href="#"><i class="bi bi-camera"></i>Live</a></li>
+                @if (auth()->user()->role != 'admin')
+                  <li><a href="{{route('home', ['locale' => session('locale')])}}"><i class="bi bi-credit-card"></i>Dashboard</a></li>
+                  <li><a href="{{route('subscribe.index', ['locale' => session('locale')])}}"><i class="bi bi-credit-card"></i>Abonnee</a></li>
+                  <li><a href="{{route('gallery.index', ['locale' => session('locale')])}}"><i class="bi bi-images"></i>Gallery</a></li>
+                  <li><a href="{{route('chat.index', ['locale' => session('locale')])}}"><i class="bi bi-chat-left"></i>Chat</a></li>
+                  <li><a href="#"><i class="bi bi-camera"></i>Live</a></li>
+                @endif
                 <li id="logout"><a  href="#"><i class="bi bi-box-arrow-in-right"></i>Deconnexion</a></li>
               </ul>
             </li>
