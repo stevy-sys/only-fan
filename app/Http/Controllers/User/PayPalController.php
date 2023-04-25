@@ -115,7 +115,7 @@ class PayPalController extends Controller
                 'status' => 'payer'
             ]);
             return redirect()
-                ->back()
+                ->route('home',['locale' => session('locale')])
                 ->with('success', 'Transaction complete.');
         } else {
             return redirect()
