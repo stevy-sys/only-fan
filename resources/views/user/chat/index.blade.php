@@ -32,14 +32,8 @@
 @endsection
 {{-- chat-user --}}
 @section('content')
-<div id="app">
+<div class="chat" id="app">
     <chat-user :conversation="{{$conversation}}" :auth="{{ $user->id }}"></chat-user>
 </div>
     
-@endsection
-
-@section('script')
-    <script>
-      
-    </script>
 @endsection

@@ -35,47 +35,46 @@
             </div>
         </div>
     </div> -->
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
-            <div class="col-10">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-10">
                 <div class="" style="height: calc(100vh - 56px);">
-                    <div class="container">
-                        <div class="row">
-                            <!-- <div class="col-md-4">
-                                <ul class="list-group">
-                                    <a @click="changeConversation(conversation)" v-for="(conversation, index) in conversations" :key="index" class="mb-2" href="#">
-                                        <li class="list-group-item active">
-                                            {{conversation.talked.user.name}}
-                                        </li>
-                                    </a>
-                                </ul>
-                            </div> -->
-                            <div class="col-md-8">
-                                <div class="card">
-                                    <!-- <div class="card-header">{{conversationActive.talked.user.name}}</div> -->
-                                    <div class="card-body" ref="messageList">
-                                        <div v-for="(message, i) in myConversation.messages" :key="i">
-                                            <div class="message" :class="message.user_id == auth ? 'moi' : 'toi'">
-                                                <p>{{message.message}}</p>
-                                            </div>
+                    <div class="row">
+                        <!-- <div class="col-md-4">
+                            <ul class="list-group">
+                                <a @click="changeConversation(conversation)" v-for="(conversation, index) in conversations" :key="index" class="mb-2" href="#">
+                                    <li class="list-group-item active">
+                                        {{conversation.talked.user.name}}
+                                    </li>
+                                </a>
+                            </ul>
+                        </div> -->
+                        <div class="col-md-12">
+                            <div class="card">
+                                <!-- <div class="card-header">{{conversationActive.talked.user.name}}</div> -->
+                                <div class="card-body" ref="messageList">
+                                    <div v-for="(message, i) in myConversation.messages" :key="i">
+                                        <div class="message" :class="message.user_id == auth ? 'moi' : 'toi'">
+                                            <p>{{message.message}}</p>
                                         </div>
                                     </div>
-                                    <div class="card-footer">
-                                        <form @submit.prevent="sendMessage()" method="post">
-                                            <div class="input-group">
-                                                <input v-model="form.message" type="text" name="message" class="form-control"
-                                                    placeholder="Votre message">
-                                                <button type="submit" class="btn btn-primary">Envoyer</button>
-                                            </div>
-                                        </form>
-                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <form @submit.prevent="sendMessage()" method="post">
+                                        <div class="input-group">
+                                            <input v-model="form.message" type="text" name="message" class="form-control"
+                                                placeholder="Votre message">
+                                            <button type="submit" class="btn btn-primary">Envoyer</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
+            <div class="col-lg-1"></div>
         </div>
     </div>
 </template>
