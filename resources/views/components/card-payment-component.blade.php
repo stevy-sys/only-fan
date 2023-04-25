@@ -11,7 +11,7 @@
             tempora perferendis eum non provident. --}}
         </p>
         @if (auth()->guard('web')->check())
-            <form action="{{ route('payment.process',['locale' => session('locale')]) }}" method="POST">
+        <form action="{{ route('payment.process',['locale' => session('locale')]) }}" method="POST">
             <input type="hidden" value="{{$id}}" name="subscribe">
             @csrf
             <script
@@ -24,6 +24,10 @@
                 data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
                 data-locale="auto">
             </script>
+        </form>
+        <form class="mt-2" action="{{ url('/paypal/handle-payment-subscription') }}" method="POST">
+            @csrf
+            <button style="padding-left: 24px;padding-right: 24px;padding-top: 4px;font-size: 14px;font-weight: bold;" class="btn btn-primary" type="submit">Paypal <i class="bi bi-paypal"></i> </button>
         </form>
         @else
             <a href="{{route('subscribe.index',['locale' => session('locale')])}}"><p><button class="btn btn-danger"> Abonnee</button></p> </a>

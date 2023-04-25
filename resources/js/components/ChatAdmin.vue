@@ -14,27 +14,27 @@
                                     </a>
                                 </ul>
                             </div>
-                                <div v-if="conversationActive" class="col-md-8">
-                                    <div class="card">
-                                        <div class="card-header">{{conversationActive.talked.user.name}}</div>
-                                        <div class="card-body" ref="messageList">
-                                            <div v-for="(message, i) in conversationActive.messages" :key="i">
-                                                <div class="message" :class="message.user_id == auth ? 'moi' : 'toi'">
-                                                    <p>{{message.message}}</p>
-                                                </div>
+                            <div v-if="conversationActive" class="col-md-8">
+                                <div class="card">
+                                    <div class="card-header">{{conversationActive.talked.user.name}}</div>
+                                    <div class="card-body" ref="messageList">
+                                        <div v-for="(message, i) in conversationActive.messages" :key="i">
+                                            <div class="message" :class="message.user_id == auth ? 'moi' : 'toi'">
+                                                <p>{{message.message}}</p>
                                             </div>
                                         </div>
-                                        <div class="card-footer">
-                                            <form @submit.prevent="sendMessage()" method="post">
-                                                <div class="input-group">
-                                                    <input v-model="form.message" type="text" name="message" class="form-control"
-                                                        placeholder="Votre message">
-                                                    <button type="submit" class="btn btn-primary">Envoyer</button>
-                                                </div>
-                                            </form>
-                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <form @submit.prevent="sendMessage()" method="post">
+                                            <div class="input-group">
+                                                <input v-model="form.message" type="text" name="message" class="form-control"
+                                                    placeholder="Votre message">
+                                                <button type="submit" class="btn btn-primary">Envoyer</button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
+                            </div>
                         </div>
                     </div>
 

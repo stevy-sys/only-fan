@@ -41,15 +41,6 @@
             <div class="col-lg-10">
                 <div class="" style="height: calc(100vh - 56px);">
                     <div class="row">
-                        <!-- <div class="col-md-4">
-                            <ul class="list-group">
-                                <a @click="changeConversation(conversation)" v-for="(conversation, index) in conversations" :key="index" class="mb-2" href="#">
-                                    <li class="list-group-item active">
-                                        {{conversation.talked.user.name}}
-                                    </li>
-                                </a>
-                            </ul>
-                        </div> -->
                         <div class="col-md-12">
                             <div class="card">
                                 <!-- <div class="card-header">{{conversationActive.talked.user.name}}</div> -->

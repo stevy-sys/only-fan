@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\ChatController;
-use App\Http\Controllers\Admin\ConfigController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\LivestreamController;
 use App\Http\Controllers\Admin\MediaController;
 /*
@@ -19,12 +19,13 @@ use App\Http\Controllers\Admin\MediaController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Http\Controllers\User\PayPalController;
+use App\Http\Controllers\Admin\ConfigController;
 use App\Http\Controllers\CustomerAuthController;
-use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Admin\GallerieController;
 use App\Http\Controllers\Admin\InvoiceController;
-use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Admin\GallerieController;
 
 Route::get('/test','App\Http\Controllers\IndexController@index');
 Route::get('/testBoutique','App\Http\Controllers\IndexController@testBoutique');
@@ -51,6 +52,21 @@ Route::get('/boutique', 'App\Http\Controllers\IndexController@boutique')->name('
 Route::post('/boutique/payment/process', 'App\Http\Controllers\IndexController@process')->name('payment.boutique.process')->middleware('setLanguage');
 Route::get('/boutique/detail', 'App\Http\Controllers\IndexController@getDetailPaiment')->name('boutique.getDetailPaiment')->middleware(['setLanguage','auth']);
 Route::get('/boutique/{product}', 'App\Http\Controllers\IndexController@addToCart')->name('boutique.add')->middleware(['setLanguage','auth']);
+
+
+Route::controller(PayPalController::class)->prefix('paypal')->group(function () {
+        // Route::view('payment', 'paypal.index')->name('create.payment');
+        Route::post('handle-payment', 'handlePayment')->name('make.payment');
+        Route::get('cancel-payment', 'paymentCancel')->name('cancel.payment');
+        Route::get('payment-success', 'paymentSuccess')->name('success.payment');
+
+        Route::post('handle-payment-subscription', 'handlePaymentSubscription')->name('make.payment.subscription');
+        Route::get('payment-success-subscription', 'paymentSuccessSubscription')->name('success.payment.subscription');
+});
+
+// Route::post('/paypal', [PayPalController::class,'postPaymentWithpaypal']);
+// Route::get('/paypal/success', [PayPalController::class,'getPaymentStatus'])->name('paypal.success');
+// Route::get('/paypal/cancel', [PayPalController::class,'cancelPage'])->name('paypal.cancel');
 
 // Route::get('admin/login', 'App\Http\Controllers\CustomerAuthController@showLoginForm')->name('customer.login');
 // Route::get('admin/create', 'App\Http\Controllers\CustomerAuthController@create')->name('customer.create');

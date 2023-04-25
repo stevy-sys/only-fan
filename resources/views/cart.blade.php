@@ -42,25 +42,33 @@
             </div>
             @if (isset($detail))
                 <div class="card-footer">
-                    <div style="
-                    display: flex !important;
-                    justify-content: center;
-                ">
-                        <form action="{{ route('payment.boutique.process',['locale' => session('locale')]) }}" method="POST">
-                            <input type="hidden" value="{{$total}}" name="total">
-                            <input type="hidden" value="{{$detail->id}}" name="detail">
-                            @csrf
-                            <script
-                                src="https://checkout.stripe.com/checkout.js"
-                                class="stripe-button"
-                                data-key="{{ env('STRIPE_KEY') }}"
-                                data-amount="{{$total}}"
-                                data-name="Aphrodite"
-                                data-description=""
-                                data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-                                data-locale="auto">
-                            </script>
-                        </form>
+                    <div>
+                        <div>
+                            <form action="{{ route('payment.boutique.process',['locale' => session('locale')]) }}" method="POST">
+                                <input type="hidden" value="{{$total}}" name="total">
+                                <input type="hidden" value="{{$detail->id}}" name="detail">
+                                @csrf
+                                <script
+                                    src="https://checkout.stripe.com/checkout.js"
+                                    class="stripe-button"
+                                    data-key="{{ env('STRIPE_KEY') }}"
+                                    data-amount="{{$total}}"
+                                    data-name="Aphrodite"
+                                    data-description=""
+                                    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                                    data-locale="auto">
+                                </script>
+                            </form>
+                        </div>
+                        <br>
+                        <div>
+                            <form class="mt-1" action="{{ url('/paypal/handle-payment') }}" method="POST">
+                                @csrf
+                                <input type="hidden" value="{{$total}}" name="total">
+                                <input type="hidden" value="{{$detail->id}}" name="detail">
+                                <button style="padding-left: 24px;padding-right: 24px;padding-top: 4px;font-size: 14px;font-weight: bold;" class="btn btn-primary" type="submit">Paypal <i class="bi bi-paypal"></i> </button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             @endif

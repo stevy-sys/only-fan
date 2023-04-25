@@ -58,6 +58,12 @@ class IndexController extends Controller
         else{
             $exist->delete();
         }
+        $detail->load('commands');
+        $total = 0 ;
+        foreach ($detail->commands as $command) {
+            $total += $command->product->price;
+        }
+        $detail->update(compact('total'));
 
         return redirect()->back();
     }

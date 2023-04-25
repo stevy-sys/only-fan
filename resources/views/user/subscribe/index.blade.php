@@ -26,9 +26,6 @@
                             <li>Lorem, ipsum.</li>
                             <li>Lorem ipsum dolor sit.</li>
                         </ul>
-                        {{-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem fugiat! Quia,
-                        provident vitae! Magni
-                        tempora perferendis eum non provident. --}}
                     </p>
                     <form action="{{ route('payment.process',['locale' => session('locale')]) }}" method="POST">
                         <input type="hidden" value="{{$subscribe->id}}" name="subscribe">
@@ -44,44 +41,13 @@
                             data-locale="auto">
                         </script>
                     </form>
+                    <form class="mt-2" action="{{ url('/paypal/handle-payment-subscription') }}" method="POST">
+                        @csrf
+                        <input type="hidden" value="{{$subscribe->id}}" name="subscribe">
+                        <button style="padding-left: 24px;padding-right: 24px;padding-top: 4px;font-size: 14px;font-weight: bold;" class="btn btn-primary" type="submit">Paypal <i class="bi bi-paypal"></i> </button>
+                    </form>
                 </div>
             </div>
-
-
-                {{-- <div class="card mb-4">
-                    <div class="card-body">
-                        <div class="service-ico">
-                            <span class="ico-circle"><i class="bi bi-briefcase"></i></span>
-                        </div>
-                        <div class="service-content">
-                            <h2 class="s-title">100€</h2>
-                            <p class="s-description text-center">
-                                <ul>
-                                    <li>Lorem ipsum dolor sit amet.</li>
-                                    <li>Lorem, ipsum.</li>
-                                    <li>Lorem ipsum dolor sit.</li>
-                                </ul>
-                                
-                            </p>
-                            <div class="container mt-3">
-                                <form action="{{ route('payment.process',['locale' => session('locale')]) }}" method="POST">
-                                    <input type="hidden" value="{{$subscribe->id}}" name="subscribe">
-                                    @csrf
-                                    <script
-                                        src="https://checkout.stripe.com/checkout.js"
-                                        class="stripe-button"
-                                        data-key="{{ env('STRIPE_KEY') }}"
-                                        data-amount="{{$subscribe->amount}}"
-                                        data-name="Aphrodite"
-                                        data-description="{{$subscribe->name}}"
-                                        data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-                                        data-locale="auto">
-                                    </script>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
             @endforeach
         </div>
     </div>

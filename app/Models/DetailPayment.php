@@ -14,4 +14,9 @@ class DetailPayment extends Model
     {
         return $this->hasMany(Commands::class,'detail_id');
     }
+
+    public function invoice()
+    {
+        return $this->hasOne(Invoice::class,'detail_id');
+    }
 }
