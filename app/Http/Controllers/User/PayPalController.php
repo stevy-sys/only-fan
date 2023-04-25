@@ -130,6 +130,7 @@ class PayPalController extends Controller
         $provider->setApiCredentials(config('paypal'));
         $provider->getAccessToken();
         $response = $provider->capturePaymentOrder($request['token']);
+        dd($response);
         if (isset($response['status']) && $response['status'] == 'COMPLETED') {
             $subscriptionId = $request->input('subscription_id');
             $subscribe = Subscription::find($subscriptionId);
@@ -150,7 +151,7 @@ class PayPalController extends Controller
                 ->back()
                 ->with('success', 'Transaction complete.');
         } else {
-            dd($response);
+            
             return redirect()
                 ->route('create.payment')
                 ->with('error', $response['message'] ?? 'Something went wrong.');
