@@ -19,7 +19,7 @@
                     <span class="ico-circle"><i class="bi bi-briefcase"></i></span>
                 </div>
                 <div class="service-content">
-                    <h2 class="s-title">100€</h2>
+                    <h2 class="s-title"> {{$subscribe->amount}} €</h2>
                     <p class="s-description text-center">
                         <ul>
                             <li>Lorem ipsum dolor sit amet.</li>
