@@ -150,6 +150,7 @@ class PayPalController extends Controller
                 ->back()
                 ->with('success', 'Transaction complete.');
         } else {
+            dd($response);
             return redirect()
                 ->route('create.payment')
                 ->with('error', $response['message'] ?? 'Something went wrong.');
