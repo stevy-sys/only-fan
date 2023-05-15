@@ -23,13 +23,14 @@ class IndexController extends Controller
         return view('new_boutique',compact('products'));
     }
 
+
     public function index()
     {
         $mediaHomes = MediaHome::with('media')->get();
-        $stories = Storie::with(['media','collectionStorie.mediable'])->get();
+        // $stories = Storie::with(['media','collectionStorie.mediable'])->get();
         // dd($stories);
         $couvertures = CouvertureHome::with('media')->get();
-        return view('index',compact('mediaHomes','stories','couvertures'));
+        return view('index',compact('mediaHomes','couvertures'));
     }
 
 

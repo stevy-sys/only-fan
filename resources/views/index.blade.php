@@ -23,7 +23,7 @@
     <!-- End About Section -->
 
     <!-- ======= Portfolio Section ======= -->
-    <section id="work" class="portfolio-mf sect-pt4 route">
+    {{-- <section id="work" class="portfolio-mf sect-pt4 route">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
@@ -43,7 +43,6 @@
                     <div style=" display: flex; justify-content: space-evenly;">
                         @foreach ($stories as $storie)
                             <div class="">
-                                {{-- <div><img src="{{asset('storage/media').'/'.$storie->collectionStorie[0]->mediable->name}}" style=" width: 200px; height: 200px; object-fit: cover;" class="img-fluid rounded-circle d-block" alt=""></div> --}}
                                 <a href="#" data-toggle="modal" data-target="#exampleModal-{{ $storie->id }}">
                                     <img src="{{asset('storage/media').'/'.$storie->collectionStorie[0]->mediable->name}}" class="one-storie img-fluid rounded-circle d-block text-center" alt="">
                                     <h3>{{ $storie->name }}</h3>
@@ -53,15 +52,8 @@
                     </div>
                 </div>
             </div>
-            {{-- @foreach ($stories as $storie)
-            <div class="col-md-2 col-lg-2 img-storie" style="
-            width: 12.666667%;
-        ">
-                <x-one-storie-component image="{{asset('storage/media').'/'.$storie->media->name}}"></x-one-storie-component>
-            </div> 
-        @endforeach --}}
         </div>
-    </section>
+    </section> --}}
     <!-- End Portfolio Section -->
 
 

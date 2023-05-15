@@ -6,6 +6,20 @@
       {{-- Uncomment below if you prefer to use an image logo  --}}
       {{-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> --}}
 
+      <div class="col">
+          <div style="margin-left: 30px; display: flex;">
+              @foreach ($stories as $storie)
+                  <div class="mx-1">
+                      {{-- <div><img src="{{asset('storage/media').'/'.$storie->collectionStorie[0]->mediable->name}}" style=" width: 200px; height: 200px; object-fit: cover;" class="img-fluid rounded-circle d-block" alt=""></div> --}}
+                      <a href="#" data-toggle="modal" data-target="#exampleModal-{{ $storie->id }}">
+                          <img src="{{asset('storage/media').'/'.$storie->collectionStorie[0]->mediable->name}}" class="one-storie img-fluid rounded-circle d-block text-center" alt="">
+                          <h6>{{ $storie->name }}</h6>
+                      </a>
+                  </div>
+              @endforeach
+          </div>
+      </div>
+
       <nav id="navbar" class="navbar">
         <ul>
           @auth

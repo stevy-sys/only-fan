@@ -44,6 +44,7 @@
     <!-- ======= Testimonials Section ======= -->
     {{-- <div class="testimonials paralax-mf bg-image" style="background-image: url(assets/img/couverture.png) ; padding: 10rem 0;"> --}}
     {{-- <div class="overlay-mf"></div> --}}
+    
     <div class="row">
         <div class="col-md-12">
             <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
@@ -76,101 +77,10 @@
     {{-- </div> --}}
     <!-- End Testimonials Section -->
 
-    <main class="container" id="main">
+    <main class="container mt-5" id="main">
         <div class="row">
             <div class="col-lg-12">
-
                 @yield('content')
-
-                {{-- <!-- ======= About Section ======= -->
-            <section id="about" class="about-mf sect-pt4 route">
-                <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
-                    <div class="box-shadow-full">
-                        <x-about-component></x-about-component>
-                    </div>
-                    </div>
-                </div>
-                </div>
-            </section>
-            <!-- End About Section -->
-        
-            <!-- ======= Portfolio Section ======= -->
-            <section id="work" class="portfolio-mf sect-pt4 route">
-                <div class="container">
-                    <div class="row">
-                    <div class="col-sm-12">
-                        <div class="title-box text-center">
-                        <h3 class="title-a">
-                            Storie
-                        </h3>
-                        <p class="subtitle-a">
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                        </p>
-                        <div class="line-mf"></div>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="row">
-                    <div class="col-md-4">
-                        <x-one-storie-component :image="'assets/img/work-1.jpg'"></x-one-storie-component>
-                    </div>
-                    <div class="col-md-4">
-                        <x-one-storie-component :image="'assets/img/work-2.jpg'"></x-one-storie-component>
-                    </div>
-                    <div class="col-md-4">
-                        <x-one-storie-component :image="'assets/img/work-3.jpg'"></x-one-storie-component>
-                    </div>
-                    <div class="col-md-4">
-                        <x-one-storie-component :image="'assets/img/work-4.jpg'"></x-one-storie-component>
-                    </div>
-                    <div class="col-md-4">
-                        <x-one-storie-component :image="'assets/img/work-5.jpg'"></x-one-storie-component>
-                    </div>
-                    <div class="col-md-4">
-                        <x-one-storie-component :image="'assets/img/work-6.jpg'"></x-one-storie-component>
-                    </div>
-            
-                    </div>
-                </div>
-                </section>
-            <!-- End Portfolio Section -->
-        
-        
-            <!-- ======= Blog Section ======= -->
-            <section id="blog" class="blog-mf sect-pt4 route">
-                <div class="container">
-                    <div class="row">
-                    <div class="col-sm-12">
-                        <div class="title-box text-center">
-                        <h3 class="title-a">
-                            Gallerie
-                        </h3>
-                        <p class="subtitle-a">
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                        </p>
-                        <div class="line-mf"></div>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="row">
-                    <div class="col-md-4">
-                        <x-one-gallery-component :image="'assets/img/post-1.jpg'" :description="'descript 1 '"></x-one-gallery-component>
-                    </div>
-                    <div class="col-md-4">
-                        <x-one-gallery-component :image="'assets/img/post-2.jpg'" :description="'descript 2 '"></x-one-gallery-component>
-                        
-                    </div>
-                    <div class="col-md-4">
-                        <x-one-gallery-component :image="'assets/img/post-3.jpg'" :description="'descript 3'"></x-one-gallery-component>
-                    </div>
-                    </div>
-                </div>
-                </section>
-            <!-- End Blog Section -->
-         --}}
-
             </div>
 
             @if (!isset($currentRoute))
