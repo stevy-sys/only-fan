@@ -2,12 +2,16 @@
 <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"><a href="{{ route('accueil', ['locale' => session('locale')]) }}">{{$config->app_name}}</a></h1>
+      <h1 class="logo">
+        <img src="assets/img/logo.png" alt="" class="img-fluid">
+        <a class="apps-name" href="{{ route('accueil', ['locale' => session('locale')]) }}">{{$config->app_name}}
+        </a>
+      </h1>
       {{-- Uncomment below if you prefer to use an image logo  --}}
       {{-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> --}}
 
       <div class="col">
-          <div style="margin-left: 30px; display: flex;">
+          <div style="margin-top: 23px;margin-left: 0px;display: flex;justify-content: center;align-items: center;">
               @foreach ($stories as $storie)
                   <div class="mx-1">
                       {{-- <div><img src="{{asset('storage/media').'/'.$storie->collectionStorie[0]->mediable->name}}" style=" width: 200px; height: 200px; object-fit: cover;" class="img-fluid rounded-circle d-block" alt=""></div> --}}

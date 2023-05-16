@@ -65,7 +65,7 @@
                             <div class="testimonial-box">
                                 <div class="author-test">
                                     <img src="/assets/img/couverture.png" alt="">
-                                </div>
+      --------------                          </div>
                             </div>
                         </div>
                     @endif
