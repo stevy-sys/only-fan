@@ -45,7 +45,7 @@
     {{-- <div class="testimonials paralax-mf bg-image" style="background-image: url(assets/img/couverture.png) ; padding: 10rem 0;"> --}}
     {{-- <div class="overlay-mf"></div> --}}
     
-    @if (Illuminate\Support\Facades\Route::currentRouteName() != 'subscribe.index')
+    @if (Illuminate\Support\Facades\Route::currentRouteName() == 'accueil')
         <div class="row">
             <div class="col-md-12">
                 <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
@@ -66,7 +66,7 @@
                                 <div class="testimonial-box">
                                     <div class="author-test">
                                         <img src="/assets/img/couverture.png" alt="">
-        --------------                          </div>
+                                </div>
                                 </div>
                             </div>
                         @endif
@@ -79,7 +79,7 @@
     {{-- </div> --}}
     <!-- End Testimonials Section -->
 
-    <main class="container mt-5" id="main">
+    <main class="container mt-5" id="main" style="margin-top: 140px !important;">
         <div class="row">
             <div class="col-lg-12">
                 @yield('content')

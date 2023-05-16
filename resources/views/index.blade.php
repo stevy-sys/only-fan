@@ -86,6 +86,30 @@
                         </x-one-gallery-component>
                     </div>
                 @endforeach
+                @foreach ($mediaHomes as $gallerie)
+                <div class="col-md-2 img-block">
+                    <x-one-gallery-component 
+                        enctype="{{ $gallerie->media->enctype }}" id="{{ $gallerie->media->id }}"
+                        type="{{ $gallerie->media->type }}"
+                        file="{{ asset('storage/media') . '/' . $gallerie->media->name }}" 
+                        :description="'descript 1 '"
+                        active="{{ $gallerie->media->active }}"
+                        >
+                    </x-one-gallery-component>
+                </div>
+            @endforeach
+            @foreach ($mediaHomes as $gallerie)
+            <div class="col-md-2 img-block">
+                <x-one-gallery-component 
+                    enctype="{{ $gallerie->media->enctype }}" id="{{ $gallerie->media->id }}"
+                    type="{{ $gallerie->media->type }}"
+                    file="{{ asset('storage/media') . '/' . $gallerie->media->name }}" 
+                    :description="'descript 1 '"
+                    active="{{ $gallerie->media->active }}"
+                    >
+                </x-one-gallery-component>
+            </div>
+        @endforeach
             </div>
         </div>
     </section>

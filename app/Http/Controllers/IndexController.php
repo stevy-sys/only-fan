@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use Stripe\Charge;
+use Stripe\Stripe;
 use App\Models\Media;
 use App\Models\Storie;
+use App\Models\Invoice;
 use App\Models\Product;
 use App\Models\MediaHome;
+use App\Models\Subscription;
 use Illuminate\Http\Request;
 use App\Models\DetailPayment;
 use App\Models\CouvertureHome;
-use App\Models\Invoice;
-use App\Models\Subscription;
 use Illuminate\Support\Facades\Auth;
-use Stripe\Charge;
-use Stripe\Stripe;
+use Illuminate\Support\Facades\Route;
 
 class IndexController extends Controller
 {

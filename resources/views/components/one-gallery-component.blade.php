@@ -14,6 +14,8 @@
             width: 200px;
             height: 175px;
             border-radius: 30px;
+          margin:1px;
+
         ">
         </a>
       </div>
@@ -41,6 +43,8 @@
               width: 200px;
               height: 175px;
               border-radius: 30px;
+          margin:1px;
+
               ">
             </a>
         </div>
@@ -66,6 +70,7 @@
           width: 200px;
           height: 175px;
           border-radius: 30px;
+          margin:1px;
           ">
         </a>
     </div>
