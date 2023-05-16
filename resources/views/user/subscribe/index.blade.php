@@ -10,23 +10,22 @@
     </style>
 @endsection
 @section('content')
-    <div class="container mt-3">
-        <div class="card-deck">
+    <div class="container mt-5">
+        <div class="card-deck d-flex justify-content-center" style=" margin-top: 100px;">
             @foreach ($subscribes as $subscribe)
-
             <div class="service-box">
                 <div class="service-ico">
                     <span class="ico-circle"><i class="bi bi-briefcase"></i></span>
                 </div>
                 <div class="service-content">
                     <h2 class="s-title"> {{$subscribe->amount}} €</h2>
-                    <p class="s-description text-center">
+                    {{-- <p class="s-description text-center">
                         <ul>
                             <li>Lorem ipsum dolor sit amet.</li>
                             <li>Lorem, ipsum.</li>
                             <li>Lorem ipsum dolor sit.</li>
                         </ul>
-                    </p>
+                    </p> --}}
                     <form action="{{ route('payment.process',['locale' => session('locale')]) }}" method="POST">
                         <input type="hidden" value="{{$subscribe->id}}" name="subscribe">
                         @csrf

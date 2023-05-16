@@ -45,35 +45,37 @@
     {{-- <div class="testimonials paralax-mf bg-image" style="background-image: url(assets/img/couverture.png) ; padding: 10rem 0;"> --}}
     {{-- <div class="overlay-mf"></div> --}}
     
-    <div class="row">
-        <div class="col-md-12">
-            <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-                <div class="swiper-wrapper">
-                    @if ($couverturesHome->count() > 0)
-                        @foreach ($couverturesHome as $couverture)
+    @if (Illuminate\Support\Facades\Route::currentRouteName() != 'subscribe.index')
+        <div class="row">
+            <div class="col-md-12">
+                <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+                    <div class="swiper-wrapper">
+                        @if ($couverturesHome->count() > 0)
+                            @foreach ($couverturesHome as $couverture)
+                                <div class="swiper-slide">
+                                    <div class="testimonial-box">
+                                        <div class="author-test">
+                                            <img src="{{ asset('').'storage/media/' . $couverture->media->name }}"
+                                                alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @else
                             <div class="swiper-slide">
                                 <div class="testimonial-box">
                                     <div class="author-test">
-                                        <img src="{{ asset('').'storage/media/' . $couverture->media->name }}"
-                                            alt="">
-                                    </div>
+                                        <img src="/assets/img/couverture.png" alt="">
+        --------------                          </div>
                                 </div>
                             </div>
-                        @endforeach
-                    @else
-                        <div class="swiper-slide">
-                            <div class="testimonial-box">
-                                <div class="author-test">
-                                    <img src="/assets/img/couverture.png" alt="">
-      --------------                          </div>
-                            </div>
-                        </div>
-                    @endif
+                        @endif
+                    </div>
+                    <div class="swiper-pagination"></div>
                 </div>
-                <div class="swiper-pagination"></div>
             </div>
         </div>
-    </div>
+    @endif
     {{-- </div> --}}
     <!-- End Testimonials Section -->
 
