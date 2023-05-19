@@ -1,5 +1,6 @@
 <!-- ======= Header ======= -->
-<header id="header" class="fixed-top" >
+<header id="header" class="" >
+  {{-- <header id="header" class="fixed-top" > --}}
     <div class="container d-flex align-items-center justify-content-between">
 
       <h1 class="logo">
@@ -14,7 +15,6 @@
           <div style="margin-top: 23px;margin-left: 0px;display: flex;justify-content: center;align-items: center;">
               @foreach ($stories as $storie)
                   <div class="mx-1">
-                      {{-- <div><img src="{{asset('storage/media').'/'.$storie->collectionStorie[0]->mediable->name}}" style=" width: 200px; height: 200px; object-fit: cover;" class="img-fluid rounded-circle d-block" alt=""></div> --}}
                       <a href="#" data-toggle="modal" data-target="#exampleModal-{{ $storie->id }}">
                           <img src="{{asset('storage/media').'/'.$storie->collectionStorie[0]->mediable->name}}" class="one-storie img-fluid rounded-circle d-block text-center" alt="">
                           <h6>{{ $storie->name }}</h6>
@@ -27,22 +27,22 @@
       <nav id="navbar" class="navbar">
         <ul>
           @auth
-          @if ($liveDispo)
-            <li>
-              <a style="color:black" class="nav-link scrollto" href="{{route('live.consumer', ['locale' => session('locale'), 'streamId' => '212acde2'])}}">
-                live disponible
-              </a>
-            </li>
-          @endif
-          @if (auth()->check())
+            @if ($liveDispo && $config->active_live)
+              <li>
+                <a style="color:black" class="nav-link scrollto" href="{{route('live.consumer', ['locale' => session('locale'), 'streamId' => '212acde2'])}}">
+                  live disponible
+                </a>
+              </li>
+            @endif
+            @if (auth()->check())
               @if (auth()->user()->role == 'admin')
               <li>
-                <a class="nav-link scrollto" href="{{route('customer.dashboard')}}" }}">
+                <a class="nav-link scrollto" href="{{route('customer.dashboard')}}">
                     Dashboard
                 </a>
               </li>
               @endif
-          @endif
+            @endif
 
           <li>
             {{-- <i class="bi bi-house"></i> --}}

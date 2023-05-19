@@ -52,22 +52,24 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="service-box">
-                            <div class="service-ico">
-                                <a
-                                    href="{{ route('live.consumer', ['locale' => session('locale'), 'streamId' => '212acde2']) }}">
-                                    <span class="ico-circle"><i class="bi bi-camera-reels-fill"></i></span>
-                                </a>
-                            </div>
-                            <div class="service-content">
-                                <h2 class="s-title">Live</h2>
-                                <p class="s-description text-center">
-                                    Regarder des video en streaming a tout moment
-                                </p>
+                    @if ($config->active_live == true)
+                        <div class="col-lg-4">
+                            <div class="service-box">
+                                <div class="service-ico">
+                                    <a
+                                        href="{{ route('live.consumer', ['locale' => session('locale'), 'streamId' => '212acde2']) }}">
+                                        <span class="ico-circle"><i class="bi bi-camera-reels-fill"></i></span>
+                                    </a>
+                                </div>
+                                <div class="service-content">
+                                    <h2 class="s-title">Live</h2>
+                                    <p class="s-description text-center">
+                                        Regarder des video en streaming a tout moment
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endif
                     <div class="col-lg-4">
                         <div class="service-box">
                             <div class="service-ico">

@@ -14,7 +14,6 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('admin.config.store') }}">
                         @csrf
-
                         <div class="form-group row mb-5">
                             <label for="name" style="font-weight: bold;" class="col-md-4 col-form-label text-md-right">App name</label>
                             <div class="col-md-6">
@@ -42,6 +41,16 @@
                             <label for="color" style="font-weight: bold;" class="col-md-4 col-form-label text-md-right">Color texte</label>
                             <div class="col-md-6">
                                 <input id="color" type="texte" class="form-control" name="texte_color" value="{{$config->texte_color}}">
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-5">
+                            <label for="color" style="font-weight: bold;" class="col-md-4 col-form-label text-md-right">Live</label>
+                            <div class="col-md-6">
+                                <select class="form-control" name="active_live" id="">
+                                    <option @selected($config->active_live == true) value="1">active</option>
+                                    <option @selected($config->active_live == false) value="0">desactive</option>
+                                </select>
                             </div>
                         </div>
 

@@ -26,6 +26,7 @@ use App\Http\Controllers\Admin\InvoiceController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Admin\GallerieController;
+use App\Http\Controllers\Admin\SubscriptionController;
 
 Route::get('/test','App\Http\Controllers\IndexController@index');
 Route::get('/testBoutique','App\Http\Controllers\IndexController@testBoutique');
@@ -138,6 +139,15 @@ Route::middleware(['customer'])->prefix('admin/')->group(function () {
         Route::post('product/create', 'store')->name('admin.product.store');
         Route::post('product/update', 'update')->name('admin.product.update');
         Route::get('product/{product}', 'active')->name('admin.product.active');
+    });
+
+    Route::controller(SubscriptionController::class)->group(function () {
+        Route::get('subscription', 'index')->name('admin.subscription.index');
+        Route::get('view/{subscription}', 'viewSubscription')->name('admin.subscription.view');
+        Route::get('delete/{subscription}', 'delete')->name('admin.subscription.delete');
+        Route::post('update/{subscription}', 'update')->name('admin.subscription.update');
+        Route::get('subscription/create', 'create')->name('admin.subscription.create');
+        Route::post('subscription/newSubscription', 'createSubscription')->name('admin.subscription.newSubscription');
     });
 });
 

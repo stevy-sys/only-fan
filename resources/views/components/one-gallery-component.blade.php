@@ -14,8 +14,7 @@
             width: 200px;
             height: 175px;
             border-radius: 30px;
-          margin:1px;
-
+            margin:1px;
         ">
         </a>
       </div>
