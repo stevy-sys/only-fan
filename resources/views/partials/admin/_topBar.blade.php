@@ -4,6 +4,7 @@
     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
         <i class="fa fa-bars"></i>
     </button>
+    <button class="btn btn-secondary" onclick="javascript:history.back()">Retour</button>
 
     <!-- Topbar Search -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">

@@ -64,7 +64,7 @@
                 <div class="col-sm-12">
                     <div class="title-box text-center">
                         <h3 class="title-a">
-                            Gallerie
+                            Galleries
                         </h3>
                         <p class="subtitle-a">
                             {!! $text->gallerie_title !!}
@@ -74,8 +74,9 @@
                 </div>
             </div>
             <div class="row">
+                
                 @foreach ($mediaHomes as $gallerie)
-                    <div class="col-md-2 img-block">
+                    <div class="col-md-3 img-block">
                         <x-one-gallery-component 
                             enctype="{{ $gallerie->media->enctype }}" id="{{ $gallerie->media->id }}"
                             type="{{ $gallerie->media->type }}"
@@ -86,6 +87,18 @@
                         </x-one-gallery-component>
                     </div>
                 @endforeach
+                {{-- @foreach ($mediaHomes as $gallerie)
+                    <div class="col-md-3 img-block">
+                        <x-one-gallery-component 
+                            enctype="{{ $gallerie->media->enctype }}" id="{{ $gallerie->media->id }}"
+                            type="{{ $gallerie->media->type }}"
+                            file="{{ asset('storage/media') . '/' . $gallerie->media->name }}" 
+                            :description="'descript 1 '"
+                            active="{{ $gallerie->media->active }}"
+                            >
+                        </x-one-gallery-component>
+                    </div>
+                @endforeach --}}
             </div>
         </div>
     </section>

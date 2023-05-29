@@ -967,7 +967,7 @@ a:hover {
 }
 
 .work-box:hover img {
-  transform: scale(1.3);
+  /* transform: scale(1.3); */
 }
 
 .work-img {
@@ -1510,7 +1510,7 @@ footer .credits a {
       width: 90px !important;
       height: 90px !important;
   }
-  .col-md-2.img-block {
+  .col-md-3.img-block {
     width: auto;
   }
   .apps-name{
@@ -1563,7 +1563,7 @@ footer .credits a {
     object-fit: cover; */
   }
 
-  .col-md-2.img-block {
+  .col-md-3.img-block {
     width: auto;
   }
   /* i.bi.bi-lock.cadena {
@@ -1593,7 +1593,7 @@ footer .credits a {
     width: 90px !important;
     height: 90px !important;
   }
-  .col-md-2.img-block {
+  .col-md-3.img-block {
     width: auto;
   }
   .apps-name{

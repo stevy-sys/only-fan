@@ -16,33 +16,35 @@ class MediaController extends Controller
 
     public function store(Request $request)
     {
-        $file = $request->file('video');
+        $files = $request->file('video');
         // Stockage de la vidéo dans le système de stockage de Laravel
-        $filename = $file->hashName();
-        $path = $file->store('public/media');
-        $type = null ;
-
-        switch ($file->getMimeType()) {
-            case 'video/mp4':
-                $type = 'video';
-                break;
-            case 'image/png':
-                $type = 'image';
-                break;
-            case 'image/jpeg':
-                $type = 'image';
-                break;
-            default:
-            $type = null;
-                break;
-        }
-        if (isset($type)) {
-            $media = Media::create([
-                'type' => $type,
-                'name' => $filename,
-                'path' => $path,
-                'enctype' => $file->getMimeType()
-            ]);
+        foreach ($files as $file) {
+            $filename = $file->hashName();
+            $path = $file->store('public/media');
+            $type = null ;
+    
+            switch ($file->getMimeType()) {
+                case 'video/mp4':
+                    $type = 'video';
+                    break;
+                case 'image/png':
+                    $type = 'image';
+                    break;
+                case 'image/jpeg':
+                    $type = 'image';
+                    break;
+                default:
+                $type = null;
+                    break;
+            }
+            if (isset($type)) {
+                $media = Media::create([
+                    'type' => $type,
+                    'name' => $filename,
+                    'path' => $path,
+                    'enctype' => $file->getMimeType()
+                ]);
+            }
         }
 
     

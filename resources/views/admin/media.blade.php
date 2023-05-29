@@ -25,7 +25,7 @@
                 @csrf
                 <div>
                     <label for="video">Sélectionner une fichier</label>
-                    <input type="file" name="video" id="video">
+                    <input type="file" multiple name="video[]" id="video">
                 </div>
                 <button type="submit">Envoyer</button>
             </form>

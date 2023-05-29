@@ -29,7 +29,7 @@ class IndexController extends Controller
     {
         $mediaHomes = MediaHome::with('media')->get();
         // $stories = Storie::with(['media','collectionStorie.mediable'])->get();
-        // dd($stories);
+        
         $couvertures = CouvertureHome::with('media')->get();
         return view('index',compact('mediaHomes','couvertures'));
     }
