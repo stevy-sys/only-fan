@@ -1598,9 +1598,9 @@ footer .credits a {
     height: 90px !important;
   } */
   .col-md-3.img-block {
-    width: 97px;
+    width: 117px;
     height: 85px;
-
+    margin-bottom: 23px;
   }
 
   .col-md-3.img-block img {
