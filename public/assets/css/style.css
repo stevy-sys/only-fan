@@ -960,7 +960,7 @@ a:hover {
 # Portfolio
 --------------------------------------------------------------*/
 .work-box {
-  margin-bottom: 3rem;
+  /* margin-bottom: 3rem; */
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   background-color: #fff;
@@ -1667,7 +1667,7 @@ footer .credits a {
 }
 
 .img-block {
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 
 
