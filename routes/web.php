@@ -51,6 +51,7 @@ Route::post('/stream-answer', 'App\Http\Controllers\WebrtcStreamingController@ma
 Route::get('/', 'App\Http\Controllers\IndexController@index')->name('accueil')->middleware('setLanguage');
 Route::get('/boutique', 'App\Http\Controllers\IndexController@boutique')->name('boutique')->middleware('setLanguage');
 Route::post('/boutique/payment/process', 'App\Http\Controllers\IndexController@process')->name('payment.boutique.process')->middleware('setLanguage');
+Route::post('/boutique/payment/wallet', 'App\Http\Controllers\IndexController@paywallet')->name('payment.boutique.wallet')->middleware('setLanguage');
 Route::get('/boutique/detail', 'App\Http\Controllers\IndexController@getDetailPaiment')->name('boutique.getDetailPaiment')->middleware(['setLanguage','auth']);
 Route::get('/boutique/{product}', 'App\Http\Controllers\IndexController@addToCart')->name('boutique.add')->middleware(['setLanguage','auth']);
 
@@ -94,6 +95,7 @@ Route::middleware(['customer'])->prefix('admin/')->group(function () {
 
     Route::controller(UserController::class)->group(function () {
         Route::get('user/list', 'index')->name('admin.user.index');
+        Route::post('user/update', 'updateWallet')->name('admin.user.update.wallet');
     });
 
     Route::controller(InvoiceController::class)->group(function () {

@@ -12,15 +12,19 @@ class OneProductComponent extends Component
     public $id ;
     public $name ;
     public $inCart ;
+    public $price ;
+    public $wallet ;
     /**
      * Create a new component instance.
      */
-    public function __construct($image,$id,$nameproduct,$inCart)
+    public function __construct($image,$id,$nameproduct,$inCart,$price,$wallet)
     {
         $this->image = $image;
         $this->id = $id;
         $this->name = $nameproduct;
         $this->inCart = $inCart;
+        $this->price = $price;
+        $this->wallet = $wallet;
     }
 
     /**

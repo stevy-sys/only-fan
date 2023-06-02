@@ -21,7 +21,7 @@
         <div class="row">
             @foreach ($products as $product)
                 <div class="col-md-4">
-                    <x-one-product-component inCart="{{$product->in_cart}}" nameproduct="{{$product->name}}" id="{{$product->id}}" image="{{asset('storage/media/'.$product->media)}}"></x-one-product-component>
+                    <x-one-product-component wallet="{{$product->wallet}}" price="{{$product->price}}" inCart="{{$product->in_cart}}" nameproduct="{{$product->name}}" id="{{$product->id}}" image="{{asset('storage/media/'.$product->media)}}"></x-one-product-component>
                 </div>
             @endforeach
  

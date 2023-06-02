@@ -34,6 +34,10 @@
                             <td><strong>{{$total}}</strong></td>
                         </tr>
                         <tr>
+                            <td><strong>Total points</strong></td>
+                            <td><strong>{{$totalWallet}} {{ $config->unite_point }}</strong></td>
+                        </tr>
+                        <tr>
                             <td><strong>{{ __('messages.type_de_livraison') }}</strong></td>
                             <td><strong>Standard</strong></td>
                         </tr>
@@ -67,6 +71,15 @@
                                 <input type="hidden" value="{{$total}}" name="total">
                                 <input type="hidden" value="{{$detail->id}}" name="detail">
                                 <button style="padding-left: 24px;padding-right: 24px;padding-top: 4px;font-size: 14px;font-weight: bold;" class="btn btn-primary" type="submit">Paypal <i class="bi bi-paypal"></i> </button>
+                            </form>
+                        </div>
+                        <br>
+                        <div>
+                            <form class="mt-1" action="{{ route('payment.boutique.wallet') }}" method="POST">
+                                @csrf
+                                <input type="hidden" value="{{$totalWallet}}" name="total">
+                                <input type="hidden" value="{{$detail->id}}" name="detail">
+                                <button style="padding-left: 24px;padding-right: 24px;padding-top: 4px;font-size: 14px;font-weight: bold;" class="btn btn-primary" type="submit">Payer avec les points</button>
                             </form>
                         </div>
                     </div>

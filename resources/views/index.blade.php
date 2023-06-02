@@ -87,7 +87,7 @@
                         </x-one-gallery-component>
                     </div>
                 @endforeach
-                {{-- @foreach ($mediaHomes as $gallerie)
+                @foreach ($mediaHomes as $gallerie)
                     <div class="col-md-3 img-block">
                         <x-one-gallery-component 
                             enctype="{{ $gallerie->media->enctype }}" id="{{ $gallerie->media->id }}"
@@ -98,7 +98,7 @@
                             >
                         </x-one-gallery-component>
                     </div>
-                @endforeach --}}
+                @endforeach
             </div>
         </div>
     </section>

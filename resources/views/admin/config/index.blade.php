@@ -45,6 +45,13 @@
                         </div>
 
                         <div class="form-group row mb-5">
+                            <label for="color" style="font-weight: bold;" class="col-md-4 col-form-label text-md-right">definition point</label>
+                            <div class="col-md-6">
+                                <input id="color" type="texte" class="form-control" name="unite_point" value="{{$config->unite_point}}">
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-5">
                             <label for="color" style="font-weight: bold;" class="col-md-4 col-form-label text-md-right">Live</label>
                             <div class="col-md-6">
                                 <select class="form-control" name="active_live" id="">

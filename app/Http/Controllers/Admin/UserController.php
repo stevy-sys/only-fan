@@ -15,4 +15,13 @@ class UserController extends Controller
         $users = User::with('profile')->get();
         return view("admin.user.index",compact('users'));
     }
+
+    public function updateWallet(Request $request)
+    {
+        $user = User::find($request->user_id);
+        $user->update([
+            'wallet' => $request->wallet
+        ]);
+        return redirect()->back();
+    }
 }

@@ -97,6 +97,15 @@
               <li><a href="#">Espagnol</a></li>
             </ul>
           </li>
+
+          @auth
+            <li>
+              {{-- <i class="bi bi-house"></i> --}}
+              <a class="">
+                  ({{auth()->user()->wallet}} {{$config->unite_point}})
+              </a>
+            </li>
+          @endauth
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>

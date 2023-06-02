@@ -9,6 +9,7 @@
                     <th scope="col">name</th>
                     <th scope="col">email</th>
                     <th scope="col">premium</th>
+                    <th scope="col">wallet</th>
                     <th scope="col">role</th>
                     <th scope="col">profile</th>
                 </tr>
@@ -25,6 +26,19 @@
                             @else
                                 none
                             @endif
+                        </td>
+                        <td>{{ $user->wallet }} 
+                            <a 
+                                href="#" 
+                                data-toggle="modal" 
+                                data-target="#wallet-{{$user->id}}"
+                                class="fancybox"
+                                rel="ligthbox"
+                            >
+                            <button class="btn btn-info">
+                                +
+                            </button>
+                            </a>
                         </td>
                         <td>{{ $user->role }}</td>
                         <td> 
@@ -44,7 +58,7 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalLabel">Info</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
                                     <div class="mb-3">
@@ -55,7 +69,30 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="wallet-{{$user->id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">wallet</h5>
+                                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form method="post" action="{{route('admin.user.update.wallet')}}">
+                                        @csrf
+                                        <input name="wallet" value="{{$user->wallet}}" type="number" class="form-control">
+                                        <input name="user_id" value="{{$user->id}}" type="hidden" class="form-control">
+                                        <input class="mt-3 btn btn-primary" type="submit" value="enregistrer">
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
                                 </div>
                             </div>
                         </div>

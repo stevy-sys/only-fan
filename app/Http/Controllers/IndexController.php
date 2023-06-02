@@ -43,7 +43,7 @@ class IndexController extends Controller
 
     public function addToCart(Product $product)
     {
-        $detail = DetailPayment::where('user_id',Auth::id())->first();
+        $detail = DetailPayment::where('user_id',Auth::id())->whereNull('status')->first();
         if (!isset($detail)) {
             $detail = DetailPayment::create([
                 'total' =>  0,
@@ -70,17 +70,42 @@ class IndexController extends Controller
         return redirect()->back();
     }
 
+    public function paywallet(Request $request)
+    {
+        $user = Auth::user() ;
+        if ($user->wallet < $request->total) {
+            return redirect()->back();
+        }
+        $rest = $user->wallet - $request->total ;
+        $detail = DetailPayment::where('user_id',Auth::id())->whereNull('status')->first();
+        $invoice = Invoice::create([
+            'detail_id' => $detail->id,
+            'numero' => uniqid(),
+            'user_id' => $user->id,
+            'paiment' => 'point'
+        ]);
+
+        $detail->update([
+            'status' => 'payer'
+        ]);
+
+        $user->update(['wallet' => $rest]);
+        return redirect()->back();
+    }
+
     public function getDetailPaiment()
     {
         $detail = DetailPayment::with('commands.product')->where('user_id',Auth::id())->whereNull('status')->first();
         $total = 0 ;
+        $totalWallet = 0 ;
         if (isset($detail)) {
             foreach ($detail->commands as $command) {
                 $total = $total + $command->product->price ;
+                $totalWallet = $totalWallet + $command->product->wallet ;
             }
         }
 
-        return view('cart',compact('total','detail'));
+        return view('cart',compact('total','detail','totalWallet'));
     }
 
     public function process(Request $request)

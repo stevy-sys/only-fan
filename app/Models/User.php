@@ -27,7 +27,8 @@ class User extends Authenticatable
         'premium',
         'premium_type',
         'encrypt',
-        'email_verified_at'
+        'email_verified_at',
+        'wallet'
     ];
 
     /**
