@@ -20,13 +20,10 @@
         </div>
         <div class="row">
             @foreach ($products as $product)
-                {{-- <div class="col-md-4">
-                    <x-one-product-component wallet="{{$product->wallet}}" price="{{$product->price}}" inCart="{{$product->in_cart}}" nameproduct="{{$product->name}}" id="{{$product->id}}" image="{{asset('storage/media/'.$product->media)}}"></x-one-product-component>
-                </div> --}}
                 <div class="col-md-4">
                     <div class="card card-blog">
                       <div class="card-img">
-                        <a href="#"><img src="{{asset('storage/media/'.$product->media)}}" alt="" class="img-fluid"></a>
+                        <a href="#"><img src="{{asset('storage/media/'.$product->media)}}" alt="" class="img-fluid" style="max-width: 70%; "></a>
                       </div>
                       <div class="card-body">
                         <div class="card-category-box">
