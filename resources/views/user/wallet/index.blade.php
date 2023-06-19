@@ -8,7 +8,7 @@
                 <img class=""style=" width: 160px;" src="{{asset('assets/img/ruby.png')}}" alt="" srcset="">  
             </div>
             <div>
-                <h2>Avantage des wallet</h2>
+                <h2>Avantage des token</h2>
                 <div>
                     <p>Lorem ipsum dolor sit amet.</p>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga, provident.</p>
@@ -17,10 +17,10 @@
             </div>
     
             <div class="paiment-wallet">
-                <h2>Payer pour avoir</h2>
+                <h2>Payer pour avoir token</h2>
                 <div class="d-flex">
                     <div class="input-group ml-3 mb-3" style="  margin-left: 5px;  width: 147px; ">
-                        <span class="input-group-text" id="basic-addon1">point</span>
+                        <span class="input-group-text" id="basic-addon1">token</span>
                         <input id="wallet" type="number" class="form-control" placeholder="0" aria-label="Username" aria-describedby="basic-addon1">
                     </div>
                     {{-- <div>

@@ -54,7 +54,7 @@
                         <div class="post-date">
                           {{-- <span class="bi bi-plus"></span> {{$product->wallet}} --}}
                           <img class="ruby-icon" src="{{asset('assets/img/ruby.png')}}" alt="" srcset="">
-                          ( - {{$product->wallet}} point)
+                          ( - {{$product->wallet}} token)
                         </div>
                       </div>
                     </div>
