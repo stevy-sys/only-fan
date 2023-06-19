@@ -100,9 +100,10 @@
 
           @auth
             <li>
-              {{-- <i class="bi bi-house"></i> --}}
-              <a class="">
-                  ({{auth()->user()->wallet}} {{$config->unite_point}})
+              <a href="#" data-toggle="modal" data-target="#exampleModal-wallet"class="">
+                <img class="ruby-icon" src="{{asset('assets/img/ruby.png')}}" alt="" srcset="">
+                {{-- <i class="bi bi-plus"></i> --}}
+                {{auth()->user()->wallet}} {{$config->unite_point}}
               </a>
             </li>
           @endauth
@@ -115,3 +116,27 @@
   </header>
   
   <!-- End Header -->
+
+  <div class="modal fade wallet-modal" id="exampleModal-wallet" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-center" id="exampleModalLabel" style=" color: black;">Acheter point</h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="text-center" class="modal-body">
+              <div class="p-5">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, nihil.</p>
+                <p>Lorem ipsum dolor sit amet.</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores laudantium vitae ea cupiditate rem sequi nulla ipsam! Facere, libero sunt!</p>
+              </div>
+              <div class="p-5 price-wallet">
+                <div class="">
+                  <img class=""style=" width: 90px;" src="{{asset('assets/img/ruby.png')}}" alt="" srcset="">  
+                </div>
+                <div> <button class="btn btn-success"> <a href="{{route('wallet.index', ['locale' => session('locale')])}}">Acheter des points </a></button></div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>

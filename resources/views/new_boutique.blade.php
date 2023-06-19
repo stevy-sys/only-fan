@@ -20,9 +20,45 @@
         </div>
         <div class="row">
             @foreach ($products as $product)
-                <div class="col-md-4">
+                {{-- <div class="col-md-4">
                     <x-one-product-component wallet="{{$product->wallet}}" price="{{$product->price}}" inCart="{{$product->in_cart}}" nameproduct="{{$product->name}}" id="{{$product->id}}" image="{{asset('storage/media/'.$product->media)}}"></x-one-product-component>
-                </div>
+                </div> --}}
+                <div class="col-md-4">
+                    <div class="card card-blog">
+                      <div class="card-img">
+                        <a href="#"><img src="{{asset('storage/media/'.$product->media)}}" alt="" class="img-fluid"></a>
+                      </div>
+                      <div class="card-body">
+                        <div class="card-category-box">
+                          <div class="card-category">
+                            <h6 class="category">{{$product->price}} €</h6>
+                          </div>
+                        </div>
+                        <h3 class="card-title"><a href="#">{{$product->name}}</a></h3>
+                        <p class="card-description">
+                         {{$product->description}}
+                        </p>
+                      </div>
+                      <div class="card-footer">
+                        <div class="post-author">
+                            @if ($product->inCart)
+                            <button class="btn btn-danger"> <a href="{{route('boutique.add',['product' => $product->id])}}">
+                              enlever
+                            </a> </button>
+                          @else
+                          <button class="btn btn-success"> <a href="{{route('boutique.add',['product' => $product->id])}}">
+                            ajouter
+                          </a> </button>
+                          @endif
+                        </div>
+                        <div class="post-date">
+                          {{-- <span class="bi bi-plus"></span> {{$product->wallet}} --}}
+                          <img class="ruby-icon" src="{{asset('assets/img/ruby.png')}}" alt="" srcset="">
+                          ( - {{$product->wallet}} point)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
             @endforeach
  
         </div>

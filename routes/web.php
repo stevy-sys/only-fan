@@ -171,6 +171,8 @@ Route::group(['prefix' => '{locale}', 'middleware' => ['auth','setLanguage']], f
     Route::post('/payment/process', 'App\Http\Controllers\User\SubscribeController@process')->name('payment.process');
 
 
+    Route::get('/wallet', 'App\Http\Controllers\User\WalletController@index')->name('wallet.index');
+
     Route::get('/gallery', 'App\Http\Controllers\User\GalleryController@index')->name('gallery.index');
     Route::post('/media/like', 'App\Http\Controllers\User\GalleryController@like')->name('media.like')->middleware('subscriber');
     Route::get('/media/{media}', 'App\Http\Controllers\User\GalleryController@show')->name('media.show')->middleware('subscriber');

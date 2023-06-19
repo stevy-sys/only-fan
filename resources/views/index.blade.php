@@ -312,7 +312,7 @@
     </section>
 
     @foreach ($stories as $storie)
-    <div class="modal fade" id="exampleModal-{{ $storie->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade modal-storie" id="exampleModal-{{ $storie->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">

@@ -1502,7 +1502,38 @@ footer .credits {
 footer .credits a {
   color: #fff;
 }
+img.ruby-icon {
+  width: 40px;
+}
+.wallet-modal{
+  --bs-modal-width: 60%;
+}
 
+.modal-storie {
+  --bs-modal-width: 70%;
+}
+
+.image-wallet {
+  border: 1px solid;
+  width: 200px;
+}
+.wallet-balance {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+.wallet-couv{
+  width: 197px;
+  height: 100px;
+  border: 1px solid;
+}
+
+.price-wallet{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
 
 /* iPhone X et iPhone 11 */
 @media only screen 
