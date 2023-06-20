@@ -22,17 +22,17 @@
                     @csrf
                     <div class="input-group ml-3 mb-3" style="  margin-left: 5px;  width: 147px; ">
                         <span class="input-group-text" id="basic-addon1">token</span>
-                        <input name="wallet" id="wallet" type="number" class="form-control" placeholder="0" aria-label="Username" aria-describedby="basic-addon1">
+                        <input name="wallet" id="wallet" type="number" class="form-control" placeholder="0">
                     </div>
                     {{-- <div>
                         <input id="wallet" type="number" class="form-control mb-1 mr-5" style=" width: 76px; ">
                     </div> --}}
                     <div class="input-group ml-3 mb-3" style="  margin-left: 5px;margin-right: 5px;  width: 147px; ">
-                        <input name="ballance" id="ballance" disabled type="text" class="form-control" placeholder="0.00" aria-label="Username" aria-describedby="basic-addon1">
+                        <input name="ballance" id="ballance" disabled type="text" class="form-control" placeholder="0.00" >
                         <span class="input-group-text" id="basic-addon1">€</span>
                     </div>
                     {{-- <input disabled type="number" class="form-control mb-1" style=" width: 100px; ">€ --}}
-                    <div><button type="submit" class="btn btn-danger ">Valider</button></div>
+                    <div><button id="submit" disabled type="submit" class="btn btn-danger ">Valider</button></div>
                 </form>
             </div>
         </div>
@@ -43,12 +43,21 @@
 @section('scripts')
     <script>
         $(document).ready(function() {
-            $("#wallet").change(function(event) {
+            $("#wallet").on('keypress change',function(event) {
                 var value = $(this).val();
-                let bal = value *  5 ;
+                let bal = value * {{$config->ballance}} ;
                 console.log(bal)
                 $("#ballance").val(bal);
+                disabledbutton(bal)
             });
+
+            function disabledbutton(valu) {
+                if (valu == 0) {
+                    $("#submit").attr('disabled',true)
+                }else{
+                    $("#submit").attr('disabled',false)
+                }
+            }
         });
     </script>
 @endsection
