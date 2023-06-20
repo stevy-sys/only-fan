@@ -46,7 +46,8 @@
             </div>
             @if (isset($detail))
                 <div class="card-footer">
-                    <div>
+                    <h4 class="securisee">PAIEMENT EN LIGNE 100% SECURISE</h4>
+                    <div class="paiment-moyen">
                         <div>
                             <form action="{{ route('payment.boutique.process',['locale' => session('locale')]) }}" method="POST">
                                 <input type="hidden" value="{{$total}}" name="total">
@@ -64,7 +65,7 @@
                                 </script>
                             </form>
                         </div>
-                        <br>
+
                         <div>
                             <form class="mt-1" action="{{ url('/paypal/handle-payment') }}" method="POST">
                                 @csrf
@@ -73,13 +74,16 @@
                                 <button style="padding-left: 24px;padding-right: 24px;padding-top: 4px;font-size: 14px;font-weight: bold;" class="btn btn-primary" type="submit">Paypal <i class="bi bi-paypal"></i> </button>
                             </form>
                         </div>
-                        <br>
+
                         <div>
                             <form class="mt-1" action="{{ route('payment.boutique.wallet') }}" method="POST">
                                 @csrf
                                 <input type="hidden" value="{{$totalWallet}}" name="total">
                                 <input type="hidden" value="{{$detail->id}}" name="detail">
-                                <button style="padding-left: 24px;padding-right: 24px;padding-top: 4px;font-size: 14px;font-weight: bold;" class="btn btn-primary" type="submit">Payer avec les points</button>
+                                <button @disabled($totalWallet > auth()->user()->wallet) style="padding-left: 24px;padding-right: 24px;padding-top: 4px;font-size: 14px;font-weight: bold;" class="btn btn-primary" type="submit">Payer avec les points</button>
+                                @if ($totalWallet > auth()->user()->wallet)
+                                    <div class="p-2 m-0 alert alert-danger">Token insuffisant</div>
+                                @endif
                             </form>
                         </div>
                     </div>

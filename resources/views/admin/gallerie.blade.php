@@ -40,8 +40,8 @@
                             </div>
                             <div class="modal-body">
                                 <div class="mb-3">
-                                    {{-- <a href="{{ route('admin.gallerie.show') }}"
-                                        class="btn btn-primary">voir</a> --}}
+                                    <a href="{{ route('admin.gallerie.delete',['media' => $media->id]) }}"
+                                        class="btn btn-primary">supprimer</a>
                                 </div>
                                 
                                 <div class="mb-3">

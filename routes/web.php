@@ -113,6 +113,7 @@ Route::middleware(['customer'])->prefix('admin/')->group(function () {
 
     Route::controller(GallerieController::class)->group(function () {
         Route::get('gallerie', 'index')->name('admin.gallerie.index');
+        Route::get('gallerie/delete/{media}', 'delete')->name('admin.gallerie.delete');
         Route::get('gallerie/media', 'show')->name('admin.gallerie.show');
         Route::get('storie', 'allStorie')->name('admin.storie.index');
         Route::get('storie/{storie}', 'showStorie')->name('admin.storie.show');
@@ -172,6 +173,9 @@ Route::group(['prefix' => '{locale}', 'middleware' => ['auth','setLanguage']], f
 
 
     Route::get('/wallet', 'App\Http\Controllers\User\WalletController@index')->name('wallet.index');
+    Route::post('/wallet/active', 'App\Http\Controllers\User\WalletController@activeWallet')->name('wallet.create');
+    Route::get('/wallet/getPayment', 'App\Http\Controllers\User\WalletController@getPayment')->name('wallet.payment');
+    Route::post('/wallet/createPaiment', 'App\Http\Controllers\User\WalletController@createPaiment')->name('wallet.createPaiment');
 
     Route::get('/gallery', 'App\Http\Controllers\User\GalleryController@index')->name('gallery.index');
     Route::post('/media/like', 'App\Http\Controllers\User\GalleryController@like')->name('media.like')->middleware('subscriber');

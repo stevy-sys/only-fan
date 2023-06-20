@@ -61,6 +61,14 @@
                             </div>
                         </div>
 
+                        <div class="form-group row mb-5">
+                            <label for="color" style="font-weight: bold;" class="col-md-4 col-form-label text-md-right">Prix d'un token</label>
+                            <div class="input-group" style="margin-left: 5px;  width: 147px; ">
+                                <input name="ballance" id="ballance" type="number" class="form-control" value="{{$config->ballance}}" placeholder="5" aria-label="Username" aria-describedby="basic-addon1">
+                                <span class="input-group-text" id="basic-addon1">€</span>
+                            </div>
+                        </div>
+
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">

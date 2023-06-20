@@ -18,22 +18,22 @@
     
             <div class="paiment-wallet">
                 <h2>Payer pour avoir token</h2>
-                <div class="d-flex">
+                <form method="post" action="{{route('wallet.create',['locale' => session('locale')]) }}" class="d-flex">
+                    @csrf
                     <div class="input-group ml-3 mb-3" style="  margin-left: 5px;  width: 147px; ">
                         <span class="input-group-text" id="basic-addon1">token</span>
-                        <input id="wallet" type="number" class="form-control" placeholder="0" aria-label="Username" aria-describedby="basic-addon1">
+                        <input name="wallet" id="wallet" type="number" class="form-control" placeholder="0" aria-label="Username" aria-describedby="basic-addon1">
                     </div>
                     {{-- <div>
                         <input id="wallet" type="number" class="form-control mb-1 mr-5" style=" width: 76px; ">
                     </div> --}}
-                    <div class="input-group ml-3 mb-3" style="  margin-left: 5px;  width: 147px; ">
-                        <input id="ballance" disabled type="text" class="form-control" placeholder="0.00" aria-label="Username" aria-describedby="basic-addon1">
+                    <div class="input-group ml-3 mb-3" style="  margin-left: 5px;margin-right: 5px;  width: 147px; ">
+                        <input name="ballance" id="ballance" disabled type="text" class="form-control" placeholder="0.00" aria-label="Username" aria-describedby="basic-addon1">
                         <span class="input-group-text" id="basic-addon1">€</span>
                     </div>
                     {{-- <input disabled type="number" class="form-control mb-1" style=" width: 100px; ">€ --}}
-                </div>
-                <div class="mb-1"><button class="btn btn-danger">Stripe</button></div>
-                <div><button class="btn btn-primary">Paypal</button></div>
+                    <div><button type="submit" class="btn btn-danger ">Valider</button></div>
+                </form>
             </div>
         </div>
     </section>

@@ -1505,6 +1505,21 @@ footer .credits a {
 img.ruby-icon {
   width: 40px;
 }
+
+.paiment-moyen {
+  padding: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  border-left: 3px solid;
+  border-bottom: 3px solid;
+  border-right: 3px solid;
+  width: 50%;
+}
+h4.securisee {
+  color: black;
+  margin-left: 64px;
+}
+
 .wallet-modal{
   --bs-modal-width: 60%;
 }
@@ -1540,6 +1555,11 @@ img.ruby-icon {
   and (device-width : 375px) 
   and (device-height : 812px) 
   and (-webkit-device-pixel-ratio : 3) {
+
+    .paiment-moyen {
+      width: 100%;
+    }
+
   /* gallery */
   /* img.img-fluid.img-gallerie {
       width: 90px !important;
@@ -1582,6 +1602,10 @@ img.ruby-icon {
   and (min-device-width : 320px) 
   and (max-device-width : 568px) 
   and (-webkit-device-pixel-ratio : 2) {
+
+    .paiment-moyen {
+      width: 100%;
+    }
   /* gallery */
     /* img.img-fluid.img-gallerie {
       width: 90px !important;

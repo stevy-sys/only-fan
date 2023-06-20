@@ -9,6 +9,7 @@ use App\Models\CouvertureHome;
 use App\Models\StorieCollection;
 use App\Jobs\Storie as JobsStorie;
 use App\Http\Controllers\Controller;
+use App\Models\MediaHome;
 
 class GallerieController extends Controller
 {
@@ -16,6 +17,15 @@ class GallerieController extends Controller
     {
         $medias = Media::all();
         return view('admin.gallerie',compact('medias'));
+    }
+
+    public function delete( int $media)
+    {
+        Media::find($media)->delete();
+        StorieCollection::where('media',$media)->delete();
+        MediaHome::where('media_id',$media)->delete();
+        CouvertureHome::where('media_id',$media)->delete();
+        return redirect()->back();
     }
 
     public function show()
