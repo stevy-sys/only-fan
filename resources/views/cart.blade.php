@@ -67,7 +67,7 @@
                         </div>
 
                         <div>
-                            <form class="mt-1" action="{{ url('/paypal/handle-payment') }}" method="POST">
+                            <form action="{{ url('/paypal/handle-payment') }}" method="POST">
                                 @csrf
                                 <input type="hidden" value="{{$total}}" name="total">
                                 <input type="hidden" value="{{$detail->id}}" name="detail">
@@ -76,7 +76,7 @@
                         </div>
 
                         <div>
-                            <form class="mt-1" action="{{ route('payment.boutique.wallet') }}" method="POST">
+                            <form action="{{ route('payment.boutique.wallet') }}" method="POST">
                                 @csrf
                                 <input type="hidden" value="{{$totalWallet}}" name="total">
                                 <input type="hidden" value="{{$detail->id}}" name="detail">

@@ -1510,6 +1510,7 @@ img.ruby-icon {
   padding: 10px;
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
   border-left: 3px solid;
   border-bottom: 3px solid;
   border-right: 3px solid;
