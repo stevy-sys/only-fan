@@ -27,6 +27,7 @@
         </form>
         <form class="mt-2" action="{{ url('/paypal/handle-payment-subscription') }}" method="POST">
             @csrf
+            <input type="hidden" value="{{$id}}" name="subscribe">
             <button style="padding-left: 24px;padding-right: 24px;padding-top: 4px;font-size: 14px;font-weight: bold;" class="btn btn-primary" type="submit">Paypal <i class="bi bi-paypal"></i> </button>
         </form>
         @else
