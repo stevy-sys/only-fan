@@ -103,7 +103,7 @@
               <a href="#" data-toggle="modal" data-target="#exampleModal-wallet"class="">
                 <img class="ruby-icon" src="{{asset('assets/img/ruby.png')}}" alt="" srcset="">
                 {{-- <i class="bi bi-plus"></i> --}}
-                {{auth()->user()->wallet}} {{$config->unite_point}}
+                {{ number_format(auth()->user()->wallet, 2, ',', '.') }} {{$config->unite_point}}
               </a>
             </li>
           @endauth

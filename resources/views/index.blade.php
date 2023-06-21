@@ -77,62 +77,26 @@
                 @foreach ($mediaHomes as $gallerie)
                     <div class="col-md-3 img-block">
                         <div class="work-box">
-                            @if ($gallerie->media->active)
+                            {{-- @if ($gallerie->media->active) --}}
                                 <a href="{{ asset('storage/media') . '/' . $gallerie->media->name }}" data-gallery="portfolioGallery" class="portfolio-lightbox">
                                     <div class="work-img">
                                         @if ($gallerie->media->type == 'video')
-                                            <video controls src="{{ asset('storage/media') . '/' . $gallerie->media->name }}" alt="" class="img-fluid gall-img"></video>
+                                            <video {{$gallerie->media->active ? 'controls' : ''}}   src="{{ asset('storage/media') . '/' . $gallerie->media->name }}" alt="" class="{{$gallerie->media->active ? '' : 'blurred-image'}} img-fluid gall-img"></video>
                                         @else
-                                            <img src="{{ asset('storage/media') . '/' . $gallerie->media->name }}" alt=""  class="img-fluid gall-img">
+                                            <img src="{{ asset('storage/media') . '/' . $gallerie->media->name }}" alt=""  class=" {{$gallerie->media->active ? '' : 'blurred-image'}} img-fluid gall-img">
                                         @endif
                                     </div>
                                 </a>
-                            @else
-                                <a href="assets/img/cadena.png" data-gallery="portfolioGallery" class="portfolio-lightbox">
+                            {{-- @else --}}
+                                {{-- <a href="assets/img/cadena.png" data-gallery="portfolioGallery" class="portfolio-lightbox">
                                     <div class="work-img">
-                                        {{-- @if ($gallerie->media->type == 'video')
-                                            <video src="{{ asset('storage/media') . '/' . $gallerie->media->name }}" alt="" class="img-fluid"></video>
-                                        @else --}}
-                                            <img src="assets/img/cadena.png" alt=""  class="img-fluid gall-img">
-                                        {{-- @endif --}}
+                                        <img src="assets/img/cadena.png" alt=""  class="img-fluid gall-img">
                                     </div>
                                 </a>
-                            @endif
+                            @endif --}}
                         </div>
                     </div>
                 @endforeach
-                {{-- @foreach ($mediaHomes as $gallerie)
-                    <div class="col-md-3 img-block">
-                        <div class="work-box">
-                            <a href="assets/img/work-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox">
-                            <div class="work-img">
-                                @if ($gallerie->media->type == 'video')
-                                    <video src="{{ asset('storage/media') . '/' . $gallerie->media->name }}" alt="" style="
-                                    height: 230px;
-                                " class="img-fluid"></video>
-                                @else
-                                    <img src="{{ asset('storage/media') . '/' . $gallerie->media->name }}" alt="" style="
-                                    height: 230px;
-                                " class="img-fluid">
-                                @endif
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                @endforeach --}}
-                {{-- @foreach ($mediaHomes as $gallerie)
-                    <div class="col-md-3 img-block">
-                        <x-one-gallery-component 
-                            enctype="{{ $gallerie->media->enctype }}" id="{{ $gallerie->media->id }}"
-                            type="{{ $gallerie->media->type }}"
-                            file="{{ asset('storage/media') . '/' . $gallerie->media->name }}" 
-                            :description="'descript 1 '"
-                            active="{{ $gallerie->media->active }}"
-                            >
-                        </x-one-gallery-component>
-                    </div>
-                @endforeach --}}
-                
             </div>
         </div>
     </section>

@@ -1499,6 +1499,10 @@ footer .credits {
   margin-bottom: 0;
 }
 
+.blurred-image{
+  filter: blur(8px);
+}
+
 footer .credits a {
   color: #fff;
 }

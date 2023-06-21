@@ -20,7 +20,7 @@
                     @csrf
                     <div class="input-group ml-3 mb-3" style="  margin-left: 5px;  width: 147px; ">
                         <span class="input-group-text" id="basic-addon1">token</span>
-                        <input name="wallet" id="wallet" type="number" class="form-control" placeholder="0">
+                        <input name="wallet" id="wallet" step="any" type="number" class="form-control" placeholder="0">
                     </div>
                     {{-- <div>
                         <input id="wallet" type="number" class="form-control mb-1 mr-5" style=" width: 76px; ">
@@ -44,7 +44,7 @@
             $("#wallet").on('keypress change',function(event) {
                 var value = $(this).val();
                 let bal = value * {{$config->ballance}} ;
-                console.log(bal)
+                bal = bal.toFixed(2)
                 $("#ballance").val(bal);
                 disabledbutton(bal)
             });
