@@ -10,9 +10,7 @@
             <div>
                 <h2>Avantage des token</h2>
                 <div>
-                    <p>Lorem ipsum dolor sit amet.</p>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga, provident.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                    {!!$text->token_avantage!!}
                 </div>
             </div>
     

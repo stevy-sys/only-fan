@@ -143,6 +143,19 @@
                 </div>
             </div>
         </div>
+
+        <div class="row justify-content-center mb-3">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">Avantage token</div>
+
+                    <div class="card-body">
+                        <vue-editor v-model="form.token_avantage" ></vue-editor>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="form-group row mb-0">
             <button @click="update()" class="btn btn-primary">
                 update
@@ -174,6 +187,7 @@ export default {
                 storie_title: this.data.storie_title,
                 abonnee_title: this.data.abonnee_title,
                 gallerie_title: this.data.gallerie_title,
+                token_avantage:this.data.token_avantage
             }
           
         }
