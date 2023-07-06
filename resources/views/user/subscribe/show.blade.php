@@ -21,7 +21,9 @@
                 data-name="My Shop"
                 data-description="Payment"
                 data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-                data-locale="auto">
+                data-locale="auto"
+                data-label="payer avec Stripe">
+                >
             </script>
         </form>
     </div>

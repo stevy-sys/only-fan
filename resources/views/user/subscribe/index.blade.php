@@ -38,7 +38,9 @@
                             data-name="Aphrodite"
                             data-description="{{$subscribe->name}}"
                             data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-                            data-locale="auto">
+                            data-locale="auto"
+                            data-label="payer avec Stripe">
+                            >
                         </script>
                     </form>
                     <form class="mt-2" action="{{ url('/paypal/handle-payment-subscription') }}" method="POST">
