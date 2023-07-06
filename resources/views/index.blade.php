@@ -77,9 +77,10 @@
                 @foreach ($mediaHomes as $gallerie)
                     <div class="col-md-3 img-block">
                         <div class="work-box">
-                            {{-- @if ($gallerie->media->active) --}}
-                                <a href="{{ asset('storage/media') . '/' . $gallerie->media->name }}" data-gallery="portfolioGallery" class="portfolio-lightbox">
+                            @if ($gallerie->media->active)
+                                <a href="{{ asset('storage/media') . '/' . $gallerie->media->name  }}" data-gallery="portfolioGallery" class="portfolio-lightbox {{$gallerie->media->active ? '' : 'blurred-image'}}">
                                     <div class="work-img">
+                                        
                                         @if ($gallerie->media->type == 'video')
                                             <video {{$gallerie->media->active ? 'controls' : ''}}   src="{{ asset('storage/media') . '/' . $gallerie->media->name }}" alt="" class="{{$gallerie->media->active ? '' : 'blurred-image'}} img-fluid gall-img"></video>
                                         @else
@@ -87,13 +88,18 @@
                                         @endif
                                     </div>
                                 </a>
-                            {{-- @else --}}
-                                {{-- <a href="assets/img/cadena.png" data-gallery="portfolioGallery" class="portfolio-lightbox">
-                                    <div class="work-img">
-                                        <img src="assets/img/cadena.png" alt=""  class="img-fluid gall-img">
+                            @else
+                                {{-- <a href="#" class="portfolio-lightbox"> --}}
+                                    <div class="work-img premium">
+                                        <img src="assets/img/cadena.png" alt=""  class="img-fluid gall-img cadena-lock">
+                                        @if ($gallerie->media->type == 'video')
+                                            <video {{$gallerie->media->active ? 'controls' : ''}}   src="{{ asset('storage/media') . '/' . $gallerie->media->name }}" alt="" class="{{$gallerie->media->active ? '' : 'blurred-image'}} img-fluid gall-img"></video>
+                                        @else
+                                            <img src="{{ asset('storage/media') . '/' . $gallerie->media->name }}" alt=""  class=" {{$gallerie->media->active ? '' : 'blurred-image'}} img-fluid gall-img">
+                                        @endif
                                     </div>
-                                </a>
-                            @endif --}}
+                                {{-- </a> --}}
+                            @endif
                         </div>
                     </div>
                 @endforeach

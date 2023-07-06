@@ -1591,6 +1591,9 @@ h4.securisee {
     right: 24px !important;
   } */
 
+  .work-img.premium {
+    position: relative;
+}
 
 
 
@@ -1733,4 +1736,13 @@ h4.securisee {
 
 .gall-img{
   height: 230px !important;
+}
+
+.cadena-lock{
+  position: absolute;
+  z-index: 999;
+  height: auto !important;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
