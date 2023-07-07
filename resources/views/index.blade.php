@@ -281,7 +281,7 @@
         </div>
     </section>
 
-    @foreach ($stories as $storie)
+    {{-- @foreach ($stories as $storie)
     <div class="modal fade modal-storie" id="exampleModal-{{ $storie->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -298,7 +298,6 @@
                         align-items: center;
                     ">
                             @foreach ($storie->collectionStorie as $collect)
-                                {{-- <div><img src="{{asset('storage/media').'/'.$storie->collectionStorie[0]->mediable->name}}" style=" width: 200px; height: 200px; object-fit: cover;" class="img-fluid rounded-circle d-block" alt=""></div> --}}
                                 <div>
                                     <img src="{{asset('storage/media').'/'.$collect->mediable->name}}" style=" width: 200px; height: 200px; object-fit: cover;margin:2px" class="img-fluid d-block text-center" alt="">
                                 </div>
@@ -310,6 +309,6 @@
             </div>
         </div>
     </div>
-    @endforeach
+    @endforeach --}}
     <!-- End Boutique Section -->
 @endsection

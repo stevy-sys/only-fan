@@ -25,7 +25,7 @@
             </div>
             <div class="form-group mb-3">
                 <label for="exampleInputEmail1">phone</label>
-                <input type="texte" name="phone" value="{{ $user->profile->phone }}" class="form-control"
+                <input type="texte" name="phone" value="{{ $user->profile->phone ? $user->profile->phone : '' }}" class="form-control"
                     id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
             <div class="form-group mb-3">

@@ -11,6 +11,10 @@ class ProfileController extends Controller
     public function index()
     {
         $user = Auth::user()->load('profile');
+        if (!isset($user->profile)) {
+           $user->profile()->create();
+        }
+        $user = Auth::user()->load('profile');
         return view('user.profile.index',compact('user'));
     }
 
