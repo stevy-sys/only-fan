@@ -89,7 +89,7 @@
                                     </div>
                                 </a>
                             @else
-                                {{-- <a href="#" class="portfolio-lightbox"> --}}
+                                <a href="{{ route('subscribe.index', ['locale' => session('locale')]) }}" class="">
                                     <div class="work-img premium">
                                         <img src="assets/img/cadena.png" alt=""  class="img-fluid gall-img cadena-lock">
                                         @if ($gallerie->media->type == 'video')
@@ -98,7 +98,7 @@
                                             <img src="{{ asset('storage/media') . '/' . $gallerie->media->name }}" alt=""  class=" {{$gallerie->media->active ? '' : 'blurred-image'}} img-fluid gall-img">
                                         @endif
                                     </div>
-                                {{-- </a> --}}
+                                </a>
                             @endif
                         </div>
                     </div>
