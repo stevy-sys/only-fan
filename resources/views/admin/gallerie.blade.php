@@ -40,6 +40,10 @@
                             </div>
                             <div class="modal-body">
                                 <div class="mb-3">
+                                    <a href="{{ asset('') . 'storage/media/' . $media->name }}"
+                                        class="btn btn-primary">voir</a>
+                                </div>
+                                <div class="mb-3">
                                     <a href="{{ route('admin.gallerie.delete',['media' => $media->id]) }}"
                                         class="btn btn-primary">supprimer</a>
                                 </div>

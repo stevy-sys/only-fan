@@ -1719,8 +1719,8 @@ h4.securisee {
 .work-img img,
 .work-img video {
   display: block;
-  width: 100%;
-  height: auto;
+  width: 500px;
+  height: 300px !important;
   transition: transform 0.3s ease;
 }
 
