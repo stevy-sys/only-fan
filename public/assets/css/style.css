@@ -1726,8 +1726,9 @@ h4.securisee {
 
 .work-box:hover .work-img img,
 .work-box:hover .work-img video {
-  transform: scale(1.1);
+  /* transform: scale(1.1); */
 }
+
 
 .img-block {
   /* margin-bottom: 20px; */
