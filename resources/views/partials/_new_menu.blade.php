@@ -62,7 +62,7 @@
               <ul>
                 @if (auth()->user()->role != 'admin')
                   <li><a href="{{route('home', ['locale' => session('locale')])}}"><i class="bi bi-credit-card"></i>Dashboard</a></li>
-                  <li><a href="{{route('subscribe.index', ['locale' => session('locale')])}}"><i class="bi bi-credit-card"></i>Abonnee</a></li>
+                  <li><a href="{{route('subscribe.index', ['locale' => session('locale')])}}"><i class="bi bi-credit-card"></i>Abonnement</a></li>
                   <li><a href="{{route('gallery.index', ['locale' => session('locale')])}}"><i class="bi bi-images"></i>Gallery</a></li>
                   <li><a href="{{route('chat.index', ['locale' => session('locale')])}}"><i class="bi bi-chat-left"></i>Chat</a></li>
                   <li><a href="#"><i class="bi bi-camera"></i>Live</a></li>

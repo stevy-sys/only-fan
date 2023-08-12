@@ -94,7 +94,7 @@
                                 <div class="col-sm-12">
                                     <div class="title-box text-center">
                                         <h3 class="title-a">
-                                            Abonnee
+                                            Abonnement
                                         </h3>
                                         <p class="subtitle-a">
                                             {!! $text->abonnee_title !!}

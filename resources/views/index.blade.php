@@ -148,7 +148,7 @@
                         <h2>Discussion chat direct</h2>
                         <p>
                             <a href="{{ route('subscribe.index', ['locale' => session('locale')]) }}">
-                                <p><button class="btn btn-danger"> Abonnee</button></p>
+                                <p><button class="btn btn-danger"> Abonnement</button></p>
                             </a>
                         </p>
                         <p>
@@ -186,7 +186,7 @@
                         <br>
                         <p>
                             <a href="{{ route('subscribe.index', ['locale' => session('locale')]) }}">
-                                <p><button class="btn btn-danger"> Abonnee</button></p>
+                                <p><button class="btn btn-danger"> Abonnement</button></p>
                             </a>
                         </p>
                         <p>
@@ -260,7 +260,7 @@
                         <div class="swiper-pagination"></div>
                         <p>
                             <a href="{{ route('subscribe.index', ['locale' => session('locale')]) }}">
-                                <p><button class="btn btn-danger"> Abonnee</button></p>
+                                <p><button class="btn btn-danger"> Abonnement</button></p>
                             </a>
                         </p>
                     </div>

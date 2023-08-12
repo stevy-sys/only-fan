@@ -95,7 +95,7 @@
                                 </a>
                             </div>
                             <div class="service-content">
-                                <h2 class="s-title">Abonee</h2>
+                                <h2 class="s-title">Abonnement</h2>
                                 <p class="s-description text-center">
                                     Abonnee vous en regardant des photo et video et voir des lives
                                 </p>
