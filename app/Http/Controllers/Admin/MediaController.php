@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Media;
 use App\Models\MediaHome;
 use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
 use App\Http\Controllers\Controller;
+use Illuminate\Filesystem\FilesystemAdapter;
 
 class MediaController extends Controller
 {
@@ -22,7 +24,6 @@ class MediaController extends Controller
             $filename = $file->hashName();
             $path = $file->store('public/media');
             $type = null ;
-    
             switch ($file->getMimeType()) {
                 case 'video/mp4':
                     $type = 'video';
@@ -53,13 +54,29 @@ class MediaController extends Controller
 
     public function setActiveMediaHome(Request $request)
     {
-        $existe = MediaHome::where('media_id' , $request->id)->first() ;
-        if (!isset($exist)) {
+        $exist = MediaHome::where('media_id' , $request->id)->first() ;
+        if (isset($exist)) {
+            MediaHome::where('media_id' , $request->id)->delete();
+        }else{
             $media = MediaHome::create(['media_id' => $request->id]);
         }
 
         return redirect()->back();
     }
+
+    public function setflou(Request $request)
+    {
+        $media = Media::where('id' , $request->id)->first() ;
+        $newValue = !$media->blur ;
+        $media->update([
+            'blur' => $newValue
+        ]);
+
+        return redirect()->back();
+    }
+
+
+    
 
 
     public function allGalleryHome()

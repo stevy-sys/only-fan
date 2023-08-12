@@ -90,12 +90,12 @@ class GallerieController extends Controller
         return redirect()->back();
     }
 
-    public function activeMedia(Media $media)
+    public function activeShowMedia(Media $media)
     {
-        if ($media->active == 0) {
-            $media->update(['active' => 1]);
+        if ($media->show == 0) {
+            $media->update(['show' => 1]);
         }else{
-            $media->update(['active' => 0]);
+            $media->update(['show' => 0]);
         }
 
         return redirect()->back();

@@ -89,11 +89,11 @@
             <span>Storie</span></a>
     </li>
    
-    <li class="nav-item">
+    {{-- <li class="nav-item">
         <a class="nav-link"  href="{{ route('admin.home.gallerie') }}"">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Home Gallery</span></a>
-    </li>
+    </li> --}}
     <li class="nav-item">
         <a class="nav-link" href="{{ route('admin.gallerie.index') }}">
             <i class="fas fa-photo-video"></i>

@@ -11285,3 +11285,43 @@ footer.sticky-footer .copyright {
 body.sidebar-toggled footer.sticky-footer {
   width: 100%;
 }
+
+
+.cercle_icon {
+  width: 20px;
+  height: 20px;
+  /* border: 1px solid #81ed00; */
+  border-radius: 50%;
+  /* background-color: #81ed00; */
+  margin-top: 10px;
+  margin-right: 25px;
+}
+.cercle_premium {
+  font-size: 12px;
+  margin-right: 21px;
+  border: 1px solid;
+  padding: 3px;
+  border-radius: 52px;
+  background-color: #d6e107;
+  color: white;
+  font-style: oblique;
+}
+.cercle_icon_actif {
+  border: 1px solid #81ed00;
+  background-color: #81ed00;
+  margin-right: 4px !important;
+  margin-top: 0px !important;
+}
+
+.cercle_icon_inactif {
+  border: 1px solid #ed0014;
+  background-color: #ed0014;
+}
+
+
+
+.icon_actif {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}

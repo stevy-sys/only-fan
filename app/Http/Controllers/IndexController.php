@@ -27,7 +27,9 @@ class IndexController extends Controller
 
     public function index()
     {
-        $mediaHomes = MediaHome::with('media')->get();
+        $mediaHomes = MediaHome::whereHas('media',function ($q) {
+            $q->where('show',1);
+        })->with('media')->get(); 
         // $stories = Storie::with(['media','collectionStorie.mediable'])->get();
         
         $couvertures = CouvertureHome::with('media')->get();

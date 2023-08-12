@@ -108,6 +108,7 @@ Route::middleware(['customer'])->prefix('admin/')->group(function () {
         Route::get('media', 'index')->name('admin.media.index');
         Route::post('media', 'store')->name('admin.media.store');
         Route::get('setMediaHome/{id}', 'setActiveMediaHome')->name('admin.media.set');
+        Route::get('setflou/{id}', 'setflou')->name('admin.media.setflou');
         Route::get('homeGallerie', 'allGalleryHome')->name('admin.home.gallerie');
     }); 
 
@@ -122,7 +123,7 @@ Route::middleware(['customer'])->prefix('admin/')->group(function () {
         Route::post('updateStorie', 'updateStorie')->name('admin.storie.update');
         Route::get('delete/storie/{storie}', 'deleteStorie')->name('admin.storie.delete');
         
-        Route::get('activeMedia/{media}', 'activeMedia')->name('admin.media.active');
+        Route::get('activeMedia/{media}', 'activeShowMedia')->name('admin.media.active');
         Route::get('addCouverture/{media}', 'addCouverture')->name('admin.media.addCouverture');
         Route::get('couverture', 'getAllCouverture')->name('admin.home.couverture');
         Route::get('couverture/viewActive/{couvertureHome}', 'viewCouverture')->name('admin.home.view.couverture');

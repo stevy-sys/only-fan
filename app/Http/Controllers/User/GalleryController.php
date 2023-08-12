@@ -15,13 +15,18 @@ class GalleryController extends Controller
     public function index()
     {
         $premium = false ;
+        $medias = [];
+        $mediaHomes = [] ;
         if (auth()->guard('web')->user()->premium == 1) {
             $premium = true  ;
-            $medias = Media::all();
+            $medias = Media::where('show',1)->get();
         }else{
-            $medias = MediaHome::with('media')->get()->pluck('media')->all();
+            $mediaHomes = MediaHome::whereHas('media',function ($q) {
+                $q->where('show',1);
+            })->with('media')->get();
         }
-        return view('user.gallery.index',compact('medias','premium'));
+        
+        return view('user.gallery.index',compact('medias','mediaHomes','premium'));
     }
 
     public function show($locale,Media $media)
