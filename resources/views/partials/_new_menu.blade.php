@@ -4,7 +4,7 @@
     <div class="container d-flex align-items-center justify-content-between">
 
       <h1 class="logo">
-        <img src="assets/img/logo.png" alt="" class="img-fluid">
+        <img src="/assets/img/logo.png" alt="" class="img-fluid">
         <a class="apps-name" href="{{ route('accueil', ['locale' => session('locale')]) }}">{{$config->app_name}}
         </a>
       </h1>

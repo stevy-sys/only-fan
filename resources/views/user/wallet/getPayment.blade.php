@@ -44,7 +44,7 @@
                                     data-description=""
                                     data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
                                     data-locale="auto"
-                                    data-label="payer avec Stripe">
+                                    data-label="payer avec Stripe par CB">
                                     >
                                 </script>
                             </form>

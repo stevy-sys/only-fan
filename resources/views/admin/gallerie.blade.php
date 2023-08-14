@@ -19,7 +19,7 @@
     <div class="container">
         <div class="row">
             @foreach ($medias as $media)
-                <div class="col-lg-3 col-md-12">
+                <div class="col-lg-3 col-md-12 my-2">
                     <div class="image_gallery"> 
                         <div class="icon_actif d-flex align-items-center justify-content-center">
                             <div class="cercle_icon {{ $media->show ? "cercle_icon_actif" : "cercle_icon_inactif" }}"></div>
