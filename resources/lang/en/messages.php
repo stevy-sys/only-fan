@@ -50,6 +50,8 @@ return [
     "live_disponible" => "Live Available",
     "Live" => "Live",
     "Meilleur_gallerie" => "Best of Galleries",
+    "Dashboard" => "Dashboard",
+
 
     'bienvenue' => 'Welcome to my application',
     'storie' => 'Featured Stories',

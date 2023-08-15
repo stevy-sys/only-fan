@@ -22,6 +22,8 @@
                                         data-target="#exampleModal-{{ $product->id }}" class="fancybox" rel="ligthbox">
                                             <img src="{{ asset('') . 'storage/media/' . $product->media }}" class="zoom img-fluid" alt="" />
                                     </a>
+                                    <h4> {{$product->name}} </h4>
+                                    <div> {{$product->description}} </div>
                                 </div>
 
                                 <div class="modal fade" id="exampleModal-{{ $product->id }}" tabindex="-1"

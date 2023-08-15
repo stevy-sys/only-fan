@@ -37,7 +37,7 @@ return [
     "Pas_de_live_disponible_pour_le_moment" => "Pas de live disponible pour le moment",
     "phone" => "Telephone",
     "adress" => "Addresse",
-    "payer_avec_Stripe_par_CB" => "payer avec Stripe par CB",
+    "payer_avec_Stripe_par_CB" => "Payer avec Stripe avec CB",
     "Prix_unitaire_d'un_token" => "Prix unitaire d'un token",
     "Nombre_de_token_a_acheter" => "Nombre de token a acheter",
     "Prix_total_du_token" => "Prix total du token",
@@ -51,6 +51,7 @@ return [
     "live_disponible" => "live disponible",
     "Live" => "Live",
     "Meilleur_gallerie" => "Meilleur gallerie",
+    "DASHBOARD" => "DASHBOARD",
 
     'bienvenue' => 'bienvenue dans mon application',
     'storie' => 'Les storie à la une',

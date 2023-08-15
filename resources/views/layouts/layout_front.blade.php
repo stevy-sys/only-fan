@@ -86,61 +86,123 @@
             </div>
 
             @if (!isset($currentRoute))
-                <div class="col-lg-12">
-                    <!-- ======= Services Section ======= -->
-                    <section id="services" class="services-mf pt-5 route">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="title-box text-center">
-                                        <h3 class="title-a">
-                                            {{__('messages.Abonnement')}}
-                                        </h3>
-                                        <p class="subtitle-a">
-                                            {!! $text->abonnee_title !!}
-                                        </p>
-                                        <div class="line-mf"></div>
+                @if (!auth()->check())
+                    <div class="col-lg-12">
+                        <!-- ======= Services Section ======= -->
+                        <section id="services" class="services-mf pt-5 route">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="title-box text-center">
+                                            <h3 class="title-a">
+                                                {{__('messages.Abonnement')}}
+                                            </h3>
+                                            <p class="subtitle-a">
+                                                {!! $text->abonnee_title !!}
+                                            </p>
+                                            <div class="line-mf"></div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                @foreach ($subscriptions as $subscription)
-                                    <div class="col-md-4">
-                                        <x-card-payment-component icon="bi bi-cart-plus" id="{{ $subscription->id }}"
-                                            devise="{{ $subscription->devise }}"
-                                            description="{{ $subscription->name }}"
-                                            amount="{{ $subscription->amount }}"></x-card-payment-component>
-                                    </div>
-                                @endforeach
-
-                            </div>
-                        </div>
-                    </section>
-                    <!-- End Services Section -->
-
-                    <!-- ======= Counter Section ======= -->
-                    <div class="section-counter paralax-mf bg-image mb-5">
-                        <div class="overlay-mf"
-                            style="
-                      background-color: black;
-                  "></div>
-                        <div class="container position-relative">
-                            <div class="row">
-                                <div class="col-sm-12 col-lg-6">
-                                    <x-counter-component counter="{{ $countImage }}" type="image">
-                                    </x-counter-component>
+                                <div class="row">
+                                    @foreach ($subscriptions as $subscription)
+                                        <div class="col-md-4">
+                                            <x-card-payment-component icon="bi bi-cart-plus" id="{{ $subscription->id }}"
+                                                devise="{{ $subscription->devise }}"
+                                                description="{{ $subscription->name }}"
+                                                amount="{{ $subscription->amount }}"></x-card-payment-component>
+                                        </div>
+                                    @endforeach
 
                                 </div>
-                                <div class="col-sm-12 col-lg-6">
-                                    <x-counter-component type="video" counter="{{ $countVideo }}">
-                                    </x-counter-component>
-                                </div>
-
                             </div>
-                        </div>
+                        </section>
+                        <!-- End Services Section -->
+
+                        <!-- ======= Counter Section ======= -->
+                        <div class="section-counter paralax-mf bg-image mb-5">
+                            <div class="overlay-mf"
+                                style="
+                        background-color: black;
+                    ">
                     </div>
-                    <!-- End Counter Section -->
-                </div>
+                            <div class="container position-relative">
+                                <div class="row">
+                                    <div class="col-sm-12 col-lg-6">
+                                        <x-counter-component counter="{{ $countImage }}" type="image">
+                                        </x-counter-component>
+
+                                    </div>
+                                    <div class="col-sm-12 col-lg-6">
+                                        <x-counter-component type="video" counter="{{ $countVideo }}">
+                                        </x-counter-component>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Counter Section -->
+                    </div>
+                @else
+                    @if (!auth()->user()->premium)
+                        <div class="col-lg-12">
+                        <!-- ======= Services Section ======= -->
+                        <section id="services" class="services-mf pt-5 route">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="title-box text-center">
+                                            <h3 class="title-a">
+                                                {{__('messages.Abonnement')}}
+                                            </h3>
+                                            <p class="subtitle-a">
+                                                {!! $text->abonnee_title !!}
+                                            </p>
+                                            <div class="line-mf"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    @foreach ($subscriptions as $subscription)
+                                        <div class="col-md-4">
+                                            <x-card-payment-component icon="bi bi-cart-plus" id="{{ $subscription->id }}"
+                                                devise="{{ $subscription->devise }}"
+                                                description="{{ $subscription->name }}"
+                                                amount="{{ $subscription->amount }}"></x-card-payment-component>
+                                        </div>
+                                    @endforeach
+
+                                </div>
+                            </div>
+                        </section>
+                        <!-- End Services Section -->
+
+                        <!-- ======= Counter Section ======= -->
+                        <div class="section-counter paralax-mf bg-image mb-5">
+                            <div class="overlay-mf"
+                                style="
+                        background-color: black;
+                    ">
+                    </div>
+                            <div class="container position-relative">
+                                <div class="row">
+                                    <div class="col-sm-12 col-lg-6">
+                                        <x-counter-component counter="{{ $countImage }}" type="image">
+                                        </x-counter-component>
+
+                                    </div>
+                                    <div class="col-sm-12 col-lg-6">
+                                        <x-counter-component type="video" counter="{{ $countVideo }}">
+                                        </x-counter-component>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Counter Section -->
+                    </div>
+                    @endif
+                @endif
             @else
                 <div class="col-lg-12 mt-5">
                     <div class="section-counter paralax-mf bg-image mb-5">

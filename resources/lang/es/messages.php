@@ -50,6 +50,8 @@ return [
     "live_disponible" => "Transmisión en Vivo Disponible",
     "Live" => "Live",
     "Meilleur_gallerie" => "Meilleur gallerie",
+    "Dashboard" => "Dashboard",
+
 
     'bienvenue' => 'Bienvenido a mi aplicación',
     'storie' => 'Historias Destacadas',
