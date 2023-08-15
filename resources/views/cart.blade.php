@@ -34,7 +34,7 @@
                             <td><strong>{{$total}}</strong></td>
                         </tr>
                         <tr>
-                            <td><strong>Total points</strong></td>
+                            <td><strong>{{__('messages.Total_points')}}</strong></td>
                             <td><strong>{{$totalWallet}} {{ $config->unite_point }}</strong></td>
                         </tr>
                         <tr>
@@ -46,7 +46,7 @@
             </div>
             @if (isset($detail))
                 <div class="card-footer">
-                    <h4 class="securisee">PAIEMENT EN LIGNE 100% SECURISE</h4>
+                    <h4 class="securisee">{{__('messages.PAIEMENT_EN_LIGNE_100%_SECURISE')}}</h4>
                     <div class="paiment-moyen">
                         <div>
                             <form action="{{ route('payment.boutique.process',['locale' => session('locale')]) }}" method="POST">
@@ -62,7 +62,7 @@
                                     data-description=""
                                     data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
                                     data-locale="auto"
-                                    data-label="payer avec Stripe par CB">
+                                    data-label="{{__('messages.payer_avec_Stripe_par_CB')}}">
                                     >
                                 </script>
                             </form>
@@ -82,9 +82,9 @@
                                 @csrf
                                 <input type="hidden" value="{{$totalWallet}}" name="total">
                                 <input type="hidden" value="{{$detail->id}}" name="detail">
-                                <button @disabled($totalWallet > auth()->user()->wallet) style="padding-left: 24px;padding-right: 24px;padding-top: 4px;font-size: 14px;font-weight: bold;" class="btn btn-primary" type="submit">Payer avec les points</button>
+                                <button @disabled($totalWallet > auth()->user()->wallet) style="padding-left: 24px;padding-right: 24px;padding-top: 4px;font-size: 14px;font-weight: bold;" class="btn btn-primary" type="submit">{{__('messages.Payer_avec_les_points')}}</button>
                                 @if ($totalWallet > auth()->user()->wallet)
-                                    <div class="p-2 m-0 alert alert-danger">Token insuffisant</div>
+                                    <div class="p-2 m-0 alert alert-danger">{{__('messages.Token_insuffisant')}}</div>
                                 @endif
                             </form>
                         </div>

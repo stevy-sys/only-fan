@@ -16,7 +16,7 @@
     </div>
   @else
   <div>
-    Pas de live disponible pour le moment
+    {{__('messages.Pas_de_live_disponible_pour_le_moment')}}
   </div>
   @endif
   

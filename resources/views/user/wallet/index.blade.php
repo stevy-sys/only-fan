@@ -8,14 +8,14 @@
                 <img class=""style=" width: 160px;" src="{{asset('assets/img/ruby.png')}}" alt="" srcset="">  
             </div>
             <div>
-                <h2>Avantage des token</h2>
+                <h2>{{__('messages.Avantage_des_token')}}</h2>
                 <div>
                     {!!$text->token_avantage!!}
                 </div>
             </div>
     
             <div class="paiment-wallet">
-                <h2>Payer pour avoir token</h2>
+                <h2>{{__('messages.Payer_pour_avoir_token')}}</h2>
                 <form method="post" action="{{route('wallet.create',['locale' => session('locale')]) }}" class="d-flex">
                     @csrf
                     <div class="input-group ml-3 mb-3" style="  margin-left: 5px;  width: 147px; ">
@@ -30,7 +30,7 @@
                         <span class="input-group-text" id="basic-addon1">€</span>
                     </div>
                     {{-- <input disabled type="number" class="form-control mb-1" style=" width: 100px; ">€ --}}
-                    <div><button id="submit" disabled type="submit" class="btn btn-danger ">Valider</button></div>
+                    <div><button id="submit" disabled type="submit" class="btn btn-danger ">{{__('messages.Valider')}}</button></div>
                 </form>
             </div>
         </div>

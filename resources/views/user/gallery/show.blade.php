@@ -1,7 +1,7 @@
 @extends('layouts.layout_front')
 
 @section('sub_title')
-    Gallery
+    {{__('messages.Gallery')}}
 @endsection
 
 @section('style')

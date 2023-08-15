@@ -64,7 +64,7 @@
                 <div class="col-sm-12">
                     <div class="title-box text-center">
                         <h3 class="title-a">
-                            Galleries
+                            {{__('messages.Galleries')}}
                         </h3>
                         <p class="subtitle-a">
                             {!! $text->gallerie_title !!}
@@ -114,7 +114,7 @@
             <div class="col-sm-12">
                 <div class="title-box text-center">
                     <h3 class="title-a">
-                        Chat
+                        {{ __('messages.Chat') }}
                     </h3>
                     <p class="subtitle-a">
                         {!! $text->chat_title !!}
@@ -145,10 +145,10 @@
 
                 <div class="col-lg-12">
                     <div class="portfolio-description text-center">
-                        <h2>Discussion chat direct</h2>
+                        <h2>{{__('messages.Discussion_chat_direct') }}</h2>
                         <p>
                             <a href="{{ route('subscribe.index', ['locale' => session('locale')]) }}">
-                                <p><button class="btn btn-danger"> Abonnement</button></p>
+                                <p><button class="btn btn-danger"> {{__('messages.Abonnement') }}</button></p>
                             </a>
                         </p>
                         <p>
@@ -168,7 +168,7 @@
             <div class="col-sm-12">
                 <div class="title-box text-center">
                     <h3 class="title-a">
-                        Live
+                        {{__('messages.Live')}}
                     </h3>
                     <p class="subtitle-a">
                         {!! $text->live_title !!}
@@ -179,14 +179,14 @@
             <div class="row gy-4">
                 <div class="col-lg-8">
                     <div class="portfolio-description text-center">
-                        <h2>Regarder de live en direct</h2>
+                        <h2>{{__('messages.Regarder_de_live_en_direct') }}</h2>
                         <p>
                             {!! $text->live1_description !!}
                         </p>
                         <br>
                         <p>
                             <a href="{{ route('subscribe.index', ['locale' => session('locale')]) }}">
-                                <p><button class="btn btn-danger"> Abonnement</button></p>
+                                <p><button class="btn btn-danger"> {{ __('messages.Abonnement') }}</button></p>
                             </a>
                         </p>
                         <p>
@@ -230,7 +230,7 @@
             <div class="col-sm-12">
                 <div class="title-box text-center">
                     <h3 class="title-a">
-                        Boutique
+                        {{__('messages.Boutique')}}
                     </h3>
                     <p class="subtitle-a">
                         {!! $text->boutique_title !!}
@@ -241,7 +241,7 @@
             <div class="row gy-4">
                 <div class="col-lg-4">
                     <div class="portfolio-description text-center">
-                        <h2>Acceder au boutique</h2>
+                        <h2>{{__('messages.Acceder_au_boutique')}}</h2>
                         <p>
                             {!! $text->boutique1_description !!}
                         </p>
@@ -260,7 +260,7 @@
                         <div class="swiper-pagination"></div>
                         <p>
                             <a href="{{ route('subscribe.index', ['locale' => session('locale')]) }}">
-                                <p><button class="btn btn-danger"> Abonnement</button></p>
+                                <p><button class="btn btn-danger"> {{__('messages.Abonnement')}}</button></p>
                             </a>
                         </p>
                     </div>
@@ -268,7 +268,7 @@
 
                 <div class="col-lg-4">
                     <div class="portfolio-description text-center">
-                        <h2>Meilleur gallerie</h2>
+                        <h2>{{__('messages.Meilleur_gallerie')}}</h2>
                         <p>
                             {!! $text->boutique2_description !!}
                         </p>

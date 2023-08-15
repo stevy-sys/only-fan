@@ -1,7 +1,7 @@
 @extends('layouts.layout_front')
 
 @section('sub_title')
-    Souscription
+    {{__('messages.Souscription')}}
 @endsection
 
 @section('style')
@@ -39,7 +39,7 @@
                             data-description="{{$subscribe->name}}"
                             data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
                             data-locale="auto"
-                            data-label="payer avec Stripe par CB">
+                            data-label="{{__('messages.payer_avec_Stripe_par_CB')}}">
                             >
                         </script>
                     </form>

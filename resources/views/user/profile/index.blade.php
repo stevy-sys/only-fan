@@ -24,12 +24,12 @@
                     id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
             <div class="form-group mb-3">
-                <label for="exampleInputEmail1">phone</label>
+                <label for="exampleInputEmail1">{{__('messages.phone')}}</label>
                 <input type="texte" name="phone" value="{{ $user->profile->phone ? $user->profile->phone : '' }}" class="form-control"
                     id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
             <div class="form-group mb-3">
-                <label for="exampleInputEmail1">adress</label>
+                <label for="exampleInputEmail1">{{__('messages.adress')}}</label>
                 <input type="texte" name="adress" value="{{ $user->profile->adress }}" class="form-control"
                     id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>

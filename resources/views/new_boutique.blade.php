@@ -9,7 +9,7 @@
         <div class="col-sm-12">
             <div class="title-box text-center">
             <h3 class="title-a">
-                Nos produit
+                {{__('messages.Nos_produit')}}
             </h3>
             <p class="subtitle-a">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -23,7 +23,7 @@
                 <div class="col-md-4">
                     <div class="card card-blog" style="height: 100%;">
                       <div class="card-img">
-                        <a href="#"><img src="{{asset('storage/media/'.$product->media)}}" alt="" class="img-fluid" ></a>
+                        <a href="#"><img src="{{asset('storage/media/'.$product->media)}}" alt="" class="img-fluid img-product" ></a>
                       </div>
                       <div class="card-body">
                         <div class="card-category-box">
@@ -40,11 +40,11 @@
                         <div class="post-author">
                             @if ($product->inCart)
                             <button class="btn btn-danger"> <a href="{{route('boutique.add',['product' => $product->id])}}">
-                              enlever
+                              {{ __('messages.enlever') }}
                             </a> </button>
                           @else
                           <button class="btn btn-success"> <a href="{{route('boutique.add',['product' => $product->id])}}">
-                            ajouter
+                            {{ __('messages.ajouter') }}
                           </a> </button>
                           @endif
                         </div>

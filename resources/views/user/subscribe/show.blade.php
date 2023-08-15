@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('sub_title')
-    Payment
+    {{__('messages.Payment')}}
 @endsection
 
 @section('style')
@@ -22,7 +22,7 @@
                 data-description="Payment"
                 data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
                 data-locale="auto"
-                data-label="payer avec Stripe par CB">
+                data-label="{{__('messages.payer_avec_Stripe_par_CB')}}">
                 >
             </script>
         </form>

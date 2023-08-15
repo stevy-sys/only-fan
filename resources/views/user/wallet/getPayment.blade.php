@@ -2,7 +2,7 @@
 
 
 @section('sub_title')
-    Panier
+    {{__('messages.Panier')}}s
 @endsection
 
 @section('content')
@@ -13,9 +13,9 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Prix unitaire d'un token</th>
-                            <th>Nombre de token a acheter</th>
-                            <th>Prix total du token</th>
+                            <th>{{__("messages.Prix_unitaire_d'un_token")}}</th>
+                            <th>{{__('messages.Nombre_de_token_a_acheter')}}</th>
+                            <th>{{__('messages.Prix_total_du_token')}}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -44,7 +44,7 @@
                                     data-description=""
                                     data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
                                     data-locale="auto"
-                                    data-label="payer avec Stripe par CB">
+                                    data-label="{{__('messages.payer_avec_Stripe_par_CB')}}">
                                     >
                                 </script>
                             </form>

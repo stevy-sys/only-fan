@@ -28,7 +28,7 @@
 @endsection
 
 @section('sub_title')
-    Message
+    {{__('messages.Message')}}
 @endsection
 {{-- chat-user --}}
 @section('content')

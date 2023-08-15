@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('sub_title')
-    Boutique
+    {{__('messages.Boutique')}}
 @endsection
 
 @section('body')

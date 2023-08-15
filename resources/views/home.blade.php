@@ -12,10 +12,10 @@
                     <div class="col-sm-12">
                         <div class="title-box text-center">
                             <h3 class="title-a">
-                                Tableau de bord
+                                {{__('messages.Tableau_de_bord')}}
                             </h3>
                             <p class="subtitle-a ">
-                                Bienvenue <b>{{ auth()->guard('web')->user()->name }}</b>
+                                {{__('messages.Bienvenue')}} <b>{{ auth()->guard('web')->user()->name }}</b>
                             </p>
                             <div class="line-mf"></div>
                         </div>
@@ -30,9 +30,9 @@
                                 </a>
                             </div>
                             <div class="service-content">
-                                <h2 class="s-title">Chat</h2>
+                                <h2 class="s-title">{{__('messages.Chat')}}</h2>
                                 <p class="s-description text-center">
-                                    Discuter a l'infinie dans le plateforme
+                                    {{__("messages.Discuter_a_l'infinie_dans_le_plateforme")}}
                                 </p>
                             </div>
                         </div>
@@ -45,9 +45,9 @@
                                 </a>
                             </div>
                             <div class="service-content">
-                                <h2 class="s-title">gallery</h2>
+                                <h2 class="s-title">{{__('messages.gallery')}}</h2>
                                 <p class="s-description text-center">
-                                    Voir tout les gallery vos photos et video en exclusivite
+                                    {{__('messages.Voir_tout_les_gallery_vos_photos_et_video_en_exclusivite')}}
                                 </p>
                             </div>
                         </div>
@@ -62,9 +62,9 @@
                                     </a>
                                 </div>
                                 <div class="service-content">
-                                    <h2 class="s-title">Live</h2>
+                                    <h2 class="s-title">{{__('messages.Live')}}</h2>
                                     <p class="s-description text-center">
-                                        Regarder des video en streaming a tout moment
+                                        {{__('messages.Regarder_des_video_en_streaming_a_tout_moment')}}
                                     </p>
                                 </div>
                             </div>
@@ -79,9 +79,9 @@
                                 </a>
                             </div>
                             <div class="service-content">
-                                <h2 class="s-title">Profile</h2>
+                                <h2 class="s-title">{{__('messages.Profile')}}</h2>
                                 <p class="s-description text-center">
-                                   Modifier votre profile
+                                   {{__('messages.Modifier_votre_profile')}}
                                 </p>
                             </div>
                         </div>
@@ -95,9 +95,9 @@
                                 </a>
                             </div>
                             <div class="service-content">
-                                <h2 class="s-title">Abonnement</h2>
+                                <h2 class="s-title">{{__('messages.Abonnement')}}</h2>
                                 <p class="s-description text-center">
-                                    Abonnee vous en regardant des photo et video et voir des lives
+                                    {{__('messages.Abonnee_vous_en_regardant_des_photo_et_video_et_voir_des_lives')}}
                                 </p>
                             </div>
                         </div>
