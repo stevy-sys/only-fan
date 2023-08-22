@@ -164,7 +164,7 @@
                             alt="" srcset="">
                     </div>
                     <div> <button class="btn btn-success"> <a
-                                href="{{ route('wallet.index', ['locale' => session('locale')]) }}">{{__('messages.Acheter_des_points')}}
+                                href="{{ route('wallet.index', ['locale' => session('locale')]) }}">{{__('messages.Acheter_des_point')}}
                             </a></button></div>
                 </div>
             </div>
