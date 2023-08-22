@@ -156,10 +156,7 @@
             </div>
             <div class="text-center" class="modal-body">
                 <div class="p-5">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, nihil.</p>
-                    <p>Lorem ipsum dolor sit amet.</p>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores laudantium vitae ea cupiditate
-                        rem sequi nulla ipsam! Facere, libero sunt!</p>
+                   {!!$text->token_avantage!!}
                 </div>
                 <div class="p-5 price-wallet">
                     <div class="">
