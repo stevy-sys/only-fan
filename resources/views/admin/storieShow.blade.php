@@ -93,7 +93,7 @@
                             <div class="input-group">
                                 <input id="storieCollection" value="{{$stories->name}}" type="text" name="name" class="form-control"  placeholder="nom du collection">
                             </div>
-                            
+                            <div>Les actives</div>
                             <div class="row mt-3">
                                 @foreach ($stories->collectionStorie as $collectionStorie)
                                     <div class="col-lg-4 col-md-12 collect">
@@ -107,6 +107,10 @@
                                         @endif
                                     </div>
                                 @endforeach
+                                
+                            </div> 
+                            <div>Autre gallerie</div>
+                            <div class="row mt-3">
                                 @foreach ($galleries as $media)
                                     <div class="col-lg-4 col-md-12 collect">
                                         <div class="media{{$media->id}}"></div>
@@ -119,7 +123,7 @@
                                         @endif
                                     </div>
                                 @endforeach
-                            </div> 
+                            <div>
 
                             <div class="input-group mt-3">
                                 <button type="submit" class="btn btn-primary submit-create">Modifier</button>
@@ -195,7 +199,8 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
-            $.ajax({
+            console.log(allData)
+            /*$.ajax({
                 url: "/admin/updateStorie",
                 method: "POST",
                 data: allData
@@ -205,7 +210,7 @@
                 }
             }).fail(function(error) {
                 alert(error)
-            });
+            });*/
             
         });
 
