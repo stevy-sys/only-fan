@@ -35,10 +35,10 @@ class AppServiceProvider extends ServiceProvider
         $couverturesHome = CouvertureHome::where('active',true)->get();
         $liveDispo = Live::where('status',1)->first();
         $stories = Storie::with(['media','collectionStorie.mediable'])->get();
-        $reseauSocios = ReseauSocio::orderBy('order','asc')->get();
+        // $reseauSocios = ReseauSocio::orderBy('order','asc')->get();
 
         view()->share('countImage', $countImage);
-        view()->share('reseauSocios', $reseauSocios);
+        // view()->share('reseauSocios', $reseauSocios);
         view()->share('countVideo', $countVideo);
         view()->share('subscriptions', $subscriptions);
         view()->share('config', $config);
