@@ -26,6 +26,7 @@ use App\Http\Controllers\Admin\InvoiceController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Admin\GallerieController;
+use App\Http\Controllers\Admin\ReseauSocioController;
 use App\Http\Controllers\Admin\SubscriptionController;
 
 Route::get('/test','App\Http\Controllers\IndexController@index');
@@ -86,6 +87,13 @@ Route::middleware(['customer'])->prefix('admin/')->group(function () {
         Route::get('config/couverture', 'couverture')->name('admin.config.couverture');
         // Route::post('config/couverture', 'setCouverture')->name('admin.config.setcouverture');
         Route::post('config/texte', 'update')->name('admin.config.texte.update');
+    });
+
+    Route::controller(ReseauSocioController::class)->group(function () {
+        Route::get('reseau', 'index')->name('admin.reseau.index');
+        Route::post('reseau/update/{reseau}', 'update')->name('admin.reseau.update');
+        Route::post('reseau/delete/{reseau}', 'delete')->name('admin.reseau.delete');
+        Route::post('reseau/create', 'create')->name('admin.reseau.create');
     });
 
     Route::controller(CustomerAuthController::class)->group(function () {

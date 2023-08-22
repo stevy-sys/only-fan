@@ -262,17 +262,18 @@
     <footer>
         <div class="container">
             <div class="row">
+                <div class="col-sm-12 mb-5">
+                    <h1 class="follow-me"> {{__('messages.TROUVER_NOUS_SUR')}} </h1>
+                    <div class="reseau-socio">
+                        @foreach ( $reseauSocios as $reseau )
+                            <a target="_blank" href="{{$reseau->lien}}" class="icon-reseau" > {!! $reseau->icon !!} </a>
+                        @endforeach
+                    </div>
+                </div>
                 <div class="col-sm-12">
                     <div class="copyright-box">
                         <p class="copyright">&copy; Copyright <strong>rubycorp</strong>. All Rights Reserved</p>
                         <div class="credits">
-                            <!--
-              All the links in the footer should remain intact.
-              You can delete the links only if you purchased the pro version.
-              Licensing information: https://bootstrapmade.com/license/
-              Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=DevFolio
-            -->
-                            {{-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> --}}
                         </div>
                     </div>
                 </div>

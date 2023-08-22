@@ -59,11 +59,11 @@
             <i class="fas fa-tools"></i>
             <span>Parametre texte</span></a>
     </li>
-    {{-- <li class="nav-item">
-        <a class="nav-link" href="{{route('admin.config.couverture')}}">
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('admin.reseau.index')}}">
             <i class="fas fa-fw fa-chart-area"></i>
-            <span>Parametre couverture</span></a>
-    </li> --}}
+            <span>Reseau Socio</span></a>
+    </li>
 
     <hr class="sidebar-divider">
 

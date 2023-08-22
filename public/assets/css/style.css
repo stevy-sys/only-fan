@@ -1495,6 +1495,11 @@ footer .copyright {
   margin-bottom: 0.3rem;
 }
 
+a.icon-reseau {
+  padding: 10px;
+  font-size: 30px;
+}
+
 footer .credits {
   margin-bottom: 0;
 }

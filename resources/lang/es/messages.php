@@ -51,7 +51,7 @@ return [
     "Live" => "Live",
     "Meilleur_gallerie" => "Meilleur gallerie",
     "Dashboard" => "Dashboard",
-
+    "TROUVER_NOUS_SUR" => "ENCUÉNTRANOS EN",
 
     'bienvenue' => 'Bienvenido a mi aplicación',
     'storie' => 'Historias Destacadas',

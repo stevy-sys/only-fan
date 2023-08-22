@@ -6,6 +6,7 @@ use App\Models\Media;
 use App\Models\Config;
 use App\Models\CouvertureHome;
 use App\Models\Live;
+use App\Models\ReseauSocio;
 use App\Models\Storie;
 use App\Models\Subscription;
 use App\Models\Texte;
@@ -34,8 +35,10 @@ class AppServiceProvider extends ServiceProvider
         $couverturesHome = CouvertureHome::where('active',true)->get();
         $liveDispo = Live::where('status',1)->first();
         $stories = Storie::with(['media','collectionStorie.mediable'])->get();
+        $reseauSocios = ReseauSocio::orderBy('order','asc')->get();
 
         view()->share('countImage', $countImage);
+        view()->share('reseauSocios', $reseauSocios);
         view()->share('countVideo', $countVideo);
         view()->share('subscriptions', $subscriptions);
         view()->share('config', $config);

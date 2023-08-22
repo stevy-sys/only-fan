@@ -52,6 +52,7 @@ return [
     "Live" => "Live",
     "Meilleur_gallerie" => "Meilleur gallerie",
     "DASHBOARD" => "DASHBOARD",
+    "TROUVER_NOUS_SUR" => "TROUVER NOUS SUR",
 
     'bienvenue' => 'bienvenue dans mon application',
     'storie' => 'Les storie à la une',
