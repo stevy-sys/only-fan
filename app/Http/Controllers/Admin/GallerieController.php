@@ -35,24 +35,32 @@ class GallerieController extends Controller
 
     public function updateStorie(Request $request)
     {
-        $storie = Storie::find($request->storieId);
-        $storie->update([
-            'name' => $request->name
-        ]);
-        StorieCollection::where('id',$storie->id)->delete();
-        foreach ($request->data as $media) {
-            $storie->collectionStorie()->create(['media' => $media]);
+        try {
+            $storie = Storie::find($request->storieId);
+            $storie->update([
+                'name' => $request->name
+            ]);
+            StorieCollection::where('id',$storie->id)->delete();
+            foreach ($request->data as $media) {
+                $storie->collectionStorie()->create(['media' => $media]);
+            }
+            return response()->json([
+                'message' => 'update success'
+            ],200);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'error' => $th->getMessage()
+            ],200);
         }
         
-        return response()->json([
-            'message' => 'update success'
-        ],200);
+        
+       
     }
 
     public function showStorie(Storie $storie)
     {
         $stories = $storie->load('collectionStorie.mediable');
-        $galleries = Media::where('active',true)->where('type','image')->get();
+        $galleries = Media::where('show',true)->where('type','image')->get();
         return view('admin.storieShow',compact('stories','galleries'));
     }
 
