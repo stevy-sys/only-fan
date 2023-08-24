@@ -58,7 +58,7 @@
                                         </div>
                                         <div class="form-group row mb-5">
                                             <label for="bg_color_menu" style="font-weight: bold;"
-                                                class="col-md-4 col-form-label text-md-right">icon (<a target="_blank" href="https://icons.getbootstrap.com/icons/" > ici </a>)</label>
+                                                class="col-md-4 col-form-label text-md-right">icon (<a target="_blank" href="https://icons.getbootstrap.com/" > ici </a>)</label>
                                             <div class="col-md-6">
                                                 <input required placeholder="<i class='bi bi-facebook'></i>" id="bg_color_menu" type="texte" class="form-control"
                                                     name="icon" value="{{ $reseau->icon }}">
@@ -116,7 +116,7 @@
                                 <div class="col-md-6">
                                     <input required placeholder="<i class='bi bi-facebook'></i>" id="bg_color_menu" type="texte" class="form-control" name="icon"
                                         value="">
-                                    (<a target="_blank" href="https://icons.getbootstrap.com/icons/" > ici </a>)
+                                    (<a target="_blank" href="https://icons.getbootstrap.com/" > ici </a>)
                                 </div>
                             </div>
                             <div class="form-group row mb-5">
