@@ -12,7 +12,7 @@
 
     <!-- Favicons -->
     <link sizes="196x196" href="/assets/img/logo.png" rel="icon" type="image/png">
-    <link href="/assets/img/logo.png" rel="apple-touch-icon">
+    <link href="/assets/img/logo.png" rel="apple-touch-icon" sizes="64x64">
 
     <!-- Vendor CSS Files -->
     <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
