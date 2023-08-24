@@ -21,7 +21,7 @@
         <div class="row">
             @foreach ($products as $product)
                 <div class="col-md-4">
-                    <div class="card card-blog" style="height: 100%;">
+                    <div class="card card-blog" style="height: 90%;">
                       <div class="card-img">
                         <a href="#"><img src="{{asset('storage/media/'.$product->media)}}" alt="" class="img-fluid img-product" ></a>
                       </div>
@@ -33,7 +33,12 @@
                         </div>
                         <h3 class="card-title"><a href="#">{{$product->name}}</a></h3>
                         <p class="card-description">
-                         {{$product->description}}
+                        {{-- @if (strlen($product->description) > 25 )
+                            {{substr($product->description, 0, 25)}}
+                            <a href="#">...</a>
+                        @else --}}
+                         {{ $product->description }}
+                        {{-- @endif --}}
                         </p>
                       </div>
                       <div class="card-footer">
