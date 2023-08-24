@@ -5,7 +5,7 @@
     <div class="service-content">
         <h2 class="s-title">{{ $amount }} {{$devise}}</h2>
         <p class="s-description text-center">
-            <h3>{{ $description }}</h3>
+            <h3>{{ $description }}</h3> 
             {{-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem fugiat! Quia,
             provident vitae! Magni
             tempora perferendis eum non provident. --}}
@@ -18,12 +18,13 @@
                 src="https://checkout.stripe.com/checkout.js"
                 class="stripe-button"
                 data-key="{{ env('STRIPE_KEY') }}"
-                data-amount="{{$amount}}"
+                data-amount="{{$amount * 100}}"
+                data-currency="eur"
                 data-name="Aphrodite"
-                data-description="{{$amount}}"
+                data-description="{{$amount * 100}}"
                 data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
                 data-locale="auto"
-                data-label="payer avec Stripe par CB">
+                data-label="{{__('messages.payer_avec_Stripe_par_CB')}}">
                 >
             </script>
         </form>
