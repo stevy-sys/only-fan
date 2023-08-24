@@ -66,6 +66,7 @@ class RegisterController extends Controller
     {
         $user = User::where('encrypt',$request->encrypt)->first();
         $user->update(['email_verified_at' => now()]);
+        $request->session()->put('locale', 'en');
         return redirect()->route('login',['locale' => 'en'])->with(['success'=>'verification avec success,veuillez reconnecter']);
     }
 
