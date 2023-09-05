@@ -9,8 +9,9 @@
         {{-- <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div> --}}
-        <div class="sidebar-brand-text mx-3">Aphrodite Admin </div>
+        <div class="sidebar-brand-text mx-3">Aphrodite Admin  </div>
     </a>
+    <div style="color:white;" class="mx-3">({{auth()->user()->roles->name}})</div>
 
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
