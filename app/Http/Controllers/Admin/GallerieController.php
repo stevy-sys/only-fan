@@ -40,7 +40,7 @@ class GallerieController extends Controller
             $storie->update([
                 'name' => $request->name
             ]);
-            StorieCollection::where('id',$storie->id)->delete();
+            StorieCollection::where('storie_id',$storie->id)->delete();
             foreach ($request->data as $media) {
                 $storie->collectionStorie()->create(['media' => $media]);
             }
@@ -60,8 +60,18 @@ class GallerieController extends Controller
     public function showStorie(Storie $storie)
     {
         $stories = $storie->load('collectionStorie.mediable');
+        $temp = [] ;
+        foreach ($stories->collectionStorie as $collection) {
+            $mediable = $collection->mediable ;
+            $mediable->exist = true ;
+            $temp[] = $mediable ;
+        }
         $galleries = Media::where('show',true)->where('type','image')->get();
-        return view('admin.storieShow',compact('stories','galleries'));
+        $temp = collect($temp);
+        $temp = $temp->concat($galleries)->unique('id');
+       
+          
+        return view('admin.storieShow',compact('stories','galleries','temp'));
     }
 
     public function deleteElementStorie(StorieCollection $storieCollection)
