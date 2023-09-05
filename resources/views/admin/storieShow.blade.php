@@ -95,21 +95,21 @@
                             </div>
                             <div>Les actives</div>
                             <div class="row mt-3">
-                                @foreach ($stories->collectionStorie as $collectionStorie)
+                                @foreach ($temp as $media)
                                     <div class="col-lg-4 col-md-12 collect">
-                                        <div class="media{{$collectionStorie->mediable->id}} check"></div>
-                                        @if ($collectionStorie->mediable->type != 'video')
-                                            <img src="{{ asset('') . 'storage/media/' . $collectionStorie->mediable->name }}" class="shadow-1-strong rounded  galle" alt="" />
+                                        <div class="media{{$media->id}} {{isset($media->exist) ? 'check' : ''}}"></div>
+                                        @if ($media->type != 'video')
+                                            <img src="{{ asset('') . 'storage/media/' . $media->name }}" class="shadow-1-strong rounded  galle" alt="" />
                                         @else
                                             <video class="w-100 h-50 shadow-1-strong m-0 rounded galle" controls>
-                                                <source src="{{ asset('') . 'storage/media/' . $collectionStorie->mediable->name }}" type="{{$collectionStorie->mediable->enctype ? $collectionStorie->mediable->enctype : 'video/mp4' }}">
-                                            </video>
+                                                <source src="{{ asset('') . 'storage/media/' . $media->name }}" type="{{$media->enctype ? $media->enctype : 'video/mp4' }}">
+                                            </video> 
                                         @endif
                                     </div>
                                 @endforeach
                                 
                             </div> 
-                            <div>Autre gallerie</div>
+                            {{-- <div>Autre gallerie</div>
                             <div class="row mt-3">
                                 @foreach ($galleries as $media)
                                     <div class="col-lg-4 col-md-12 collect">
@@ -123,7 +123,7 @@
                                         @endif
                                     </div>
                                 @endforeach
-                            <div>
+                            <div> --}}
 
                             <div class="input-group mt-3">
                                 <button type="submit" class="btn btn-primary submit-create">Modifier</button>
@@ -200,7 +200,7 @@
                 }
             });
             console.log(allData)
-            /*$.ajax({
+            $.ajax({
                 url: "/admin/updateStorie",
                 method: "POST",
                 data: allData
@@ -210,7 +210,7 @@
                 }
             }).fail(function(error) {
                 alert(error)
-            });*/
+            });
             
         });
 
