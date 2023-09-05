@@ -87,6 +87,11 @@ Route::middleware(['customer'])->prefix('admin/')->group(function () {
         Route::get('config/couverture', 'couverture')->name('admin.config.couverture');
         // Route::post('config/couverture', 'setCouverture')->name('admin.config.setcouverture');
         Route::post('config/texte', 'update')->name('admin.config.texte.update');
+        Route::get('config/role', 'roles')->name('admin.config.role.index');
+        Route::post('config/role/update/{role}', 'updateRole')->name('admin.config.role.update');
+        Route::get('config/role/create', 'createRole')->name('admin.config.role.store');
+        Route::post('config/create/admin', 'createadmin')->name('admin.config.createadmin');
+
     });
 
     Route::controller(ReseauSocioController::class)->group(function () {

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\User;
 use App\Events\ChatChannel;
 use App\Models\Conversation;
 use Illuminate\Http\Request;
@@ -20,13 +21,19 @@ class ChatController extends Controller
                 'conversationActive'=> $conversationActive
             ],200);
         }
-        $auth = Auth::id();
+        $auth = User::whereHas('roles',function ($q){
+            $q->where('name','super-admin');
+        })->first();
+        $auth = $auth->id;
         return view('admin.chat.conversation',compact('conversations','auth'));
     }
 
     public function store(Request $request)
     {
-        $user = Auth::user();
+        $auth = User::whereHas('roles',function ($q){
+            $q->where('name','super-admin');
+        })->first();
+        $user = $auth;
         $conversation = Conversation::find($request->conversation_id);
         $message = $conversation->messages()->create([
             'message' => $request->message,

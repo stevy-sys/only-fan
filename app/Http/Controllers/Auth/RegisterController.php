@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Mail\ConfirmationCompte;
@@ -102,7 +103,8 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'encrypt' => Crypt::encrypt('aphrodite')
+            'encrypt' => Crypt::encrypt('aphrodite'),
+            'role_id' => Role::where('name','user')->first()->id
         ]);
         Mail::to($user->email)->send(new ConfirmationCompte($user));
         return $user ;

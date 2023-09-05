@@ -15,18 +15,31 @@
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
 
-    <!-- Nav Item - Dashboard -->
+    {{-- <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="{{url('/admin/dashboard')}}">
+        <a class="nav-link" href="{{route('customer.newdashboard')}}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
-    </li>
+    </li> --}}
 
-    <!-- Divider -->
     <hr class="sidebar-divider">
+    @foreach (test() as $menu)
+        @if (count($menu->sub) > 0)
+            <div class="sidebar-heading">
+                {{$menu->name}}
+            </div>
+            @foreach ($menu->sub as $sub )
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route($sub->route) }}">
+                        <i class="{{$sub->icon}}"></i>
+                        <span>{{$sub->name}}</span></a>
+                </li>
+            @endforeach
+            <hr class="sidebar-divider">
+        @endif
 
-    <!-- Heading -->
-    <div class="sidebar-heading">
+    @endforeach
+    {{-- <div class="sidebar-heading">
         Gestion utilisateur
     </div>
 
@@ -44,7 +57,6 @@
     </li>
     <hr class="sidebar-divider">
 
-    <!-- Heading -->
     <div class="sidebar-heading">
         Parametrage du site
     </div>
@@ -89,11 +101,6 @@
             <span>Storie</span></a>
     </li>
    
-    {{-- <li class="nav-item">
-        <a class="nav-link"  href="{{ route('admin.home.gallerie') }}"">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Home Gallery</span></a>
-    </li> --}}
     <li class="nav-item">
         <a class="nav-link" href="{{ route('admin.gallerie.index') }}">
             <i class="fas fa-photo-video"></i>
@@ -129,7 +136,7 @@
             <i class="fab fa-product-hunt"></i>
             <span>Payment Boutique</span>
         </a>
-    </li>
+    </li> --}}
 
 
 

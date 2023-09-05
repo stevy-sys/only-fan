@@ -21,7 +21,10 @@ class ChatController extends Controller
 
     public function index(ConversationService $conversationService,Request $request)
     {
-        $customers = User::where('role','admin')->first();
+        $customers = User::whereHas('roles',function ($q){
+            $q->where('name','super-admin');
+        })->first();
+        
         $user = Auth::user();
         $conversation = $conversationService->getMyChatUser($customers,$user);
         

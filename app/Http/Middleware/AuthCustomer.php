@@ -17,7 +17,7 @@ class AuthCustomer
     public function handle($request, Closure $next)
     {
         if (Auth::guard('web')->check()) {
-            if (Auth::guard('web')->user()->role == 'admin') {
+            if (Auth::guard('web')->user()->roles->name != 'user') {
                 return $next($request);
             }else{
                 return redirect()->route('login');

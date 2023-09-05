@@ -28,6 +28,7 @@ class User extends Authenticatable
         'premium_type',
         'encrypt',
         'email_verified_at',
+        'role_id',
         'wallet'
     ];
 
@@ -63,5 +64,9 @@ class User extends Authenticatable
     public function profile()
     {
         return $this->hasOne(Profils::class,'user_id');
+    }
+
+    public function roles() {
+        return $this->belongsTo(Role::class,'role_id');
     }
 }
