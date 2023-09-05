@@ -14,7 +14,7 @@
         <div class="col">
             <div style="margin-top: 23px;margin-left: 0px;display: flex;justify-content: center;align-items: center;">
                 @foreach ($stories as $storie)
-                    @if (isset($storie->collectionStorie[0]))
+                    @if ((isset($storie['collectionStorie']) && ($storie->collectionStorie->count() > 0)))
                         <div class="mx-1">
                             <a href="#" data-toggle="modal" data-target="#exampleModal-{{ $storie->id }}">
                                 <img src="{{ asset('storage/media') . '/' . $storie->collectionStorie[0]->mediable->name }}"
