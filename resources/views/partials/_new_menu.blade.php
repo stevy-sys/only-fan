@@ -99,7 +99,7 @@
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <span>{{ __('messages.langue') }}</span>
-                    <i class="bi bi-chevron-down"></i>
+                    {{-- <i class="bi bi-chevron-down"></i> --}}
                 </a>
                 <ul class="dropdown-menu">
                     <li>

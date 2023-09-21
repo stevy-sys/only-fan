@@ -1657,14 +1657,17 @@ h4.securisee {
   }
 }
 
+@media only screen 
+  and (max-device-width : 374px) {
+  .responsive.row {
+    width: 351px;
+  }
+}
+
+
 /* Autres modèles d'iPhone */
 @media only screen 
   and (max-device-width : 414px) {
-    /* gallery */
-  /* img.img-fluid.img-gallerie {
-    width: 90px !important;
-    height: 90px !important;
-  } */
   .col-md-3.img-block {
     width: 117px;
     height: 85px;
@@ -1688,20 +1691,8 @@ h4.securisee {
 
   .one-storie {
     height: 50px !important;
-    /* width: 100px !important;
-    height: 100px !important;
-    object-fit: cover; */
+    
   }
-  /* i.bi.bi-lock.cadena {
-    position: absolute !important;
-    font-size: 40px !important;
-    color: black !important;
-    top: 10px !important;
-    right: 24px !important;
-  } */
-
-
-
 
   .img-storie {
     width: 49.666667% !important;

@@ -73,7 +73,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row responsive">
                 @foreach ($mediaHomes as $gallerie)
                     <div class="col-md-3 img-block">
                         <div class="work-box">
