@@ -1579,7 +1579,8 @@ h4.securisee {
     width: auto;
   }
   .apps-name{
-    display: none;
+    /* display: none; */
+    font-size: 15px;
   }
   .one-storie {
     height: 50px !important;
@@ -1625,7 +1626,8 @@ h4.securisee {
       height: 90px !important;
   } */
   .apps-name{
-    display: none;
+    /* display: none; */
+    font-size: 15px;
   }
 
   .one-storie {
@@ -1686,7 +1688,8 @@ h4.securisee {
 
   }
   .apps-name{
-    display: none;
+    /* display: none; */
+    font-size: 15px;
   }
 
   .one-storie {
