@@ -25,7 +25,6 @@ class GalleryController extends Controller
                 $q->where('show',1);
             })->with('media')->get();
         }
-        
         return view('user.gallery.index',compact('medias','mediaHomes','premium'));
     }
 

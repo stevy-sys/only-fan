@@ -16,10 +16,10 @@
                 <div class="col-sm-12">
                     <div class="title-box text-center">
                         <h3 class="title-a">
-                            {{__('messages.Gallerie')}}
+                            {{__('messages.Galleries')}}
                         </h3>
                         <p class="subtitle-a">
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                            {!! $text->gallerie_title !!}
                         </p>
                         <div class="line-mf"></div>
                     </div>
