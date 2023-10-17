@@ -49,7 +49,8 @@
 @section('scripts')
     <script>
         $(document).ready(function() {
-            $("#wallet").on('keypress change',function(event) {
+            $("#wallet").on('input',function(event) {
+                console.log(event.target.value)
                 var value = $(this).val();
                 let bal = value * {{$config->ballance}} ;
                 bal = bal.toFixed(2)
