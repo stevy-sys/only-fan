@@ -34,7 +34,7 @@
                             src="https://checkout.stripe.com/checkout.js"
                             class="stripe-button"
                             data-key="{{ env('STRIPE_KEY') }}"
-                            data-amount="{{intval($subscribe->amount) * 100 }}"
+                            data-amount="{{$subscribe->amount}}"
                             data-currency="eur"
                             data-name="Aphrodite"
                             data-description="{{$subscribe->name}}"

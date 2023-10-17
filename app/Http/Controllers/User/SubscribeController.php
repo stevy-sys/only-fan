@@ -33,7 +33,7 @@ class SubscribeController extends Controller
 
         $subscribe = Subscription::find((int) $request->subscribe);
         $charge = Charge::create([
-            'amount' => $subscribe->amount,
+            'amount' => intval($subscribe->amount) * 100,
             'currency' => 'usd',
             'description' => 'Payment',
             'source' => $request->stripeToken,
