@@ -8,6 +8,7 @@ use App\Jobs\Subscribe;
 use App\Models\Subscription;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Config;
 use App\Models\InvoiceSubscibe;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -29,7 +30,8 @@ class SubscribeController extends Controller
 
     public function process(Request $request)
     {
-        Stripe::setApiKey(env('STRIPE_SECRET'));
+        $config = Config::first();
+        Stripe ::setApiKey(isset($config->stripe_cle) ? $config->stripe_cle : env('STRIPE_SECRET'));
 
         $subscribe = Subscription::find((int) $request->subscribe);
         $charge = Charge::create([

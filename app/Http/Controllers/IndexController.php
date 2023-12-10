@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Config;
 use Stripe\Charge;
 use Stripe\Stripe;
 use App\Models\Media;
@@ -112,7 +113,8 @@ class IndexController extends Controller
 
     public function process(Request $request)
     {
-        Stripe ::setApiKey(env('STRIPE_SECRET'));
+        $config = Config::first();
+        Stripe ::setApiKey(isset($config->stripe_cle) ? $config->stripe_cle : env('STRIPE_SECRET'));
         $charge = Charge::create([
             'amount' => $request->total,
             'currency' => 'usd',
