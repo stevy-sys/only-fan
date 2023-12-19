@@ -19,7 +19,9 @@ class GalleryController extends Controller
         $mediaHomes = [] ;
         if (auth()->guard('web')->user()->premium == 1) {
             $premium = true  ;
-            $medias = Media::where('show',1)->get();
+            $medias = MediaHome::whereHas('media',function ($q) {
+                $q->where('show',1);
+            })->with('media')->get()->pluck('media')->all();
         }else{
             $mediaHomes = MediaHome::whereHas('media',function ($q) {
                 $q->where('show',1);
