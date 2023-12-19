@@ -16,6 +16,7 @@ class ProductController extends Controller
 
     public function active(Product $product)
     {
+        
         $product->update(['active' => !$product->active]);
         return redirect()->back();
     }
@@ -58,6 +59,7 @@ class ProductController extends Controller
         }
         if (isset($filename)) {
             $product->update([
+                'wallet' => $request->wallet,
                 'name' => $request->name,
                 'description' => $request->description,
                 'price' => $request->price,
@@ -67,6 +69,7 @@ class ProductController extends Controller
             $product->name = $request->name ;
             $product->description = $request->description ;
             $product->price = $request->price ;
+            $product->wallet = $request->wallet ;
             $product->save();
         }
         return redirect()->route('admin.product.index');

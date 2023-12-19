@@ -31,7 +31,7 @@
           </div>
         <div class="form-group">
             <label for="exampleInputPassword1">token</label>
-            <input value="{{$product->wallet}}" type="number" name="price" class="form-control" id="exampleInputPassword1" placeholder="200">
+            <input value="{{$product->wallet}}" type="number" name="wallet" class="form-control" id="exampleInputPassword1" placeholder="200">
           </div>
         <div class="form-group">
             <label for="exampleFormControlFile1">image</label>
