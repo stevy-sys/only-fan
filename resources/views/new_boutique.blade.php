@@ -12,7 +12,7 @@
                 {{__('messages.Nos_produit')}}
             </h3>
             <p class="subtitle-a">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                {!! $text->boutique1_description !!}
             </p>
             <div class="line-mf"></div>
             </div>

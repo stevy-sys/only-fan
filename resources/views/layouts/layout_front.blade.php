@@ -259,7 +259,9 @@
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->
-    <footer>
+    <footer style="
+    width: 103% !important;
+">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 mb-5">

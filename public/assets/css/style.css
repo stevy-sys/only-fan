@@ -13,6 +13,7 @@
   color: #4e4e4e;
 } */
 
+
 h1,
 h2,
 h3,
@@ -1488,6 +1489,7 @@ footer {
   text-align: center;
   color: #fff;
   padding: 25px 0;
+  /* width: 100% important; */
   /* background: #ff00ff; */
 }
 

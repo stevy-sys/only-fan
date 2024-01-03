@@ -182,7 +182,7 @@ export default {
                 live1_description: this.data.live1_description,
                 live2_description: this.data.live2_description,
                 boutique_title: this.data.boutique_title,
-                boutique1_description: this.databoutique1_description,
+                boutique1_description: this.data.boutique1_description,
                 boutique2_description: this.data.boutique2_description,
                 storie_title: this.data.storie_title,
                 abonnee_title: this.data.abonnee_title,

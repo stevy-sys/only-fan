@@ -75,6 +75,12 @@
                                 <input id="color" type="texte" class="form-control" value="{{$config->stripe_cle}}" name="stripe_cle">
                             </div>
                         </div>
+                        <div class="form-group row mb-5">
+                            <label for="color" style="font-weight: bold;" class="col-md-4 col-form-label text-md-right">Cle secret paypal </label>
+                            <div class="col-md-6">
+                                <input id="color" type="texte" class="form-control" value="" name="paypal_cle">
+                            </div>
+                        </div>
 
 
                         <div class="form-group row mb-0">
