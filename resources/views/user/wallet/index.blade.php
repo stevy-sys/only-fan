@@ -35,7 +35,7 @@
                                 <span class="input-group-text" id="basic-addon1">€</span>
                             </div>
                             {{-- <input disabled type="number" class="form-control mb-1" style=" width: 100px; ">€ --}}
-                            <div><button id="submit" disabled type="submit" class="btn btn-danger ">{{__('messages.Valider')}}</button></div>
+                            <div><button id="submit" disabled type="submit" class="btn btn-danger ">{{__('messages.valider')}}</button></div>
                         </form>
                     </div>
                 </div>
@@ -52,10 +52,12 @@
             $("#wallet").on('input',function(event) {
                 console.log(event.target.value)
                 var value = $(this).val();
-                let bal = value * {{$config->ballance}} ;
-                bal = bal.toFixed(2)
-                $("#ballance").val(bal);
-                disabledbutton(bal)
+                if (value >= 0) {
+                    let bal = value * {{$config->ballance}} ;
+                    bal = bal.toFixed(2)
+                    $("#ballance").val(bal);
+                    disabledbutton(bal)
+                }
             });
 
             function disabledbutton(valu) {
