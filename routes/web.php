@@ -78,7 +78,7 @@ Route::get('admin/logout', 'App\Http\Controllers\CustomerAuthController@logout')
 Route::post('admin/store', 'App\Http\Controllers\CustomerAuthController@store')->name('customer.store');
 
 Route::middleware(['customer'])->prefix('admin/')->group(function () {
-    
+
     Route::controller(ConfigController::class)->group(function () {
         Route::get('config', 'index')->name('admin.config.index');
         Route::post('config/update', 'store')->name('admin.config.store');
@@ -114,7 +114,8 @@ Route::middleware(['customer'])->prefix('admin/')->group(function () {
     Route::controller(InvoiceController::class)->group(function () {
         Route::get('boutique/invoice', 'invoiceBoutique')->name('admin.boutique.invoice');
         Route::get('subscribe/invoice', 'invoiceSubscribe')->name('admin.subscribe.invoice');
-        Route::get('invoice/payment', 'invoice')->name('admin.invoice.paiment');
+        Route::get('invoice/payment/subscription/{idInvoice}', 'invoiceSubscription')->name('admin.invoice.subscription');
+        Route::get('invoice/payment/product/{idInvoice}', 'invoiceProduct')->name('admin.invoice.boutique');
     });
 
     Route::controller(MediaController::class)->group(function () {
@@ -123,7 +124,7 @@ Route::middleware(['customer'])->prefix('admin/')->group(function () {
         Route::get('setMediaHome/{id}', 'setActiveMediaHome')->name('admin.media.set');
         Route::get('setflou/{id}', 'setflou')->name('admin.media.setflou');
         Route::get('homeGallerie', 'allGalleryHome')->name('admin.home.gallerie');
-    }); 
+    });
 
     Route::controller(GallerieController::class)->group(function () {
         Route::get('gallerie', 'index')->name('admin.gallerie.index');
@@ -135,7 +136,7 @@ Route::middleware(['customer'])->prefix('admin/')->group(function () {
         Route::post('activeStorie', 'postStorie')->name('admin.storie.store');
         Route::post('updateStorie', 'updateStorie')->name('admin.storie.update');
         Route::get('delete/storie/{storie}', 'deleteStorie')->name('admin.storie.delete');
-        
+
         Route::get('activeMedia/{media}', 'activeShowMedia')->name('admin.media.active');
         Route::get('addCouverture/{media}', 'addCouverture')->name('admin.media.addCouverture');
         Route::get('couverture', 'getAllCouverture')->name('admin.home.couverture');
@@ -148,7 +149,7 @@ Route::middleware(['customer'])->prefix('admin/')->group(function () {
         Route::get('conversation', 'index')->name('admin.chat.index');
         Route::post('conversation', 'store')->name('admin.chat.store');
     });
-    
+
     Route::controller(ProductController::class)->group(function () {
         Route::get('product', 'index')->name('admin.product.index');
         Route::get('product/create', 'create')->name('admin.product.create');

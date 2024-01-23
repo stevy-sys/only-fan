@@ -25,7 +25,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
-        
+
 
     @yield('style')
     {{-- style dynamique --}}
@@ -44,12 +44,12 @@
     <!-- ======= Testimonials Section ======= -->
     {{-- <div class="testimonials paralax-mf bg-image" style="background-image: url(assets/img/couverture.png) ; padding: 10rem 0;"> --}}
     {{-- <div class="overlay-mf"></div> --}}
-    
+
     @if (Illuminate\Support\Facades\Route::currentRouteName() == 'accueil')
         <div class="row">
             <div class="col-md-12">
                 <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-                    <div class="swiper-wrapper">
+                    <div class="swiper-wrapper couverture-swipper">
                         @if ($couverturesHome->count() > 0)
                             @foreach ($couverturesHome as $couverture)
                                 <div class="swiper-slide">
@@ -250,7 +250,7 @@
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>
@@ -331,7 +331,7 @@
                 autoplay: true,
                 autoplaySpeed: 3000,
                 centerMode: true,
-                
+
                 responsive: [{
                         breakpoint: 992,
                         settings: {
@@ -348,7 +348,7 @@
                     }
                 ]
             });
-            
+
             $('.slick-carousel').slick({
                 slidesToShow: 3,
                 slidesToScroll: 1,

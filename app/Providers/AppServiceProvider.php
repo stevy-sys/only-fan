@@ -6,6 +6,7 @@ use App\Models\Media;
 use App\Models\Config;
 use App\Models\CouvertureHome;
 use App\Models\Live;
+use App\Models\Product;
 use App\Models\ReseauSocio;
 use App\Models\Storie;
 use App\Models\Subscription;
@@ -29,6 +30,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $countImage = Media::where('type','image')->get()->count();
         $countVideo = Media::where('type','video')->get()->count();
+        $productSlide = Product::take(3)->get();
         $subscriptions = Subscription::all();
         $config = Config::first();
         $text = Texte::first();
@@ -37,6 +39,7 @@ class AppServiceProvider extends ServiceProvider
         $stories = Storie::with(['media','collectionStorie.mediable'])->get();
         $reseauSocios = ReseauSocio::orderBy('order','asc')->get();
         view()->share('countImage', $countImage);
+        view()->share('productSlide', $productSlide);
         view()->share('reseauSocios', $reseauSocios);
         view()->share('countVideo', $countVideo);
         view()->share('subscriptions', $subscriptions);

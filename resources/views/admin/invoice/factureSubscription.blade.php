@@ -43,15 +43,15 @@
                             <div class="col-md-8 text-right">
                                 <h4 style="color: #F81D2D;"><strong>{{ $invoice->user->name}}</strong></h4>
                                 {{-- <p>221 ,Baker Street</p> --}}
-                                <p>Inscrit le {{ $invoice->user->created_at}}</p>
-                                <p>{{ $invoice->user->email}}</p>
+                                <p>Inscrit le : {{ $invoice->user->created_at}}</p>
+                                <p>{{$invoice->user->email}}</p>
                             </div>
                         </div>
                         <br />
                         <div class="row">
                             <div class="col-md-12 text-center">
                                 <h2>INVOICE</h2>
-                                <h5>{{ $invoice->numero}}</h5>
+                                <h5>{{$invoice->numero}}</h5>
                             </div>
                         </div>
                         <br />
@@ -71,13 +71,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($invoice->detail->commands as $item)
-                                        <tr>
-                                            <td class="col-md-8">{{$item->product->name}}</td>
-                                            <td class="col-md-2"> 1 </td>
-                                            <td class="col-md-2">{{ $item->product->price }} € </td>
-                                        </tr>
-                                    @endforeach
+                                    <tr>
+                                        <td class="col-md-8">{{$invoice->subscribe->name}}</td>
+                                        <td class="col-md-2">1</td>
+                                        <td class="col-md-2"> {{$invoice->subscribe->amount}} € </td>
+                                    </tr>
+
 
 
                                     {{-- <tr>
@@ -116,7 +115,7 @@
                                             <h4><strong>Total:</strong></h4>
                                         </td>
                                         <td class="text-left">
-                                            <h4><strong> {{ $invoice->detail->total }} €
+                                            <h4><strong> {{$invoice->subscribe->amount}} €
                                                 </strong></h4>
                                         </td>
                                     </tr>
@@ -125,7 +124,7 @@
                         </div>
                         <div>
                             <div class="col-md-12">
-                                <p><b>Date :</b> {{ $invoice->created_at }}</p>
+                                <p><b>Date :</b> {{$invoice->created_at}} €</p>
                                 <br />
                                 <p><b>Signature</b></p>
                             </div>

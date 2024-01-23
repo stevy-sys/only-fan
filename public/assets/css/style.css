@@ -80,9 +80,9 @@ a:hover {
 }
 
 .testimonial-box img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover;
+    width: 100% !important;
+    height: 100vh!important;
+    object-fit: contain;
 }
 
 .avatar {
@@ -501,7 +501,7 @@ a:hover {
 # Navigation Menu
 --------------------------------------------------------------*/
 /**
-* Desktop Navigation 
+* Desktop Navigation
 */
 .navbar {
   padding: 0;
@@ -640,7 +640,7 @@ a:hover {
 }
 
 /**
-* Mobile Navigation 
+* Mobile Navigation
 */
 .mobile-nav-toggle {
   color: #fff;
@@ -1507,7 +1507,7 @@ footer .credits {
 }
 
 .blurred-image{
-  filter: blur(8px);
+  filter: blur(16px);
 }
 
 footer .credits a {
@@ -1515,6 +1515,11 @@ footer .credits a {
 }
 img.ruby-icon {
   width: 40px;
+}
+
+.couverture-swipper{
+    width: 100% !important;
+    height: 100vh !important;
 }
 
 .paiment-moyen {
@@ -1563,9 +1568,9 @@ h4.securisee {
 }
 
 /* iPhone X et iPhone 11 */
-@media only screen 
-  and (device-width : 375px) 
-  and (device-height : 812px) 
+@media only screen
+  and (device-width : 375px)
+  and (device-height : 812px)
   and (-webkit-device-pixel-ratio : 3) {
 
     .paiment-moyen {
@@ -1610,13 +1615,13 @@ h4.securisee {
     height: 133px !important;
     margin-bottom: 0px !important;
   }
-  
+
 }
 
 /* iPhone 6/7/8 et iPhone SE (1ère génération) */
-@media only screen 
-  and (min-device-width : 320px) 
-  and (max-device-width : 568px) 
+@media only screen
+  and (min-device-width : 320px)
+  and (max-device-width : 568px)
   and (-webkit-device-pixel-ratio : 2) {
 
     .paiment-moyen {
@@ -1661,7 +1666,7 @@ h4.securisee {
   }
 }
 
-@media only screen 
+@media only screen
   and (max-device-width : 374px) {
   .responsive.row {
     width: 351px;
@@ -1670,7 +1675,7 @@ h4.securisee {
 
 
 /* Autres modèles d'iPhone */
-@media only screen 
+@media only screen
   and (max-device-width : 414px) {
   .col-md-3.img-block {
     width: 117px;
@@ -1696,7 +1701,7 @@ h4.securisee {
 
   .one-storie {
     height: 50px !important;
-    
+
   }
 
   .img-storie {
