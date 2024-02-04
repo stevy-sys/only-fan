@@ -32,7 +32,7 @@
                     <div>
                         <div>
                             <form action="{{ route('wallet.createPaiment',['locale' => session('locale')]) }}" method="POST">
-                                <input type="hidden" value="{{$myWallet->ballance}}" name="total">
+                                <input type="hidden" value="{{$myWallet->ballance * 100}}" name="total">
                                 <input type="hidden" value="{{$myWallet->wallet }}" name="wallet">
                                 @csrf
                                 <script
