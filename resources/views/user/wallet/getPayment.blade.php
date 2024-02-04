@@ -6,7 +6,6 @@
 @endsection
 
 @section('content')
-    <div class="container mt-5">
         <div class="card">
             <div class="card-header">{{ __('messages.contenue_du_panier') }}</div>
             <div class="card-body">
@@ -64,6 +63,4 @@
                 </div>
             {{-- @endif --}}
         </div>
-
-    </div>
 @endsection

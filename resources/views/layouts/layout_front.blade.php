@@ -261,6 +261,7 @@
     <!-- ======= Footer ======= -->
     <footer style="
     width: 103% !important;
+    margin-top:50px;
 ">
         <div class="container">
             <div class="row">

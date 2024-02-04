@@ -2,12 +2,13 @@
 
 
 @section('content')
-    <section>
-        <div class="container">
+        <div class="container" style="
+        margin-bottom: 20vh;
+    ">
             <div class="row">
                 <div class="col-lg-2 col-xs-12">
                     <div class="logo">
-                        <img class=""style=" width: 160px;" src="{{asset('assets/img/ruby.png')}}" alt="" srcset="">  
+                        <img class=""style=" width: 160px;" src="{{asset('assets/img/ruby.png')}}" alt="" srcset="">
                     </div>
                 </div>
                 <div class="col-lg-6 col-xs-12">
@@ -39,10 +40,9 @@
                         </form>
                     </div>
                 </div>
-                
+
             </div>
         </div>
-    </section>
 @endsection
 
 
