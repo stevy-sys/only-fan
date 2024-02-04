@@ -55,8 +55,10 @@ class LoginController extends Controller
     {
         if ($request->email) {
             $user = User::where('email',$request->email)->first() ;
-            if (!$user->email_verified_at) {
-                return redirect()->back()->with(['errorMessage'=>'Votre email doit etre confirmer']);
+            if (isset($user)) {
+                if (!$user->email_verified_at) {
+                    return redirect()->back()->with(['errorMessage'=>'Votre email doit etre confirmer']);
+                }
             }
         }
 

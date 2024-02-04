@@ -82,7 +82,7 @@ a:hover {
 .testimonial-box img {
     width: 100% !important;
     height: 100vh!important;
-    object-fit: contain;
+    object-fit: none;
 }
 
 .avatar {
@@ -1507,7 +1507,7 @@ footer .credits {
 }
 
 .blurred-image{
-  filter: blur(16px);
+  filter: blur(30px);
 }
 
 footer .credits a {

@@ -74,35 +74,86 @@
                 </div>
             </div>
             <div class="row responsive" style="margin-left:10px">
-                @foreach ($mediaHomes as $gallerie)
-                    <div class="col-md-3 img-block">
-                        <div class="work-box">
-                            @if ($gallerie->media->blur == false)
-                                <a href="{{ asset('storage/media') . '/' . $gallerie->media->name  }}" data-gallery="portfolioGallery" class="portfolio-lightbox {{$gallerie->media->blur == false ? '' : 'blurred-image'}}">
-                                    <div class="work-img">
+                @auth
+                    @if (auth()->user()->role == 'admin')
+                        @foreach ($mediaHomes as $gallerie)
+                            <div class="col-md-3 img-block">
+                                <div class="work-box">
+                                    <a href="{{ asset('storage/media') . '/' . $gallerie->media->name  }}" data-gallery="portfolioGallery" class="portfolio-lightbox">
+                                        <div class="work-img">
 
-                                        @if ($gallerie->media->type == 'video')
-                                            <video {{$gallerie->media->blur ? 'controls' : ''}}   src="{{ asset('storage/media') . '/' . $gallerie->media->name }}" alt="" class="{{$gallerie->media->blur == false ? '' : 'blurred-image'}} img-fluid gall-img"></video>
-                                        @else
-                                            <img src="{{ asset('storage/media') . '/' . $gallerie->media->name }}" alt=""  class=" {{$gallerie->media->blur == false ? '' : 'blurred-image'}} img-fluid gall-img">
-                                        @endif
-                                    </div>
-                                </a>
-                            @else
-                                <a href="{{ route('subscribe.index', ['locale' => session('locale')]) }}" class="">
-                                    <div class="work-img premium">
-                                        <img src="/assets/img/cadena.png" alt=""  class="img-fluid gall-img cadena-lock">
-                                        @if ($gallerie->media->type == 'video')
-                                            <video {{$gallerie->media->blur ? 'controls' : ''}}   src="{{ asset('storage/media') . '/' . $gallerie->media->name }}" alt="" class="{{$gallerie->media->blur == false ? '' : 'blurred-image'}} img-fluid gall-img"></video>
-                                        @else
-                                            <img src="{{ asset('storage/media') . '/' . $gallerie->media->name }}" alt=""  class=" {{$gallerie->media->blur == false ? '' : 'blurred-image'}} img-fluid gall-img">
-                                        @endif
-                                    </div>
-                                </a>
-                            @endif
+                                            @if ($gallerie->media->type == 'video')
+                                                <video {{$gallerie->media->blur ? 'controls' : ''}}   src="{{ asset('storage/media') . '/' . $gallerie->media->name }}" alt="" class=" img-fluid gall-img"></video>
+                                            @else
+                                                <img src="{{ asset('storage/media') . '/' . $gallerie->media->name }}" alt=""  class="  img-fluid gall-img">
+                                            @endif
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        @endforeach
+                    @else
+                        @foreach ($mediaHomes as $gallerie)
+                        <div class="col-md-3 img-block">
+                            <div class="work-box">
+                                @if ($gallerie->media->blur == false)
+                                    <a href="{{ asset('storage/media') . '/' . $gallerie->media->name  }}" data-gallery="portfolioGallery" class="portfolio-lightbox {{$gallerie->media->blur == false ? '' : 'blurred-image'}}">
+                                        <div class="work-img">
+
+                                            @if ($gallerie->media->type == 'video')
+                                                <video {{$gallerie->media->blur ? 'controls' : ''}}   src="{{ asset('storage/media') . '/' . $gallerie->media->name }}" alt="" class="{{$gallerie->media->blur == false ? '' : 'blurred-image'}} img-fluid gall-img"></video>
+                                            @else
+                                                <img src="{{ asset('storage/media') . '/' . $gallerie->media->name }}" alt=""  class=" {{$gallerie->media->blur == false ? '' : 'blurred-image'}} img-fluid gall-img">
+                                            @endif
+                                        </div>
+                                    </a>
+                                @else
+                                    <a href="{{ route('subscribe.index', ['locale' => session('locale')]) }}" class="">
+                                        <div class="work-img premium">
+                                            <img src="/assets/img/cadena.png" alt=""  class="img-fluid gall-img cadena-lock">
+                                            @if ($gallerie->media->type == 'video')
+                                                <video {{$gallerie->media->blur ? 'controls' : ''}}   src="{{ asset('storage/media') . '/' . $gallerie->media->name }}" alt="" class="{{$gallerie->media->blur == false ? '' : 'blurred-image'}} img-fluid gall-img"></video>
+                                            @else
+                                                <img src="{{ asset('storage/media') . '/' . $gallerie->media->name }}" alt=""  class=" {{$gallerie->media->blur == false ? '' : 'blurred-image'}} img-fluid gall-img">
+                                            @endif
+                                        </div>
+                                    </a>
+                                @endif
+                            </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                    @endif
+                @else
+                    @foreach ($mediaHomes as $gallerie)
+                        <div class="col-md-3 img-block">
+                            <div class="work-box">
+                                @if ($gallerie->media->blur == false)
+                                    <a href="{{ asset('storage/media') . '/' . $gallerie->media->name  }}" data-gallery="portfolioGallery" class="portfolio-lightbox {{$gallerie->media->blur == false ? '' : 'blurred-image'}}">
+                                        <div class="work-img">
+
+                                            @if ($gallerie->media->type == 'video')
+                                                <video {{$gallerie->media->blur ? 'controls' : ''}}   src="{{ asset('storage/media') . '/' . $gallerie->media->name }}" alt="" class="{{$gallerie->media->blur == false ? '' : 'blurred-image'}} img-fluid gall-img"></video>
+                                            @else
+                                                <img src="{{ asset('storage/media') . '/' . $gallerie->media->name }}" alt=""  class=" {{$gallerie->media->blur == false ? '' : 'blurred-image'}} img-fluid gall-img">
+                                            @endif
+                                        </div>
+                                    </a>
+                                @else
+                                    <a href="{{ route('subscribe.index', ['locale' => session('locale')]) }}" class="">
+                                        <div class="work-img premium">
+                                            <img src="/assets/img/cadena.png" alt=""  class="img-fluid gall-img cadena-lock">
+                                            @if ($gallerie->media->type == 'video')
+                                                <video {{$gallerie->media->blur ? 'controls' : ''}}   src="{{ asset('storage/media') . '/' . $gallerie->media->name }}" alt="" class="{{$gallerie->media->blur == false ? '' : 'blurred-image'}} img-fluid gall-img"></video>
+                                            @else
+                                                <img src="{{ asset('storage/media') . '/' . $gallerie->media->name }}" alt=""  class=" {{$gallerie->media->blur == false ? '' : 'blurred-image'}} img-fluid gall-img">
+                                            @endif
+                                        </div>
+                                    </a>
+                                @endif
+                            </div>
+                        </div>
+                    @endforeach
+                @endauth
             </div>
         </div>
     </section>

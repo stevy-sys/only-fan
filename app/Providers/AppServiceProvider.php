@@ -30,7 +30,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $countImage = Media::where('type','image')->get()->count();
         $countVideo = Media::where('type','video')->get()->count();
-        $productSlide = Product::take(3)->get();
+        $productSlide = Product::get();
         $subscriptions = Subscription::all();
         $config = Config::first();
         $text = Texte::first();
