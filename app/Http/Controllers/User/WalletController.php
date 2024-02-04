@@ -45,7 +45,7 @@ class WalletController extends Controller
     {
         Stripe ::setApiKey(env('STRIPE_SECRET'));
         $charge = Charge::create([
-            'amount' => $request->total,
+            'amount' => (float) $request->total,
             'currency' => 'usd',
             'description' => 'Payment',
             'source' => $request->stripeToken,
@@ -64,7 +64,7 @@ class WalletController extends Controller
         //     'detail_id' => $detaile->id,
         //     'paiment' => 'Stripe',
         // ]);
-        // $detaile->update(['status' => 'payer']);  
+        // $detaile->update(['status' => 'payer']);
 
         // Traiter le paiement réussi
         return view('home');
