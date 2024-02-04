@@ -7,6 +7,7 @@ use Stripe\Stripe;
 use App\Models\WalletShop;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Config;
 use Illuminate\Support\Facades\Auth;
 
 class WalletController extends Controller
@@ -18,17 +19,19 @@ class WalletController extends Controller
 
     public function activeWallet(Request $request)
     {
+        // dd($request->all());
+        $conf = Config::first();
         $wallet = WalletShop::where('user_id',Auth::id())->first();
         if (!isset($wallet)) {
             WalletShop::create([
                 'user_id' => Auth::user()->id,
                 'wallet' => $request->wallet,
-                'ballance' => $request->wallet * 5,
+                'ballance' => $request->wallet * $conf->ballance,
             ]);
         }else{
             $wallet->update([
                 'wallet' => $request->wallet,
-                'ballance' => $request->wallet * 5,
+                'ballance' => $request->wallet * $conf->ballance,
             ]);
         }
         return redirect()->route('wallet.payment',['locale' => session('locale')]);
