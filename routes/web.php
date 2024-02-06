@@ -140,6 +140,7 @@ Route::middleware(['customer'])->prefix('admin/')->group(function () {
         Route::get('activeMedia/{media}', 'activeShowMedia')->name('admin.media.active');
         Route::get('addCouverture/{media}', 'addCouverture')->name('admin.media.addCouverture');
         Route::get('couverture', 'getAllCouverture')->name('admin.home.couverture');
+        Route::get('couverture/delete', 'deleteCouverture')->name('admin.home.couverture.delete');
         Route::get('couverture/viewActive/{couvertureHome}', 'viewCouverture')->name('admin.home.view.couverture');
         Route::post('couverture/setDescription', 'setCouverture')->name('admin.home.set.couverture');
         Route::get('couverture/setActive/{couverture}', 'setCouvertureActive')->name('admin.home.set.couverture.active');

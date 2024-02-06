@@ -52,9 +52,9 @@ class GallerieController extends Controller
                 'error' => $th->getMessage()
             ],200);
         }
-        
-        
-       
+
+
+
     }
 
     public function showStorie(Storie $storie)
@@ -69,8 +69,8 @@ class GallerieController extends Controller
         $galleries = Media::where('show',true)->where('type','image')->get();
         $temp = collect($temp);
         $temp = $temp->concat($galleries)->unique('id');
-       
-          
+
+
         return view('admin.storieShow',compact('stories','galleries','temp'));
     }
 
@@ -137,6 +137,13 @@ class GallerieController extends Controller
         return view('admin.couverture',compact('couvertures'));
     }
 
+    public function deletecouverture(Request $request)
+    {
+        CouvertureHome::where('id',(int) $request->couvertureHome)->delete();
+        // $couvertures->delete();
+        return redirect()->route('admin.home.couverture');
+    }
+
     public function viewCouverture(CouvertureHome $couvertureHome)
     {
         $couverture = $couvertureHome->load('media');
@@ -154,7 +161,7 @@ class GallerieController extends Controller
     }
 
     public function setCouvertureActive(CouvertureHome $couverture)
-    {   
+    {
         if ($couverture->active == true) {
             $couverture->update(['active' => false]);
         }else{

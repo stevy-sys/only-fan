@@ -63,11 +63,11 @@
                                                     aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                {{-- <div class="mb-3">
-                                                    <a href="{{ route('admin.home.view.couverture',['couvertureHome' => $media->id]) }}"
-                                                        class="btn btn-primary">voir</a>
-                                                </div> --}}
-                                                
+                                                <div class="mb-3">
+                                                    <a href="{{ route('admin.home.couverture.delete',['couvertureHome' => $media->id]) }}"
+                                                        class="btn btn-primary">supprimer</a>
+                                                </div>
+
                                                 <div class="mb-3">
                                                     <a href="{{route('admin.home.set.couverture.active',['couverture' => $media->id])}}" class="btn btn-primary">
                                                         @if ($media->active == true)

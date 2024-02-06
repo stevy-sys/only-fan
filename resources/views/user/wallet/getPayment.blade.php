@@ -6,7 +6,7 @@
 @endsection
 
 @section('content')
-        <div class="card" style="margin-bottom:200px">
+        <div class="card" style="margin-bottom:500px">
             <div class="card-header">{{ __('messages.contenue_du_panier') }}</div>
             <div class="card-body">
                 <table class="table">
