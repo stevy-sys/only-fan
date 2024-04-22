@@ -50,7 +50,7 @@ return [
     "Accueil" => "Accueil",
     "live_disponible" => "live disponible",
     "Live" => "Live",
-    "Meilleur_gallerie" => "Meilleur gallerie",
+    "Meilleur_gallerie" => "Coup de coeur",
     "DASHBOARD" => "DASHBOARD",
     "TROUVER_NOUS_SUR" => "TROUVER NOUS SUR",
 
