@@ -9,11 +9,46 @@
 
     .slick-carousel img:hover {
         transform: scale(1.1);
+    } 
+
+    .modal-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1040;
+        width: 100vw;
+        height: 100vh;
+        background-color: #000;
+        opacity: 0.5;
     }
+    .modal-backdrop.show {
+    opacity: 1 !important; /* Assurez-vous que l'opacité est à 1 pour total opacité */
+    background-color: #000; /* Noir complet */
+}
+
 </style>
 @endsection
 
 @section('content')
+    <div class="modal" id="ageVerificationModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirmation de l'âge</h5>
+            </div>
+            <div class="modal-body">
+                <p>Vous devez avoir plus de 18 ans pour accéder à ce site.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="confirmAge">J'ai plus de 18 ans</button>
+                <button type="button" class="btn btn-danger" id="underAge">Je suis moins de 18 ans</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+
     <!-- ======= About Section ======= -->
     <section id="about" class="about-mf sect-pt4 route">
         <div class="d-flex">
@@ -386,4 +421,26 @@
     </div>
     @endforeach --}}
     <!-- End Boutique Section -->
+@endsection
+
+@section('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    var ageModal = new bootstrap.Modal(document.getElementById('ageVerificationModal'), {
+        backdrop: 'static',
+        keyboard: false
+    });
+    ageModal.show();
+
+    document.getElementById('confirmAge').addEventListener('click', function() {
+        ageModal.hide();
+    });
+    
+    document.getElementById('underAge').addEventListener('click', function() {
+        window.location.href = 'https://www.google.com';
+    });
+});
+
+</script>
+
 @endsection

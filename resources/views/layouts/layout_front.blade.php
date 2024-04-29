@@ -326,6 +326,9 @@
     </script>
     <script defer type="text/javascript">
         $(document).ready(function() {
+            // Afficher le modal au chargement de la page
+            
+
             $('.slick-carousel-2').slick({
                 slidesToShow: 1,
                 slidesToScroll: 1,
