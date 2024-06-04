@@ -30,22 +30,26 @@
 @endsection
 
 @section('content')
-    <div class="modal" id="ageVerificationModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Confirmation de l'âge</h5>
-            </div>
-            <div class="modal-body">
-                <p>Vous devez avoir plus de 18 ans pour accéder à ce site.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="confirmAge">J'ai plus de 18 ans</button>
-                <button type="button" class="btn btn-danger" id="underAge">Je suis moins de 18 ans</button>
-            </div>
+
+@if (auth()->check() == false)
+<div class="modal" id="ageVerificationModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Confirmation de l'âge</h5>
         </div>
+        <div class="modal-body">
+            <p>Vous devez avoir plus de 18 ans pour accéder à ce site.</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" id="confirmAge">J'ai plus de 18 ans</button>
+            <button type="button" class="btn btn-danger" id="underAge">Je suis moins de 18 ans</button>
         </div>
     </div>
+    </div>
+</div>
+    
+@endif
 
 
 

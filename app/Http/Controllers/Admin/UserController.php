@@ -24,4 +24,9 @@ class UserController extends Controller
         ]);
         return redirect()->back();
     }
+
+    public function deleteUser(Request $request) {
+        User::find($request->user_id)->delete();
+        return redirect()->back();
+    }
 }

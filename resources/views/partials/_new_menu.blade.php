@@ -39,7 +39,7 @@
                         </li>
                     @endif
                     @if (auth()->check())
-                        @if (auth()->user()->role == 'admin')
+                        @if (auth()->user()->roles->name !== 'user')
                             <li>
                                 <a class="nav-link scrollto" href="{{ route('customer.dashboard') }}">
                                     {{__('messages.Dashboard')}}
@@ -67,7 +67,7 @@
                 <li class="dropdown"></i><a href="#"><span>{{ auth()->guard('web')->user()->name }}</span> <i
                             class="bi bi-chevron-down"></i></a>
                     <ul>
-                        @if (auth()->user()->role != 'admin')
+                        @if (auth()->user()->roles->name != 'admin')
                             {{-- <li><a href="{{ route('home', ['locale' => session('locale')]) }}"><i
                                         class="bi bi-credit-card"></i>Dashboard</a></li> --}}
                             <li><a href="{{ route('subscribe.index', ['locale' => session('locale')]) }}"><i

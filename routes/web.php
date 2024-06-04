@@ -33,20 +33,11 @@ Route::get('/test','App\Http\Controllers\IndexController@index');
 Route::get('/testBoutique','App\Http\Controllers\IndexController@testBoutique');
 
 
-// WebRTC Group Call Endpoints
-// Initiate Stream, Get a shareable broadcast link
 Route::get('/admin/streaming', 'App\Http\Controllers\WebrtcStreamingController@index')->name('admin.live.streaming');
 Route::get('/admin/start-stream', 'App\Http\Controllers\WebrtcStreamingController@startStream')->name('admin.live.start.streaming');
 Route::post('/stream-offer', 'App\Http\Controllers\WebrtcStreamingController@makeStreamOffer');
 Route::post('/stream-answer', 'App\Http\Controllers\WebrtcStreamingController@makeStreamAnswer');
 
-
-
-
-// Route::any('/live/customer', [LivestreamController::class, 'customer'])->name('livestream.customer');
-// Route::get('/live/user/{username}', [LivestreamController::class, 'user'])->name('livestream.user');
-// Route::post('/handshake-user', [LivestreamController::class, 'handshakeUser'])->name('handshake.user');
-// Route::get('/handshake-customer', [LivestreamController::class, 'handshakeCustomer'])->name('handshake.customer');
 
 
 Route::get('/', 'App\Http\Controllers\IndexController@index')->name('accueil')->middleware('setLanguage');
@@ -67,14 +58,7 @@ Route::controller(PayPalController::class)->prefix('paypal')->group(function () 
         Route::get('payment-success-subscription', 'paymentSuccessSubscription')->name('success.payment.subscription');
 });
 
-// Route::post('/paypal', [PayPalController::class,'postPaymentWithpaypal']);
-// Route::get('/paypal/success', [PayPalController::class,'getPaymentStatus'])->name('paypal.success');
-// Route::get('/paypal/cancel', [PayPalController::class,'cancelPage'])->name('paypal.cancel');
-
-// Route::get('admin/login', 'App\Http\Controllers\CustomerAuthController@showLoginForm')->name('customer.login');
-// Route::get('admin/create', 'App\Http\Controllers\CustomerAuthController@create')->name('customer.create');
 Route::get('admin/logout', 'App\Http\Controllers\CustomerAuthController@logout')->name('customer.logout');
-//Route::post('admin/login', 'App\Http\Controllers\CustomerAuthController@login')->name('customer.authenticate');
 Route::post('admin/store', 'App\Http\Controllers\CustomerAuthController@store')->name('customer.store');
 
 Route::middleware(['customer'])->prefix('admin/')->group(function () {
@@ -109,6 +93,7 @@ Route::middleware(['customer'])->prefix('admin/')->group(function () {
     Route::controller(UserController::class)->group(function () {
         Route::get('user/list', 'index')->name('admin.user.index');
         Route::post('user/update', 'updateWallet')->name('admin.user.update.wallet');
+        Route::get('user/delete/{user_id}', 'deleteUser')->name('admin.user.delete');
     });
 
     Route::controller(InvoiceController::class)->group(function () {

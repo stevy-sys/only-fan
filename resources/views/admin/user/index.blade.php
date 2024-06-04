@@ -12,10 +12,12 @@
                     <th scope="col">wallet</th>
                     <th scope="col">role</th>
                     <th scope="col">profile</th>
+                    <th scope="col">action</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($users as $user)
+                @if ($user->id !== auth()->user()->id)
                     <tr>
                         <th scope="row">{{ $user->id }}</th>
                         <td>{{ $user->name }}</td>
@@ -40,7 +42,7 @@
                             </button>
                             </a>
                         </td>
-                        <td>{{ $user->role }}</td>
+                        <td>{{ $user->roles->name }}</td>
                         <td> 
                             <a 
                                 href="#" 
@@ -51,7 +53,14 @@
                             >
                                 profile
                             </a>
+                        </td>
+                        <td> 
+                            <a href="{{ route('admin.user.delete',['user_id' => $user->id]) }}">
+                                Suprimer
+                            </a>
+                        </td>
                     </tr>
+                @endif
                     <div class="modal fade" id="exampleModal-{{$user->id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
                         aria-hidden="true">
                         <div class="modal-dialog">
