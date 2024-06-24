@@ -11,6 +11,7 @@ use App\Models\Texte;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Spatie\LaravelIgnition\Recorders\DumpRecorder\Dump;
 
 class ConfigController extends Controller
 {
@@ -49,7 +50,17 @@ class ConfigController extends Controller
     }
 
     function updateRole(Request $request,Role $role) {
-       $role->menus()->sync($request->menus);
+        $all_values = [] ;
+        foreach ($request->menus as $submenus) {
+            foreach ($submenus as $value) {
+                $all_values[] = $value;
+            }
+        }
+        
+        $role->update([
+            'name' => $request->name
+        ]);
+       $role->menus()->sync($all_values);
        return redirect()->back();
     }
 

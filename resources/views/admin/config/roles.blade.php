@@ -56,16 +56,18 @@
                                         </div>
                                         <h3>Menu</h3>
                                         
-                                        @foreach ($menus as $menu )
+                                        @foreach ($menus as $menu)
                                             <div class="form-group row mb-5">
-                                                <label for="color" style="font-weight: bold;" class="col-md-4 col-form-label text-md-right">{{ $menu->name }}</label>
+                                                <label for="menu_{{ $menu->id }}" style="font-weight: bold;" class="col-md-4 col-form-label text-md-right">{{ $menu->name }}</label>
                                                 <div class="col-md-6">
-                                                    <select multiple class="form-control" name="menus[]" id="">
-                                                        {{-- <option @selected($config->active_live == true) value="1">active</option> --}}
-                                                        @foreach ( $menu->sub as $submenu )
-                                                            <option @selected(isMenuSelected($submenu->id,$role) == true) value="{{$submenu->id}}">{{ $submenu->name}}</option>
-                                                        @endforeach
-                                                    </select>
+                                                    @foreach ($menu->sub as $submenu)
+                                                        <div class="form-check">
+                                                            <input class="form-check-input menu-checkbox" type="checkbox" name="menus[{{ $menu->id }}][]" id="submenu_{{ $submenu->id }}" value="{{ $submenu->id }}" @if(isMenuSelected($submenu->id, $role)) checked @endif>
+                                                            <label class="form-check-label" for="submenu_{{ $submenu->id }}">
+                                                                {{ $submenu->name }}
+                                                            </label>
+                                                        </div>
+                                                    @endforeach
                                                 </div>
                                             </div>
                                         @endforeach
@@ -186,4 +188,41 @@
             </form>
         </div>
     </div>
+@endsection
+
+@section('script')
+<script>
+    $(document).ready(function() {
+        let selectedMenuIds = []; // Tableau pour stocker les ID des sous-menus sélectionnés
+
+    // F    onction pour mettre à jour la sélection
+        function updateSelection(checkbox) {
+            let submenuId = $(checkbox).val();
+            if ($(checkbox).is(':checked')) {
+                // Ajouter l'ID à la sélection si la case est cochée
+                if (!selectedMenuIds.includes(submenuId)) {
+                    selectedMenuIds.push(submenuId);
+                }
+            } else {
+                // Retirer l'ID de la sélection si la case est décochée
+                selectedMenuIds = selectedMenuIds.filter(function(id) {
+                    return id !== submenuId;
+                });
+            }
+            
+            console.log(selectedMenuIds); // Afficher les IDs sélectionnés dans la console
+        }
+
+        // Écouter les changements sur les cases à cocher
+        $('.menu-checkbox').change(function() {
+            updateSelection(this);
+        });
+
+        // Initialiser les sélections sur le chargement de la page
+        $('.menu-checkbox').each(function() {
+            updateSelection(this);
+        });
+     
+    });
+</script>
 @endsection
