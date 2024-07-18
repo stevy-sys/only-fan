@@ -87,6 +87,7 @@ Route::middleware(['customer'])->prefix('admin/')->group(function () {
 
     Route::controller(CustomerAuthController::class)->group(function () {
         Route::get('dashboard', 'dashboard')->name('customer.dashboard');
+        Route::get('getStatistique', 'getStat')->name('customer.stat');
         Route::get('newdashboard', 'new')->name('customer.newdashboard');
     });
 
